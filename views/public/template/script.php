@@ -23,6 +23,6 @@
   <script src="<?php echo $rootPath; ?>assets/js/plugins/chartjs.min.js"></script>
   <!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
   <!--  Google Maps Plugin    -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js></script> -->
  
   <script src="<?php echo $rootPath; ?>assets/js/soft-design-system-pro.min.js" type="text/javascript"></script>
