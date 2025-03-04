@@ -21,12 +21,16 @@
 
   <header class="header-2">
     <div class="page-header min-vh-75 relative" style="background-image: url('assets/img/lataputeh.jpg')">
-      <span class="  bg-gradient-primary"></span>
+      <span class=" mask  bg-gradient-dark"></span>
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n5">Soft UI Design System Pro</h1>
-            <p class="lead text-white mt-3">Simple and innovative Web UI Kit built on top of Bootstrap 5. <br /> Join over 1.4 million developers around the world. </p>
+            <h1 class="text-white pt-3 mt-n5">Lata Puteh</h1>
+            <p class="lead text-white mt-3">Discover the Hidden Gem of Nature </p>
+            <div class="buttons">
+            <button type="button" class="btn bg-gradient-primary mt-4">Explore Now</button>
+            <!-- <button type="button" class="btn text-primary shadow-none mt-4">Read more</button> -->
+          </div>
           </div>
         </div>
       </div>
