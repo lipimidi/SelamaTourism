@@ -4,7 +4,7 @@
       <div class=" row">
         <div class="col-md-3 mb-4 ms-auto">
           <div>
-            <h6 class="text-gradient text-primary font-weight-bolder">Soft UI Design System PRO</h6>
+            <h6 class="text-gradient text-primary font-weight-bolder">Selama Tourism</h6>
           </div>
           <div>
             <h6 class="mt-3 mb-2 opacity-8">Social</h6>
@@ -140,7 +140,7 @@
             <p class="my-4 text-sm">
               All rights reserved. Copyright © <script>
                 document.write(new Date().getFullYear())
-              </script> Soft UI Design System by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+              </script> Selama Tourism Based Community Designed by.
             </p>
           </div>
         </div>

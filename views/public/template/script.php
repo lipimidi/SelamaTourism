@@ -26,3 +26,15 @@
   <!-- <script src="https://maps.googleapis.com/maps/api/js></script> -->
  
   <script src="<?php echo $rootPath; ?>assets/js/soft-design-system-pro.min.js" type="text/javascript"></script>
+
+
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('<?php echo $rootPath; ?>assets/js/service-worker.js')
+        .then(reg => console.log("Service Worker Registered", reg))
+        .catch(err => console.log("Service Worker Registration Failed", err));
+    });
+  }
+</script>

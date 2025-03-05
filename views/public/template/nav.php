@@ -1,22 +1,52 @@
 <div class="container position-sticky z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-        <nav class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
-          <div class="container-fluid px-0">
-            <a class="navbar-brand font-weight-bolder ms-sm-3" href="presentation.html" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-              Soft UI PRO
-            </a>
-            <a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
-            <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon mt-2">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
-              <ul class="navbar-nav navbar-nav-hover mx-auto">
-                <li class="nav-item dropdown dropdown-hover mx-2">
+  <div class="row">
+    <div class="col-12">
+      <nav
+        class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand font-weight-bolder ms-sm-3" href="presentation.html" rel="tooltip"
+            title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+            Selama Tourism
+          </a>
+          <a href="<?php echo $basePath2; ?>/dashboard"
+            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Explore Now</a>
+          <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon mt-2">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+            <ul class="navbar-nav navbar-nav-hover mx-auto">
+
+              <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/attractions">
+                  Attractions
+                </a>
+              </li>
+              <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/attractions">
+                  Facilities
+                </a>
+              </li>
+              <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/attractions">
+                  Blogs
+                </a>
+              </li>
+              <li class="nav-item dropdown dropdown-hover mx-2">
+                <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  aria-expanded="false" href="<?php echo $basePath2; ?>/attractions">
+                  Contact
+                </a>
+              </li>
+              <!-- <li class="nav-item dropdown dropdown-hover mx-2">
                   <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
                     Pages
                     <img src="assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
@@ -1254,17 +1284,17 @@
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
-              <ul class="navbar-nav d-lg-block d-none">
-                <li class="nav-item">
-                  <a href="javascript:;" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1" onclick="smoothToPricing('pricing-soft-ui')">Buy Now</a>
-                </li>
-              </ul>
-            </div>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav d-lg-block d-none">
+              <li class="nav-item">
+                <a href="<?php echo $basePath2; ?>/dashboard" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1">Explore Now</a>
+              </li>
+            </ul>
           </div>
-        </nav>
-        <!-- End Navbar -->
-      </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
     </div>
   </div>
+</div>
