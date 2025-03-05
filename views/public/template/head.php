@@ -42,4 +42,7 @@
   <link href="<?php echo $rootPath; ?>assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="<?php echo $rootPath; ?>assets/css/soft-design-system-pro.min.css" rel="stylesheet" />
+  <!-- <link rel="manifest" href="<?php echo $rootPath; ?>/assets/js/manifest.json"> -->
+  <link rel="manifest" href="<?php echo $rootPath; ?>/manifest.php">
+
 </head>

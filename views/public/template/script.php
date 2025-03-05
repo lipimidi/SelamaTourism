@@ -27,7 +27,7 @@
  
   <script src="<?php echo $rootPath; ?>assets/js/soft-design-system-pro.min.js" type="text/javascript"></script>
 
-
+ 
 
   <script>
   if ('serviceWorker' in navigator) {

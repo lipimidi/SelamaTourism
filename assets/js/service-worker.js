@@ -1,11 +1,8 @@
 const CACHE_NAME = "lata-puteh-cache-v1";
 const urlsToCache = [
   "/",
-  "/index.html",
-  "/css/styles.css",
-  "/js/script.js",
-  "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png"
+  "/index",
+
 ];
 
 self.addEventListener("install", (event) => {
