@@ -38,6 +38,20 @@ function book()
     include 'views/system/book.php';
 }
 
+function login()
+{
+    include('includes/server.php');
+    include 'views/system/login.php';
+}
+
+function register(): void
+{
+    include('includes/server.php');
+    include 'views/system/register.php';
+}
+
+
+
 
 // function product($productId, $productName)
 // {
@@ -88,6 +102,8 @@ $routes = [
     '' => 'home',
     'dashboard' => 'dashboard',
     'book' => 'book',
+    'login' => 'login',
+    'register' => 'register',
  
 ];
 

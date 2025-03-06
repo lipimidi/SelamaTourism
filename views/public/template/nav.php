@@ -1288,7 +1288,7 @@
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
               <li class="nav-item">
-                <a href="<?php echo $basePath2; ?>/dashboard" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1">Explore Now</a>
+                <a href="<?php echo $basePath2; ?>/book" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1">Explore Now</a>
               </li>
             </ul>
           </div>

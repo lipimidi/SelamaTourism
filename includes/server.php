@@ -10,9 +10,9 @@ $dotenv->load();
 
  require('database.php') ;
 
- include_once('functions/ui.php') ;
- include_once('functions/user.php') ;
- include_once('functions/cart.php') ;
- include_once('functions/product.php') ;
+//  include_once('functions/ui.php') ;
+//  include_once('functions/user.php') ;
+//  include_once('functions/cart.php') ;
+//  include_once('functions/product.php') ;
 
  

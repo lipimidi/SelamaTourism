@@ -28,7 +28,7 @@
             <h1 class="text-white pt-3 mt-n5">Lata Puteh</h1>
             <p class="lead text-white mt-3">Discover the Hidden Gem of Nature </p>
             <div class="buttons">
-              <button type="button" class="btn bg-gradient-primary mt-4">Explore Now</button>
+              <a href="<?php echo $basePath2; ?>/book"  class="btn bg-gradient-primary mt-4">Explore Now</a>
               <!-- <button type="button" class="btn text-primary shadow-none mt-4">Read more</button> -->
             </div>
           </div>
