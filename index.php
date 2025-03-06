@@ -32,6 +32,13 @@ function dashboard()
     include 'views/system/dashboard.php';
 }
 
+function book()
+{
+    include('includes/server.php');
+    include 'views/system/book.php';
+}
+
+
 // function product($productId, $productName)
 // {
 //     include('includes/server.php');
@@ -80,6 +87,7 @@ function notFound($requestUri)
 $routes = [
     '' => 'home',
     'dashboard' => 'dashboard',
+    'book' => 'book',
  
 ];
 
