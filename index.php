@@ -11,9 +11,12 @@ $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 if (strpos($requestUri, $basePath) === 0) {
     $requestUri = substr($requestUri, strlen($basePath));
     $requestUri = trim($requestUri, '/');
+
 }
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
+
+
 
 // Define route functions
 function home()
@@ -22,6 +25,12 @@ function home()
     include 'views/public/home.php';
 }
  
+
+function dashboard()
+{
+    include('includes/server.php');
+    include 'views/system/dashboard.php';
+}
 
 // function product($productId, $productName)
 // {
@@ -57,26 +66,20 @@ function home()
 //         notFound();
 //     }
 // }
+ 
 
-function add_to_cart(): void
-{
-
-    include('includes/server.php');
-
-    // http_response_code(404);
-    // echo "404 Not Found";
-}
-
-function notFound()
+function notFound($requestUri)
 {
     http_response_code(404);
     echo "404 Not Found";
+    // echo $requestUri;
+
 }
 
 // Route Definitions
 $routes = [
     '' => 'home',
-    'shop' => 'shop',
+    'dashboard' => 'dashboard',
  
 ];
 
@@ -97,6 +100,6 @@ if (isset($routes[$requestUri])) {
     //     notFound();
     // }
 } else {
-    notFound();
-}
+    notFound($requestUri);
+ }
 ?>
