@@ -35,12 +35,14 @@ function dashboard()
 function book()
 {
     include('includes/server.php');
+    checkLogin();
     include 'views/system/book.php';
 }
 
 function login()
 {
     include('includes/server.php');
+    
     include 'views/system/login.php';
 }
 
@@ -49,10 +51,16 @@ function register(): void
     include('includes/server.php');
     include 'views/system/register.php';
 }
+function checkLogin()
+{
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    global $basePath2; // Ensure $basePath2 is accessible
 
+    header("Location: " . $basePath2 . "/login");
+ }
 
-
-
+}
 // function product($productId, $productName)
 // {
 //     include('includes/server.php');
