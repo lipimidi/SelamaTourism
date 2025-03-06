@@ -24,11 +24,12 @@ function home()
     include('includes/server.php');
     include 'views/public/home.php';
 }
- 
+
 
 function dashboard()
 {
     include('includes/server.php');
+    checkLogin();
     include 'views/system/dashboard.php';
 }
 
@@ -42,7 +43,7 @@ function book()
 function login()
 {
     include('includes/server.php');
-    
+
     include 'views/system/login.php';
 }
 
@@ -53,12 +54,13 @@ function register(): void
 }
 function checkLogin()
 {
-if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page if not logged in
-    global $basePath2; // Ensure $basePath2 is accessible
 
-    header("Location: " . $basePath2 . "/login");
- }
+
+    // if (!isset($_SESSION['user_id'])) {
+    //      global $basePath2;  
+
+    //     header("Location: " . $basePath2 . "/login");
+    // }
 
 }
 // function product($productId, $productName)
@@ -95,7 +97,7 @@ if (!isset($_SESSION['user_id'])) {
 //         notFound();
 //     }
 // }
- 
+
 
 function notFound($requestUri)
 {
@@ -112,7 +114,7 @@ $routes = [
     'book' => 'book',
     'login' => 'login',
     'register' => 'register',
- 
+
 ];
 
 
@@ -133,5 +135,5 @@ if (isset($routes[$requestUri])) {
     // }
 } else {
     notFound($requestUri);
- }
+}
 ?>
