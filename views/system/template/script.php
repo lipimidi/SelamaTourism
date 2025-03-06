@@ -7,6 +7,7 @@
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/dragula/dragula.min.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/jkanban/jkanban.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
+  <script src="<?php echo $rootPath; ?>/assets/js/plugins/fullcalendar.min.js"></script>
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
