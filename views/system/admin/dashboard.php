@@ -14,18 +14,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("template/head.php"); ?>
+<?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/head.php"); ?>
 
 
 <body class="g-sidenav-show   bg-gray-100">
 
   <!-- End Google Tag Manager (noscript) -->
   <div class="min-height-300 bg-dark position-absolute w-100"></div>
-  <?php include("template/sidenav.php"); ?>
+  <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/sidenav.php"); ?>
 
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
-    <?php include("template/navbar.php"); ?>
+    <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/navbar.php"); ?>
 
     <!-- End Navbar -->
     <div class="container-fluid py-4">
@@ -1198,13 +1198,13 @@
         </div>
       </div>
 
-      <?php include("template/footer.php"); ?>
+      <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/footer.php"); ?>
   
     </div>
   </main>
-  <?php include("template/togglenav.php"); ?>
+  <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/togglenav.php"); ?>
 
-  <?php include("template/script.php"); ?>
+  <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/script.php"); ?>
 
 </body>
 

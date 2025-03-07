@@ -30,16 +30,44 @@ function dashboard()
 {
     include('includes/server.php');
     checkLogin();
-    include 'views/system/dashboard.php';
+
+    if (!isAdmin()) {
+        include 'views/system/user/dashboard.php';
+   
+    }
+    else{
+        include 'views/system/admin/dashboard.php';
+
+    }
 }
 
-function book()
+function book_1()
 {
     include('includes/server.php');
     checkLogin();
-    include 'views/system/book.php';
+    include 'views/system/user/book_1.php';
 }
 
+function book_2()
+{
+    include('includes/server.php');
+    checkLogin();
+    include 'views/system/user/book_2.php';
+}
+
+function book_3()
+{
+    include('includes/server.php');
+    checkLogin();
+    include 'views/system/user/book_3.php';
+}
+
+function book_4()
+{
+    include('includes/server.php');
+    checkLogin();
+    include 'views/system/user/book_4.php';
+}
 function login()
 {
     include('includes/server.php');
@@ -63,6 +91,15 @@ function checkLogin()
     // }
 
 }
+
+function isAdmin()
+{
+ 
+    return (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
+}
+
+
+
 // function product($productId, $productName)
 // {
 //     include('includes/server.php');
@@ -111,7 +148,10 @@ function notFound($requestUri)
 $routes = [
     '' => 'home',
     'dashboard' => 'dashboard',
-    'book' => 'book',
+    'book' => 'book_1',
+    'book/people' => 'book_2',
+    'book/insurance' => 'book_3',
+    'book/status' => 'book_4',
     'login' => 'login',
     'register' => 'register',
 

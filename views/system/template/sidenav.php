@@ -736,7 +736,7 @@
         </li>
       </ul>
     </div>
-    <div class="sidenav-footer mx-3 my-3">
+    <!-- <div class="sidenav-footer mx-3 my-3">
       <div class="card card-plain shadow-none" id="sidenavCard">
         <img class="w-60 mx-auto" src="../../assets/img/illustrations/icon-documentation.svg" alt="sidebar_illustration">
         <div class="card-body text-center p-3 w-100 pt-0">
@@ -747,5 +747,5 @@
         </div>
       </div>
       <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/argon-dashboard" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
-    </div>
+    </div> -->
   </aside>
