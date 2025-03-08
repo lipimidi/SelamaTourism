@@ -39,13 +39,13 @@
             <div class="row mt-5">
               <div class="col-12 col-lg-8 mx-auto my-5">
                 <div class="multisteps-form__progress">
-                  <button class="multisteps-form__progress-btn" type="button" title="User Info">
+                  <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">
                     <span>Date</span>
                   </button>
                   <button class="multisteps-form__progress-btn" type="button" title="Address">
                     <span>People</span>
                   </button>
-                  <button class="multisteps-form__progress-btn js-active" type="button" title="Order Info">
+                  <button class="multisteps-form__progress-btn" type="button" title="Order Info">
                     <span>Insurance</span>
                   </button>
                   <button class="multisteps-form__progress-btn" type="button" title="Order Info">
@@ -55,30 +55,25 @@
               </div>
             </div>
             <!--form panels-->
-            <div class="row">
+            <div class="row mb-lg-7">
               <div class="col">
                 <div class="card card-calendar">
                   <div class="card-body p-3">
                     <div class="calendar" data-bs-toggle="calendar" id="calendar"></div>
                   </div>
                 </div>
+                <div class="button-row d-flex mt-4">
+                     <a class="btn bg-gradient-light mb-0 js-btn-prev"
+                    href="<?php echo $rootPath; ?>/insurance">Previous</a>
+                    <a class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
+                      href="<?php echo $rootPath; ?>/dashboard">Finish</a>
+                  </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row mb-lg-7">
-        <div class="col">
-          <div class="card card-calendar">
-            <div class="card-body p-3">
-              <div class="calendar" data-bs-toggle="calendar" id="calendar"></div>
-            </div>
-          </div>
-          <div class="button-row d-flex mt-4">
-            <a class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" href="<?php echo $rootPath; ?>/book/people">Next</a>
-          </div>
-        </div>
-      </div>
+
 
       <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>
 

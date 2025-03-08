@@ -45,28 +45,28 @@ function book_1()
 {
     include('includes/server.php');
     checkLogin();
-    include 'views/system/user/book_1.php';
+    include 'views/system/user/book/step1.php';
 }
 
 function book_2()
 {
     include('includes/server.php');
     checkLogin();
-    include 'views/system/user/book_2.php';
+    include 'views/system/user/book/step2.php';
 }
 
 function book_3()
 {
     include('includes/server.php');
     checkLogin();
-    include 'views/system/user/book_3.php';
+    include 'views/system/user/book/step3.php';
 }
 
 function book_4()
 {
     include('includes/server.php');
     checkLogin();
-    include 'views/system/user/book_4.php';
+    include 'views/system/user/book/step4.php';
 }
 function login()
 {
@@ -149,9 +149,10 @@ $routes = [
     '' => 'home',
     'dashboard' => 'dashboard',
     'book' => 'book_1',
+    'book/date' => 'book_1',
     'book/people' => 'book_2',
     'book/insurance' => 'book_3',
-    'book/status' => 'book_4',
+    'book/summary' => 'book_4',
     'login' => 'login',
     'register' => 'register',
 
