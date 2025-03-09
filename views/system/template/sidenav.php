@@ -1,16 +1,16 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <i class="ni ni-shop p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="default.html" target="_blank">
-        <img src="../../assets/img/logo-ct-dark.png" width="26px" height="26px" class="navbar-brand-img h-100" alt="main_logo">
+        <!-- <img src="../../assets/img/logo-ct-dark.png" width="26px" height="26px" class="navbar-brand-img h-100" alt="main_logo"> -->
         <span class="ms-1 font-weight-bold">Selama Tourism</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto h-auto" id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a data-bs-toggle="collapse" href="default.html#dashboardsExamples" class="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+        <!-- <li class="nav-item">
+          <a data-bs-toggle="collapse" href="default.html#dashboardsExamples" class="nav-link" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
               <i class="ni ni-shop text-dark text-sm opacity-10"></i>
             </div>
@@ -24,8 +24,8 @@
                   <span class="sidenav-normal"> Landing </span>
                 </a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link active" href="default.html">
+              <li class="nav-item">
+                <a class="nav-link " href="default.html">
                   <span class="sidenav-mini-icon"> D </span>
                   <span class="sidenav-normal"> Default </span>
                 </a>
@@ -50,8 +50,42 @@
               </li>
             </ul>
           </div>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/creativetimofficial/ct-argon-dashboard-pro/blob/main/CHANGELOG.md" target="_blank">
+            <div class="icon icon-shape icon-sm text-center  me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-shop text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
         </li>
-        <li class="nav-item mt-3">
+        <li class="nav-item">
+          <a data-bs-toggle="collapse" href="default.html#pagesExamples" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
+            <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
+              <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Booking</span>
+          </a>
+          <div class="collapse " id="pagesExamples">
+            <ul class="nav ms-4">
+               
+              <li class="nav-item ">
+                <a class="nav-link " href="../pages/pricing-page.html">
+                  <span class="sidenav-mini-icon"> P </span>
+                  <span class="sidenav-normal"> Book </span>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link " href="../pages/rtl-page.html">
+                  <span class="sidenav-mini-icon"> R </span>
+                  <span class="sidenav-normal"> List </span>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </li>
+        <!-- <li class="nav-item mt-3">
           <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">PAGES</h6>
         </li>
         <li class="nav-item">
@@ -733,11 +767,11 @@
             </div>
             <span class="nav-link-text ms-1">Changelog</span>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
-    <!-- <div class="sidenav-footer mx-3 my-3">
-      <div class="card card-plain shadow-none" id="sidenavCard">
+    <div class="sidenav-footer mx-3 my-3">
+      <!-- <div class="card card-plain shadow-none" id="sidenavCard">
         <img class="w-60 mx-auto" src="../../assets/img/illustrations/icon-documentation.svg" alt="sidebar_illustration">
         <div class="card-body text-center p-3 w-100 pt-0">
           <div class="docs-info">
@@ -746,6 +780,6 @@
           </div>
         </div>
       </div>
-      <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/argon-dashboard" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
-    </div> -->
+      <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/argon-dashboard" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a> -->
+    </div>
   </aside>

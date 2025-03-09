@@ -31,9 +31,9 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12 text-center">
-          <h3 class="mt-5 text-white">Secure your spot and get ready for an unforgettable experience</h3>
-          <h5 class="text-white font-weight-normal">You can customize this depending on the event or service you're
-            offering! If you give me more context, I can tailor it even further.</h5>
+        <h3 class="mt-5 text-white">Secure your spot now</h3>
+<h5 class="text-white font-weight-normal">Customize your experience today!</h5>
+
           <div class="multisteps-form mb-5">
             <!--progress bar-->
             <div class="row mt-5">

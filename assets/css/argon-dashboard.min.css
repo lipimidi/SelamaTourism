@@ -29362,3 +29362,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   transition-delay: 0s;
   transform: scale(1);
 }
+
+
+.dz-preview  img {
+  max-width: 200px;  /* Set the maximum width to 200px */
+  width: 100%;  /* Ensure the image resizes within the container */
+  height: auto;  /* Maintain the aspect ratio */
+}
