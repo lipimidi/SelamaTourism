@@ -45,6 +45,9 @@ function book_1()
 {
     include('includes/server.php');
     checkLogin();
+ 
+    checkStepRedirect(1);
+
     include 'views/system/user/book/step1.php';
 }
 
@@ -52,6 +55,8 @@ function book_2()
 {
     include('includes/server.php');
     checkLogin();
+    checkStepRedirect(2);
+
     include 'views/system/user/book/step2.php';
 }
 
@@ -59,6 +64,8 @@ function book_3()
 {
     include('includes/server.php');
     checkLogin();
+    checkStepRedirect(3);
+
     include 'views/system/user/book/step3.php';
 }
 
@@ -66,6 +73,8 @@ function book_4()
 {
     include('includes/server.php');
     checkLogin();
+    checkStepRedirect(4);
+
     include 'views/system/user/book/step4.php';
 }
 function login()
@@ -99,41 +108,40 @@ function isAdmin()
 }
 
 
+function checkStepRedirect($required_step) {
+     global $basePath2;  
 
-// function product($productId, $productName)
-// {
-//     include('includes/server.php');
+    // Ensure the booking session is initialized
+    if (!isset($_SESSION['booking'])) {
+        $_SESSION['booking'] = [
+            'step' => 1, 
+            'date' => null,
+            'people' => null,
+            'insurance' => null
+        ];
+    }
 
-//     // Fetch product details
-//     $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
-//     $stmt->bind_param("i", $productId);
-//     $stmt->execute();
-//     $productResult = $stmt->get_result();
+    $current_step = $_SESSION['booking']['step'];
 
-//     if ($productResult->num_rows > 0) {
-//         $product = $productResult->fetch_assoc();
+    // Allow backward navigation, but prevent skipping steps forward
+    if ($current_step < $required_step) {
+        $steps = [
+            1 => "/book",
+            2 => "/book/people",
+            3 => "/book/insurance",
+            4 => "/book/summary"
+        ];
 
-//         // Fetch product specifications
-//         $specStmt = $conn->prepare("
-//             SELECT st.name AS spec_type, ps.spec_value, ps.extra_price,  ps.id
-//             FROM product_specs ps
-//             JOIN spec_types st ON ps.spec_type_id = st.id
-//             WHERE ps.product_id = ?
-//         ");
-//         $specStmt->bind_param("i", $productId);
-//         $specStmt->execute();
-//         $specResult = $specStmt->get_result();
+        $redirect_page = $steps[$current_step] ?? "/book"; // Default to step 1 if undefined
+        header("Location: " . $basePath2 . $redirect_page);
+        exit();
+    }
+}
 
-//         $specs = [];
-//         while ($row = $specResult->fetch_assoc()) {
-//             $specs[] = $row;
-//         }
 
-//         include 'views/user/product.php';
-//     } else {
-//         notFound();
-//     }
-// }
+
+
+
 
 
 function notFound($requestUri)
@@ -162,18 +170,6 @@ $routes = [
 
 if (isset($routes[$requestUri])) {
     call_user_func($routes[$requestUri]);
-} elseif (strpos($requestUri, 'product/') === 0) {
-    // Split URL into parts
-    // $parts = explode('/', $requestUri);
-
-    // // Ensure it has at least 3 parts: ['product', ID, Name]
-    // if (isset($parts[1]) && isset($parts[2]) && is_numeric($parts[1])) {
-    //     $productId = $parts[1]; // Extract product ID
-    //     $productName = $parts[2]; // Extract product name
-    //     product($productId, $productName);
-    // } else {
-    //     notFound();
-    // }
 } else {
     notFound($requestUri);
 }
