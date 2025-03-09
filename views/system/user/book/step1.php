@@ -31,8 +31,8 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12 text-center">
-        <h3 class="mt-5 text-white">Secure your spot now</h3>
-<h5 class="text-white font-weight-normal">Customize your experience today!</h5>
+          <h3 class="mt-5 text-white">Secure your spot now</h3>
+          <h5 class="text-white font-weight-normal">Customize your experience today!</h5>
 
           <div class="multisteps-form mb-5">
             <!--progress bar-->
@@ -72,6 +72,29 @@
         </div>
       </div>
 
+      <!-- //modal -->
+      <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="eventModalLabel">Booking</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6 id="selectedDate">Selected Date: </h6>
+              <form id="eventForm">
+                <div class="mb-3">
+                  <label for="eventTitle" class="form-label">People</label>
+                  <input type="number" class="form-control" id="eventTitle" placeholder="Enter event title">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Event</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
       <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>
 
@@ -91,78 +114,103 @@
       selectable: true,
       // editable: true,
       // initialDate: '2020-12-01',
-      // events: [
-      //   {
-      //     title: 'Call with Dave',
-      //     start: '2020-11-18',
-      //     end: '2020-11-18',
-      //     className: 'bg-gradient-danger'
-      //   },
+      events: [
+        {
+          title: 'Full',
+          start: '2025-03-11',
+          end: '2025-03-11',
+          className: 'bg-gradient-danger'
+        },
 
-      //   {
-      //     title: 'Lunch meeting',
-      //     start: '2020-11-21',
-      //     end: '2020-11-22',
-      //     className: 'bg-gradient-warning'
-      //   },
+        {
+          title: '37/40',
+          start: '2025-03-12',
+          end: '2025-03-12',
+          className: 'bg-gradient-warning'
+        },
 
-      //   {
-      //     title: 'All day conference',
-      //     start: '2020-11-29',
-      //     end: '2020-11-29',
-      //     className: 'bg-gradient-success'
-      //   },
+        // {
+        //   title: 'All day conference',
+        //   start: '2020-11-29',
+        //   end: '2020-11-29',
+        //   className: 'bg-gradient-success'
+        // },
 
-      //   {
-      //     title: 'Meeting with Mary',
-      //     start: '2020-12-01',
-      //     end: '2020-12-01',
-      //     className: 'bg-gradient-info'
-      //   },
+        {
+          title: '0/40',
+          start: '2025-03-13',
+          end: '2025-03-13',
+          className: 'bg-gradient-info'
+        },
 
-      //   {
-      //     title: 'Winter Hackaton',
-      //     start: '2020-12-03',
-      //     end: '2020-12-03',
-      //     className: 'bg-gradient-danger'
-      //   },
+        // {
+        //   title: 'Winter Hackaton',
+        //   start: '2020-12-03',
+        //   end: '2020-12-03',
+        //   className: 'bg-gradient-danger'
+        // },
 
-      //   {
-      //     title: 'Digital event',
-      //     start: '2020-12-07',
-      //     end: '2020-12-09',
-      //     className: 'bg-gradient-warning'
-      //   },
+        // {
+        //   title: 'Digital event',
+        //   start: '2020-12-07',
+        //   end: '2020-12-09',
+        //   className: 'bg-gradient-warning'
+        // },
 
-      //   {
-      //     title: 'Marketing event',
-      //     start: '2020-12-10',
-      //     end: '2020-12-10',
-      //     className: 'bg-gradient-primary'
-      //   },
+        // {
+        //   title: 'Marketing event',
+        //   start: '2020-12-10',
+        //   end: '2020-12-10',
+        //   className: 'bg-gradient-primary'
+        // },
 
-      //   {
-      //     title: 'Dinner with Family',
-      //     start: '2020-12-19',
-      //     end: '2020-12-19',
-      //     className: 'bg-gradient-danger'
-      //   },
+        // {
+        //   title: 'Dinner with Family',
+        //   start: '2020-12-19',
+        //   end: '2020-12-19',
+        //   className: 'bg-gradient-danger'
+        // },
 
-      //   {
-      //     title: 'Black Friday',
-      //     start: '2020-12-23',
-      //     end: '2020-12-23',
-      //     className: 'bg-gradient-info'
-      //   },
+        // {
+        //   title: 'Black Friday',
+        //   start: '2020-12-23',
+        //   end: '2020-12-23',
+        //   className: 'bg-gradient-info'
+        // },
 
-      //   {
-      //     title: 'Cyber Week',
-      //     start: '2020-12-02',
-      //     end: '2020-12-02',
-      //     className: 'bg-gradient-warning'
-      //   },
+        // {
+        //   title: 'Cyber Week',
+        //   start: '2020-12-02',
+        //   end: '2020-12-02',
+        //   className: 'bg-gradient-warning'
+        // },
 
-      // ],
+      ],
+
+      dateClick: function (info) {
+        // Show the modal with the selected date
+        var modal = new bootstrap.Modal(document.getElementById('eventModal'));
+        var selectedDate = document.getElementById('selectedDate');
+        selectedDate.innerText = 'Selected Date: ' + info.dateStr;  // Set the selected date
+
+        // Open the modal
+        modal.show();
+
+        // Optionally, handle the form submission and save event
+        var form = document.getElementById("eventForm");
+        form.onsubmit = function (event) {
+          event.preventDefault();
+          var eventTitle = document.getElementById("eventTitle").value;
+          if (eventTitle) {
+            calendar.addEvent({
+              title: eventTitle,
+              start: info.date,
+              allDay: true
+            });
+            modal.hide();  // Close the modal after saving the event
+          }
+        }
+      },
 
       views: {
         month: {
