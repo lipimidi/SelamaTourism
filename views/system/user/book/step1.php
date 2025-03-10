@@ -123,21 +123,38 @@
         },
 
         {
-          title: '37/40',
+          title: '3/40',
           start: '2025-03-12',
           end: '2025-03-12',
           className: 'bg-gradient-warning'
         },
 
-        // {
-        //   title: 'All day conference',
-        //   start: '2020-11-29',
-        //   end: '2020-11-29',
-        //   className: 'bg-gradient-success'
-        // },
+
 
         {
-          title: '0/40',
+          title: '40/40',
+          start: '2025-03-13',
+          end: '2025-03-13',
+          className: 'bg-gradient-info'
+        },
+        {
+          title: 'Full',
+          start: '2025-03-11',
+          end: '2025-03-11',
+          className: 'bg-gradient-danger'
+        },
+
+        {
+          title: '3/40',
+          start: '2025-03-12',
+          end: '2025-03-12',
+          className: 'bg-gradient-warning'
+        },
+
+
+
+        {
+          title: '40/40',
           start: '2025-03-13',
           end: '2025-03-13',
           className: 'bg-gradient-info'
