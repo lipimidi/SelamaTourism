@@ -84,7 +84,7 @@ function login()
     include 'views/system/login.php';
 }
 
-function register(): void
+function register()
 {
     include('includes/server.php');
     include 'views/system/register.php';
@@ -107,6 +107,12 @@ function isAdmin()
     return (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
 }
 
+
+function geteventcalendar(): void
+{
+    include('includes/server.php');
+     
+}
 
 function checkStepRedirect($required_step) {
      global $basePath2;  
@@ -163,6 +169,9 @@ $routes = [
     'book/summary' => 'book_4',
     'login' => 'login',
     'register' => 'register',
+
+ 
+    'book/events' => 'register',
 
 ];
 

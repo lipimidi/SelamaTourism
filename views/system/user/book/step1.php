@@ -114,96 +114,119 @@
       selectable: true,
       // editable: true,
       // initialDate: '2020-12-01',
-      events: [
-        {
-          title: 'Full',
-          start: '2025-03-11',
-          end: '2025-03-11',
-          className: 'bg-gradient-danger'
-        },
+      // events: [
+      //   {
+      //     title: 'Full',
+      //     start: '2025-03-11',
+      //     end: '2025-03-11',
+      //     className: 'bg-gradient-danger'
+      //   },
 
-        {
-          title: '3/40',
-          start: '2025-03-12',
-          end: '2025-03-12',
-          className: 'bg-gradient-warning'
-        },
-
-
-
-        {
-          title: '40/40',
-          start: '2025-03-13',
-          end: '2025-03-13',
-          className: 'bg-gradient-info'
-        },
-        {
-          title: 'Full',
-          start: '2025-03-11',
-          end: '2025-03-11',
-          className: 'bg-gradient-danger'
-        },
-
-        {
-          title: '3/40',
-          start: '2025-03-12',
-          end: '2025-03-12',
-          className: 'bg-gradient-warning'
-        },
+      //   {
+      //     title: '3/40',
+      //     start: '2025-03-12',
+      //     end: '2025-03-12',
+      //     className: 'bg-gradient-warning'
+      //   },
 
 
 
-        {
-          title: '40/40',
-          start: '2025-03-13',
-          end: '2025-03-13',
-          className: 'bg-gradient-info'
-        },
+      //   {
+      //     title: '40/40',
+      //     start: '2025-03-13',
+      //     end: '2025-03-13',
+      //     className: 'bg-gradient-info'
+      //   },
+      //   {
+      //     title: 'Full',
+      //     start: '2025-03-11',
+      //     end: '2025-03-11',
+      //     className: 'bg-gradient-danger'
+      //   },
 
-        // {
-        //   title: 'Winter Hackaton',
-        //   start: '2020-12-03',
-        //   end: '2020-12-03',
-        //   className: 'bg-gradient-danger'
-        // },
+      //   {
+      //     title: '3/40',
+      //     start: '2025-03-12',
+      //     end: '2025-03-12',
+      //     className: 'bg-gradient-warning'
+      //   },
 
-        // {
-        //   title: 'Digital event',
-        //   start: '2020-12-07',
-        //   end: '2020-12-09',
-        //   className: 'bg-gradient-warning'
-        // },
 
-        // {
-        //   title: 'Marketing event',
-        //   start: '2020-12-10',
-        //   end: '2020-12-10',
-        //   className: 'bg-gradient-primary'
-        // },
 
-        // {
-        //   title: 'Dinner with Family',
-        //   start: '2020-12-19',
-        //   end: '2020-12-19',
-        //   className: 'bg-gradient-danger'
-        // },
+      //   {
+      //     title: '40/40',
+      //     start: '2025-03-13',
+      //     end: '2025-03-13',
+      //     className: 'bg-gradient-info'
+      //   },
 
-        // {
-        //   title: 'Black Friday',
-        //   start: '2020-12-23',
-        //   end: '2020-12-23',
-        //   className: 'bg-gradient-info'
-        // },
+      //   // {
+      //   //   title: 'Winter Hackaton',
+      //   //   start: '2020-12-03',
+      //   //   end: '2020-12-03',
+      //   //   className: 'bg-gradient-danger'
+      //   // },
 
-        // {
-        //   title: 'Cyber Week',
-        //   start: '2020-12-02',
-        //   end: '2020-12-02',
-        //   className: 'bg-gradient-warning'
-        // },
+      //   // {
+      //   //   title: 'Digital event',
+      //   //   start: '2020-12-07',
+      //   //   end: '2020-12-09',
+      //   //   className: 'bg-gradient-warning'
+      //   // },
 
-      ],
+      //   // {
+      //   //   title: 'Marketing event',
+      //   //   start: '2020-12-10',
+      //   //   end: '2020-12-10',
+      //   //   className: 'bg-gradient-primary'
+      //   // },
 
+      //   // {
+      //   //   title: 'Dinner with Family',
+      //   //   start: '2020-12-19',
+      //   //   end: '2020-12-19',
+      //   //   className: 'bg-gradient-danger'
+      //   // },
+
+      //   // {
+      //   //   title: 'Black Friday',
+      //   //   start: '2020-12-23',
+      //   //   end: '2020-12-23',
+      //   //   className: 'bg-gradient-info'
+      //   // },
+
+      //   // {
+      //   //   title: 'Cyber Week',
+      //   //   start: '2020-12-02',
+      //   //   end: '2020-12-02',
+      //   //   className: 'bg-gradient-warning'
+      //   // },
+
+      // ],
+      events: function (fetchInfo, successCallback, failureCallback) {
+        console.log("Sending request to fetch events..."); // Debug log
+
+        $.ajax({
+          url: "<?php echo $rootPath; ?>/book/events",
+          type: "POST",
+          dataType: "json",
+          data: { 
+            fetch_events: true ,
+            start: fetchInfo.startStr,
+            end: fetchInfo.endStr,
+            
+          
+          }, // Secure POST request
+          success: function (response) {
+            console.log("Response received:", response); // Debug log
+            successCallback(response);
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching events:", status, error);
+            failureCallback([]);
+          }
+        });
+      },
       dateClick: function (info) {
         // Show the modal with the selected date
         var modal = new bootstrap.Modal(document.getElementById('eventModal'));
