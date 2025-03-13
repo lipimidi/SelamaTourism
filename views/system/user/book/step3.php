@@ -57,7 +57,7 @@
             <!--form panels-->
             <div class="row mb-lg-7">
               <div class="col-12 col-lg-8 m-auto">
-                <form class="multisteps-form__form" enctype="multipart/form-data">
+                <form class="multisteps-form__form" enctype="multipart/form-data" method="POST">
                   <!--single form panel-->
                   <div class="card p-3 border-radius-xl bg-white" data-animation="FadeIn">
                     <div class="row text-center">
@@ -143,9 +143,13 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Dropzone -->
-                  <div class="dropzone" id="dropzoneArea"></div>
+                  <?php
+                  $count = $_SESSION['booking']['people_count'];
+                  for ($i = 1; $i <= $count; $i++) {
+                    ?>
+                    <!-- Dropzone -->
+                    <div class="dropzone" id="dropzoneArea-<?php echo $i ?>"></div>
+                  <?php } ?>
 
                   <!-- Submit Button -->
                   <!-- <div class="row">
@@ -153,7 +157,7 @@
                       <button type="submit" class="btn btn-primary w-100">Next</button>
                     </div>
                   </div> -->
- 
+
               </div>
 
             </div>
@@ -179,43 +183,47 @@
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
   <script>
-    Dropzone.options.dropzoneArea = {
-    url: '/upload',  // Replace with your server upload endpoint
-    paramName: 'file',  // The name that will be used to send the file
-    maxFilesize: 2,  // Max file size in MB
-    acceptedFiles: '.jpg,.jpeg,.png,.gif,.pdf',  // Allowed file types
-    dictDefaultMessage: 'Drag and drop files here or click to upload',  // Default message
-    addRemoveLinks: true,  // Allow remove links for previews
-    previewsContainer: "#dropzoneArea",  // Where to display the previews
+  // Disable Dropzone auto discovery to prevent conflicts
+  Dropzone.autoDiscover = false;
 
-    init: function() {
-      // Example of setting up a custom callback for added file
-      this.on("addedfile", function(file) {
-        // Automatically show a preview if the file is an image
-        if (file.type.startsWith('image/')) {
-          var reader = new FileReader();
-          reader.onload = function(e) {
-            // Display image preview manually if needed
-            var imgElement = document.createElement('img');
-            imgElement.src = e.target.result;
-            file.previewElement.appendChild(imgElement); // Add the image preview to the preview container
-          };
-          reader.readAsDataURL(file);
+  document.addEventListener("DOMContentLoaded", function () {
+    // Loop through each dynamically created dropzone
+    <?php for ($i = 1; $i <= $count; $i++) { ?>
+      // Manually initialize Dropzone for each element
+      new Dropzone("#dropzoneArea-<?php echo $i; ?>", {
+        url: '/upload',  // Ensure you replace with a valid URL for the upload
+        paramName: 'file',  // The name used to send the file
+        maxFilesize: 2,  // Max file size in MB
+        acceptedFiles: '.jpg,.jpeg,.png,.gif,.pdf',  // Allowed file types
+        dictDefaultMessage: 'Drag and drop files here or click to upload',
+        addRemoveLinks: true,  // Allow file removal
+        previewsContainer: "#dropzoneArea-<?php echo $i; ?>",  // Where to display the previews
+
+        init: function() {
+          // Example of setting up a custom callback for added file
+          this.on("addedfile", function(file) {
+            if (file.type.startsWith('image/')) {
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                var imgElement = document.createElement('img');
+                imgElement.src = e.target.result;
+                file.previewElement.appendChild(imgElement);  // Add the image preview to the preview container
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        },
+
+        success: function(file, response) {
+          console.log("File uploaded:", file);
+        },
+        error: function(file, response) {
+          console.log("Error uploading file:", file);
         }
       });
-    },
-
-    // Optional: handle removal of the preview
-    success: function(file, response) {
-      // Do something when file is uploaded successfully
-      console.log("File uploaded:", file);
-    },
-    error: function(file, response) {
-      // Handle error if upload fails
-      console.log("Error uploading file:", file);
-    }
-  };
-  </script>
+    <?php } ?>
+  });
+</script>
 </body>
 
 </html>

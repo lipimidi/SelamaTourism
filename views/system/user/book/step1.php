@@ -94,7 +94,7 @@
 
                 <div class="mb-3">
                   <label for="eventPeople" class="form-label">People</label>
-                  <input type="number" class="form-control" id="eventPeople" name="people_count" value="1"
+                  <input type="number" class="form-control" id="eventPeople" name="people_count" value="<?php echo isset($_SESSION['booking']['people_count']) ? $_SESSION['booking']['people_count'] : '1'; ?>"
                     placeholder="Enter how many people">
                 </div>
                 <button type="submit" class="btn btn-primary" name="confirmdate">Confirm</button>
