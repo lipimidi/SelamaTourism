@@ -29369,3 +29369,32 @@ svg.leaflet-image-layer.leaflet-interactive path {
   width: 100%;  /* Ensure the image resizes within the container */
   height: auto;  /* Maintain the aspect ratio */
 }
+
+
+/* Increase event height */
+.fc-event {
+    font-size: 16px !important;  /* Increase font size */
+    padding: 8px !important;     /* Add padding for better spacing */
+}
+
+/* Make event blocks larger */
+.fc-daygrid-event {
+     line-height: 1.5 !important;    /* Increase line spacing */
+}
+
+/* Customize event title appearance */
+.fc-event-title {
+    font-weight: bold !important;  /* Make text bold */
+    font-size: 18px !important;    /* Slightly larger title */
+}
+
+/* Remove the dot from the event */
+.fc-daygrid-event-dot {
+    display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .fc-event-title {
+      display: none !important; /* Hide event title */
+  }
+}

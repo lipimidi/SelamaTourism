@@ -74,7 +74,7 @@
 
       <!-- //modal -->
       <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog  modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="eventModalLabel">Booking</h5>
@@ -82,17 +82,29 @@
             </div>
             <div class="modal-body">
               <h6 id="selectedDate">Selected Date: </h6>
-              <form id="eventForm">
+              <form id="eventForm" method="POST">
+              <input type="text" class="form-control" id="eventDate" name="date" hidden>
+
                 <div class="mb-3">
-                  <label for="eventTitle" class="form-label">People</label>
-                  <input type="number" class="form-control" id="eventTitle" placeholder="Enter event title">
+                  <label for="eventSession" class="form-label">Session</label>
+                  <input type="number" class="form-control" id="eventSession" name="session" hidden>
+                  <input type="text" class="form-control" id="eventSession2" name="session2" readonly>
+
                 </div>
-                <button type="submit" class="btn btn-primary">Save Event</button>
+
+                <div class="mb-3">
+                  <label for="eventPeople" class="form-label">People</label>
+                  <input type="number" class="form-control" id="eventPeople" name="people_count" value="1"
+                    placeholder="Enter how many people">
+                </div>
+                <button type="submit" class="btn btn-primary" name="confirmdate">Confirm</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+
+
 
 
 
@@ -104,6 +116,30 @@
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
   <script>
+
+    function getEventTimeFormat() {
+      // Check if the screen width is tablet size or smaller
+      if (window.innerWidth <= 375) {
+        return {
+          hour: 'numeric',
+          hour12: true,  // 12-hour format
+          meridiem : 'narrow',
+         };
+      } 
+      else if (window.innerWidth <= 768) {
+        return {
+          hour: 'numeric',
+          hour12: true,  // 12-hour format
+         };
+      } else {
+        return {
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,  // Use 12-hour format (AM/PM)
+        };
+      }
+    }
+
     var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
       initialView: "dayGridMonth",
       headerToolbar: {
@@ -111,9 +147,16 @@
         center: '',
         end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
       },
+
+      eventTimeFormat: getEventTimeFormat(),
+
+
       selectable: true,
+      height: 'auto',  // Adjust the height automatically
+      contentHeight: 'auto', // Make content height auto
+
+
       // editable: true,
-      // initialDate: '2020-12-01',
       // events: [
       //   {
       //     title: 'Full',
@@ -160,47 +203,47 @@
       //     className: 'bg-gradient-info'
       //   },
 
-      //   // {
-      //   //   title: 'Winter Hackaton',
-      //   //   start: '2020-12-03',
-      //   //   end: '2020-12-03',
-      //   //   className: 'bg-gradient-danger'
-      //   // },
+      // {
+      //   title: 'Winter Hackaton',
+      //   start: '2020-12-03',
+      //   end: '2020-12-03',
+      //   className: 'bg-gradient-danger'
+      // },
 
-      //   // {
-      //   //   title: 'Digital event',
-      //   //   start: '2020-12-07',
-      //   //   end: '2020-12-09',
-      //   //   className: 'bg-gradient-warning'
-      //   // },
+      // {
+      //   title: 'Digital event',
+      //   start: '2020-12-07',
+      //   end: '2020-12-09',
+      //   className: 'bg-gradient-warning'
+      // },
 
-      //   // {
-      //   //   title: 'Marketing event',
-      //   //   start: '2020-12-10',
-      //   //   end: '2020-12-10',
-      //   //   className: 'bg-gradient-primary'
-      //   // },
+      // {
+      //   title: 'Marketing event',
+      //   start: '2020-12-10',
+      //   end: '2020-12-10',
+      //   className: 'bg-gradient-primary'
+      // },
 
-      //   // {
-      //   //   title: 'Dinner with Family',
-      //   //   start: '2020-12-19',
-      //   //   end: '2020-12-19',
-      //   //   className: 'bg-gradient-danger'
-      //   // },
+      // {
+      //   title: 'Dinner with Family',
+      //   start: '2020-12-19',
+      //   end: '2020-12-19',
+      //   className: 'bg-gradient-danger'
+      // },
 
-      //   // {
-      //   //   title: 'Black Friday',
-      //   //   start: '2020-12-23',
-      //   //   end: '2020-12-23',
-      //   //   className: 'bg-gradient-info'
-      //   // },
+      // {
+      //   title: 'Black Friday',
+      //   start: '2020-12-23',
+      //   end: '2020-12-23',
+      //   className: 'bg-gradient-info'
+      // },
 
-      //   // {
-      //   //   title: 'Cyber Week',
-      //   //   start: '2020-12-02',
-      //   //   end: '2020-12-02',
-      //   //   className: 'bg-gradient-warning'
-      //   // },
+      // {
+      //   title: 'Cyber Week',
+      //   start: '2020-12-02',
+      //   end: '2020-12-02',
+      //   className: 'bg-gradient-warning'
+      // },
 
       // ],
       events: function (fetchInfo, successCallback, failureCallback) {
@@ -210,12 +253,12 @@
           url: "<?php echo $rootPath; ?>/book/events",
           type: "POST",
           dataType: "json",
-          data: { 
-            fetch_events: true ,
+          data: {
+            fetch_events: true,
             start: fetchInfo.startStr,
             end: fetchInfo.endStr,
-            
-          
+
+
           }, // Secure POST request
           success: function (response) {
             console.log("Response received:", response); // Debug log
@@ -227,30 +270,37 @@
           }
         });
       },
-      dateClick: function (info) {
+      eventClick: function (info) {
         // Show the modal with the selected date
         var modal = new bootstrap.Modal(document.getElementById('eventModal'));
-        var selectedDate = document.getElementById('selectedDate');
-        selectedDate.innerText = 'Selected Date: ' + info.dateStr;  // Set the selected date
+        var selectedDate = document.getElementById('eventDate');
+        var selectedDate2 = document.getElementById('selectedDate');
+        var selectedSession = document.getElementById('eventSession');
+        var selectedSession2 = document.getElementById('eventSession2');
+        selectedSession2.value = info.event.extendedProps.session2;
+
+        var selectedPeople = document.getElementById('eventPeople');
+        selectedPeople.max = info.event.extendedProps.remaining_slots;
+
+        // Get the session value
+        selectedSession.value = info.event.extendedProps.session;
+        selectedDate.value = info.event.extendedProps.event_date;
+        console.log(info.event.extendedProps);
+        // Format the event start date to dd-mm-yyyy using native JavaScript
+        var startDate = info.event.start;
+        var day = String(startDate.getDate()).padStart(2, '0'); // Add leading zero if necessary
+        var month = String(startDate.getMonth() + 1).padStart(2, '0'); // Get month and pad with zero
+        var year = startDate.getFullYear();
+
+        var formattedDate = day + '-' + month + '-' + year; // Format as dd-mm-yyyy
+
+        // Set the selected date
+        selectedDate2.innerText = 'Selected Date: ' + formattedDate;
 
         // Open the modal
         modal.show();
-
-        // Optionally, handle the form submission and save event
-        var form = document.getElementById("eventForm");
-        form.onsubmit = function (event) {
-          event.preventDefault();
-          var eventTitle = document.getElementById("eventTitle").value;
-          if (eventTitle) {
-            calendar.addEvent({
-              title: eventTitle,
-              start: info.date,
-              allDay: true
-            });
-            modal.hide();  // Close the modal after saving the event
-          }
-        }
       },
+
 
       views: {
         month: {
@@ -259,20 +309,7 @@
             year: "numeric"
           }
         },
-        agendaWeek: {
-          titleFormat: {
-            month: "long",
-            year: "numeric",
-            day: "numeric"
-          }
-        },
-        agendaDay: {
-          titleFormat: {
-            month: "short",
-            year: "numeric",
-            day: "numeric"
-          }
-        }
+       
       },
     });
 

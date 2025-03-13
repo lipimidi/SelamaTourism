@@ -47,6 +47,7 @@ function book_1()
     checkLogin();
  
     checkStepRedirect(1);
+    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step1.php';
 }
@@ -56,6 +57,7 @@ function book_2()
     include('includes/server.php');
     checkLogin();
     checkStepRedirect(2);
+    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step2.php';
 }
@@ -122,6 +124,8 @@ function checkStepRedirect($required_step) {
         $_SESSION['booking'] = [
             'step' => 1, 
             'date' => null,
+            'people_count' => null,
+            'session' => null,
             'people' => null,
             'insurance' => null
         ];
