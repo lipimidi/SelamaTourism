@@ -67,6 +67,7 @@ function book_3()
     include('includes/server.php');
     checkLogin();
     checkStepRedirect(3);
+    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step3.php';
 }
@@ -76,6 +77,7 @@ function book_4()
     include('includes/server.php');
     checkLogin();
     checkStepRedirect(4);
+    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step4.php';
 }
@@ -127,7 +129,8 @@ function checkStepRedirect($required_step) {
             'people_count' => null,
             'session' => null,
             'people' => null,
-            'insurance' => null
+            'insurance' => null,
+            'activity' => null
         ];
     }
 

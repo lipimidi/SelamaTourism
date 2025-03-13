@@ -68,50 +68,69 @@
                       </div>
                     </div>
                     <?php
+                    // Query to fetch user details (only once)
+                    $sql = "SELECT u.username, u.email, ud.name, ud.ic, ud.phone, ud.address
+        FROM users u
+        LEFT JOIN user_details ud ON u.id = ud.user_id
+        WHERE u.id = '1'";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
+
+                    // Get the booking people count
                     $count = $_SESSION['booking']['people_count'];
+
+                    // Loop through all people for the booking
                     for ($i = 1; $i <= $count; $i++) {
 
+                      // If it's the first iteration, use data from the database
+                      if ($i == 1) {
+                        $name = isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : $row['name'];
+                        $ic = isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : $row['ic'];
+                        $phone = isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : $row['phone'];
+                        $email = isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : $row['email'];
+                        $address = isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : $row['address'];
+                      } else {
+                        // For subsequent iterations, use session data
+                        $name = isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : '';
+                        $ic = isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : '';
+                        $phone = isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : '';
+                        $email = isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : '';
+                        $address = isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : '';
+                      }
+
                       ?>
+
                       <div class="multisteps-form__content">
                         <div id="form-container">
                           <div class="row mt-3 form-group">
                             <div class="col-12 col-sm-8 mt-4 mt-sm-0 text-start">
                               <label>Name</label>
-                              <input class="  form-control mb-3" type="text" placeholder="Eg. Michael"
-                                name="name-<?php echo $i ?>" 
-                                value="<?php echo isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : ''; ?>"
-                                >
+                              <input class="form-control mb-3" type="text" placeholder="Eg. Michael"
+                                name="name-<?php echo $i ?>" value="<?php echo htmlspecialchars($name); ?>">
+
                               <label>Identity Card Number</label>
-                              <input class=" form-control mb-3" type="text" placeholder="Eg. Tomson"
-                                name="ic-<?php echo $i ?>"
-                                value="<?php echo isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : ''; ?>"
-                                >
+                              <input class="form-control mb-3" type="text" placeholder="Eg. Tomson"
+                                name="ic-<?php echo $i ?>" value="<?php echo htmlspecialchars($ic); ?>">
+
                               <label>Phone</label>
-                              <input class="  form-control" type="text" placeholder="011 23141414"
-                                name="phone-<?php echo $i ?>"
-                                value="<?php echo isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : ''; ?>"
-                                >
+                              <input class="form-control" type="text" placeholder="011 23141414"
+                                name="phone-<?php echo $i ?>" value="<?php echo htmlspecialchars($phone); ?>">
+
                               <label>Email Address</label>
-                              <input class="  form-control" type="text" placeholder="Eg. soft@dashboard.com"
-                                name="email-<?php echo $i ?>"
-                                value="<?php echo isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : ''; ?>"
-                                >
+                              <input class="form-control" type="text" placeholder="Eg. soft@dashboard.com"
+                                name="email-<?php echo $i ?>" value="<?php echo htmlspecialchars($email); ?>">
+
                               <label>Home Address</label>
-                              <input class=" form-control" type="text" placeholder="Eg. soft@dashboard.com"
-                                name="address-<?php echo $i ?>"
-                                value="<?php echo isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : ''; ?>"
-                                >
+                              <input class="form-control" type="text" placeholder="Eg. soft@dashboard.com"
+                                name="address-<?php echo $i ?>" value="<?php echo htmlspecialchars($address); ?>">
                             </div>
                           </div>
                         </div>
-                        <!-- 
-                      <div class="button-row d-flex mt-4">
-                        <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button" title="Next"
-                          onclick="addForm()">Add</button>
-                      </div> -->
                       </div>
 
-                    <?php } ?>
+                      <?php
+                    }
+                    ?>
                     <div class="button-row d-flex mt-4">
                       <button type="submit" class="btn bg-gradient-dark ms-auto mb-0  "
                         name="confirmpeople">Save</button>

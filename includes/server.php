@@ -14,3 +14,4 @@ $dotenv->load();
 
  include('functions/booking_1.php');
  include('functions/booking_2.php');
+ include('functions/booking_3.php');

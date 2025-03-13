@@ -57,7 +57,7 @@
             <!--form panels-->
             <div class="row mb-lg-7">
               <div class="col-12 col-lg-8 m-auto">
-                <form class="multisteps-form__form" enctype="multipart/form-data" method="POST">
+                <form class=" " enctype="multipart/form-data" method="POST">
                   <!--single form panel-->
                   <div class="card p-3 border-radius-xl bg-white" data-animation="FadeIn">
                     <div class="row text-center">
@@ -69,7 +69,7 @@
                     <div class="multisteps-form__content">
                       <div class="row mt-4">
                         <div class="col-sm-3 ms-auto">
-                          <input type="checkbox" class="btn-check" id="btncheck1">
+                          <input type="checkbox" class="btn-check" id="btncheck1"  name="activities[]" value="Hiking">
                           <label class="btn btn-lg btn-outline-secondary border-2 px-6 py-5" for="btncheck1">
                             <svg class="text-dark" width="20px" height="20px" viewBox="0 0 40 40"
                               xmlns="http://www.w3.org/2000/svg">
@@ -93,10 +93,10 @@
                               </g>
                             </svg>
                           </label>
-                          <h6>Design</h6>
+                          <h6>Hiking</h6>
                         </div>
                         <div class="col-sm-3">
-                          <input type="checkbox" class="btn-check" id="btncheck2">
+                          <input type="checkbox" class="btn-check" id="btncheck2"  name="activities[]" value="Picnicking">
                           <label class="btn btn-lg btn-outline-secondary border-2 px-6 py-5" for="btncheck2">
                             <svg class="text-dark" width="20px" height="20px" viewBox="0 0 42 42"
                               xmlns="http://www.w3.org/2000/svg">
@@ -117,10 +117,10 @@
                               </g>
                             </svg>
                           </label>
-                          <h6>Code</h6>
+                          <h6>Picnicking</h6>
                         </div>
                         <div class="col-sm-3 me-auto">
-                          <input type="checkbox" class="btn-check" id="btncheck3">
+                          <input type="checkbox" class="btn-check" id="btncheck3" name="activities[]" value="Swimming"  >
                           <label class="btn btn-lg btn-outline-secondary border-2 px-6 py-5" for="btncheck3">
                             <svg class="text-dark" width="20px" height="20px" viewBox="0 0 40 40"
                               xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +138,7 @@
                               </g>
                             </svg>
                           </label>
-                          <h6>Technology</h6>
+                          <h6>Swimming</h6>
                         </div>
                       </div>
                     </div>
@@ -157,7 +157,12 @@
                       <button type="submit" class="btn btn-primary w-100">Next</button>
                     </div>
                   </div> -->
+                  <div class="button-row d-flex mt-4">
+                      <button type="submit" class="btn bg-gradient-dark ms-auto mb-0  "
+                        name="confirminsurance">Save</button>
 
+
+                    </div>
               </div>
 
             </div>
