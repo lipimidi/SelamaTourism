@@ -69,7 +69,7 @@
                     <div class="multisteps-form__content">
                       <div class="row mt-4">
                         <div class="col-sm-3 ms-auto">
-                          <input type="checkbox" class="btn-check" id="btncheck1"  name="activities[]" value="Hiking">
+                          <input type="checkbox" class="btn-check" id="btncheck1" name="activities[]" value="Hiking">
                           <label class="btn btn-lg btn-outline-secondary border-2 px-6 py-5" for="btncheck1">
                             <svg class="text-dark" width="20px" height="20px" viewBox="0 0 40 40"
                               xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +96,8 @@
                           <h6>Hiking</h6>
                         </div>
                         <div class="col-sm-3">
-                          <input type="checkbox" class="btn-check" id="btncheck2"  name="activities[]" value="Picnicking">
+                          <input type="checkbox" class="btn-check" id="btncheck2" name="activities[]"
+                            value="Picnicking">
                           <label class="btn btn-lg btn-outline-secondary border-2 px-6 py-5" for="btncheck2">
                             <svg class="text-dark" width="20px" height="20px" viewBox="0 0 42 42"
                               xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +121,7 @@
                           <h6>Picnicking</h6>
                         </div>
                         <div class="col-sm-3 me-auto">
-                          <input type="checkbox" class="btn-check" id="btncheck3" name="activities[]" value="Swimming"  >
+                          <input type="checkbox" class="btn-check" id="btncheck3" name="activities[]" value="Swimming">
                           <label class="btn btn-lg btn-outline-secondary border-2 px-6 py-5" for="btncheck3">
                             <svg class="text-dark" width="20px" height="20px" viewBox="0 0 40 40"
                               xmlns="http://www.w3.org/2000/svg">
@@ -143,12 +144,25 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row text-center mt-4">
+                      <div class="col-10 mx-auto">
+                        <h5 class="font-weight-normal">Upload Insurance</h5>
+                        <!-- <p>Give us more details about you. What do you enjoy doing in your spare time?</p> -->
+                      </div>
+                    </div>
                   <?php
                   $count = $_SESSION['booking']['people_count'];
                   for ($i = 1; $i <= $count; $i++) {
                     ?>
                     <!-- Dropzone -->
-                    <div class="dropzone" id="dropzoneArea-<?php echo $i ?>"></div>
+                     <div class="text-start">
+                    <label class="" for="dropzoneArea-<?php echo $i ?>"><h6>Person <?php echo $i ?></h6></label>
+
+                    <div class="dropzone" id="dropzoneArea-<?php echo $i ?>">
+
+                    </div>
+
+                    </div>
                   <?php } ?>
 
                   <!-- Submit Button -->
@@ -157,14 +171,13 @@
                       <button type="submit" class="btn btn-primary w-100">Next</button>
                     </div>
                   </div> -->
-                  <div class="button-row d-flex mt-4">
-                      <button type="submit" class="btn bg-gradient-dark ms-auto mb-0  "
-                        name="confirminsurance">Save</button>
 
-
-                    </div>
               </div>
+              <div class="button-row d-flex mt-4">
+                <button type="submit" class="btn bg-gradient-dark ms-auto mb-0  " name="confirminsurance">Save</button>
 
+
+              </div>
             </div>
           </div>
           <div class="button-row d-flex mt-4">
@@ -195,40 +208,112 @@
     // Loop through each dynamically created dropzone
     <?php for ($i = 1; $i <= $count; $i++) { ?>
       // Manually initialize Dropzone for each element
-      new Dropzone("#dropzoneArea-<?php echo $i; ?>", {
-        url: '/upload',  // Ensure you replace with a valid URL for the upload
+      var myDropzone = new Dropzone("#dropzoneArea-<?php echo $i; ?>", {
+        url: '<?php echo $rootPath; ?>/book/upload',  // Ensure you replace with a valid URL for the upload
         paramName: 'file',  // The name used to send the file
         maxFilesize: 2,  // Max file size in MB
         acceptedFiles: '.jpg,.jpeg,.png,.gif,.pdf',  // Allowed file types
         dictDefaultMessage: 'Drag and drop files here or click to upload',
         addRemoveLinks: true,  // Allow file removal
         previewsContainer: "#dropzoneArea-<?php echo $i; ?>",  // Where to display the previews
+        maxFiles: 1, // Only 1 file can be uploaded at any time
 
-        init: function() {
-          // Example of setting up a custom callback for added file
-          this.on("addedfile", function(file) {
-            if (file.type.startsWith('image/')) {
-              var reader = new FileReader();
-              reader.onload = function(e) {
-                var imgElement = document.createElement('img');
-                imgElement.src = e.target.result;
-                file.previewElement.appendChild(imgElement);  // Add the image preview to the preview container
+        init: function () {
+          var dz = this;  // Store the Dropzone instance
+
+          // Sending event (for appending additional parameters)
+          this.on("sending", function (file, xhr, formData) {
+            formData.append("user_id", "123");  // Example of adding a custom parameter
+            formData.append("people_number", "<?php echo $i; ?>");  // Adding dynamic custom parameter
+            formData.append("upload_temp", "<?php echo $i; ?>");  // Adding dynamic custom parameter
+          });
+
+          // Removed file event (for handling file removal)
+          this.on("removedfile", function (file) {
+            var fileName = file.name; // Get the file name
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "<?php echo $rootPath; ?>/book/remove", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("file=" + encodeURIComponent(fileName) + "&user_id=123" + "&people_number=<?php echo $i; ?>" + "&remove_temp=true");
+
+            xhr.onload = function () {
+              var response = xhr.responseText; // Server response (e.g., file path or success message)
+              console.log("File removed successfully. Server response: " + response);
+            };
+          });
+
+          // Check if there's a file stored in session for this index ($i)
+          <?php if (isset($_SESSION['booking']['insurance'][$i])): ?>
+            var fileInfo = <?php echo json_encode($_SESSION['booking']['insurance'][$i]); ?>;
+            console.log("Session file info for Dropzone: ", fileInfo);  // Debugging line
+
+            // Clear any existing files (in case there's already a file in Dropzone)
+            dz.removeAllFiles();
+
+            // Iterate through each file in session (you could have multiple but we handle one for now)
+            fileInfo.forEach(function (file) {
+              // Path to the uploaded file
+              var filePath = "<?php echo $rootPath; ?>/" + file.file_path; // Full URL to the file
+              var fileName = file.file_name;
+              var fileSize = file.file_size;
+              var fileType = file.file_type;
+
+              console.log("Adding file path: " + filePath);
+
+              // Create the mock file object that Dropzone can recognize
+              var mockFile = {  
+                name: fileName,
+                size: fileSize,
+                type: fileType,
+                url: filePath
               };
-              reader.readAsDataURL(file);
+
+              // Emit the 'addedfile' event to add the file to Dropzone
+              dz.emit('addedfile', mockFile);
+              dz.emit('thumbnail', mockFile, filePath); // Use the filePath directly for the image preview
+
+              // Optionally, you can use this to trigger the 'complete' event to indicate the file has finished being processed
+              dz.emit('complete', mockFile);
+
+              // Now force Dropzone to update the file count
+              dz.files.push(mockFile);
+            });
+          <?php endif; ?>
+
+          // Ensure only one file is allowed
+          this.on("addedfile", function (file) {
+            // If a file is already in Dropzone, remove it
+            if (this.files.length > 1) {
+              this.removeFile(this.files[0]); // Remove the previous file if a new one is added
             }
           });
         },
 
-        success: function(file, response) {
+        success: function (file, response) {
           console.log("File uploaded:", file);
         },
-        error: function(file, response) {
+
+        error: function (file, response) {
           console.log("Error uploading file:", file);
         }
       });
     <?php } ?>
   });
+
+
+  
 </script>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

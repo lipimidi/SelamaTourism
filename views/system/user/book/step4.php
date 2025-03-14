@@ -78,7 +78,7 @@ background-size: cover;">
                           </div>
                           <div class="col-4">
 
-                            <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+55%</p>
+                            <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+55%</p> -->
                           </div>
                         </div>
                       </div>
@@ -100,8 +100,8 @@ background-size: cover;">
                             <span class="text-white text-sm">Date</span>
                           </div>
                           <div class="col-4">
-                            
-                            <p class="text-white text-sm text-end font-weight-bolder mb-auto mt-6">+124%</p>
+
+                            <!-- <p class="text-white text-sm text-end font-weight-bolder mb-auto mt-6">+124%</p> -->
                           </div>
                         </div>
                       </div>
@@ -123,11 +123,11 @@ background-size: cover;">
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
                               1
                             </h5>
-                            <span class="text-white text-sm">Session</span>
+                            <span class="text-white text-sm">Time</span>
                           </div>
                           <div class="col-4">
-                             
-                            <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+15%</p>
+
+                            <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+15%</p> -->
                           </div>
                         </div>
                       </div>
@@ -144,13 +144,13 @@ background-size: cover;">
                               <i class="ni ni-like-2 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              940
+                              Processing
                             </h5>
-                            <span class="text-white text-sm">Likes</span>
+                            <span class="text-white text-sm">Status</span>
                           </div>
                           <div class="col-4">
-                            
-                            <p class="text-white text-sm text-end font-weight-bolder mb-auto mt-6">+90%</p>
+
+                            <!-- <p class="text-white text-sm text-end font-weight-bolder mb-auto mt-6">+90%</p> -->
                           </div>
                         </div>
                       </div>
@@ -158,8 +158,8 @@ background-size: cover;">
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-12 mt-4 mt-lg-0">
-                <div class="card h-100">
+              <div class="col-lg-6 col-0 mt-4 mt-lg-0">
+                <!-- <div class="card h-100">
                   <div class="card-header pb-0 p-3">
                     <h6 class="mb-0">Reviews</h6>
                   </div>
@@ -220,7 +220,7 @@ background-size: cover;">
                       <a class="btn bg-gradient-dark mb-0 text-end" href="javascript:;">View all reviews</a>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
 

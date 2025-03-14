@@ -12,6 +12,10 @@ $dotenv->load();
 
  
 
- include('functions/booking_1.php');
- include('functions/booking_2.php');
- include('functions/booking_3.php');
+ include('functions/booking/booking_1.php');
+ include('functions/booking/booking_2.php');
+ include('functions/booking/booking_3.php');
+
+
+ include('functions/auth/login.php');
+ include('functions/auth/register.php');

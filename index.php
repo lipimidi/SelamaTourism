@@ -32,10 +32,12 @@ function dashboard()
     checkLogin();
 
     if (!isAdmin()) {
+        echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
         include 'views/system/user/dashboard.php';
-   
-    }
-    else{
+
+    } else {
+        echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/admin/dashboard.php';
 
     }
@@ -45,7 +47,7 @@ function book_1()
 {
     include('includes/server.php');
     checkLogin();
- 
+
     checkStepRedirect(1);
     echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
@@ -105,9 +107,20 @@ function checkLogin()
 
 }
 
+
+function upload_insurance()
+{
+    include('includes/server.php');
+}
+
+function remove_insurance()
+{
+    include('includes/server.php');
+}
+
 function isAdmin()
 {
- 
+
     return (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
 }
 
@@ -115,22 +128,25 @@ function isAdmin()
 function geteventcalendar(): void
 {
     include('includes/server.php');
-     
+
 }
 
-function checkStepRedirect($required_step) {
-     global $basePath2;  
+function checkStepRedirect($required_step)
+{
+    global $basePath2;
 
     // Ensure the booking session is initialized
     if (!isset($_SESSION['booking'])) {
         $_SESSION['booking'] = [
-            'step' => 1, 
+            'step' => 1,
             'date' => null,
             'people_count' => null,
             'session' => null,
             'people' => null,
             'insurance' => null,
-            'activity' => null
+            'activity' => null,
+            'user_id' => null,
+
         ];
     }
 
@@ -177,8 +193,10 @@ $routes = [
     'login' => 'login',
     'register' => 'register',
 
- 
+
     'book/events' => 'register',
+    'book/upload' => 'upload_insurance',
+    'book/remove' => 'remove_insurance',
 
 ];
 

@@ -314,6 +314,8 @@
     });
 
     calendar.render();
+
+    
   </script>
 </body>
 

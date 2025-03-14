@@ -158,6 +158,9 @@
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/togglenav.php"); ?>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
+  <script>
+    
+  </script>
   <!-- <script>
     function addForm() {
       // Get the form container
