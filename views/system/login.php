@@ -14,13 +14,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("template/head.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/head.php"); ?>
 
 
 <body class=" ">
 
   <!-- End Google Tag Manager (noscript) -->
-  <?php include("template/nav2.php"); ?>
+  <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/nav.php"); ?>
 
   <main class="main-content  mt-0">
     <section>
@@ -34,20 +34,20 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form method="POST">
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" name="email">
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Password"
-                        aria-label="Password">
+                      <input type="password" class="form-control form-control-lg" placeholder="Password"
+                        aria-label="Password" name="password">
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
+                      <!-- <input class="form-check-input" type="checkbox" id="rememberMe"> -->
+                      <!-- <label class="form-check-label" for="rememberMe">Remember me</label> -->
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" name="login">Sign in</button>
                     </div>
                   </form>
                 </div>
@@ -77,9 +77,10 @@
     </section>
   </main>
 
-  <?php include("template/togglenav.php"); ?>
 
-  <?php include("template/script.php"); ?>
+  <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/togglenav.php"); ?>
+
+<?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
 
 </body>
 

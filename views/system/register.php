@@ -14,13 +14,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("template/head.php"); ?>
+ <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/head.php"); ?>
 
 
 <body class=" ">
 
   <!-- End Google Tag Manager (noscript) -->
-  <?php include("template/nav2.php"); ?>
+   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/public/template/nav.php"); ?>
 
   <main class="main-content  mt-0">
     <section>
@@ -31,7 +31,7 @@
               <div class="card card-plain">
                 <div class="card-header pb-0 text-left">
                   <h4 class="font-weight-bolder">Sign Up</h4>
-                  <p class="mb-0">Enter your email and password to register</p>
+                  <p class="mb-0">Enter your email and password to sign up</p>
                 </div>
                 <div class="card-body pb-3">
                   <form method="POST">
@@ -57,8 +57,7 @@
                       <input class="form-check-input" type="checkbox" value="" name="agree_terms" id="flexCheckDefault"
                         checked>
                       <label class="form-check-label" for="flexCheckDefault">
-                        I agree the <a href="https://demos.creative-tim.com/argon-dashboard-pro/pages/privacy.html"
-                          class="text-dark font-weight-bolder">Terms and Conditions</a>
+                        I agree the <div>Terms and Conditions</div>
                       </label>
                     </div>
                     <div class="text-center">
@@ -69,7 +68,7 @@
                 <div class="card-footer text-center pt-0 px-sm-4 px-1">
                   <p class="mb-4 mx-auto">
                     <!-- Already have an account? -->
-                    <a href="https://demos.creative-tim.com/argon-dashboard-pro/pages/sign-in/sign-in-cover.html"
+                    <a href="<?php echo $rootPath; ?>/signin"
                       class="text-primary font-weight-bold">Sign in</a>
                   </p>
                 </div>
@@ -93,9 +92,10 @@
     </section>
   </main>
 
-  <?php include("template/togglenav.php"); ?>
+   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/togglenav.php"); ?>
 
-  <?php include("template/script.php"); ?>
+   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
+
 
 </body>
 

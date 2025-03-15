@@ -31,7 +31,9 @@
   <link href="<?php echo $rootPath; ?>/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="<?php echo $rootPath; ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
 
-  <link href="<?php echo $rootPath; ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
+  
+
+  <link href="<?php echo $rootPath; ?>/assets/css/font-awesome.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="<?php echo $rootPath; ?>/assets/css/argon-dashboard.min.css" rel="stylesheet" />
   <!-- Anti-flicker snippet (recommended)  -->

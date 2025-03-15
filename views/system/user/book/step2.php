@@ -68,36 +68,38 @@
                       </div>
                     </div>
                     <?php
-                    // Query to fetch user details (only once)
-                    $sql = "SELECT u.username, u.email, ud.name, ud.ic, ud.phone, ud.address
-        FROM users u
-        LEFT JOIN user_details ud ON u.id = ud.user_id
-        WHERE u.id = '1'";
-                    $result = $conn->query($sql);
-                    $row = $result->fetch_assoc();
 
+                 
                     // Get the booking people count
                     $count = $_SESSION['booking']['people_count'];
 
+
                     // Loop through all people for the booking
                     for ($i = 1; $i <= $count; $i++) {
+                      $name = '';
+                      $ic = '';
+                      $phone = '';
+                      $email = '';
+                      $address = '';
 
-                      // If it's the first iteration, use data from the database
-                      if ($i == 1) {
-                        $name = isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : $row['name'];
-                        $ic = isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : $row['ic'];
-                        $phone = isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : $row['phone'];
-                        $email = isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : $row['email'];
-                        $address = isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : $row['address'];
-                      } else {
-                        // For subsequent iterations, use session data
-                        $name = isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : '';
-                        $ic = isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : '';
-                        $phone = isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : '';
-                        $email = isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : '';
-                        $address = isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : '';
-                      }
 
+ 
+                        // If it's the first iteration, use data from the database
+                        if ($i == 1) {
+                          $name = isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : $_SESSION['user_details']['name'];
+                          $ic = isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : $_SESSION['user_details']['ic'];
+                          $phone = isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : $_SESSION['user_details']['phone'];
+                          $email = isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : $_SESSION['user_details']['email'];
+                          $address = isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : $_SESSION['user_details']['address'];
+                        } else {
+                          // For subsequent iterations, use session data
+                          $name = isset($_SESSION['booking']['people'][$i]['name']) ? $_SESSION['booking']['people'][$i]['name'] : '';
+                          $ic = isset($_SESSION['booking']['people'][$i]['ic']) ? $_SESSION['booking']['people'][$i]['ic'] : '';
+                          $phone = isset($_SESSION['booking']['people'][$i]['phone']) ? $_SESSION['booking']['people'][$i]['phone'] : '';
+                          $email = isset($_SESSION['booking']['people'][$i]['email']) ? $_SESSION['booking']['people'][$i]['email'] : '';
+                          $address = isset($_SESSION['booking']['people'][$i]['address']) ? $_SESSION['booking']['people'][$i]['address'] : '';
+                        }
+                       
                       ?>
 
                       <div class="multisteps-form__content">
@@ -106,23 +108,23 @@
                             <div class="col-12 col-sm-8 mt-4 mt-sm-0 text-start">
                               <label>Name</label>
                               <input class="form-control mb-3" type="text" placeholder="Eg. Michael"
-                                name="name-<?php echo $i ?>" value="<?php echo htmlspecialchars($name); ?>">
+                                name="name-<?php echo $i ?>" value="<?php echo ($name); ?>">
 
                               <label>Identity Card Number</label>
                               <input class="form-control mb-3" type="text" placeholder="Eg. Tomson"
-                                name="ic-<?php echo $i ?>" value="<?php echo htmlspecialchars($ic); ?>">
+                                name="ic-<?php echo $i ?>" value="<?php echo ($ic); ?>">
 
                               <label>Phone</label>
                               <input class="form-control" type="text" placeholder="011 23141414"
-                                name="phone-<?php echo $i ?>" value="<?php echo htmlspecialchars($phone); ?>">
+                                name="phone-<?php echo $i ?>" value="<?php echo ($phone); ?>">
 
                               <label>Email Address</label>
                               <input class="form-control" type="text" placeholder="Eg. soft@dashboard.com"
-                                name="email-<?php echo $i ?>" value="<?php echo htmlspecialchars($email); ?>">
+                                name="email-<?php echo $i ?>" value="<?php echo ($email); ?>">
 
                               <label>Home Address</label>
                               <input class="form-control" type="text" placeholder="Eg. soft@dashboard.com"
-                                name="address-<?php echo $i ?>" value="<?php echo htmlspecialchars($address); ?>">
+                                name="address-<?php echo $i ?>" value="<?php echo ($address); ?>">
                             </div>
                           </div>
                         </div>
@@ -159,7 +161,7 @@
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
   <script>
-    
+
   </script>
   <!-- <script>
     function addForm() {

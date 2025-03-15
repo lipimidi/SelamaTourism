@@ -31,6 +31,11 @@ function dashboard()
     include('includes/server.php');
     checkLogin();
 
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Dashboard', 'url' => '/dashboard'],
+     ];
+
     if (!isAdmin()) {
         echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
@@ -48,6 +53,12 @@ function book_1()
     include('includes/server.php');
     checkLogin();
 
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Booking', 'url' => '/book'],
+     ];
+
+
     checkStepRedirect(1);
     echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
@@ -58,8 +69,16 @@ function book_2()
 {
     include('includes/server.php');
     checkLogin();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Booking', 'url' => '/book'],
+     ];
+
+
     checkStepRedirect(2);
     echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     include 'views/system/user/book/step2.php';
 }
@@ -68,6 +87,12 @@ function book_3()
 {
     include('includes/server.php');
     checkLogin();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Booking', 'url' => '/book'],
+     ];
+
     checkStepRedirect(3);
     echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
@@ -78,6 +103,12 @@ function book_4()
 {
     include('includes/server.php');
     checkLogin();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Booking', 'url' => '/book'],
+     ];
+
     checkStepRedirect(4);
     echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
@@ -86,24 +117,51 @@ function book_4()
 function login()
 {
     include('includes/server.php');
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     include 'views/system/login.php';
 }
 
 function register()
 {
+
     include('includes/server.php');
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
     include 'views/system/register.php';
 }
+
+
+function register_2()
+{
+
+    include('includes/server.php');
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
+    include 'views/system/register2.php';
+}
+
+function logout()
+{
+
+    include('includes/server.php');
+    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
+    session_unset(); // Remove all session variables
+    session_destroy(); // Destroy the session
+         global $basePath2;  
+
+    header("Location: " . $basePath2 . "/signin");
+ }
 function checkLogin()
 {
 
 
-    // if (!isset($_SESSION['user_id'])) {
-    //      global $basePath2;  
+    if (!isset($_SESSION['user_details'])) {
+         global $basePath2;  
 
-    //     header("Location: " . $basePath2 . "/login");
-    // }
+        header("Location: " . $basePath2 . "/signin");
+    }
 
 }
 
@@ -190,8 +248,10 @@ $routes = [
     'book/people' => 'book_2',
     'book/insurance' => 'book_3',
     'book/summary' => 'book_4',
-    'login' => 'login',
-    'register' => 'register',
+    'signin' => 'login',
+    'signup' => 'register',
+    'signup/details' => 'register',
+    'signout' => 'logout',
 
 
     'book/events' => 'register',
