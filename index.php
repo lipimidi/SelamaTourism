@@ -141,7 +141,10 @@ function book($booking_id)
     $booking_id = (int) $booking_id;  // Cast to integer to ensure safety
 
     // Query to search for the booking_id in the bookings table
-    $sql = "SELECT * FROM bookings WHERE id = $booking_id";
+    $sql = "SELECT bookings.*, booking_timeslots.start_time,booking_timeslots.end_time
+    FROM bookings
+    INNER JOIN booking_timeslots ON bookings.timeslot_id = booking_timeslots.id
+    WHERE bookings.id = $booking_id";
 
     // Execute the query
     $result = $conn->query($sql);

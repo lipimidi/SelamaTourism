@@ -71,7 +71,7 @@ background-size: cover;">
                               <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              6
+                              <?php echo $booking['people_booked'] ?>
                             </h5>
                             <span class="text-white text-sm">People</span>
                           </div>
@@ -94,7 +94,7 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              23/07/2025
+                            <?php echo $booking['booking_date'] ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -120,7 +120,7 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              1
+                            <?php echo $booking['start_time'] ?> - <?php echo $booking['end_time'] ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>
@@ -143,7 +143,7 @@ background-size: cover;">
                               <i class="ni ni-check-bold text-white   text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              Processing
+                              <?php echo $booking['status'] ?>
                             </h5>
                             <span class="text-white text-sm">Status</span>
                           </div>
