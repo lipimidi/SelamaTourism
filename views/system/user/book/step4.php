@@ -71,7 +71,7 @@ background-size: cover;">
                               <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              6
+                            <?php echo $_SESSION['booking']['people_count'] ?>
                             </h5>
                             <span class="text-white text-sm">People</span>
                           </div>
@@ -94,7 +94,7 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              23/07/2025
+                            <?php echo $_SESSION['booking']['date'] ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -120,7 +120,7 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              1
+                              <?php echo $_SESSION['booking']['session2'] ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>

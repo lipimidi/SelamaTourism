@@ -80,8 +80,10 @@ if ( isset($_POST['confirmdate'])) {
         $_SESSION['booking']['step'] = 2;
 
     }
+
     $_SESSION['booking']['date'] = $_POST['date'];
     $_SESSION['booking']['session'] = $_POST['session'];
+    $_SESSION['booking']['session2'] = $_POST['session2'];
     $_SESSION['booking']['people_count'] = $_POST['people_count'];
 
     header("Location: " . $basePath2 . "/book");
