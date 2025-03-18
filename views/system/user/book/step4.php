@@ -17,10 +17,9 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/head.php"); ?>
 
 
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show   bg-gray-200">
 
   <!-- End Google Tag Manager (noscript) -->
-  <div class="min-height-300 bg-dark position-absolute w-100"></div>
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/sidenav.php"); ?>
 
   <main class="main-content position-relative border-radius-lg ">
@@ -68,8 +67,8 @@ background-size: cover;">
                       <div class="card-body p-3 position-relative">
                         <div class="row">
                           <div class="col-8 text-start">
-                            <div class="icon icon-shape bg-white shadow text-center border-radius-md">
-                              <i class="ni ni-circle-08 text-dark text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                              <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
                               6
@@ -91,8 +90,8 @@ background-size: cover;">
                       <div class="card-body p-3 position-relative">
                         <div class="row">
                           <div class="col-8 text-start">
-                            <div class="icon icon-shape bg-white shadow text-center border-radius-md">
-                              <i class="ni ni-active-40 text-dark text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                              <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
                               23/07/2025
@@ -117,8 +116,8 @@ background-size: cover;">
                       <div class="card-body p-3 position-relative">
                         <div class="row">
                           <div class="col-8 text-start">
-                            <div class="icon icon-shape bg-white shadow text-center border-radius-md">
-                              <i class="ni ni-cart text-dark text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                              <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
                               1
@@ -133,15 +132,15 @@ background-size: cover;">
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
+                  <!-- <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
                     <div class="card overflow-hidden shadow-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/reports4.jpg');
 background-size: cover;">
                       <span class="mask bg-gradient-dark"></span>
                       <div class="card-body p-3 position-relative">
                         <div class="row">
                           <div class="col-8 text-start">
-                            <div class="icon icon-shape bg-white shadow text-center border-radius-md">
-                              <i class="ni ni-like-2 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                              <i class="ni ni-check-bold text-white   text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
                               Processing
@@ -150,12 +149,11 @@ background-size: cover;">
                           </div>
                           <div class="col-4">
 
-                            <!-- <p class="text-white text-sm text-end font-weight-bolder mb-auto mt-6">+90%</p> -->
-                          </div>
+                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="col-lg-6 col-0 mt-4 mt-lg-0">
@@ -233,199 +231,86 @@ background-size: cover;">
                       <thead>
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">IC
                           </th>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Review
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone
                           </th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Email</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                            Employed</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id
+                            Address</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                           </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="avatar image">
+
+                        <?php
+                        $count = $_SESSION['booking']['people_count'];
+                        for ($i = 1; $i <= $count; $i++) {
+
+                          $name = $_SESSION['booking']['people'][$i]['name'];
+                          $ic = $_SESSION['booking']['people'][$i]['ic'];
+                          $phone = $_SESSION['booking']['people'][$i]['phone'];
+                          $email = $_SESSION['booking']['people'][$i]['email'];
+                          $address = $_SESSION['booking']['people'][$i]['address'];
+
+                          ?>
+                          <tr>
+
+                            <td>
+                              <div class="d-flex px-2 py-1">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm"><?php echo $name ?></h6>
+                                </div>
                               </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">John Michael</h6>
+                            </td>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm"><?php echo $ic ?></h6>
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-sm text-secondary mb-0">Manager</p>
-                          </td>
-                          <td>
-                            <span class="badge badge-dot me-4">
-                              <i class="bg-info"></i>
-                              <span class="text-dark text-xs">positive</span>
-                            </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <p class="text-secondary mb-0 text-sm">john@user.com</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">23/04/18</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">43431</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="avatar image">
+                            </td>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm"><?php echo $phone ?></h6>
+                                </div>
                               </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                            </td>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm"><?php echo $email ?></h6>
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-sm text-secondary mb-0">Programator</p>
-                          </td>
-                          <td>
-                            <span class="badge badge-dot me-4">
-                              <i class="bg-info"></i>
-                              <span class="text-dark text-xs">positive</span>
-                            </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <p class="text-secondary mb-0 text-sm">alexa@user.com</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">93021</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="avatar image">
+                            </td>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="mb-0 text-sm"><?php echo $address ?></h6>
+                                </div>
                               </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Laurent Perrier</h6>
+                            </td>
+                            <td>
+                              <div class="d-flex px-2 py-1">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                  <button type="button" class="btn btn-block bg-gradient-primary mb-3"
+                                    data-bs-toggle="modal" data-bs-target="#modal-<?php echo $i ?>">File</button>
+
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-sm text-secondary mb-0">Executive</p>
-                          </td>
-                          <td>
-                            <span class="badge badge-dot me-4">
-                              <i class="bg-dark"></i>
-                              <span class="text-dark text-xs">neutral</span>
-                            </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <p class="text-secondary mb-0 text-sm">laurent@user.com</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">10392</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="avatar image">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Michael Levi</h6>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-sm text-secondary mb-0">Backend developer</p>
-                          </td>
-                          <td>
-                            <span class="badge badge-dot me-4">
-                              <i class="bg-info"></i>
-                              <span class="text-dark text-xs">positive</span>
-                            </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <p class="text-secondary mb-0 text-sm">michael@user.com</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">34002</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="avatar image">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Richard Gran</h6>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-sm text-secondary mb-0">Manager</p>
-                          </td>
-                          <td>
-                            <span class="badge badge-dot me-4">
-                              <i class="bg-danger"></i>
-                              <span class="text-dark text-xs">negative</span>
-                            </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <p class="text-secondary mb-0 text-sm">richard@user.com</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">91879</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="avatar image">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-sm text-secondary mb-0">Programtor</p>
-                          </td>
-                          <td>
-                            <span class="badge badge-dot me-4">
-                              <i class="bg-info"></i>
-                              <span class="text-dark text-xs">positive</span>
-                            </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <p class="text-secondary mb-0 text-sm">miriam@user.com</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-sm">23042</span>
-                          </td>
-                        </tr>
+                            </td>
+                          </tr>
+                        <?php } ?>
+
                       </tbody>
                     </table>
                   </div>
@@ -434,16 +319,82 @@ background-size: cover;">
             </div>
           </div>
         </div>
-        <div class="button-row d-flex mt-4">
-          <a class="btn bg-gradient-light mb-0 js-btn-prev" href="<?php echo $rootPath; ?>/book/people">Previous</a>
-          <a class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" href="<?php echo $rootPath; ?>/book/summary">Next</a>
-        </div>
+        <form method="POST">
+
+          <div class="button-row d-flex mt-4">
+            <a class="btn bg-gradient-light mb-0 js-btn-prev"
+              href="<?php echo $rootPath; ?>/book/insurance">Previous</a>
+            <!-- <a class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
+            href="<?php echo $rootPath; ?>/book/summary">Confirm</a> -->
+
+            <button type="submit" class="btn bg-gradient-dark ms-auto mb-0    " name="confirmbooking">Confirm</button>
+
+          </div>
+
         </form>
+
       </div>
     </div>
     </div>
     </div>
-    ` </div>
+    </div>
+
+    <div>
+      <?php
+      $count = $_SESSION['booking']['people_count'];
+
+      for ($b = 1; $b <= $count; $b++) {
+        // Example file URL, you can replace this with your actual dynamic file path
+      
+        $filePath = $basePath2 . '/' . $_SESSION['booking']['insurance'][$b][0]['file_path'];
+
+        $fileInfo = pathinfo($filePath);
+        $extension = strtolower($fileInfo['extension']); // Get file extension and convert to lowercase
+      
+        ?>
+
+        <div class="modal fade" id="modal-<?php echo $b ?>" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+          aria-hidden="true">
+          <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-default">
+                  <?php echo $_SESSION['booking']['insurance'][$b][0]['file_name'] ?>
+                </h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <!-- <h6 class="mb-0 text-sm"><?php echo $insurance ?></h6> -->
+
+                <?php
+                // Check if the file is an image or a PDF and display accordingly
+                if ($extension == 'pdf') {
+                  // Embed PDF
+                  echo '<iframe src="' . $filePath . '" width="100%" height="400px" frameborder="0"></iframe>';
+                } elseif (in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'])) {
+                  // Display Image
+                  echo '<img src="' . $filePath . '" alt="Image" width="100%" height="auto">';
+                } else {
+                  echo "<p>Unsupported file type</p>";
+                }
+                ?>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <?php } ?>
+
+
+    </div>
 
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>
@@ -453,9 +404,10 @@ background-size: cover;">
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/togglenav.php"); ?>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
-  <script>
 
-  </script>
+
+  <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script_book.php"); ?>
+
 </body>
 
 </html>

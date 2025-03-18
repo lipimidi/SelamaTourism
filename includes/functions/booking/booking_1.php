@@ -76,16 +76,20 @@ if ( isset($_POST['fetch_events'])) {
 }
 
 if ( isset($_POST['confirmdate'])) {
-    $_SESSION['booking']['step'] =2;
+    if ($_SESSION['booking']['step'] == 1) {
+        $_SESSION['booking']['step'] = 2;
+
+    }
     $_SESSION['booking']['date'] = $_POST['date'];
     $_SESSION['booking']['session'] = $_POST['session'];
     $_SESSION['booking']['people_count'] = $_POST['people_count'];
 
     header("Location: " . $basePath2 . "/book");
+    exit();
 
     
     // echo "<script>console.log(" . json_encode($_POST) . ");</script>";
-    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
  
 
     // echo $_SESSION['session'];

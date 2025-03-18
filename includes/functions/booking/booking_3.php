@@ -29,9 +29,12 @@ if (isset($_POST['confirminsurance'])) {
     }
 
     if (!$error) {
-        $_SESSION['booking']['step'] = 4;
+        if ($_SESSION['booking']['step'] == 3) {
+            $_SESSION['booking']['step'] = 4;
 
-    header("Location: " . $basePath2 . "/book/insurance");
+        }
+        header("Location: " . $basePath2 . "/book/insurance");
+        exit();
 
     }
 
@@ -77,8 +80,8 @@ if (isset($_POST['upload_temp'])) {
     $uploadRootDir = 'assets/uploads/booking/insurance/temp/';
 
     // Check if the directory exists, if not, create it
-    if (!file_exists($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
+    if (!file_exists($uploadRootDir)) {
+        mkdir($uploadRootDir, 0777, true);
     }
 
 

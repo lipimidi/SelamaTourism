@@ -4,6 +4,7 @@
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/smooth-scrollbar.min.js"></script>
   <!-- Kanban scripts -->
+  <script src="<?php echo $rootPath; ?>/assets/js/plugins/nouislider.min.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/dragula/dragula.min.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/jkanban/jkanban.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/chartjs.min.js"></script>
@@ -11,6 +12,9 @@
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/dropzone.min.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery-3.7.1.js"></script>
   <script src="<?php echo $rootPath; ?>/assets/js/plugins/moment.min.js"></script>
+  <script src="<?php echo $rootPath; ?>/assets/js/plugins/datatables.js"></script>
+  <script src="<?php echo $rootPath; ?>/assets/js/plugins/leaflet.js"></script>
+
   <script>
     // var ctx1 = document.getElementById("chart-line").getContext("2d");
 

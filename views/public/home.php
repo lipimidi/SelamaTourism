@@ -1613,7 +1613,7 @@
         </div>
       </div>
       <div class="col-lg-4 px-lg-1 mt-lg-0 mt-4">
-        <div class="info-horizontal bg-gray-100 border-radius-xl p-5">
+        <div class="info-horizontal bg-gray-200 border-radius-xl p-5">
           <div class="icon">
             <svg class="text-primary" width="25px" height="25px" viewBox="0 0 40 44" version="1.1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1647,7 +1647,7 @@
         </div>
       </div>
       <div class="col-lg-4 mt-lg-0 mt-4">
-        <div class="info-horizontal bg-gray-100 border-radius-xl p-5">
+        <div class="info-horizontal bg-gray-200 border-radius-xl p-5">
           <div class="icon">
             <svg class="text-primary" width="25px" height="25px" viewBox="0 0 40 40" version="1.1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

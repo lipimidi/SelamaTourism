@@ -17,10 +17,9 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/head.php"); ?>
 
 
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show   bg-gray-200">
 
   <!-- End Google Tag Manager (noscript) -->
-  <div class="min-height-300 bg-dark position-absolute w-100"></div>
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/sidenav.php"); ?>
 
   <main class="main-content position-relative border-radius-lg ">
@@ -83,7 +82,7 @@
             <div class="modal-body">
               <h6 id="selectedDate">Selected Date: </h6>
               <form id="eventForm" method="POST">
-              <input type="text" class="form-control" id="eventDate" name="date" hidden>
+                <input type="text" class="form-control" id="eventDate" name="date" hidden>
 
                 <div class="mb-3">
                   <label for="eventSession" class="form-label">Session</label>
@@ -94,7 +93,8 @@
 
                 <div class="mb-3">
                   <label for="eventPeople" class="form-label">People</label>
-                  <input type="number" class="form-control" id="eventPeople" name="people_count" value="<?php echo isset($_SESSION['booking']['people_count']) ? $_SESSION['booking']['people_count'] : '1'; ?>"
+                  <input type="number" class="form-control" id="eventPeople" name="people_count"
+                    value="<?php echo isset($_SESSION['booking']['people_count']) ? $_SESSION['booking']['people_count'] : '1'; ?>"
                     placeholder="Enter how many people">
                 </div>
                 <button type="submit" class="btn btn-primary" name="confirmdate">Confirm</button>
@@ -116,207 +116,119 @@
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
   <script>
-
-    function getEventTimeFormat() {
-      // Check if the screen width is tablet size or smaller
-      if (window.innerWidth <= 375) {
-        return {
-          hour: 'numeric',
-          hour12: true,  // 12-hour format
-          meridiem : 'narrow',
-         };
-      } 
-      else if (window.innerWidth <= 768) {
-        return {
-          hour: 'numeric',
-          hour12: true,  // 12-hour format
-         };
-      } else {
-        return {
-          hour: 'numeric',
-          minute: '2-digit',
-          hour12: true,  // Use 12-hour format (AM/PM)
-        };
+    document.addEventListener('DOMContentLoaded', function () {
+      // Define the function to get event time format based on screen size
+      function getEventTimeFormat() {
+        // Check if the screen width is tablet size or smaller
+        if (window.innerWidth <= 375) {
+          return {
+            hour: 'numeric',
+            hour12: true,  // 12-hour format
+            meridiem: 'narrow',
+          };
+        }
+        else if (window.innerWidth <= 768) {
+          return {
+            hour: 'numeric',
+            hour12: true,  // 12-hour format
+          };
+        } else {
+          return {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,  // Use 12-hour format (AM/PM)
+          };
+        }
       }
-    }
 
-    var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
-      initialView: "dayGridMonth",
-      headerToolbar: {
-        start: 'title', // will normally be on the left. if RTL, will be on the right
-        center: '',
-        end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
-      },
-
-      eventTimeFormat: getEventTimeFormat(),
-
-
-      selectable: true,
-      height: 'auto',  // Adjust the height automatically
-      contentHeight: 'auto', // Make content height auto
-
-
-      // editable: true,
-      // events: [
-      //   {
-      //     title: 'Full',
-      //     start: '2025-03-11',
-      //     end: '2025-03-11',
-      //     className: 'bg-gradient-danger'
-      //   },
-
-      //   {
-      //     title: '3/40',
-      //     start: '2025-03-12',
-      //     end: '2025-03-12',
-      //     className: 'bg-gradient-warning'
-      //   },
-
-
-
-      //   {
-      //     title: '40/40',
-      //     start: '2025-03-13',
-      //     end: '2025-03-13',
-      //     className: 'bg-gradient-info'
-      //   },
-      //   {
-      //     title: 'Full',
-      //     start: '2025-03-11',
-      //     end: '2025-03-11',
-      //     className: 'bg-gradient-danger'
-      //   },
-
-      //   {
-      //     title: '3/40',
-      //     start: '2025-03-12',
-      //     end: '2025-03-12',
-      //     className: 'bg-gradient-warning'
-      //   },
-
-
-
-      //   {
-      //     title: '40/40',
-      //     start: '2025-03-13',
-      //     end: '2025-03-13',
-      //     className: 'bg-gradient-info'
-      //   },
-
-      // {
-      //   title: 'Winter Hackaton',
-      //   start: '2020-12-03',
-      //   end: '2020-12-03',
-      //   className: 'bg-gradient-danger'
-      // },
-
-      // {
-      //   title: 'Digital event',
-      //   start: '2020-12-07',
-      //   end: '2020-12-09',
-      //   className: 'bg-gradient-warning'
-      // },
-
-      // {
-      //   title: 'Marketing event',
-      //   start: '2020-12-10',
-      //   end: '2020-12-10',
-      //   className: 'bg-gradient-primary'
-      // },
-
-      // {
-      //   title: 'Dinner with Family',
-      //   start: '2020-12-19',
-      //   end: '2020-12-19',
-      //   className: 'bg-gradient-danger'
-      // },
-
-      // {
-      //   title: 'Black Friday',
-      //   start: '2020-12-23',
-      //   end: '2020-12-23',
-      //   className: 'bg-gradient-info'
-      // },
-
-      // {
-      //   title: 'Cyber Week',
-      //   start: '2020-12-02',
-      //   end: '2020-12-02',
-      //   className: 'bg-gradient-warning'
-      // },
-
-      // ],
-      events: function (fetchInfo, successCallback, failureCallback) {
-        console.log("Sending request to fetch events..."); // Debug log
-
-        $.ajax({
-          url: "<?php echo $rootPath; ?>/book/events",
-          type: "POST",
-          dataType: "json",
-          data: {
-            fetch_events: true,
-            start: fetchInfo.startStr,
-            end: fetchInfo.endStr,
-
-
-          }, // Secure POST request
-          success: function (response) {
-            console.log("Response received:", response); // Debug log
-            successCallback(response);
-          },
-          error: function (xhr, status, error) {
-            console.error("Error fetching events:", status, error);
-            failureCallback([]);
-          }
-        });
-      },
-      eventClick: function (info) {
-        // Show the modal with the selected date
-        var modal = new bootstrap.Modal(document.getElementById('eventModal'));
-        var selectedDate = document.getElementById('eventDate');
-        var selectedDate2 = document.getElementById('selectedDate');
-        var selectedSession = document.getElementById('eventSession');
-        var selectedSession2 = document.getElementById('eventSession2');
-        selectedSession2.value = info.event.extendedProps.session2;
-
-        var selectedPeople = document.getElementById('eventPeople');
-        selectedPeople.max = info.event.extendedProps.remaining_slots;
-
-        // Get the session value
-        selectedSession.value = info.event.extendedProps.session;
-        selectedDate.value = info.event.extendedProps.event_date;
-        console.log(info.event.extendedProps);
-        // Format the event start date to dd-mm-yyyy using native JavaScript
-        var startDate = info.event.start;
-        var day = String(startDate.getDate()).padStart(2, '0'); // Add leading zero if necessary
-        var month = String(startDate.getMonth() + 1).padStart(2, '0'); // Get month and pad with zero
-        var year = startDate.getFullYear();
-
-        var formattedDate = day + '-' + month + '-' + year; // Format as dd-mm-yyyy
-
-        // Set the selected date
-        selectedDate2.innerText = 'Selected Date: ' + formattedDate;
-
-        // Open the modal
-        modal.show();
-      },
-
-
-      views: {
-        month: {
-          titleFormat: {
-            month: "long",
-            year: "numeric"
-          }
+      // Initialize the FullCalendar object
+      var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
+        initialView: "dayGridMonth",
+        headerToolbar: {
+          start: 'title', // will normally be on the left. if RTL, will be on the right
+          center: '',
+          end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
         },
-       
-      },
+
+        eventTimeFormat: getEventTimeFormat(),
+
+        selectable: true,
+        height: 'auto',  // Adjust the height automatically
+        contentHeight: 'auto', // Make content height auto
+
+        events: function (fetchInfo, successCallback, failureCallback) {
+          console.log("Sending request to fetch events..."); // Debug log
+
+          $.ajax({
+            url: "<?php echo $rootPath; ?>/book/events",
+            type: "POST",
+            dataType: "json",
+            data: {
+              fetch_events: true,
+              start: fetchInfo.startStr,
+              end: fetchInfo.endStr,
+            }, // Secure POST request
+            success: function (response) {
+              console.log("Response received:", response); // Debug log
+              successCallback(response);
+            },
+            error: function (xhr, status, error) {
+              console.error("Error fetching events:", status, error);
+              failureCallback([]);
+            }
+          });
+        },
+
+        eventClick: function (info) {
+          // Show the modal with the selected date
+          var modal = new bootstrap.Modal(document.getElementById('eventModal'));
+          var selectedDate = document.getElementById('eventDate');
+          var selectedDate2 = document.getElementById('selectedDate');
+          var selectedSession = document.getElementById('eventSession');
+          var selectedSession2 = document.getElementById('eventSession2');
+          selectedSession2.value = info.event.extendedProps.session2;
+
+          var selectedPeople = document.getElementById('eventPeople');
+          selectedPeople.max = info.event.extendedProps.remaining_slots;
+
+          // Get the session value
+          selectedSession.value = info.event.extendedProps.session;
+          selectedDate.value = info.event.extendedProps.event_date;
+          console.log(info.event.extendedProps);
+
+          // Format the event start date to dd-mm-yyyy using native JavaScript
+          var startDate = info.event.start;
+          var day = String(startDate.getDate()).padStart(2, '0'); // Add leading zero if necessary
+          var month = String(startDate.getMonth() + 1).padStart(2, '0'); // Get month and pad with zero
+          var year = startDate.getFullYear();
+
+          var formattedDate = day + '-' + month + '-' + year; // Format as dd-mm-yyyy
+
+          // Set the selected date
+          selectedDate2.innerText = 'Selected Date: ' + formattedDate;
+
+          // Open the modal
+          modal.show();
+        },
+
+        views: {
+          month: {
+            titleFormat: {
+              month: "long",
+              year: "numeric"
+            }
+          },
+        },
+      });
+
+      // Render the calendar
+      calendar.render();
     });
-
-    calendar.render();
-
-    
   </script>
+
+
+  <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script_book.php"); ?>
+
 </body>
 
 </html>

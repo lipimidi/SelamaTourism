@@ -1,9 +1,13 @@
 <?php
 
 
-if ( isset($_POST['confirmpeople'])) {
+if (isset($_POST['confirmpeople'])) {
 
-    $_SESSION['booking']['step'] =3;
+    if ($_SESSION['booking']['step'] == 2) {
+        $_SESSION['booking']['step'] = 3;
+
+    }
+
 
     $_SESSION['booking']['people'] = [];
     $count = $_SESSION['booking']['people_count'];
@@ -23,10 +27,11 @@ if ( isset($_POST['confirmpeople'])) {
 
     header("Location: " . $basePath2 . "/book/people");
 
-    
+    exit();
+
     // echo "<script>console.log(" . json_encode($_POST) . ");</script>";
-    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
- 
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+
 
     // echo $_SESSION['session'];
 

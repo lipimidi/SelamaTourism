@@ -17,10 +17,9 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/head.php"); ?>
 
 
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show   bg-gray-200">
 
   <!-- End Google Tag Manager (noscript) -->
-  <div class="min-height-300 bg-dark position-absolute w-100"></div>
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/sidenav.php"); ?>
 
   <main class="main-content position-relative border-radius-lg ">
@@ -57,7 +56,7 @@
             <!--form panels-->
             <div class="row  ">
               <div class="col-12  ">
-                <form class="multisteps-form__form" method="POST">
+                <form class=" " method="POST">
                   <!--single form panel-->
                   <div class="card  p-3 border-radius-xl bg-white    " data-animation="FadeIn">
                     <div class="row text-center">
@@ -181,6 +180,9 @@
       formContainer.appendChild(newForm);
     }
   </script> -->
+
+  <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script_book.php"); ?>
+
 </body>
 
 </html>

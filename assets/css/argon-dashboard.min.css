@@ -4882,6 +4882,8 @@ fieldset:disabled .btn {
     var(--bs-pagination-border-color);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    
 }
 @media (prefers-reduced-motion: reduce) {
   .page-link {
@@ -4907,6 +4909,7 @@ fieldset:disabled .btn {
   color: var(--bs-pagination-active-color);
   background-color: var(--bs-pagination-active-bg);
   border-color: var(--bs-pagination-active-border-color);
+  
 }
 .disabled > .page-link,
 .page-link.disabled {
@@ -19125,7 +19128,7 @@ hr.horizontal.gray-light {
 }
 .navbar .nav-link,
 .navbar .navbar-brand {
-  color: #344767;
+  color: #2E8B57;
   font-size: 0.875rem;
 }
 .navbar .nav-link {
@@ -20656,7 +20659,13 @@ hr.horizontal.gray-light {
   color: #344767;
 }
 .page-item.active .page-link {
+ 
+  background: transparent;
+  background-image: linear-gradient(310deg, #9ACD32, #2E8B57);
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  color: #fff;
+  border: none;
+  border-radius: 50% !important;
 }
 .page-item .page-link,
 .page-item span {
@@ -25399,39 +25408,48 @@ Github: https://github.com/fiduswriter/Simple-DataTables
   display: table;
 }
 
-/*!
+/* !
 Simple-DataTables
 Github: https://github.com/fiduswriter/Simple-DataTables
 */
+/* Styling for the top section */
+
+
 .dataTable-wrapper .dataTable-top {
   padding: 1.5rem;
 }
+
 .dataTable-wrapper .dataTable-top .dataTable-dropdown {
   float: left;
 }
+
+/* Style the dropdown */
 .dataTable-wrapper .dataTable-top .dataTable-dropdown label {
   margin-bottom: 0;
   margin-left: 0;
   color: #8392ab;
   font-weight: 400;
 }
-.dataTable-wrapper
-  .dataTable-top
-  .dataTable-dropdown
-  label
-  .dataTable-selector {
+
+/* Style the selector input */
+.dataTable-wrapper .dataTable-top .dataTable-dropdown label .dataTable-selector {
   border-color: #e9ecef;
   border-radius: 0.25rem;
 }
+
+/* Styling for search input */
 .dataTable-wrapper .dataTable-top .dataTable-search input {
   font-size: 0.875rem;
   color: #495057;
   border: 1px solid #e9ecef;
   border-radius: 0.5rem;
 }
+
 .dataTable-wrapper .dataTable-top .dataTable-search input:focus-visible {
   outline: none;
 }
+
+/* Styling for table header */
 .dataTable-wrapper .dataTable-container .table thead tr th {
   padding: 0.75rem 1.5rem;
   opacity: 0.7;
@@ -25439,24 +25457,29 @@ Github: https://github.com/fiduswriter/Simple-DataTables
   color: #8392ab;
   text-transform: uppercase;
   font-size: 0.65rem;
+  text-align: start;
 }
+
+/* Styling for table body */
 .dataTable-wrapper .dataTable-container .table tbody tr td {
   padding: 0.75rem 1.5rem;
+  text-align: start;
+
 }
+
+/* Styling for the bottom section */
 .dataTable-wrapper .dataTable-bottom {
   padding: 1.5rem;
   padding-top: 0;
 }
+
 .dataTable-wrapper .dataTable-bottom .dataTable-info {
   color: #8392ab;
   font-size: 0.875rem;
 }
-.dataTable-wrapper
-  .dataTable-bottom
-  .dataTable-pagination
-  .dataTable-pagination-list
-  li
-  a {
+
+/* Styling for pagination buttons */
+.dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list li a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25470,20 +25493,12 @@ Github: https://github.com/fiduswriter/Simple-DataTables
   font-size: 0.875rem;
   margin-left: 0;
 }
-.dataTable-wrapper
-  .dataTable-bottom
-  .dataTable-pagination
-  .dataTable-pagination-list
-  li
-  a:hover {
+
+.dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list li a:hover {
   background: #e9ecef;
 }
-.dataTable-wrapper
-  .dataTable-bottom
-  .dataTable-pagination
-  .dataTable-pagination-list
-  .active
-  a {
+
+.dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list .active a {
   background: transparent;
   background-image: linear-gradient(310deg, #9ACD32, #2E8B57);
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
@@ -25491,17 +25506,16 @@ Github: https://github.com/fiduswriter/Simple-DataTables
   border: none;
   border-radius: 50% !important;
 }
-.dataTable-wrapper
-  .dataTable-bottom
-  .dataTable-pagination
-  .dataTable-pagination-list
-  .active
-  a:hover {
+
+.dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list .active a:hover {
   background-image: linear-gradient(310deg, #9ACD32, #2E8B57);
 }
+
 .dataTable-wrapper.no-footer .dataTable-container {
   border-bottom: 0;
 }
+
+/* Styling for table elements to align them vertically */
 .dataTable-table tbody td,
 .dataTable-table tbody th,
 .dataTable-table tfoot td,
@@ -25510,12 +25524,39 @@ Github: https://github.com/fiduswriter/Simple-DataTables
 .dataTable-table thead th {
   vertical-align: middle !important;
 }
+
+/* Ensure the table is scrollable on small screens */
 @media (max-width: 575.98px) {
-  .dataTable-top > div:last-child {
+  .dataTable-wrapper .dataTable-top > div:last-child {
     float: left;
     margin-top: 1rem;
   }
+
+  /* Make the table container scrollable */
+  .dataTable-wrapper .dataTable-container {
+    overflow-x: auto;  /* Allow horizontal scrolling */
+  }
+
+  /* Modify padding for small screens */
+  .dataTable-wrapper .dataTable-top,
+  .dataTable-wrapper .dataTable-bottom {
+    padding: 1rem;  /* Reduce padding on smaller screens */
+  }
+
+  /* Make the dropdown labels and inputs stack */
+  .dataTable-wrapper .dataTable-top .dataTable-dropdown,
+  .dataTable-wrapper .dataTable-top .dataTable-search {
+    float: none;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .dataTable-wrapper .dataTable-top .dataTable-dropdown label,
+  .dataTable-wrapper .dataTable-top .dataTable-search label {
+    width: 100%;
+  }
 }
+
 .gu-mirror {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
@@ -28706,7 +28747,7 @@ ul li.editMode label {
   color: #ffed85;
 }
 .leaflet {
-  height: 250px;
+  height: 500px;
 }
 .leaflet-bar a,
 .leaflet-bar a:hover {
@@ -29291,7 +29332,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   transition-delay: 0s;
   position: relative;
   padding-top: 20px;
-  color: #dee2e6;
+  color: #9ACD32;
   text-indent: -9999px;
   border: none;
   background-color: transparent;
@@ -29339,7 +29380,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   display: none;
 }
 .multisteps-form__progress-btn.js-active {
-  color: #344767;
+  color: #9ACD32;
 }
 .multisteps-form__progress-btn.js-active span {
   color: #8392ab;
@@ -29413,3 +29454,72 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 
+
+/* custom dt */
+
+/* custom dt */
+
+.dataTable-wrapper .row.mt-2.justify-content-between{
+  padding: 1.5rem;
+}
+
+
+.dataTable-wrapper thead tr td {
+  
+  padding: 0.75rem 1.5rem;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  border-bottom: 1px solid #e9ecef;
+float: left;
+}
+
+
+.dataTable-wrapper tbody tr td {
+  
+  padding: 0.75rem 1.5rem;
+  /* text-transform: capitalize; */
+  letter-spacing: 0;
+  border-bottom: 1px solid #e9ecef;
+
+}
+
+
+.dataTable-wrapper .dt-info {
+  
+  color: #8392ab;
+  font-size: 0.875rem;
+
+}
+
+
+.dataTable-wrapper .dt-pagination  ul{
+  
+  margin: 0;
+  padding-left: 0;
+
+
+}
+
+
+.dt-paging .dt-paging-button .page-item .active{
+  background: transparent;
+  background-image: linear-gradient(310deg, #9ACD32, #2E8B57);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  color: #fff;
+  border: none;
+  border-radius: 50% !important;
+}
+
+.dataTable-wrapper .dt-paging {
+  float: right;
+}
+
+div.dt-container div.dt-length select
+{
+  width: 100%;
+}
+
+
+ .more-details{
+  margin-bottom: 0;
+}

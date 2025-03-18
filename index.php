@@ -34,15 +34,15 @@ function dashboard()
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Dashboard', 'url' => '/dashboard'],
-     ];
+    ];
 
     if (!isAdmin()) {
-        echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
         include 'views/system/user/dashboard.php';
 
     } else {
-        echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/admin/dashboard.php';
 
     }
@@ -56,11 +56,11 @@ function book_1()
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Booking', 'url' => '/book'],
-     ];
+    ];
 
 
     checkStepRedirect(1);
-    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step1.php';
 }
@@ -73,12 +73,12 @@ function book_2()
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Booking', 'url' => '/book'],
-     ];
+    ];
 
 
     checkStepRedirect(2);
-    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     include 'views/system/user/book/step2.php';
 }
@@ -91,10 +91,10 @@ function book_3()
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Booking', 'url' => '/book'],
-     ];
+    ];
 
     checkStepRedirect(3);
-    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step3.php';
 }
@@ -107,13 +107,82 @@ function book_4()
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Booking', 'url' => '/book'],
-     ];
+    ];
 
     checkStepRedirect(4);
-    echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/user/book/step4.php';
 }
+
+function book_list()
+{
+    include('includes/server.php');
+    checkLogin();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Booking', 'url' => '/book'],
+        ['title' => 'List', 'url' => '/book/list'],
+    ];
+
+ 
+
+    include 'views/system/user/book/list.php';
+}
+
+
+function book($booking_id)
+{
+    // Include the database connection
+    include('includes/server.php');
+
+    // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
+    $booking_id = (int) $booking_id;  // Cast to integer to ensure safety
+
+    // Query to search for the booking_id in the bookings table
+    $sql = "SELECT * FROM bookings WHERE id = $booking_id";
+
+    // Execute the query
+    $result = $conn->query($sql);
+
+    // Check if any rows were returned (booking found)
+    if ($result->num_rows > 0) {
+        // Fetch the booking details (or any data you need)
+        $booking = $result->fetch_assoc();
+
+        // Query to get additional details from the booking_details table using booking_id
+        $sql_details = "SELECT * FROM booking_details WHERE booking_id = $booking_id ORDER BY id ASC ";
+        $result_details = $conn->query($sql_details);
+
+        // Check if booking details are found
+        if ($result_details->num_rows > 0) {
+            // Fetch all booking details
+            $booking_details = [];
+            while ($row = $result_details->fetch_assoc()) {
+                $booking_details[] = $row;  // Add each booking detail to the array
+            }
+        } else {
+            // Handle case where no details were found for the given booking_id
+            $booking_details = [];
+        }
+
+        // Breadcrumbs for navigation
+        $breadcrumbs = [
+            ['title' => 'Home', 'url' => ''],
+            ['title' => 'Booking', 'url' => '/book'],
+            ['title' => "$booking_id", 'url' => "/$booking_id"],
+        ];
+
+        // Include the appropriate view for displaying the booking details
+        include 'views/system/user/book/details.php';
+    } else{
+        notFound();
+    }
+}
+
+
+
 function login()
 {
     include('includes/server.php');
@@ -145,22 +214,25 @@ function logout()
 {
 
     include('includes/server.php');
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     session_unset(); // Remove all session variables
     session_destroy(); // Destroy the session
-         global $basePath2;  
+    global $basePath2;
 
     header("Location: " . $basePath2 . "/signin");
- }
+    exit();
+}
 function checkLogin()
 {
 
 
     if (!isset($_SESSION['user_details'])) {
-         global $basePath2;  
+        global $basePath2;
 
         header("Location: " . $basePath2 . "/signin");
+        exit();
+
     }
 
 }
@@ -227,11 +299,44 @@ function checkStepRedirect($required_step)
 
 
 
+function deleteDirectory($dirPath)
+{
+    // Check if the directory exists
+    if (!is_dir($dirPath)) {
+        echo "<script>console.log('Directory does not exist');</script>";
+        return;
+    }
+
+    // Get all files and directories in the directory
+    $files = array_diff(scandir($dirPath), array('.', '..'));
+
+    // Loop through each file/subdirectory
+    foreach ($files as $file) {
+        $filePath = $dirPath . DIRECTORY_SEPARATOR . $file;
+
+        // If it's a directory, recursively delete its contents
+        if (is_dir($filePath)) {
+            deleteDirectory($filePath);  // Recursively delete subdirectories
+        } else {
+            // If it's a file, delete it
+            unlink($filePath);
+        }
+    }
+
+    // After deleting all files and subdirectories, delete the now-empty directory
+    rmdir($dirPath);
+    echo "<script>console.log('Directory and its contents deleted successfully');</script>";
+}
+
+
+function getlist()
+{
+    include('includes/server.php');
+}
 
 
 
-
-function notFound($requestUri)
+function notFound()
 {
     http_response_code(404);
     echo "404 Not Found";
@@ -248,15 +353,17 @@ $routes = [
     'book/people' => 'book_2',
     'book/insurance' => 'book_3',
     'book/summary' => 'book_4',
+    'book/list' => 'book_list',
     'signin' => 'login',
     'signup' => 'register',
     'signup/details' => 'register',
     'signout' => 'logout',
 
-
+//fucntions
     'book/events' => 'register',
     'book/upload' => 'upload_insurance',
     'book/remove' => 'remove_insurance',
+    'book/getlist_user' => 'getlist',
 
 ];
 
@@ -264,7 +371,19 @@ $routes = [
 
 if (isset($routes[$requestUri])) {
     call_user_func($routes[$requestUri]);
+} elseif (strpos($requestUri, 'book/') === 0) {
+    // Split URL into parts
+    $parts = explode('/', $requestUri);
+
+    // Ensure it has at least 3 parts: ['product', ID, Name]
+    if (isset($parts[1]) && is_numeric($parts[1])) {
+        $booking_id = $parts[1]; // Extract product ID
+
+        book($booking_id);
+    } else {
+        notFound();
+    }
 } else {
-    notFound($requestUri);
+    notFound();
 }
 ?>

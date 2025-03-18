@@ -17,10 +17,9 @@
 <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/head.php"); ?>
 
 
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show   bg-gray-200">
 
   <!-- End Google Tag Manager (noscript) -->
-  <div class="min-height-300 bg-dark position-absolute w-100"></div>
   <?php include( $_SERVER['DOCUMENT_ROOT']. $basePath2. "/views/system/template/sidenav.php"); ?>
 
   <main class="main-content position-relative border-radius-lg ">
