@@ -94,7 +94,7 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                            <?php echo $booking['booking_date'] ?>
+                              <?php echo $booking['booking_date'] ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -120,7 +120,7 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                            <?php echo $booking['start_time'] ?> - <?php echo $booking['end_time'] ?>
+                              <?php echo $booking['start_time'] ?> - <?php echo $booking['end_time'] ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>
@@ -157,68 +157,22 @@ background-size: cover;">
                 </div>
               </div>
               <div class="col-lg-6 col-0 mt-4 mt-lg-0">
-                <!-- <div class="card h-100">
+                <div class="card  ">
                   <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0">Reviews</h6>
+                    <h6 class="mb-0">QR Code</h6>
                   </div>
                   <div class="card-body pb-0 p-3">
-                    <ul class="list-group">
-                      <li class="list-group-item border-0 d-flex align-items-center px-0 mb-0">
-                        <div class="w-100">
-                          <div class="d-flex mb-2">
-                            <span class="me-2 text-sm font-weight-bold text-capitalize">Positive reviews</span>
-                            <span class="ms-auto text-sm font-weight-bold">80%</span>
-                          </div>
-                          <div>
-                            <div class="progress progress-md">
-                              <div class="progress-bar bg-gradient-info w-80" role="progressbar" aria-valuenow="60"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                        <div class="w-100">
-                          <div class="d-flex mb-2">
-                            <span class="me-2 text-sm font-weight-bold text-capitalize">Neutral reviews</span>
-                            <span class="ms-auto text-sm font-weight-bold">17%</span>
-                          </div>
-                          <div>
-                            <div class="progress progress-md">
-                              <div class="progress-bar bg-gradient-dark w-10" role="progressbar" aria-valuenow="10"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                        <div class="w-100">
-                          <div class="d-flex mb-2">
-                            <span class="me-2 text-sm font-weight-bold text-capitalize">Negative reviews</span>
-                            <span class="ms-auto text-sm font-weight-bold">3%</span>
-                          </div>
-                          <div>
-                            <div class="progress progress-md">
-                              <div class="progress-bar bg-gradient-danger w-5" role="progressbar" aria-valuenow="5"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+
                   </div>
-                  <div class="card-footer pt-0 p-3 d-flex align-items-center">
-                    <div class="w-60">
-                      <p class="text-sm">
-                        More than <b>1,500,000</b> developers used Creative Tim's products and over <b>700,000</b>
-                        projects were created.
-                      </p>
-                    </div>
-                    <div class="w-40 text-end">
-                      <a class="btn bg-gradient-dark mb-0 text-end" href="javascript:;">View all reviews</a>
-                    </div>
-                  </div>
-                </div> -->
+ 
+                  <div class="col-12 text-center   ">
+                    <img class="img-fluid"
+                      src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/small-logos/icon-sun-cloud.png"
+                      alt="image sun">
+                      hidden if not accepted
+                   </div>
+                </div>
+
               </div>
             </div>
 
