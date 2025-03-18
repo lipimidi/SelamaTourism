@@ -36,18 +36,16 @@ function dashboard()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Dashboard', 'url' => '/dashboard'],
     ];
-        echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     if ($role === 'admin') {
 
         include 'views/system/admin/dashboard.php';
 
-    }
-    elseif ($role == 'guide') {
+    } elseif ($role == 'guide') {
         include 'views/system/guide/dashboard.php';
 
-    }
-    else {
+    } else {
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/user/dashboard.php';
 
@@ -125,6 +123,7 @@ function book_list()
 {
     include('includes/server.php');
     checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
@@ -132,9 +131,25 @@ function book_list()
         ['title' => 'List', 'url' => '/book/list'],
     ];
 
+
+
  
 
-    include 'views/system/user/book/list.php';
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/book/list.php';
+
+    } elseif ($role == 'guide') {
+        include 'views/system/guide/book/list.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        include 'views/system/user/book/list.php';
+
+    }
+
+
 }
 
 
@@ -142,6 +157,7 @@ function book($booking_id)
 {
     // Include the database connection
     include('includes/server.php');
+    $role = checkRole();
 
     // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
     $booking_id = (int) $booking_id;  // Cast to integer to ensure safety
@@ -184,8 +200,20 @@ function book($booking_id)
         ];
 
         // Include the appropriate view for displaying the booking details
-        include 'views/system/user/book/details.php';
-    } else{
+
+        $booking_status =  getBookingStatuses($booking['status']);
+
+
+        if ($role === 'admin') {
+
+            include 'views/system/admin/book/details.php';
+    
+        } else {
+            // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+            include 'views/system/user/book/details.php';
+    
+        }
+    } else {
         notFound();
     }
 }
@@ -257,7 +285,8 @@ function remove_insurance()
     include('includes/server.php');
 }
 
-function checkRole() {
+function checkRole()
+{
     // Ensure the 'role' session is set and is one of the valid roles
     if (isset($_SESSION['user_details']['role'])) {
         $role = $_SESSION['user_details']['role'];
@@ -271,7 +300,7 @@ function checkRole() {
         }
     }
 
- 
+
 }
 
 
@@ -354,6 +383,38 @@ function getlist()
     include('includes/server.php');
 }
 
+function getBookingStatuses($num) {
+
+    $statusArray = [
+        'declined', 
+        'processing', 
+        'accepted', 
+        'ongoing', 
+        'finished',
+        'dint attend', 
+        'emergency',
+    ];
+
+    return $statusArray[$num];
+
+
+}
+
+function getHikingStatuses($num) {
+
+    $statusArray = [
+        'not yet', 
+        'ongoing', 
+        'finished', 
+        'dint attend', 
+        'missing',
+     ];
+
+    return $statusArray[$num];
+
+
+}
+
 
 
 function notFound()
@@ -379,11 +440,12 @@ $routes = [
     'signup/details' => 'register',
     'signout' => 'logout',
 
-//fucntions
+    //fucntions
     'book/events' => 'register',
     'book/upload' => 'upload_insurance',
     'book/remove' => 'remove_insurance',
     'book/getlist_user' => 'getlist',
+    'book/getlist_admin' => 'getlist',
 
 ];
 

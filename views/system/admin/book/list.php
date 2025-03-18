@@ -123,10 +123,12 @@
 
       $('#book_list').DataTable({
         ajax: {
-          url: '<?php echo $rootPath; ?>/book/getlist_user',  // Your server-side URL
+          url: '<?php echo $rootPath; ?>/book/getlist_admin',  // Your server-side URL
           method: 'POST',  // Use POST for security
           data: function (d) {
             // Pass additional DataTables parameters to the server via POST
+
+            console.log(d.search.value);
             return {
               start: d.start,                   // Starting point for pagination
               length: d.length,                 // Number of rows per page
@@ -134,7 +136,7 @@
               order: d.order,                   // Sorting details
               columns: d.columns,               // Column info, useful if needed
               draw: d.draw,                     // Draw counter for DataTables
-              getlist_user: "getlist_user",     // This will be used to identify the request in PHP
+              getlist_admin: "getlist_admin",     // This will be used to identify the request in PHP
             };
           }
         },
@@ -162,7 +164,7 @@
         order: [[0, 'desc']],  // Default sorting by ID column
         serverSide: true,     // Enable server-side processing
         paging: true,         // Enable pagination
-        searching: false,      // Enable searching
+        searching: true,      // Enable searching
         select: false,         // Enable row selection
         processing: true,     // Show a processing indicator while loading data
         responsive: true,     // Make the table responsive

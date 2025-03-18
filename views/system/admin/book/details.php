@@ -143,7 +143,7 @@ background-size: cover;">
                               <i class="ni ni-check-bold text-white   text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3 text-capitalize">
-                            <?php echo $booking_status ?>
+                              <?php echo $booking_status ?>
                             </h5>
                             <span class="text-white text-sm">Status</span>
                           </div>
@@ -157,25 +157,7 @@ background-size: cover;">
                 </div>
               </div>
  
-              <div class="col-lg-6 col-0 mt-4 mt-lg-0">
-                <div class="card  ">
-                  <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0">QR Code</h6>
-                  </div>
-                  <div class="card-body pb-0 p-3">
 
-                  </div>
-
-                  <div class="col-12 text-center   ">
-                    <img class="img-fluid w-30"
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/800px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                      alt="image sun">
-                    hidden if not accepted
-                  </div>
-                </div>
-
-              </div>
- 
             </div>
 
 
@@ -276,7 +258,19 @@ background-size: cover;">
           </div>
         </div>
  
+          <form method="POST">
 
+            <div class="button-row d-flex mt-4">
+
+
+              <button type="submit" class="btn bg-gradient-light mb-0 js-btn-prev   " name="declinebooking">Decline</button>
+
+              <button type="submit" class="btn bg-gradient-dark ms-auto mb-0    " name="acceptbooking">Accept</button>
+
+            </div>
+
+          </form>
+ 
       </div>
     </div>
     </div>

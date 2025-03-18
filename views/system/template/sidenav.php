@@ -71,12 +71,15 @@
           <div class="collapse " id="pagesExamples">
             <ul class="nav ms-4">
                
+            <?php  if ($role == 'user'){ ?>
               <li class="nav-item ">
                 <a class="nav-link " href="<?php echo $rootPath; ?>/book">
                   <span class="sidenav-mini-icon"> B </span>
                   <span class="sidenav-normal"> Book </span>
                 </a>
               </li>
+              <?php } ?>
+
               <li class="nav-item ">
                 <a class="nav-link " href="<?php echo $rootPath; ?>/book/list">
                   <span class="sidenav-mini-icon"> L </span>
