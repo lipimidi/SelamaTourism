@@ -30,20 +30,26 @@ function dashboard()
 {
     include('includes/server.php');
     checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Dashboard', 'url' => '/dashboard'],
     ];
+        echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
-    if (!isAdmin()) {
-        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    if ($role === 'admin') {
 
-        include 'views/system/user/dashboard.php';
-
-    } else {
-        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/admin/dashboard.php';
+
+    }
+    elseif ($role == 'guide') {
+        include 'views/system/guide/dashboard.php';
+
+    }
+    else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        include 'views/system/user/dashboard.php';
 
     }
 }
@@ -251,10 +257,21 @@ function remove_insurance()
     include('includes/server.php');
 }
 
-function isAdmin()
-{
+function checkRole() {
+    // Ensure the 'role' session is set and is one of the valid roles
+    if (isset($_SESSION['user_details']['role'])) {
+        $role = $_SESSION['user_details']['role'];
+        // Check for different roles
+        if ($role == 1) {
+            return 'admin';
+        } elseif ($role == 2) {
+            return 'guide';
+        } elseif ($role == 3) {
+            return 'user';
+        }
+    }
 
-    return (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
+ 
 }
 
 
