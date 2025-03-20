@@ -262,34 +262,34 @@ function staff($staff_id)
     $staff_id = (int) $staff_id;  // Cast to integer to ensure safety
 
     // // Query to search for the booking_id in the bookings table
-    // $sql = "SELECT bookings.*, booking_timeslots.start_time,booking_timeslots.end_time
-    // FROM bookings
-    // INNER JOIN booking_timeslots ON bookings.timeslot_id = booking_timeslots.id
-    // WHERE bookings.id = $booking_id";
+    $sql = "SELECT users.id,username, email,role, name,ic,passport,address,phone
+    FROM users
+    INNER JOIN user_details ON user_details.user_id = users.id
+    WHERE users.id = $staff_id";
 
     // // Execute the query
-    // $result = $conn->query($sql);
+    $result = $conn->query($sql);
 
     // // Check if any rows were returned (booking found)
-    // if ($result->num_rows > 0) {
-    //     // Fetch the booking details (or any data you need)
-    //     $booking = $result->fetch_assoc();
+    if ($result->num_rows > 0) {
+        //     // Fetch the booking details (or any data you need)
+        $staff = $result->fetch_assoc();
 
-    //     // Query to get additional details from the booking_details table using booking_id
-    //     $sql_details = "SELECT * FROM booking_details WHERE booking_id = $booking_id ORDER BY id ASC ";
-    //     $result_details = $conn->query($sql_details);
+        //     // Query to get additional details from the booking_details table using booking_id
+        //     $sql_details = "SELECT * FROM booking_details WHERE booking_id = $booking_id ORDER BY id ASC ";
+        //     $result_details = $conn->query($sql_details);
 
-    //     // Check if booking details are found
-    //     if ($result_details->num_rows > 0) {
-    //         // Fetch all booking details
-    //         $booking_details = [];
-    //         while ($row = $result_details->fetch_assoc()) {
-    //             $booking_details[] = $row;  // Add each booking detail to the array
-    //         }
-    //     } else {
-    //         // Handle case where no details were found for the given booking_id
-    //         $booking_details = [];
-    //     }
+        //     // Check if booking details are found
+        //     if ($result_details->num_rows > 0) {
+        //         // Fetch all booking details
+        //         $booking_details = [];
+        //         while ($row = $result_details->fetch_assoc()) {
+        //             $booking_details[] = $row;  // Add each booking detail to the array
+        //         }
+        //     } else {
+        //         // Handle case where no details were found for the given booking_id
+        //         $booking_details = [];
+    }
 
     // Breadcrumbs for navigation
     $breadcrumbs = [
@@ -592,7 +592,7 @@ function staff_addnew()
         while ($row = $result->fetch_assoc()) {
             $role_details[] = $row;  // Add each booking detail to the array
         }
-    } 
+    }
 
 
     if ($role === 'admin') {

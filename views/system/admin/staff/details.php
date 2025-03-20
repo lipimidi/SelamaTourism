@@ -93,7 +93,7 @@
                                                 <label class="form-label">Username</label>
                                                 <div class="input-group">
                                                     <input id="firstName" name="firstName" class="form-control"
-                                                        type="text" placeholder="Alec" required="required"
+                                                        type="text" value="<?php echo $staff['username'] ?>" 
                                                         onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                                 </div>
                                             </div>
@@ -101,7 +101,7 @@
                                                 <label class="form-label">Email</label>
                                                 <div class="input-group">
                                                     <input id="lastName" name="lastName" class="form-control"
-                                                        type="text" placeholder="Thompson" required="required"
+                                                        type="text" value="<?php echo $staff['email'] ?>" 
                                                         onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                                 </div>
                                             </div>
@@ -111,7 +111,7 @@
                                             <div class="col-6">
                                                 <label class="form-label mt-4">IC</label>
                                                 <div class="input-group">
-                                                    <input id="email" name="email" class="form-control" type="email"
+                                                    <input id="email" name="email" class="form-control" type="text" value="<?php echo $staff['ic'] ?>" 
                                                         placeholder="example@email.com" onfocus="focused(this)"
                                                         onfocusout="defocused(this)" readonly>
                                                 </div>
@@ -120,7 +120,7 @@
                                                 <label class="form-label mt-4">Passport</label>
                                                 <div class="input-group">
                                                     <input id="confirmation" name="confirmation" class="form-control"
-                                                        type="email" placeholder="example@email.com"
+                                                        type="text" placeholder="example@email.com" value="<?php echo $staff['passport'] ?>" 
                                                         onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                                 </div>
                                             </div>
@@ -130,7 +130,7 @@
                                         <div class="col-lg-6 col-12">
                                         <label class="form-label mt-4">Phone Number</label>
                                                 <div class="input-group">
-                                                    <input id="phone" name="phone" class="form-control" type="number"
+                                                    <input id="phone" name="phone" class="form-control" type="tel" value="<?php echo $staff['phone'] ?>" 
                                                     onfocus="focused(this)"
                                                         onfocusout="defocused(this)" readonly>
                                                 </div>
@@ -139,7 +139,7 @@
                                             <div class="col-lg-6 col-12">
                                                 <label class="form-label mt-4">Address</label>
                                                 <div class="input-group">
-                                                <textarea class="form-control" id="" rows="3" name="address" readonly></textarea>
+                                                <textarea class="form-control" id="" rows="3" name="address" readonly><?php echo $staff['address'] ?></textarea>
 
                                                 </div>
                                             </div>
