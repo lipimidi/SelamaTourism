@@ -2,6 +2,7 @@
 if (isset($_POST['createstaff'])) {
     // Get the values from the form
     $username = $_POST['username'];
+    $name = $_POST['name'];
     $email = $_POST['email'];
     $ic = $_POST['ic'];
     $passport = $_POST['passport'];
@@ -18,6 +19,7 @@ if (isset($_POST['createstaff'])) {
 
     // Escape input values to prevent SQL injection (basic sanitization)
     $username = $conn->real_escape_string($username);
+    $name = $conn->real_escape_string($name);
     $email = $conn->real_escape_string($email);
     $ic = $conn->real_escape_string($ic);
     $passport = $conn->real_escape_string($passport);
@@ -36,8 +38,8 @@ if (isset($_POST['createstaff'])) {
     if (mysqli_query($conn, $sql)) {
         $user_id = mysqli_insert_id($conn); // Get the inserted person ID
 
-        $sql_details = "INSERT INTO user_details (user_id, ic,phone, address) 
-            VALUES ('$user_id', '$ic', '$phone','$address')";
+        $sql_details = "INSERT INTO user_details (user_id, ic,phone, address,name) 
+            VALUES ('$user_id', '$ic', '$phone','$address','$name')";
         mysqli_query($conn, $sql_details);
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);

@@ -67,89 +67,104 @@
                                         <h5>Basic Info</h5>
                                     </div>
                                     <form method="POST">
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label class="form-label">Username</label>
-                                                <div class="input-group">
-                                                    <input id="firstName" name="username" class="form-control"
-                                                        type="text"  required="required"
-                                                        onfocus="focused(this)" onfocusout="defocused(this)"  >
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="form-label">Email</label>
-                                                <div class="input-group">
-                                                    <input   name="email" class="form-control"
-                                                        type="email" placeholder="Thompson" required="required"
-                                                        onfocus="focused(this)" onfocusout="defocused(this)"  >
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label class="form-label mt-4">IC</label>
-                                                <div class="input-group">
-                                                    <input id="email" name="ic" class="form-control" type="text"
-                                                        placeholder="example@email.com" onfocus="focused(this)"
-                                                        onfocusout="defocused(this)"  >
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="form-label mt-4">Passport</label>
-                                                <div class="input-group">
-                                                    <input id="confirmation" name="passport" class="form-control"
-                                                        type="text" placeholder="example@email.com"
-                                                        onfocus="focused(this)" onfocusout="defocused(this)"  >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-
-                                            <div class="col-lg-6 col-12">
-                                                <label class="form-label mt-4">Phone Number</label>
-                                                <div class="input-group">
-                                                    <input id="phone" name="phone" class="form-control" type="phone"
-                                                        onfocus="focused(this)" onfocusout="defocused(this)"  >
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 col-12">
-                                                <label class="form-label mt-4">Address</label>
-                                                <div class="input-group">
-                                                    <textarea class="form-control" id="" rows="3" name="address"
-                                                         ></textarea>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-12">
-                                                <label class="form-label mt-4">Role</label>
-                                                <div class="choices" data-type="select-one" tabindex="0" role="combobox"
-                                                    aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                                                    <div class="choices__inner">
-                                                        <select class="form-control choices__input  text-center" name="role">
-                                                            <?php foreach ($role_details as $role_detail) { ?>
-                                                                <option value="<?php echo $role_detail['id'] ?>">
-                                                                    <?php echo $role_detail['name'] ?></option>
-                                                            <?php } ?>
-                                                         </select>
+                                        <div class="card-body pt-0">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label class="form-label">Username</label>
+                                                    <div class="input-group">
+                                                        <input id="firstName" name="username" class="form-control"
+                                                            type="text" required="required" onfocus="focused(this)"
+                                                            onfocusout="defocused(this)">
                                                     </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="form-label">Name</label>
+                                                    <div class="input-group">
+                                                        <input name="name" class="form-control" type="text"
+                                                            placeholder="Thompson" onfocus="focused(this)"
+                                                            onfocusout="defocused(this)">
+                                                    </div>
+                                                </div>
 
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label class="form-label mt-4">IC</label>
+                                                    <div class="input-group">
+                                                        <input id="email" name="ic" class="form-control" type="text"
+                                                            placeholder="example@email.com" onfocus="focused(this)"
+                                                            onfocusout="defocused(this)">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="form-label mt-4">Passport</label>
+                                                    <div class="input-group">
+                                                        <input id="confirmation" name="passport" class="form-control"
+                                                            type="text" placeholder="example@email.com"
+                                                            onfocus="focused(this)" onfocusout="defocused(this)">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="row">
+
+                                                <div class="col-6">
+                                                    <label class="form-label mt-4">Phone Number</label>
+                                                    <div class="input-group">
+                                                        <input id="phone" name="phone" class="form-control" type="phone"
+                                                            onfocus="focused(this)" onfocusout="defocused(this)">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label mt-4">Email</label>
+                                                    <div class="input-group">
+                                                        <input name="email" class="form-control" type="email"
+                                                            placeholder="Thompson" required="required"
+                                                            onfocus="focused(this)" onfocusout="defocused(this)">
+                                                    </div>
+                                                </div>
 
 
-                                        <div class="button-row d-flex mt-4">
-                                            <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
-                                                name="createstaff">Create</button>
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-lg-6 col-12">
+                                                    <label class="form-label mt-4">Address</label>
+                                                    <div class="input-group">
+                                                        <textarea class="form-control" id="" rows="3"
+                                                            name="address"></textarea>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-12">
+                                                    <label class="form-label mt-4">Role</label>
+                                                    <div class="choices" data-type="select-one" tabindex="0"
+                                                        role="combobox" aria-autocomplete="list" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <div class="choices__inner">
+                                                            <select class="form-control choices__input  text-center"
+                                                                name="role">
+                                                                <?php foreach ($role_details as $role_detail) { ?>
+                                                                    <option value="<?php echo $role_detail['id'] ?>">
+                                                                        <?php echo $role_detail['name'] ?>
+                                                                    </option>
+                                                                <?php } ?>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="button-row d-flex mt-4">
+                                                <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
+                                                    type="submit" name="createstaff">Create</button>
+                                            </div>
                                         </div>
-                                    </div>
                                     </form>
                                 </div>
 
