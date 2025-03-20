@@ -110,3 +110,15 @@
 
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="<?php echo $rootPath; ?>/assets/js/argon-dashboard.min.js"></script>
+
+
+
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('<?php echo $rootPath; ?>/assets/js/service-worker.js')
+        .then(reg => console.log("Service Worker Registered", reg))
+        .catch(err => console.log("Service Worker Registration Failed", err));
+    });
+  }
+</script>

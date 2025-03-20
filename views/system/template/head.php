@@ -40,5 +40,6 @@
   <!-- Anti-flicker snippet (recommended)  -->
 
 
+  <link rel="manifest" href="<?php echo $rootPath; ?>/manifest.php">
 
 </head>
