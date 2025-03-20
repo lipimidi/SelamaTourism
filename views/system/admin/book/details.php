@@ -156,7 +156,7 @@ background-size: cover;">
                   </div>
                 </div>
               </div>
- 
+
 
             </div>
 
@@ -257,20 +257,23 @@ background-size: cover;">
             </div>
           </div>
         </div>
- 
-          <form method="POST">
+        <?php if ($booking_status == 1) {?>
 
-            <div class="button-row d-flex mt-4">
+        <form method="POST">
 
+          <div class="button-row d-flex mt-4">
+            <input type="hidden" value="<?php echo $booking['id'] ?>" name="id">
 
-              <button type="submit" class="btn bg-gradient-light mb-0 js-btn-prev   " name="declinebooking">Decline</button>
+            <button type="submit" class="btn bg-gradient-light mb-0 js-btn-prev   "
+              name="declinebooking">Decline</button>
 
-              <button type="submit" class="btn bg-gradient-dark ms-auto mb-0    " name="acceptbooking">Accept</button>
+            <button type="submit" class="btn bg-gradient-dark ms-auto mb-0    " name="acceptbooking">Accept</button>
 
-            </div>
+          </div>
 
-          </form>
- 
+        </form>
+        <?php }?>
+
       </div>
     </div>
     </div>

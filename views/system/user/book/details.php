@@ -156,6 +156,9 @@ background-size: cover;">
                   </div>
                 </div>
               </div>
+
+              <?php if ($booking_status != 0) {?>
+
  
               <div class="col-lg-6 col-0 mt-4 mt-lg-0">
                 <div class="card  ">
@@ -170,11 +173,11 @@ background-size: cover;">
                     <img class="img-fluid w-30"
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/800px-QR_code_for_mobile_English_Wikipedia.svg.png"
                       alt="image sun">
-                    hidden if not accepted
-                  </div>
+                   </div>
                 </div>
 
               </div>
+              <?php } ?>
  
             </div>
 

@@ -18,7 +18,10 @@ $dotenv->load();
  include('functions/booking/booking_4.php');
 
  include('functions/booking/list.php');
+ include('functions/booking/auth_book.php');
 
+ include('functions/staff/list.php');
+ include('functions/staff/add.php');
 
 
  include('functions/auth/login.php');

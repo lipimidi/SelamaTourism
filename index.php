@@ -56,6 +56,7 @@ function book_1()
 {
     include('includes/server.php');
     checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
@@ -73,6 +74,7 @@ function book_2()
 {
     include('includes/server.php');
     checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
@@ -91,6 +93,7 @@ function book_3()
 {
     include('includes/server.php');
     checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
@@ -107,6 +110,7 @@ function book_4()
 {
     include('includes/server.php');
     checkLogin();
+    $role = checkRole();
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
@@ -133,7 +137,7 @@ function book_list()
 
 
 
- 
+
 
 
     if ($role === 'admin') {
@@ -147,6 +151,35 @@ function book_list()
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/user/book/list.php';
 
+    }
+
+
+}
+
+function book_settings()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Booking', 'url' => '/book'],
+        ['title' => 'Settings', 'url' => '/book/settings'],
+    ];
+
+
+
+
+
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/book/settings.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        notFound();
     }
 
 
@@ -201,22 +234,89 @@ function book($booking_id)
 
         // Include the appropriate view for displaying the booking details
 
-        $booking_status =  getBookingStatuses($booking['status']);
+        $booking_status = getBookingStatuses($booking['status']);
 
 
         if ($role === 'admin') {
 
             include 'views/system/admin/book/details.php';
-    
+
         } else {
             // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
             include 'views/system/user/book/details.php';
-    
+
         }
     } else {
         notFound();
     }
 }
+
+
+function staff($staff_id)
+{
+    // Include the database connection
+    include('includes/server.php');
+    $role = checkRole();
+
+    // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
+    $staff_id = (int) $staff_id;  // Cast to integer to ensure safety
+
+    // // Query to search for the booking_id in the bookings table
+    // $sql = "SELECT bookings.*, booking_timeslots.start_time,booking_timeslots.end_time
+    // FROM bookings
+    // INNER JOIN booking_timeslots ON bookings.timeslot_id = booking_timeslots.id
+    // WHERE bookings.id = $booking_id";
+
+    // // Execute the query
+    // $result = $conn->query($sql);
+
+    // // Check if any rows were returned (booking found)
+    // if ($result->num_rows > 0) {
+    //     // Fetch the booking details (or any data you need)
+    //     $booking = $result->fetch_assoc();
+
+    //     // Query to get additional details from the booking_details table using booking_id
+    //     $sql_details = "SELECT * FROM booking_details WHERE booking_id = $booking_id ORDER BY id ASC ";
+    //     $result_details = $conn->query($sql_details);
+
+    //     // Check if booking details are found
+    //     if ($result_details->num_rows > 0) {
+    //         // Fetch all booking details
+    //         $booking_details = [];
+    //         while ($row = $result_details->fetch_assoc()) {
+    //             $booking_details[] = $row;  // Add each booking detail to the array
+    //         }
+    //     } else {
+    //         // Handle case where no details were found for the given booking_id
+    //         $booking_details = [];
+    //     }
+
+    // Breadcrumbs for navigation
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Staff', 'url' => '/staff'],
+        ['title' => "$staff_id", 'url' => "/$staff_id"],
+    ];
+
+    //     // Include the appropriate view for displaying the booking details
+
+    //     $booking_status = getBookingStatuses($booking['status']);
+
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/staff/details.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        notFound();
+
+    }
+    // } else {
+    //     notFound();
+    // }
+}
+
 
 
 
@@ -263,7 +363,7 @@ function logout()
 function checkLogin()
 {
 
-
+    checkRole();
     if (!isset($_SESSION['user_details'])) {
         global $basePath2;
 
@@ -383,15 +483,16 @@ function getlist()
     include('includes/server.php');
 }
 
-function getBookingStatuses($num) {
+function getBookingStatuses($num)
+{
 
     $statusArray = [
-        'declined', 
-        'processing', 
-        'accepted', 
-        'ongoing', 
+        'declined',
+        'processing',
+        'accepted',
+        'ongoing',
         'finished',
-        'dint attend', 
+        'dint attend',
         'emergency',
     ];
 
@@ -400,15 +501,16 @@ function getBookingStatuses($num) {
 
 }
 
-function getHikingStatuses($num) {
+function getHikingStatuses($num)
+{
 
     $statusArray = [
-        'not yet', 
-        'ongoing', 
-        'finished', 
-        'dint attend', 
+        'not yet',
+        'ongoing',
+        'finished',
+        'dint attend',
         'missing',
-     ];
+    ];
 
     return $statusArray[$num];
 
@@ -425,6 +527,90 @@ function notFound()
 
 }
 
+
+
+function staff_list()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Staff', 'url' => '/staff'],
+        ['title' => 'List', 'url' => '/staff/list'],
+    ];
+
+
+
+
+
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/staff/list.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        notFound();
+
+    }
+
+
+}
+
+
+
+function staff_getlist()
+{
+    include('includes/server.php');
+}
+
+
+function staff_addnew()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Staff', 'url' => '/staff'],
+        ['title' => 'Add', 'url' => '/staff/addnew'],
+    ];
+
+
+    $sql = "SELECT *
+    FROM user_role
+     WHERE id != '3'";
+    $result = $conn->query($sql);
+
+    // Check if booking details are found
+    if ($result->num_rows > 0) {
+        // Fetch all booking details
+        $role_details = [];
+        while ($row = $result->fetch_assoc()) {
+            $role_details[] = $row;  // Add each booking detail to the array
+        }
+    } 
+
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/staff/addnew.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        notFound();
+
+    }
+
+
+}
+
+
+
+
 // Route Definitions
 $routes = [
     '' => 'home',
@@ -435,10 +621,16 @@ $routes = [
     'book/insurance' => 'book_3',
     'book/summary' => 'book_4',
     'book/list' => 'book_list',
+    'book/settings' => 'book_settings',
     'signin' => 'login',
     'signup' => 'register',
     'signup/details' => 'register',
     'signout' => 'logout',
+
+    //admin
+    'staff/list' => 'staff_list',
+    'staff/addnew' => 'staff_addnew',
+
 
     //fucntions
     'book/events' => 'register',
@@ -446,26 +638,43 @@ $routes = [
     'book/remove' => 'remove_insurance',
     'book/getlist_user' => 'getlist',
     'book/getlist_admin' => 'getlist',
+    'staff/getlist' => 'staff_getlist',
 
 ];
 
 
+switch (true) {
+    case isset($routes[$requestUri]):
+        // Route exists, execute the corresponding function
+        call_user_func($routes[$requestUri]);
+        break;
 
-if (isset($routes[$requestUri])) {
-    call_user_func($routes[$requestUri]);
-} elseif (strpos($requestUri, 'book/') === 0) {
-    // Split URL into parts
-    $parts = explode('/', $requestUri);
+    case strpos($requestUri, 'book/') === 0:
+        // Split URL into parts for 'book' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[1]) && is_numeric($parts[1])) {
+            $booking_id = $parts[1]; // Extract booking ID
+            book($booking_id);
+        } else {
+            notFound();
+        }
+        break;
 
-    // Ensure it has at least 3 parts: ['product', ID, Name]
-    if (isset($parts[1]) && is_numeric($parts[1])) {
-        $booking_id = $parts[1]; // Extract product ID
+    case strpos($requestUri, 'staff/') === 0:
+        // Split URL into parts for 'staff' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[1]) && is_numeric($parts[1])) {
+            $staff = $parts[1]; // Extract staff ID
+            staff($staff);
+        } else {
+            notFound();
+        }
+        break;
 
-        book($booking_id);
-    } else {
+    default:
+        // If none of the above conditions match, call notFound()
         notFound();
-    }
-} else {
-    notFound();
+        break;
 }
+
 ?>
