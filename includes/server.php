@@ -26,3 +26,7 @@ $dotenv->load();
 
  include('functions/auth/login.php');
  include('functions/auth/register.php');
+
+
+ 
+

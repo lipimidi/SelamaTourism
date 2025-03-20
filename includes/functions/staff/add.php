@@ -12,6 +12,7 @@ if (isset($_POST['createstaff'])) {
 
 
 
+
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -41,11 +42,18 @@ if (isset($_POST['createstaff'])) {
         $sql_details = "INSERT INTO user_details (user_id, ic,phone, address,name) 
             VALUES ('$user_id', '$ic', '$phone','$address','$name')";
         mysqli_query($conn, $sql_details);
+
+
+
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    header("Location: " . $basePath2 . "/staff". "/addnew" );
+    // sendEmail('izmeera2000@gmail.com', "Add New", 'booking_success');
+
+    header("Location: " . $basePath2 . "/staff" . "/addnew");
     exit();
+
+
 
 }
