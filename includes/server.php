@@ -27,6 +27,11 @@ $dotenv->load();
  include('functions/auth/login.php');
  include('functions/auth/register.php');
 
+ include_once('functions/email/email.php');
 
  
+ include_once('functions/routes/admin.php');
+ include_once('functions/routes/guide.php');
+ include_once('functions/routes/user.php');
+ include_once('functions/routes/public.php');
 

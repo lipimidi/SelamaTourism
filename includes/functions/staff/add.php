@@ -49,7 +49,6 @@ if (isset($_POST['createstaff'])) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    // sendEmail('izmeera2000@gmail.com', "Add New", 'booking_success');
 
     header("Location: " . $basePath2 . "/staff" . "/addnew");
     exit();
