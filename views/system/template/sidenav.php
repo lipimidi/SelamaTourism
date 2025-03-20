@@ -142,7 +142,7 @@
       <?php } ?>
 
 
-      <?php if ($role == 'guide') { ?>
+      <?php if ($role != 'user') { ?>
 
         <li class="nav-item">
           <a data-bs-toggle="collapse" href="default.html#pagesExamples" class="nav-link " aria-controls="pagesExamples"
@@ -155,16 +155,31 @@
           <div class="collapse " id="pagesExamples">
             <ul class="nav ms-4">
 
+              <?php if ($role == 'guide') { ?>
 
-              <li class="nav-item ">
-                <a class="nav-link " href="<?php echo $rootPath; ?>/book/list">
-                  <span class="sidenav-mini-icon"> L </span>
-                  <span class="sidenav-normal"> List </span>
-                </a>
-              </li>
+                <li class="nav-item ">
+                  <a class="nav-link " href="<?php echo $rootPath; ?>/book/list">
+                    <span class="sidenav-mini-icon"> L </span>
+                    <span class="sidenav-normal"> List </span>
+                  </a>
+                </li>
 
 
 
+              <?php } ?>
+
+              <?php if ($role == 'admin') { ?>
+
+                <li class="nav-item ">
+                  <a class="nav-link " href="<?php echo $rootPath; ?>/guide/assign">
+                    <span class="sidenav-mini-icon">
+                      <Acr></Acr>
+                    </span>
+                    <span class="sidenav-normal"> Assign </span>
+                  </a>
+                </li>
+
+              <?php } ?>
 
 
             </ul>
