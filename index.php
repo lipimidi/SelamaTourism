@@ -262,9 +262,10 @@ function staff($staff_id)
     $staff_id = (int) $staff_id;  // Cast to integer to ensure safety
 
     // // Query to search for the booking_id in the bookings table
-    $sql = "SELECT users.id,username, email,role, name,ic,passport,address,phone
+    $sql = "SELECT users.id,username, email,role, user_details.name,ic,passport,address,phone, user_role.name as rolename
     FROM users
     INNER JOIN user_details ON user_details.user_id = users.id
+    INNER JOIN user_role ON user_role.id = users.role
     WHERE users.id = $staff_id";
 
     // // Execute the query
