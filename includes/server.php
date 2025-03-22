@@ -11,24 +11,31 @@ $dotenv->load();
  require('database.php') ;
 
  
-
+//booking
  include('functions/booking/booking_1.php');
  include('functions/booking/booking_2.php');
  include('functions/booking/booking_3.php');
  include('functions/booking/booking_4.php');
 
  include('functions/booking/list.php');
+ //booking_admin
  include('functions/booking/auth_book.php');
+
+ //admin
 
  include('functions/staff/list.php');
  include('functions/staff/add.php');
-
+ include('functions/guide/assign.php');
+//
 
  include('functions/auth/login.php');
  include('functions/auth/register.php');
 
+ //email
+
  include_once('functions/email/email.php');
 
+ //routes
  
  include_once('functions/routes/admin.php');
  include_once('functions/routes/guide.php');

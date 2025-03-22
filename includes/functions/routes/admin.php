@@ -213,8 +213,9 @@ function getBookingStatuses($num)
         'ongoing',
         'finished',
         'dint attend',
-        'emergency',
-    ];
+        'cancelled',
+        'delay',
+     ];
 
     return $statusArray[$num];
 
@@ -349,3 +350,58 @@ function dashboard()
     }
 }
 
+
+
+function guide_assign () {
+
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Guide', 'url' => '/guide'],
+        ['title' => 'Assign', 'url' => '/assign'],
+    ];
+
+
+
+    $sql = "SELECT users.id , username , name
+    FROM users
+    INNER JOIN user_details ON user_details.user_id = users.id
+     WHERE role = '2'";
+    $result = $conn->query($sql);
+
+    // Check if booking details are found
+    if ($result->num_rows > 0) {
+        // Fetch all booking details
+        $guides = [];
+        while ($row = $result->fetch_assoc()) {
+            $guides[] = $row;  // Add each booking detail to the array
+        }
+    }
+
+
+
+    checkStepRedirect(1);
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+
+    include 'views/system/admin/guide/assign.php';
+}
+
+
+function clearTemp() {
+    $folderPath = '/path/to/your/folder'; // Replace with the actual folder path
+
+if (is_dir($folderPath)) {
+    // Get the creation (inode change) time of the folder
+    $folderCreationTime = filectime($folderPath);
+    
+    // Format the date in a readable format
+    $formattedDate = date("Y-m-d H:i:s", $folderCreationTime);
+    
+    echo "Folder was created on: " . $formattedDate;
+} else {
+    echo "The provided path is not a valid folder.";
+}
+}

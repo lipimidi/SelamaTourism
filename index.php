@@ -51,6 +51,10 @@ $routes = [
     //admin
     'staff/list' => 'staff_list',
     'staff/addnew' => 'staff_addnew',
+    'guide/assign' => 'guide_assign',
+
+    //guide
+    'guide/list' => 'guide_list',
 
 
     //fucntions
@@ -91,6 +95,17 @@ switch (true) {
             notFound();
         }
         break;
+
+        case strpos($requestUri, 'guide/') === 0:
+            // Split URL into parts for 'staff' route
+            $parts = explode('/', $requestUri);
+            if (isset($parts[1]) && is_numeric($parts[1])) {
+                $guide = $parts[1]; // Extract staff ID
+                guide($guide);
+            } else {
+                notFound();
+            }
+            break;
 
     default:
         // If none of the above conditions match, call notFound()

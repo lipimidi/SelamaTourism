@@ -34,7 +34,7 @@
 
       <div class="row mt-4">
 
-        <div class="col-lg-8 ">
+        <div class="col-12 ">
           <div class="card h-100 ">
             <div class="card-header">
               <h5 class="mb-0 text-capitalize">Calendar</h5>
@@ -45,28 +45,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div class="card h-100 shadow-lg">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-12 my-auto">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold opacity-7">Weather today</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      Lata Puteh - 29°C
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-12 text-center   ">
-                  <img class="w-100"
-                    src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/small-logos/icon-sun-cloud.png"
-                    alt="image sun">
-                  <h5 class="mb-0 text-center me-1">Cloudy</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
       </div>
 

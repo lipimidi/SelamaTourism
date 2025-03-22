@@ -64,14 +64,14 @@
         </a>
       </li>
       <li class="nav-item">
-        <a data-bs-toggle="collapse" href="default.html#pagesExamples" class="nav-link " aria-controls="pagesExamples"
+        <a data-bs-toggle="collapse" href="#booking" class="nav-link " aria-controls="booking"
           role="button" aria-expanded="false">
           <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
             <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Booking</span>
         </a>
-        <div class="collapse " id="pagesExamples">
+        <div class="collapse " id="booking">
           <ul class="nav ms-4">
 
             <?php if ($role == 'user') { ?>
@@ -107,14 +107,14 @@
       <?php if ($role == 'admin') { ?>
 
         <li class="nav-item">
-          <a data-bs-toggle="collapse" href="default.html#pagesExamples" class="nav-link " aria-controls="pagesExamples"
+          <a data-bs-toggle="collapse" href="#staff" class="nav-link " aria-controls="staff"
             role="button" aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
               <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Staff</span>
           </a>
-          <div class="collapse " id="pagesExamples">
+          <div class="collapse " id="staff">
             <ul class="nav ms-4">
 
 
@@ -145,20 +145,20 @@
       <?php if ($role != 'user') { ?>
 
         <li class="nav-item">
-          <a data-bs-toggle="collapse" href="default.html#pagesExamples" class="nav-link " aria-controls="pagesExamples"
+          <a data-bs-toggle="collapse" href="#guide" class="nav-link " aria-controls="guide"
             role="button" aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
               <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Guide</span>
           </a>
-          <div class="collapse " id="pagesExamples">
+          <div class="collapse " id="guide">
             <ul class="nav ms-4">
 
               <?php if ($role == 'guide') { ?>
 
                 <li class="nav-item ">
-                  <a class="nav-link " href="<?php echo $rootPath; ?>/book/list">
+                  <a class="nav-link " href="<?php echo $rootPath; ?>/guide/list">
                     <span class="sidenav-mini-icon"> L </span>
                     <span class="sidenav-normal"> List </span>
                   </a>
