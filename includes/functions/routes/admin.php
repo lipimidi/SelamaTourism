@@ -155,10 +155,7 @@ function book_list()
 
         include 'views/system/admin/book/list.php';
 
-    } elseif ($role == 'guide') {
-        include 'views/system/guide/book/list.php';
-
-    } else {
+    }  else {
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/user/book/list.php';
 
@@ -203,40 +200,6 @@ function getlist()
 
 
 
-function getBookingStatuses($num)
-{
-
-    $statusArray = [
-        'declined',
-        'processing',
-        'accepted',
-        'ongoing',
-        'finished',
-        'dint attend',
-        'cancelled',
-        'delay',
-     ];
-
-    return $statusArray[$num];
-
-
-}
-
-function getHikingStatuses($num)
-{
-
-    $statusArray = [
-        'not yet',
-        'ongoing',
-        'finished',
-        'dint attend',
-        'missing',
-    ];
-
-    return $statusArray[$num];
-
-
-}
 
 
 
@@ -323,32 +286,6 @@ function staff_addnew()
 }
 
 
-
-function dashboard()
-{
-    include('includes/server.php');
-    checkLogin();
-    $role = checkRole();
-
-    $breadcrumbs = [
-        ['title' => 'Home', 'url' => ''],
-        ['title' => 'Dashboard', 'url' => '/dashboard'],
-    ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-
-    if ($role === 'admin') {
-
-        include 'views/system/admin/dashboard.php';
-
-    } elseif ($role == 'guide') {
-        include 'views/system/guide/dashboard.php';
-
-    } else {
-        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-        include 'views/system/user/dashboard.php';
-
-    }
-}
 
 
 

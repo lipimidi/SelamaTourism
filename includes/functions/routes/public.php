@@ -101,3 +101,82 @@ function checkRole()
 
 
 }
+
+
+function getBookingStatuses($num)
+{
+
+    $statusArray = [
+        'declined',
+        'processing',
+        'accepted',
+        'ongoing',
+        'finished',
+        'dint attend',
+        'cancelled',
+        'delay',
+     ];
+
+    return $statusArray[$num];
+
+
+}
+
+function getHikingStatuses($num)
+{
+
+    $statusArray = [
+        'not yet',
+        'ongoing',
+        'finished',
+        'dint attend',
+        'missing',
+    ];
+
+    return $statusArray[$num];
+
+
+}
+function getGuideStatuses($num)
+{
+
+    $statusArray = [
+        'cancelled',
+        'not yet',
+        'ongoing',
+        'finished',
+        'emergency',
+
+     ];
+
+    return $statusArray[$num];
+
+
+}
+
+
+function dashboard()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Dashboard', 'url' => '/dashboard'],
+    ];
+    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/dashboard.php';
+
+    } elseif ($role == 'guide') {
+        include 'views/system/guide/dashboard.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        include 'views/system/user/dashboard.php';
+
+    }
+}

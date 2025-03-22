@@ -63,6 +63,8 @@
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
       </li>
+      <?php if ($role != 'guide') { ?>
+
       <li class="nav-item">
         <a data-bs-toggle="collapse" href="#booking" class="nav-link " aria-controls="booking"
           role="button" aria-expanded="false">
@@ -102,6 +104,7 @@
           </ul>
         </div>
       </li>
+      <?php } ?>
 
 
       <?php if ($role == 'admin') { ?>

@@ -25,6 +25,7 @@ function guide($guide_id)
 
         $date = $guide['date'];
         $session_id = $guide['timeslot_id'];
+        $guide_id = $guide['id'];
 
         // Query to get additional details from the booking_details table using booking_id
         $sql_details = 
@@ -50,7 +51,7 @@ function guide($guide_id)
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Guide', 'url' => '/guide'],
-        // ['title' => "$booking_id", 'url' => "/$booking_id"],
+        ['title' => "$guide_id", 'url' => "/$guide_id"],
     ];
 
     // Include the appropriate view for displaying the booking details
@@ -81,8 +82,8 @@ function guide_list()
 
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
-        ['title' => 'Booking', 'url' => '/book'],
-        ['title' => 'List', 'url' => '/book/list'],
+        ['title' => 'Guide', 'url' => '/guide'],
+        ['title' => 'List', 'url' => '/guide/list'],
     ];
 
 
@@ -102,19 +103,3 @@ function guide_list()
 }
 
 
-function getGuideStatuses($num)
-{
-
-    $statusArray = [
-        'cancelled',
-        'not yet',
-        'ongoing',
-        'finished',
-        'emergency',
-
-     ];
-
-    return $statusArray[$num];
-
-
-}

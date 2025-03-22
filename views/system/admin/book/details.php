@@ -257,8 +257,7 @@ background-size: cover;">
             </div>
           </div>
         </div>
-        <?php if ($booking_status == 1) {?>
-
+ 
         <form method="POST">
 
           <div class="button-row d-flex mt-4">
@@ -272,8 +271,7 @@ background-size: cover;">
           </div>
 
         </form>
-        <?php }?>
-
+ 
       </div>
     </div>
     </div>

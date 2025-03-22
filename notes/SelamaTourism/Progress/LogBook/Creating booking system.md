@@ -1,0 +1,1 @@
+Edited router for detecting PHP Session
