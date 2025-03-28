@@ -1,69 +1,664 @@
 {
-	"nodes":[
-		{"id":"db27450e324a2700","type":"group","x":-960,"y":-120,"width":2560,"height":1920,"label":"System"},
-		{"id":"89601d0970b3d02c","type":"group","x":-400,"y":1060,"width":1920,"height":660,"label":"Admin"},
-		{"id":"36308e0aa9ec5005","type":"group","x":-400,"y":-40,"width":1230,"height":620,"label":"User"},
-		{"id":"cba690391af32893","type":"group","x":-400,"y":660,"width":1230,"height":340,"label":"Guide"},
-		{"id":"7380669db03afefb","type":"group","x":-960,"y":-400,"width":1860,"height":157,"label":"Public"},
-		{"id":"11030ecaa1fc1c7b","type":"file","file":"Wireframe/System/Guide/Guide/Info.md","x":-60,"y":910,"width":250,"height":50,"color":"3"},
-		{"id":"157ae6281aa1ed4f","type":"text","text":"Profile","x":530,"y":740,"width":250,"height":60,"color":"1"},
-		{"id":"1ee068b583e4b2af","type":"text","text":"Guide List","x":-60,"y":820,"width":250,"height":50,"color":"5"},
-		{"id":"46b122628c47c898","type":"text","text":"Guide","x":-60,"y":750,"width":250,"height":50},
-		{"id":"67fb36296e36f11f","type":"text","text":"Accomodation / Facilities","x":-105,"y":-360,"width":250,"height":60,"color":"1"},
-		{"id":"8c8d23a3b6943458","type":"text","text":"Home\n","x":-690,"y":-360,"width":250,"height":60,"color":"3"},
-		{"id":"0dd208c8c22a9e10","type":"text","text":"Attractions\n/ Activities\n","x":-390,"y":-360,"width":250,"height":60,"color":"1"},
-		{"id":"50f948d61a160896","type":"text","text":"Blogs/ Travel Guide","x":190,"y":-360,"width":250,"height":60,"color":"6"},
-		{"id":"06e5b490ee9b34b5","type":"text","text":"Contact\n","x":490,"y":-360,"width":250,"height":60,"color":"1"},
-		{"id":"3bb47c7383630347","type":"text","text":"Profile","x":530,"y":1100,"width":250,"height":60,"color":"1"},
-		{"id":"034c6c9ff0c9c5f8","type":"file","file":"Wireframe/System/User/Booking/Details.md","x":220,"y":420,"width":250,"height":60,"color":"3"},
-		{"id":"d512207f7d375d27","type":"text","text":"Send Location GPS","x":530,"y":420,"width":250,"height":60,"color":"6"},
-		{"id":"f97c28ad0572857b","type":"file","file":"Wireframe/System/Guide/Dashboard.md","x":-360,"y":740,"width":250,"height":60,"color":"3"},
-		{"id":"e2249b597a43a1dd","type":"text","text":"Staff","x":220,"y":1100,"width":250,"height":60},
-		{"id":"924bcee3d0b6f15b","type":"text","text":"Booking","x":-60,"y":1100,"width":250,"height":50},
-		{"id":"6f09b2641e266f03","type":"text","text":"Dashboard\n","x":-360,"y":1100,"width":250,"height":60,"color":"3"},
-		{"id":"bb10fed468197ab2","type":"file","file":"Wireframe/System/User/Booking/Summary.md","x":-60,"y":420,"width":250,"height":50,"color":"2"},
-		{"id":"831a3670c29ae766","type":"text","text":"Guide","x":880,"y":1100,"width":250,"height":60},
-		{"id":"671c4c5618e02be8","type":"text","text":"Add New","x":470,"y":1250,"width":250,"height":60,"color":"3"},
-		{"id":"9c583a2e0110f484","type":"text","text":"Staff List","x":405,"y":1347,"width":250,"height":50,"color":"2"},
-		{"id":"5f4b67e6542d1dc2","type":"text","text":"Assign","x":876,"y":1326,"width":250,"height":60,"color":"2"},
-		{"id":"4328afaec2954718","type":"file","file":"Wireframe/System/User/Booking/Insurance.md","x":-60,"y":320,"width":250,"height":50,"color":"2"},
-		{"id":"74b7ee812e399aec","type":"file","file":"Wireframe/System/Admin/Booking/Settings.md","x":15,"y":1250,"width":250,"height":60,"color":"1"},
-		{"id":"7eb8711b79386578","type":"text","text":"Booking List","x":-310,"y":1250,"width":250,"height":60,"color":"2"},
-		{"id":"f4f16544394f5824","type":"file","file":"Wireframe/System/User/Booking/People.md","x":-60,"y":220,"width":250,"height":50,"color":"2"},
-		{"id":"a8908a7c816ccb39","type":"text","text":"Booking Details","x":-235,"y":1372,"width":250,"height":60,"color":"3"},
-		{"id":"9c87d2a0c7ce576b","type":"file","file":"Wireframe/System/User/Booking/Date.md","x":-60,"y":120,"width":250,"height":50,"color":"2"},
-		{"id":"870a71aa4e2893a2","type":"file","file":"Wireframe/System/User/Booking/List.md","x":220,"y":120,"width":250,"height":60,"color":"2"},
-		{"id":"0bddc1c90fdb35c3","type":"text","text":"Staff Info","x":405,"y":1440,"width":250,"height":50,"color":"1"},
-		{"id":"2d2706b9ea0b8e89","type":"text","text":"Blog","x":-235,"y":1490,"width":250,"height":60,"color":"6"},
-		{"id":"09499e59854e43ad","type":"file","file":"Wireframe/System/Register.md","x":-830,"y":120,"width":250,"height":60,"color":"2"},
-		{"id":"16effaebb36b5ca0","type":"file","file":"Wireframe/System/User/Dashboard.md","x":-360,"y":20,"width":250,"height":50,"color":"3"},
-		{"id":"fee942618436dfa6","type":"text","text":"Booking\n","x":-60,"y":20,"width":250,"height":60},
-		{"id":"aee9564bafdf3ff2","type":"text","text":"Profile","x":470,"y":20,"width":250,"height":60,"color":"1"},
-		{"id":"77508e8c3ddc62b8","type":"text","text":"Add ","x":-185,"y":1600,"width":250,"height":50,"color":"6"},
-		{"id":"3b6f4f45720cdd93","type":"file","file":"Wireframe/System/Login.md","x":-830,"y":660,"width":250,"height":60,"color":"2"}
-	],
-	"edges":[
-		{"id":"7a4ea2ff93830d50","fromNode":"fee942618436dfa6","fromSide":"bottom","toNode":"9c87d2a0c7ce576b","toSide":"top"},
-		{"id":"9b8dfbfaf2fb9621","fromNode":"9c87d2a0c7ce576b","fromSide":"bottom","toNode":"f4f16544394f5824","toSide":"top"},
-		{"id":"72f621005b123661","fromNode":"f4f16544394f5824","fromSide":"bottom","toNode":"4328afaec2954718","toSide":"top"},
-		{"id":"27a96e76f912ca5a","fromNode":"4328afaec2954718","fromSide":"bottom","toNode":"bb10fed468197ab2","toSide":"top"},
-		{"id":"50e37673cf93e7d4","fromNode":"1ee068b583e4b2af","fromSide":"bottom","toNode":"11030ecaa1fc1c7b","toSide":"top"},
-		{"id":"682dbe22753c0c52","fromNode":"e2249b597a43a1dd","fromSide":"bottom","toNode":"9c583a2e0110f484","toSide":"left"},
-		{"id":"88e3c3ac36040c5a","fromNode":"fee942618436dfa6","fromSide":"right","toNode":"870a71aa4e2893a2","toSide":"top"},
-		{"id":"43126007384e8cd2","fromNode":"870a71aa4e2893a2","fromSide":"bottom","toNode":"034c6c9ff0c9c5f8","toSide":"top"},
-		{"id":"119a9ec9b5d29536","fromNode":"3b6f4f45720cdd93","fromSide":"right","toNode":"36308e0aa9ec5005","toSide":"left"},
-		{"id":"d0f98a3138c82fe5","fromNode":"3b6f4f45720cdd93","fromSide":"right","toNode":"cba690391af32893","toSide":"left"},
-		{"id":"4dfe85b31016dc28","fromNode":"3b6f4f45720cdd93","fromSide":"right","toNode":"89601d0970b3d02c","toSide":"left"},
-		{"id":"ef619539a80e3bc2","fromNode":"e2249b597a43a1dd","fromSide":"bottom","toNode":"671c4c5618e02be8","toSide":"top"},
-		{"id":"0b3037ba98f4cb35","fromNode":"924bcee3d0b6f15b","fromSide":"bottom","toNode":"7eb8711b79386578","toSide":"top"},
-		{"id":"a118b876f882b147","fromNode":"7eb8711b79386578","fromSide":"bottom","toNode":"a8908a7c816ccb39","toSide":"top"},
-		{"id":"da575141fb81579c","fromNode":"bb10fed468197ab2","fromSide":"right","toNode":"034c6c9ff0c9c5f8","toSide":"left"},
-		{"id":"b6682bdc3ef78666","fromNode":"09499e59854e43ad","fromSide":"right","toNode":"36308e0aa9ec5005","toSide":"left"},
-		{"id":"ab91585fbeeed56c","fromNode":"924bcee3d0b6f15b","fromSide":"bottom","toNode":"74b7ee812e399aec","toSide":"top"},
-		{"id":"b027c2b677b7bb40","fromNode":"9c583a2e0110f484","fromSide":"bottom","toNode":"0bddc1c90fdb35c3","toSide":"top"},
-		{"id":"d9e177c25e762360","fromNode":"831a3670c29ae766","fromSide":"bottom","toNode":"5f4b67e6542d1dc2","toSide":"top"},
-		{"id":"de75220a938d7476","fromNode":"46b122628c47c898","fromSide":"bottom","toNode":"1ee068b583e4b2af","toSide":"top"},
-		{"id":"e83634de5ce53994","fromNode":"034c6c9ff0c9c5f8","fromSide":"right","toNode":"d512207f7d375d27","toSide":"left"},
-		{"id":"6a1bc905405cc71c","fromNode":"2d2706b9ea0b8e89","fromSide":"bottom","toNode":"77508e8c3ddc62b8","toSide":"top"}
-	]
+  "edges": [
+    {
+      "fromNode": "fee942618436dfa6",
+      "fromSide": "bottom",
+      "id": "7a4ea2ff93830d50",
+      "toNode": "9c87d2a0c7ce576b",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "9c87d2a0c7ce576b",
+      "fromSide": "bottom",
+      "id": "9b8dfbfaf2fb9621",
+      "toNode": "f4f16544394f5824",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "f4f16544394f5824",
+      "fromSide": "bottom",
+      "id": "72f621005b123661",
+      "toNode": "4328afaec2954718",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "4328afaec2954718",
+      "fromSide": "bottom",
+      "id": "27a96e76f912ca5a",
+      "toNode": "bb10fed468197ab2",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "1ee068b583e4b2af",
+      "fromSide": "bottom",
+      "id": "50e37673cf93e7d4",
+      "toNode": "11030ecaa1fc1c7b",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "e2249b597a43a1dd",
+      "fromSide": "bottom",
+      "id": "682dbe22753c0c52",
+      "toNode": "9c583a2e0110f484",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "fee942618436dfa6",
+      "fromSide": "right",
+      "id": "88e3c3ac36040c5a",
+      "toNode": "870a71aa4e2893a2",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "870a71aa4e2893a2",
+      "fromSide": "bottom",
+      "id": "43126007384e8cd2",
+      "toNode": "034c6c9ff0c9c5f8",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "3b6f4f45720cdd93",
+      "fromSide": "right",
+      "id": "119a9ec9b5d29536",
+      "toNode": "36308e0aa9ec5005",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "3b6f4f45720cdd93",
+      "fromSide": "right",
+      "id": "d0f98a3138c82fe5",
+      "toNode": "cba690391af32893",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "3b6f4f45720cdd93",
+      "fromSide": "right",
+      "id": "4dfe85b31016dc28",
+      "toNode": "89601d0970b3d02c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "e2249b597a43a1dd",
+      "fromSide": "bottom",
+      "id": "ef619539a80e3bc2",
+      "toNode": "671c4c5618e02be8",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "924bcee3d0b6f15b",
+      "fromSide": "bottom",
+      "id": "0b3037ba98f4cb35",
+      "toNode": "7eb8711b79386578",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "7eb8711b79386578",
+      "fromSide": "bottom",
+      "id": "a118b876f882b147",
+      "toNode": "a8908a7c816ccb39",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "bb10fed468197ab2",
+      "fromSide": "right",
+      "id": "da575141fb81579c",
+      "toNode": "034c6c9ff0c9c5f8",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "09499e59854e43ad",
+      "fromSide": "right",
+      "id": "b6682bdc3ef78666",
+      "toNode": "36308e0aa9ec5005",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "924bcee3d0b6f15b",
+      "fromSide": "bottom",
+      "id": "ab91585fbeeed56c",
+      "toNode": "74b7ee812e399aec",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "9c583a2e0110f484",
+      "fromSide": "bottom",
+      "id": "b027c2b677b7bb40",
+      "toNode": "0bddc1c90fdb35c3",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "831a3670c29ae766",
+      "fromSide": "bottom",
+      "id": "d9e177c25e762360",
+      "toNode": "5f4b67e6542d1dc2",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "46b122628c47c898",
+      "fromSide": "bottom",
+      "id": "de75220a938d7476",
+      "toNode": "1ee068b583e4b2af",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "034c6c9ff0c9c5f8",
+      "fromSide": "right",
+      "id": "e83634de5ce53994",
+      "styleAttributes": {
+        "path": "dotted"
+      },
+      "toNode": "d512207f7d375d27",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "2d2706b9ea0b8e89",
+      "fromSide": "bottom",
+      "id": "6a1bc905405cc71c",
+      "toNode": "77508e8c3ddc62b8",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "831a3670c29ae766",
+      "fromSide": "bottom",
+      "id": "b409220fa2a12566",
+      "toNode": "aa2e7daf516a16af",
+      "toSide": "top"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 1920,
+      "id": "db27450e324a2700",
+      "label": "System",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 2560,
+      "x": -960,
+      "y": -120
+    },
+    {
+      "height": 660,
+      "id": "89601d0970b3d02c",
+      "label": "Admin",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1920,
+      "x": -400,
+      "y": 1060
+    },
+    {
+      "height": 620,
+      "id": "36308e0aa9ec5005",
+      "label": "User",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1230,
+      "x": -400,
+      "y": -40
+    },
+    {
+      "height": 340,
+      "id": "cba690391af32893",
+      "label": "Guide",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1230,
+      "x": -400,
+      "y": 660
+    },
+    {
+      "height": 157,
+      "id": "7380669db03afefb",
+      "label": "Public",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1860,
+      "x": -960,
+      "y": -400
+    },
+    {
+      "color": "6",
+      "height": 60,
+      "id": "50f948d61a160896",
+      "styleAttributes": {
+      },
+      "text": "Blogs/ Travel Guide",
+      "type": "text",
+      "width": 250,
+      "x": 190,
+      "y": -360
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "0dd208c8c22a9e10",
+      "styleAttributes": {
+      },
+      "text": "Attractions\n/ Activities\n",
+      "type": "text",
+      "width": 250,
+      "x": -390,
+      "y": -360
+    },
+    {
+      "color": "3",
+      "file": "Wireframe/System/User/Dashboard/Dashboard.md",
+      "height": 50,
+      "id": "16effaebb36b5ca0",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -360,
+      "y": 20
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "8c8d23a3b6943458",
+      "styleAttributes": {
+      },
+      "text": "Home\n",
+      "type": "text",
+      "width": 250,
+      "x": -690,
+      "y": -360
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/Register/Register.md",
+      "height": 60,
+      "id": "09499e59854e43ad",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -830,
+      "y": 120
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/Login/Login.md",
+      "height": 60,
+      "id": "3b6f4f45720cdd93",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -830,
+      "y": 660
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "06e5b490ee9b34b5",
+      "styleAttributes": {
+      },
+      "text": "Contact\n",
+      "type": "text",
+      "width": 250,
+      "x": 490,
+      "y": -360
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "aee9564bafdf3ff2",
+      "styleAttributes": {
+      },
+      "text": "Profile",
+      "type": "text",
+      "width": 250,
+      "x": 470,
+      "y": 20
+    },
+    {
+      "color": "3",
+      "file": "Wireframe/System/User/Booking/Details/Details.md",
+      "height": 60,
+      "id": "034c6c9ff0c9c5f8",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": 220,
+      "y": 420
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "157ae6281aa1ed4f",
+      "styleAttributes": {
+      },
+      "text": "Profile",
+      "type": "text",
+      "width": 250,
+      "x": 530,
+      "y": 740
+    },
+    {
+      "height": 50,
+      "id": "46b122628c47c898",
+      "styleAttributes": {
+      },
+      "text": "Guide",
+      "type": "text",
+      "width": 250,
+      "x": -60,
+      "y": 750
+    },
+    {
+      "color": "3",
+      "file": "Wireframe/System/Guide/Guide/Info/Info.md",
+      "height": 50,
+      "id": "11030ecaa1fc1c7b",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 910
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "1ee068b583e4b2af",
+      "styleAttributes": {
+      },
+      "text": "Guide List",
+      "type": "text",
+      "width": 250,
+      "x": -60,
+      "y": 820
+    },
+    {
+      "color": "3",
+      "file": "Wireframe/System/Guide/Dashboard/Dashboard.md",
+      "height": 60,
+      "id": "f97c28ad0572857b",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -360,
+      "y": 740
+    },
+    {
+      "height": 60,
+      "id": "fee942618436dfa6",
+      "styleAttributes": {
+      },
+      "text": "Booking\n",
+      "type": "text",
+      "width": 250,
+      "x": -60,
+      "y": 20
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "67fb36296e36f11f",
+      "styleAttributes": {
+      },
+      "text": "Accomodation / Facilities",
+      "type": "text",
+      "width": 250,
+      "x": -105,
+      "y": -360
+    },
+    {
+      "color": "6",
+      "height": 60,
+      "id": "d512207f7d375d27",
+      "styleAttributes": {
+      },
+      "text": "Send Location GPS",
+      "type": "text",
+      "width": 250,
+      "x": 530,
+      "y": 420
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/Summary/Summary.md",
+      "height": 50,
+      "id": "bb10fed468197ab2",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 420
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/Insurance/Insurance.md",
+      "height": 50,
+      "id": "4328afaec2954718",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 320
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/List/List.md",
+      "height": 60,
+      "id": "870a71aa4e2893a2",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": 220,
+      "y": 120
+    },
+    {
+      "height": 60,
+      "id": "e2249b597a43a1dd",
+      "styleAttributes": {
+      },
+      "text": "Staff",
+      "type": "text",
+      "width": 250,
+      "x": 220,
+      "y": 1100
+    },
+    {
+      "height": 50,
+      "id": "924bcee3d0b6f15b",
+      "styleAttributes": {
+      },
+      "text": "Booking",
+      "type": "text",
+      "width": 250,
+      "x": -60,
+      "y": 1100
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "6f09b2641e266f03",
+      "styleAttributes": {
+      },
+      "text": "Dashboard\n",
+      "type": "text",
+      "width": 250,
+      "x": -360,
+      "y": 1100
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/People/People.md",
+      "height": 50,
+      "id": "f4f16544394f5824",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 220
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/Date/Date.md",
+      "height": 50,
+      "id": "9c87d2a0c7ce576b",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 120
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "9c583a2e0110f484",
+      "styleAttributes": {
+      },
+      "text": "Staff List",
+      "type": "text",
+      "width": 250,
+      "x": 405,
+      "y": 1347
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "671c4c5618e02be8",
+      "styleAttributes": {
+      },
+      "text": "Add New",
+      "type": "text",
+      "width": 250,
+      "x": 470,
+      "y": 1250
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "0bddc1c90fdb35c3",
+      "styleAttributes": {
+      },
+      "text": "Staff Info",
+      "type": "text",
+      "width": 250,
+      "x": 405,
+      "y": 1440
+    },
+    {
+      "color": "1",
+      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
+      "height": 60,
+      "id": "74b7ee812e399aec",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": 15,
+      "y": 1250
+    },
+    {
+      "color": "1",
+      "height": 60,
+      "id": "3bb47c7383630347",
+      "styleAttributes": {
+      },
+      "text": "Profile",
+      "type": "text",
+      "width": 250,
+      "x": 530,
+      "y": 1100
+    },
+    {
+      "height": 60,
+      "id": "831a3670c29ae766",
+      "styleAttributes": {
+      },
+      "text": "Guide",
+      "type": "text",
+      "width": 250,
+      "x": 880,
+      "y": 1100
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "5f4b67e6542d1dc2",
+      "styleAttributes": {
+      },
+      "text": "Assign",
+      "type": "text",
+      "width": 250,
+      "x": 876,
+      "y": 1326
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "a8908a7c816ccb39",
+      "styleAttributes": {
+      },
+      "text": "Booking Details",
+      "type": "text",
+      "width": 250,
+      "x": -235,
+      "y": 1372
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "7eb8711b79386578",
+      "styleAttributes": {
+      },
+      "text": "Booking List",
+      "type": "text",
+      "width": 250,
+      "x": -310,
+      "y": 1250
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "aa2e7daf516a16af",
+      "styleAttributes": {
+      },
+      "text": "List",
+      "type": "text",
+      "width": 250,
+      "x": 1080,
+      "y": 1397
+    },
+    {
+      "color": "6",
+      "height": 60,
+      "id": "2d2706b9ea0b8e89",
+      "styleAttributes": {
+      },
+      "text": "Blog",
+      "type": "text",
+      "width": 250,
+      "x": -235,
+      "y": 1490
+    },
+    {
+      "color": "6",
+      "height": 50,
+      "id": "77508e8c3ddc62b8",
+      "styleAttributes": {
+      },
+      "text": "Add ",
+      "type": "text",
+      "width": 250,
+      "x": -185,
+      "y": 1600
+    }
+  ]
 }

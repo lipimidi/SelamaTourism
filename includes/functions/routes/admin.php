@@ -44,6 +44,7 @@ function staff($staff_id)
     // Breadcrumbs for navigation
     $breadcrumbs = [
         ['title' => 'Home', 'url' => ''],
+
         ['title' => 'Staff', 'url' => '/staff'],
         ['title' => "$staff_id", 'url' => "/$staff_id"],
     ];
@@ -320,8 +321,7 @@ function guide_assign () {
 
 
 
-    checkStepRedirect(1);
-    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+     // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/admin/guide/assign.php';
 }
@@ -341,4 +341,7 @@ if (is_dir($folderPath)) {
 } else {
     echo "The provided path is not a valid folder.";
 }
+
 }
+
+

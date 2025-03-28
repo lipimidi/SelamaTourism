@@ -6,6 +6,8 @@ if (isset($_POST['fetch_events_guide'])) {
 
     $start_utc = $_POST['start'];
     $end_utc = $_POST['end'];
+    $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
+    $role = isset($_POST['role']) ? (int) $_POST['role'] : null; // Ensure you get the role
 
     // Convert UTC datetime to local date (YYYY-MM-DD)
     $start_date = date('Y-m-d', strtotime($start_utc));
@@ -55,7 +57,9 @@ if (isset($_POST['fetch_events_guide'])) {
                                 FROM guides 
                                 WHERE guides.date = '$date_string' 
                                 AND guides.timeslot_id = '$timeslot_id'
-                                ";
+                                 ";
+
+ 
 
                 $result_guide = $conn->query($sql_guide);
                 $guide = $result_guide->fetch_assoc();
@@ -66,21 +70,46 @@ if (isset($_POST['fetch_events_guide'])) {
                 if (isset($guide['user_id'])) {
                     $className = 'bg-gradient-info';  // Apply the info class if both match
                 }
+                     // If role is '2', check if guide matches user_id
+                    if ($role == '2' && $guide_name == $user_id) {
+                        // Create the event for FullCalendar for role 2 and matching guide
+                        $events[] = [
+                            'title' => "$total_booked people booked",
+                            'start' => "$date_string $start_time",
+                            'end' => "$date_string $end_time",
+                            'session' => $timeslot_id,
+                            'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
+                            // 'color' => $color, // Uncomment and define the color if needed
+                            'event_date' => $date_string,
+                            'className' => $className,
+                            'remaining_slots' => $remaining_slots,
+                            'user_id' => $guide_name,
+                            'guide_id' => $guide_id,
+                        ];
+                    }
+                    // If role is '1', proceed without checking user_id
+                    elseif ($role == '1') {
+                        // Create the event for FullCalendar for role 1 without checking guide against user_id
+                        $events[] = [
+                            'title' => "$total_booked people booked",
+                            'start' => "$date_string $start_time",
+                            'end' => "$date_string $end_time",
+                            'session' => $timeslot_id,
+                            'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
+                            // 'color' => $color, // Uncomment and define the color if needed
+                            'event_date' => $date_string,
+                            'className' => $className,
+                            'remaining_slots' => $remaining_slots,
+                            'user_id' => $guide_name,
+                            'guide_id' => $guide_id,
+                        ];
+                    }
+                    else{
 
-                // Create the event for FullCalendar
-                $events[] = [
-                    'title' => "$total_booked people booked",
-                    'start' => "$date_string $start_time",
-                    'end' => "$date_string $end_time",
-                    'session' => $timeslot_id,
-                    'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
-                    // 'color' => $color,
-                    'event_date' => $date_string,
-                    'className' => $className,
-                    'remaining_slots' => $remaining_slots,
-                    'guide' => $guide_name,
-                    'guide_id' => $guide_id,
-                ];
+                    }
+                
+                
+
             }
 
         }
@@ -94,30 +123,39 @@ if (isset($_POST['fetch_events_guide'])) {
 
 }
 
+if (isset($_POST['assignguide'])) {
 
-if ( isset($_POST['assignguide'])) {
- 
-
+    // Collect form data
     $date = $_POST['date'];
-     $session = $_POST['session'];
+    $session = $_POST['session'];
     $user_id = $_POST['guide'];
+    $status = '2'; // New status for the guide (you can modify this as needed)
 
+    // Check if the guide is already assigned to the same date and session
+    $check_sql = "SELECT * FROM guides WHERE  `date` = '$date' AND `timeslot_id` = '$session'";
+    $check_result = mysqli_query($conn, $check_sql);
 
-    $sql = "INSERT INTO guides (`user_id`, `date`, `timeslot_id` ) VALUES ( '$user_id', '$date', '$session' )";
- 
-    if (mysqli_query($conn, $sql)) {
-        // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
+    if (mysqli_num_rows($check_result) > 0) {
+        // If the guide is already assigned, perform an update
+        $update_sql = "UPDATE guides SET `status` = '$status' , `user_id` = '$user_id' WHERE   `date` = '$date' AND `timeslot_id` = '$session'";
+
+        if (mysqli_query($conn, $update_sql)) {
+            echo "Guide assignment updated successfully.";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        // If the guide is not assigned, perform an insert
+        $insert_sql = "INSERT INTO guides (`user_id`, `date`, `timeslot_id`, `status`) VALUES ('$user_id', '$date', '$session', '$status')";
+
+        if (mysqli_query($conn, $insert_sql)) {
+            echo "Guide assigned successfully.";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     }
+
+    // Redirect after the operation
     header("Location: " . $basePath2 . "/guide/assign");
     exit();
-
-    
-    // echo "<script>console.log(" . json_encode($_POST) . ");</script>";
-    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
- 
-
-    // echo $_SESSION['session'];
-
 }

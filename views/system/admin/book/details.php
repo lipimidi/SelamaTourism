@@ -143,7 +143,7 @@ background-size: cover;">
                               <i class="ni ni-check-bold text-white   text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3 text-capitalize">
-                              <?php echo $booking_status ?>
+                            <?php echo $booking_status ?>
                             </h5>
                             <span class="text-white text-sm">Status</span>
                           </div>
@@ -257,7 +257,8 @@ background-size: cover;">
             </div>
           </div>
         </div>
- 
+        <?php if ($booking['status'] == 1) {?>
+
         <form method="POST">
 
           <div class="button-row d-flex mt-4">
@@ -271,7 +272,8 @@ background-size: cover;">
           </div>
 
         </form>
- 
+        <?php }?>
+
       </div>
     </div>
     </div>

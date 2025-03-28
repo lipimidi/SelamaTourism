@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['getlist_user'])) {
-  
+
     // DataTables parameters from POST request
     $start = isset($_POST['start']) ? (int) $_POST['start'] : 0;   // Paging start
     $length = isset($_POST['length']) ? (int) $_POST['length'] : 10;  // Number of rows per page
@@ -8,22 +8,31 @@ if (isset($_POST['getlist_user'])) {
     $order = isset($_POST['order'][0]['column']) ? (int) $_POST['order'][0]['column'] : 0; // Sorting column index
     $order_direction = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'desc'; // Sorting direction
     $table_name = "bookings";
+    $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['id', 'booking_date', 'timeslot_id', 'people_booked', 'created_at']; // Modify according to your table structure
+    $columns = ['id', 'booking_date', 'timeslot_id', 'people_booked', 'created_at', 'user_id']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     $search = $conn->real_escape_string($search);
 
     // Build the SQL query
-    $search_condition = "";
+    $search_condition = "WHERE 1=1"; // Default condition to simplify appending conditions
+
+    // If there's a search value, add search conditions for the relevant fields
     if ($search) {
-        $search_condition = "WHERE id LIKE '%$search%' 
-                             OR booking_date LIKE '%$search%' 
-                             OR timeslot_id LIKE '%$search%' 
-                             OR people_booked LIKE '%$search%' 
-                             OR created_at LIKE '%$search%'";
+        $search_condition .= " AND (id LIKE '%$search%' 
+                                 OR booking_date LIKE '%$search%' 
+                                 OR timeslot_id LIKE '%$search%' 
+                                 OR people_booked LIKE '%$search%' 
+                                 OR created_at LIKE '%$search%')";
     }
+    
+    // Ensure that the user_id condition is added at the end
+    if ($user_id) {
+        $search_condition .= " AND user_id = '$user_id'";
+    }
+    
 
     // Build the order by clause
     $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
@@ -63,7 +72,7 @@ if (isset($_POST['getlist_user'])) {
 
 
 if (isset($_POST['getlist_admin'])) {
-  
+
     // DataTables parameters from POST request
     $start = isset($_POST['start']) ? (int) $_POST['start'] : 0;   // Paging start
     $length = isset($_POST['length']) ? (int) $_POST['length'] : 10;  // Number of rows per page
@@ -71,6 +80,7 @@ if (isset($_POST['getlist_admin'])) {
     $order = isset($_POST['order'][0]['column']) ? (int) $_POST['order'][0]['column'] : 0; // Sorting column index
     $order_direction = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'desc'; // Sorting direction
     $table_name = "bookings";
+    $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
     $columns = ['id', 'booking_date', 'timeslot_id', 'people_booked', 'created_at']; // Modify according to your table structure
@@ -79,14 +89,22 @@ if (isset($_POST['getlist_admin'])) {
     // $search = $conn->real_escape_string($search);
 
     // Build the SQL query
-    $search_condition = "";
+    $search_condition = "WHERE 1=1"; // Default condition to simplify appending conditions
+
+    // If there's a search value, add search conditions for the relevant fields
     if ($search) {
-        $search_condition = "WHERE id LIKE '%$search%' 
-                             OR booking_date LIKE '%$search%' 
-                             OR timeslot_id LIKE '%$search%' 
-                             OR people_booked LIKE '%$search%' 
-                             OR created_at LIKE '%$search%'";
+        $search_condition .= " AND (id LIKE '%$search%' 
+                                 OR booking_date LIKE '%$search%' 
+                                 OR timeslot_id LIKE '%$search%' 
+                                 OR people_booked LIKE '%$search%' 
+                                 OR created_at LIKE '%$search%')";
     }
+    
+    // Ensure that the user_id condition is added at the end
+    if ($user_id) {
+        $search_condition .= " AND user_id = '$user_id'";
+    }
+    
 
     // Build the order by clause
     $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
@@ -118,11 +136,11 @@ if (isset($_POST['getlist_admin'])) {
         'draw' => isset($_POST['draw']) ? (int) $_POST['draw'] : 1,  // Draw counter for DataTables
         'recordsTotal' => $total_records, // Total records in the database (unfiltered)
         'recordsFiltered' => $filtered_records, // Total records after search filter
-        'data' => $data ,// Data rows to be displayed
+        'data' => $data,// Data rows to be displayed
         'POST' => $search,
 
     ]);
 
     exit();
 }
- 
+

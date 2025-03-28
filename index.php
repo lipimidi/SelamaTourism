@@ -52,8 +52,9 @@ $routes = [
     'staff/list' => 'staff_list',
     'staff/addnew' => 'staff_addnew',
     'guide/assign' => 'guide_assign',
+    //'guide/list' => 'guide_list',
 
-    //guide
+    //admin_guide
     'guide/list' => 'guide_list',
 
 
@@ -64,6 +65,8 @@ $routes = [
     'book/getlist_user' => 'getlist',
     'book/getlist_admin' => 'getlist',
     'staff/getlist' => 'staff_getlist',
+    'guide/getlist_guide' => 'guide_getlist',
+    'guide/people_change_status' => 'guide_people_status',
 
 ];
 

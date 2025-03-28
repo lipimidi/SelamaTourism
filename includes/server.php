@@ -10,6 +10,16 @@ $dotenv->load();
 
  require('database.php') ;
 
+
+  //routes
+ 
+  include_once('functions/routes/admin.php');
+  include_once('functions/routes/guide.php');
+  include_once('functions/routes/user.php');
+  include_once('functions/routes/public.php');
+ 
+ 
+
  
 //booking
  include('functions/booking/booking_1.php');
@@ -26,7 +36,12 @@ $dotenv->load();
  include('functions/staff/list.php');
  include('functions/staff/add.php');
  include('functions/guide/assign.php');
-//
+
+ //guide
+
+ include('functions/guide/list.php');
+
+//auth
 
  include('functions/auth/login.php');
  include('functions/auth/register.php');
@@ -34,11 +49,4 @@ $dotenv->load();
  //email
 
  include_once('functions/email/email.php');
-
- //routes
- 
- include_once('functions/routes/admin.php');
- include_once('functions/routes/guide.php');
- include_once('functions/routes/user.php');
- include_once('functions/routes/public.php');
 

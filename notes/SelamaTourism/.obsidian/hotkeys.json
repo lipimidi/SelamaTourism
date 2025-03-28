@@ -1,0 +1,11 @@
+{
+  "note-folder-autorename:make-folder-note": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "C"
+    }
+  ]
+}

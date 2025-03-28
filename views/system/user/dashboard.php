@@ -41,7 +41,7 @@
                   <div class="d-flex align-items-center">
                     <h5 class="mb-0"> Recent Bookings
                     </h5>
-                    <a href="<?php echo $rootPath ?>/book/" class="btn btn-sm bg-gradient-primary ms-auto mb-0">
+                    <a href="<?php echo $rootPath ?>/book/list" class="btn btn-sm bg-gradient-primary ms-auto mb-0">
                       More
                     </a>
                   </div>
@@ -329,6 +329,7 @@
               columns: d.columns,               // Column info, useful if needed
               draw: d.draw,                     // Draw counter for DataTables
               getlist_user: "getlist_user",     // This will be used to identify the request in PHP
+              user_id: "<?php echo $_SESSION['user_details']['id'] ?>",     // This will be used to identify the request in PHP
             };
           }
         },

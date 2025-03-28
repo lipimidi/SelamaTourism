@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 mt-4">
           <div class="card h-100 shadow-lg">
             <div class="card-body p-3">
               <div class="row">
@@ -131,6 +131,8 @@
               fetch_events_guide: true,
               start: fetchInfo.startStr,
               end: fetchInfo.endStr,
+              role: "<?php echo $_SESSION['user_details']['role']; ?>",
+              user_id: "<?php echo $_SESSION['user_details']['id']; ?>",
             }, // Secure POST request
             success: function (response) {
               console.log("Response received:", response); // Debug log

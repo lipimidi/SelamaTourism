@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"392b566cce4d2761","type":"text","text":"\n\nHeader","x":-276,"y":-281,"width":808,"height":101},
+		{"id":"b18ec800afcffacf","type":"text","text":"Profile","x":400,"y":-260,"width":118,"height":60},
+		{"id":"6a2133584da2735a","type":"text","text":"Sidebar\n","x":-420,"y":-281,"width":120,"height":621},
+		{"id":"7020eb84e3fea926","type":"text","text":"Footer","x":-420,"y":360,"width":952,"height":60},
+		{"id":"6d9ba7aa84b74687","type":"text","text":"Weather Today\n","x":160,"y":-140,"width":372,"height":360},
+		{"id":"4b8ec411a44d8e21","type":"text","text":"Tasks by Calendar","x":-276,"y":-140,"width":376,"height":360}
+	],
+	"edges":[]
+}

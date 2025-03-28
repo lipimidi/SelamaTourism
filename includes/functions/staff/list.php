@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['staff_getlist'])) {
-  
+
     // DataTables parameters from POST request
     $start = isset($_POST['start']) ? (int) $_POST['start'] : 0;   // Paging start
     $length = isset($_POST['length']) ? (int) $_POST['length'] : 10;  // Number of rows per page
@@ -12,29 +12,30 @@ if (isset($_POST['staff_getlist'])) {
     $role_table = "user_role"; // The table you are joining with
 
     // Column names for sorting
-    $columns = ['id', 'username', 'email', 'role','name']; // Modify according to your table structure
+    $columns = ['id', 'username', 'email', 'role', 'name']; // Modify according to your table structure
     $columns_str = implode(', ', $columns);
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);
 
     // Build the SQL query with INNER JOIN
-    $search_condition = "";
+    $search_condition = " WHERE 1=1  ";
     if ($search) {
-        $search_condition = "WHERE (users.id LIKE '%$search%' 
+        $search_condition = " AND 
+                                (users.id LIKE '%$search%' 
                              OR users.username LIKE '%$search%' 
                              OR users.email LIKE '%$search%' 
-                             OR user_role.name LIKE '%$search%')"; // Assuming 'role_name' is the column in the user_role table
+                             OR user_role.name LIKE '%$search%') "; // Assuming 'role_name' is the column in the user_role table
     }
-
+    $search_condition .= " AND user_role.name  != 'user'  ";
     // Build the order by clause
-    $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
+    $order_by = " ORDER BY " . $columns[$order] . " " . $order_direction;
 
     // Paginate the result
     $sql = "SELECT users.id, users.username, users.email, user_role.name 
             FROM $table_name AS users
             INNER JOIN $role_table AS user_role ON users.role = user_role.id
-            $search_condition
+            $search_condition 
             $order_by LIMIT $start, $length";
 
     // Execute the query
@@ -74,4 +75,3 @@ if (isset($_POST['staff_getlist'])) {
 
     exit();
 }
- 

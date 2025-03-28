@@ -10,9 +10,10 @@ function guide($guide_id)
     $guide_id = (int) $guide_id;  // Cast to integer to ensure safety
 
     // // Query to search for the booking_id in the bookings table
-    $sql = "SELECT *
+    $sql = "SELECT guides.*, booking_timeslots.* , user_details.name
     FROM guides
     INNER JOIN booking_timeslots ON guides.timeslot_id = booking_timeslots.id
+    INNER JOIN user_details ON guides.user_id = user_details.user_id
     WHERE guides.id = $guide_id";
 
     // // Execute the query
@@ -26,10 +27,11 @@ function guide($guide_id)
         $date = $guide['date'];
         $session_id = $guide['timeslot_id'];
         $guide_id = $guide['id'];
+        $user_id = $guide['user_id'];
 
         // Query to get additional details from the booking_details table using booking_id
-        $sql_details = 
-        "SELECT * FROM booking_details 
+        $sql_details =
+            "SELECT * FROM booking_details 
         INNER JOIN bookings ON bookings.id = booking_details.booking_id
         WHERE booking_date = '$date'  AND bookings.timeslot_id = '$session_id'";
         $result_details = $conn->query($sql_details);
@@ -59,10 +61,20 @@ function guide($guide_id)
     $guide_status = getGuideStatuses($guide['status']);
 
 
-    if ($role === 'guide') {
+    if ($role === 'admin') {
         // var_dump($guide);
         // var_dump($guide_details);
         include 'views/system/guide/guide/details.php';
+
+    } elseif ($role === 'guide') {
+        // var_dump($guide);
+        // var_dump($guide_details);
+        if ($user_id != $_SESSION['user_details']['id']) {
+            unAuth();
+        } else {
+
+            include 'views/system/guide/guide/details.php';
+        }
 
     } else {
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
@@ -89,9 +101,10 @@ function guide_list()
 
 
 
+    if ($role == 'admin') {
+        include 'views/system/admin/guide/list.php';
 
-
-    if ($role == 'guide') {
+    } elseif ($role == 'guide') {
         include 'views/system/guide/guide/list.php';
 
     } else {
@@ -101,5 +114,16 @@ function guide_list()
 
 
 }
+
+function guide_getlist()
+{
+    include('includes/server.php');
+}
+
+function guide_people_status()
+{
+    include('includes/server.php');
+}
+
 
 

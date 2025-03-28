@@ -89,11 +89,12 @@
         initialView: "dayGridMonth",
         headerToolbar: {
           start: 'title', // will normally be on the left. if RTL, will be on the right
-          center: '',
+          center: 'dayGridMonth,timeGridWeek',
           end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
         },
 
         eventTimeFormat: getEventTimeFormat(),
+        allDaySlot: false,
 
         selectable: true,
         height: 'auto',  // Adjust the height automatically
@@ -110,6 +111,8 @@
               fetch_events_guide: true,
               start: fetchInfo.startStr,
               end: fetchInfo.endStr,
+              role: "<?php echo $_SESSION['user_details']['role']; ?>",
+              user_id: "<?php echo $_SESSION['user_details']['id']; ?>",
             }, // Secure POST request
             success: function (response) {
               console.log("Response received:", response); // Debug log

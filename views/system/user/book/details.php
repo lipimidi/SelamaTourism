@@ -143,7 +143,7 @@ background-size: cover;">
                               <i class="ni ni-check-bold text-white   text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3 text-capitalize">
-                            <?php echo $booking_status ?>
+                              <?php echo $booking_status ?>
                             </h5>
                             <span class="text-white text-sm">Status</span>
                           </div>
@@ -157,28 +157,36 @@ background-size: cover;">
                 </div>
               </div>
 
-              <?php if ($booking_status != 0) {?>
+              <?php if ($booking['status'] != 0) { ?>
 
- 
-              <div class="col-lg-6 col-0 mt-4 mt-lg-0">
-                <div class="card  ">
-                  <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0">QR Code</h6>
+
+                <div class="col-lg-6 col-0 mt-4 mt-lg-0">
+                  <div class="card  ">
+                    <div class="card-header pb-0 p-3">
+                      <h6 class="mb-0">QR Code</h6>
+                    </div>
+                    <div class="card-body pb-0 p-3">
+
+                    </div>
+
+                    <div class="col-12 text-center">
+                      <?php
+                      $data = "test";
+                      $logoPath =  $basePath2 . '/assets/img/icon512_maskable.png'; // Path to your logo image
+                      $base64QRCode = generateQRCodeWithLogo($data, $logoPath);
+                      ?>
+
+                      <img src="data:image/png;base64,<?php echo $base64QRCode; ?>" alt="QR Code" />
+
+
+
+                    </div>
+
                   </div>
-                  <div class="card-body pb-0 p-3">
 
-                  </div>
-
-                  <div class="col-12 text-center   ">
-                    <img class="img-fluid w-30"
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/800px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                      alt="image sun">
-                   </div>
                 </div>
-
-              </div>
               <?php } ?>
- 
+
             </div>
 
 
@@ -198,8 +206,15 @@ background-size: cover;">
                             Email</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Address</th>
+                          <?php if ($booking['status'] > 1) { ?>
+
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                              Status
+                            </th>
+                          <?php } ?>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                           </th>
+
                         </tr>
                       </thead>
                       <tbody>
@@ -213,6 +228,8 @@ background-size: cover;">
                           $email = $detail['email'];
                           $address = $detail['address'];
                           $id = $detail['booking_id'];
+                          $people_status = $detail['status'];
+
 
                           ?>
                           <tr>
@@ -257,6 +274,19 @@ background-size: cover;">
                                 </div>
                               </div>
                             </td>
+                            <?php
+
+                            if ($booking['status'] > 1) { ?>
+
+                              <td>
+                                <div class="d-flex px-2 py-1">
+
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm"><?php echo getHikingStatuses($people_status) ?></h6>
+                                  </div>
+                                </div>
+                              </td>
+                            <?php } ?>
                             <td>
                               <div class="d-flex px-2 py-1">
 
@@ -278,7 +308,7 @@ background-size: cover;">
             </div>
           </div>
         </div>
- 
+
 
       </div>
     </div>

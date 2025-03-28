@@ -4,27 +4,71 @@
     "type": "split",
     "children": [
       {
-        "id": "59772c7975c5c840",
+        "id": "d622043b67ee3dba",
         "type": "tabs",
         "children": [
           {
-            "id": "0ee122c0b170b440",
+            "id": "3b791f720f489e8f",
             "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Progress/Timeline.canvas",
+                "viewState": {
+                  "x": 785.9420014231931,
+                  "y": 234.6938361038404,
+                  "zoom": -1.6666665649414063
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-layout-dashboard",
+              "title": "Timeline"
+            }
+          },
+          {
+            "id": "4eb35bf5cb1e975e",
+            "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "canvas",
               "state": {
                 "file": "Wireframe/Drawing Board.canvas",
                 "viewState": {
-                  "x": 320,
-                  "y": 700,
+                  "x": 564.0148011100835,
+                  "y": 652.9879740980573,
                   "zoom": -1.1626405244273066
                 }
               },
+              "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Drawing Board"
             }
+          },
+          {
+            "id": "12c420850ee26189",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Wireframe/Task/Task List.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              },
+              "icon": "lucide-trello",
+              "title": "Task List"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -92,36 +136,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7228ffd9683c1c79",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Public/Untitled.canvas",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Untitled"
-            }
-          },
-          {
             "id": "bab055364ceb1d90",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Public/Untitled.canvas",
+                "file": "Wireframe/Task/Task List.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Untitled"
+              "title": "Outgoing links from Task List"
             }
           },
           {
@@ -145,13 +170,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Public/Untitled.canvas",
+                "file": "Wireframe/Task/Task List.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline of Task List"
             }
           }
         ]
@@ -168,49 +193,57 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0ee122c0b170b440",
+  "active": "12c420850ee26189",
   "lastOpenFiles": [
-    "Progress/Timeline.canvas",
-    "Progress/Gantt Chart.md",
-    "Wireframe/System/Guide/Guide/Info.md",
     "Wireframe/Drawing Board.canvas",
-    "Progress",
-    "Wireframe/System/Guide/Dashboard.md",
-    "Wireframe/System/Guide/Guide",
-    "Wireframe/System/Guide",
-    "Progress/LogBook/Create Folder Structure.md",
-    "Wireframe/System/Admin/Booking/Settings.md",
-    "Wireframe/System/Admin/Booking",
-    "Wireframe/System/Admin",
-    "Ideas/Assign.md",
-    "Ideas/Booking.md",
-    "Ideas/Booking 2.md",
-    "Wireframe/Ideas.md",
-    "Ideas",
-    "Untitled",
-    "Wireframe/System/User/Dashboard.md",
-    "Wireframe/System/Register.md",
-    "Wireframe/System/Login.md",
-    "Wireframe/System/User/Booking/List.md",
-    "Wireframe/System/User/Booking/Insurance.md",
-    "Wireframe/System/User/Booking/Summary.md",
-    "Wireframe/System/User/Booking/Details.md",
-    "Wireframe/System/User/Booking/People.md",
-    "Wireframe/System/User/Booking",
-    "Wireframe/System/User",
-    "Wireframe/System",
-    "Wireframe/System/User/Booking/Date.md",
-    "Progress/LogBook/Creating booking system.md",
+    "Wireframe/Task/Task List.md",
+    "Wireframe/Task/Guide Info ( Admin).md",
+    "Wireframe/Task/Staff Add New ( ADMIN) 🔼.md",
+    "Wireframe/Task/Guide Info ( Guide).md",
+    "Wireframe/Task",
+    "Staff Info ( Admin).md",
+    "Wireframe/System/Guide/Dashboard/Dashboard.md",
+    "Wireframe/System/User/Booking/Insurance/Insurance.md",
+    "Untitled.md",
+    "Progress/Timeline.canvas",
+    "Progress/LogBook/Create Backend/Create Backend.md",
+    "Progress/LogBook/Create Wireframe/Guide/Dashboard.canvas",
+    "Progress/LogBook/Create Wireframe/User/Dashboard.canvas",
+    "Progress/LogBook/Create Wireframe/Admin/Dashboard.canvas",
+    "Progress/LogBook/Integration With MET/Integration With MET.md",
+    "Progress/LogBook/Create Wireframe for each Page/Admin/1. Dashboard.md",
+    "Progress/LogBook/Create Wireframe for each Page/Guide/1. Dashboard.md",
+    "Progress/LogBook/Create Wireframe for each Page/User/1. Dashboard 1 1.md",
+    "Progress/LogBook/Create Wireframe for each Page/Create Wireframe for each Page.md",
+    "Progress/LogBook/Create Wireframe/Admin",
+    "Progress/LogBook/Create Wireframe/Guide",
+    "Progress/LogBook/Create Wireframe/User",
+    "Progress/LogBook/Users System/3. Login Users.md",
+    "Progress/LogBook/Users System/2. Register User.md",
+    "Progress/LogBook/Users System/1. Create Table.md",
+    "Progress/LogBook/Booking System/3. Booking Functions & Routing.md",
+    "Progress/LogBook/Booking System/2. Saving Booking Data.md",
+    "Progress/LogBook/Booking System/1. Create Database Table.md",
+    "Progress/LogBook/User Side",
+    "Progress/LogBook/Finding Website Template/Finding Website Template.md",
+    "Progress/LogBook/Users System/Pasted image 20250328005406.png",
+    "Progress/LogBook/Users System",
+    "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
+    "Progress/LogBook/Install Composer/Install Composer.md",
+    "Progress/LogBook/Organize URL using router/Organize URL using router.md",
+    "Progress/LogBook/Creating booking system/Creating booking system.md",
+    "Progress/LogBook/Booking System",
+    "Progress/LogBook/Organize URL using router",
+    "Progress/LogBook/Install Composer",
+    "Progress/LogBook/Integration With MET",
+    "Progress/LogBook/Create Folder Structure/Create Folder Structure.md",
+    "Untitled.canvas",
+    "Wireframe/System/Canvas-1743091362467.canvas",
     "Pasted image 20250311011810.png",
-    "Progress/LogBook/Create Backend.md",
-    "Progress/LogBook/Finding Website Template.md",
-    "Progress/LogBook/Install Composer.md",
-    "Progress/LogBook/Organize URL using router.md",
-    "LogBook 1/Timeline.canvas",
-    "LogBook 1/Organize URL using router.md",
-    "LogBook 1/Install Composer.md"
+    "LogBook 1/Timeline.canvas"
   ]
 }

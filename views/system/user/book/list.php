@@ -135,6 +135,8 @@
               columns: d.columns,               // Column info, useful if needed
               draw: d.draw,                     // Draw counter for DataTables
               getlist_user: "getlist_user",     // This will be used to identify the request in PHP
+              user_id: "<?php echo $_SESSION['user_details']['id'] ?>",     // This will be used to identify the request in PHP
+
             };
           }
         },

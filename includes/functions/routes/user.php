@@ -7,7 +7,7 @@ function book_1()
     $role = checkRole();
 
     $breadcrumbs = [
-        ['title' => 'Home', 'url' => ''],
+                ['title' => 'Home', 'url' => '/dashboard'],
         ['title' => 'Booking', 'url' => '/book'],
     ];
 
@@ -25,7 +25,7 @@ function book_2()
     $role = checkRole();
 
     $breadcrumbs = [
-        ['title' => 'Home', 'url' => ''],
+                ['title' => 'Home', 'url' => '/dashboard'],
         ['title' => 'Booking', 'url' => '/book'],
     ];
 
@@ -44,7 +44,7 @@ function book_3()
     $role = checkRole();
 
     $breadcrumbs = [
-        ['title' => 'Home', 'url' => ''],
+                ['title' => 'Home', 'url' => '/dashboard'],
         ['title' => 'Booking', 'url' => '/book'],
     ];
 
@@ -61,7 +61,7 @@ function book_4()
     $role = checkRole();
 
     $breadcrumbs = [
-        ['title' => 'Home', 'url' => ''],
+                ['title' => 'Home', 'url' => '/dashboard'],
         ['title' => 'Booking', 'url' => '/book'],
     ];
 

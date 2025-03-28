@@ -76,7 +76,7 @@
 
                 <div class="mb-3">
                   <label for="eventSession" class="form-label">Guide</label>
-                  <select class="form-control form-control-lg" name="guide">
+                  <select class="form-control form-control-lg" name="guide" id="select_user">
                     <?php
 
                     foreach ($guides as $guide) { ?>
@@ -162,6 +162,8 @@
               fetch_events_guide: true,
               start: fetchInfo.startStr,
               end: fetchInfo.endStr,
+              role: "<?php echo $_SESSION['user_details']['role']; ?>",
+              user_id: "<?php echo $_SESSION['user_details']['id']; ?>",
             }, // Secure POST request
             success: function (response) {
               console.log("Response received:", response); // Debug log
@@ -181,7 +183,13 @@
           var selectedDate2 = document.getElementById('selectedDate');
           var selectedSession = document.getElementById('eventSession');
           var selectedSession2 = document.getElementById('eventSession2');
-          selectedSession2.value = info.event.extendedProps.session2;
+          var select_user = document.getElementById('select_user');
+          if (info.event.extendedProps.user_id === null) {
+            // Set select_user to a default value or an empty value if guide_id is null
+            select_user.value = ''; // Or you can set to a default value like '0'
+          } else {
+            select_user.value = info.event.extendedProps.user_id;
+          } selectedSession2.value = info.event.extendedProps.session2;
 
           // var selectedPeople = document.getElementById('eventPeople');
           // selectedPeople.max = info.event.extendedProps.remaining_slots;
