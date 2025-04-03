@@ -60,6 +60,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+
+
       // Define the function to get event time format based on screen size
       function getEventTimeFormat() {
         // Check if the screen width is tablet size or smaller
@@ -84,6 +87,12 @@
         }
       }
 
+            // Get the last viewed date from localStorage
+            let lastViewedDate = localStorage.getItem('lastViewedDate');
+      if (lastViewedDate) {
+        lastViewedDate = new Date(lastViewedDate);
+      }
+
       // Initialize the FullCalendar object
       var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
@@ -99,6 +108,7 @@
         selectable: true,
         height: 'auto',  // Adjust the height automatically
         contentHeight: 'auto', // Make content height auto
+        initialDate: lastViewedDate || new Date(),
 
         events: function (fetchInfo, successCallback, failureCallback) {
           console.log("Sending request to fetch events..."); // Debug log
@@ -127,12 +137,16 @@
 
         eventClick: function (info) {
           var guide_id = info.event.extendedProps.guide_id;
+          localStorage.setItem('lastViewedDate', info.dateStr);
 
           window.location.href = "<?php echo $rootPath ?>/guide/" + guide_id;
 
 
         },
-
+        datesSet: function (info) {
+                    // Store the current visible date range (first date visible)
+                    localStorage.setItem('lastViewedDate', info.view.currentStart);
+                },
         views: {
           month: {
             titleFormat: {

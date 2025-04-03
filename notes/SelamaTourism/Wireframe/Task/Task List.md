@@ -18,6 +18,8 @@ kanban-plugin: board
 - [ ] Dashboard ( user )
 - [ ] Dashboard ( admin )
 - [ ] Dashboard (guide)
+- [ ] [[Register Staff ( email )]] ^y7vexh
+- [ ] [[Booking Success (email )]] ^twfntn
 
 
 ## Bugs
@@ -30,6 +32,7 @@ kanban-plugin: board
 - [ ] [[Guide Info ( Admin)]] ⏫
 - [ ] [[Guide Info ( Guide)]] ⏫
 - [ ] [[Staff Add New ( ADMIN) 🔼]]
+- [ ] [[Booking Details ( Admin )]]
 
 
 ## Done

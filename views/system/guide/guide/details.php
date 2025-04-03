@@ -304,7 +304,7 @@ background-size: cover;">
               <label for="status_num">Select Status:</label>
               <select name="status_num" id="status_num">
 
-                <?php $statusArray = getGuideStatuses();
+                <?php $statusArray = getHikingStatuses();
 
                 foreach ($statusArray as $key => $status) {
 
@@ -333,6 +333,49 @@ background-size: cover;">
       </div>
 
 
+      <div class="modal fade" id="modal-editstatus" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title" id="modal-title-default"></h6>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <
+            <div class="modal-body">
+              <input type="hidden" id="guide_id" name="guide_id">
+              <label for="status_num">Select Status:</label>
+              <select name="status_num" id="status_num" >
+
+                <?php $statusArray = getGuideStatuses();
+
+                foreach ($statusArray as $key => $status) {
+
+                  if ($status !== '') { ?>
+                    <option value="<?php echo $key ?>"><?php echo $status ?></option>
+
+                    <?php
+
+
+
+                  }
+
+
+
+                }
+                ?>
+
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn bg-gradient-primary" id="saveChangesBtn">Save changes</button>
+              <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

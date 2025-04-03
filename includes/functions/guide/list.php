@@ -47,7 +47,7 @@ if (isset($_POST['getlist_people_guide'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
-        $row['status2'] = getGuideStatuses($row['status']);
+        $row['status2'] = getHikingStatuses($row['status']);
         $data[] = $row;
     }
 

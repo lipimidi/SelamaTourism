@@ -84,6 +84,13 @@
         }
       }
 
+      // Get the last viewed date from localStorage
+      let lastViewedDate = localStorage.getItem('lastViewedDate');
+      if (lastViewedDate) {
+        lastViewedDate = new Date(lastViewedDate);
+      }
+
+
       // Initialize the FullCalendar object
       var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
@@ -92,6 +99,7 @@
           center: 'dayGridMonth,timeGridWeek',
           end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
         },
+        initialDate: lastViewedDate || new Date(),
 
         eventTimeFormat: getEventTimeFormat(),
         allDaySlot: false,
@@ -127,11 +135,15 @@
         eventClick: function (info) {
           var guide_id = info.event.extendedProps.guide_id;
 
+          localStorage.setItem('lastViewedDate', info.dateStr);
           window.location.href = "<?php echo $rootPath ?>/guide/" + guide_id;
 
 
         },
-
+        datesSet: function (info) {
+                    // Store the current visible date range (first date visible)
+                    localStorage.setItem('lastViewedDate', info.view.currentStart);
+                },
         views: {
           month: {
             titleFormat: {

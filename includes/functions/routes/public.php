@@ -132,7 +132,7 @@ function getBookingStatuses($num)
 
 }
 
-function getHikingStatuses($num)
+function getHikingStatuses($num = null)
 {
 
     $statusArray = [
@@ -143,7 +143,13 @@ function getHikingStatuses($num)
         'emergency',
     ];
 
-    return $statusArray[$num];
+        // If a number is provided, return the status at that index
+        if ($num !== null && isset($statusArray[$num])) {
+            return $statusArray[$num];
+        }
+    
+
+        return $statusArray;
 
 
 }

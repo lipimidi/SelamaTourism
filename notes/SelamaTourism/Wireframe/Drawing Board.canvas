@@ -247,18 +247,6 @@
     },
     {
       "color": "3",
-      "file": "Wireframe/System/User/Dashboard/Dashboard.md",
-      "height": 50,
-      "id": "16effaebb36b5ca0",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": -360,
-      "y": 20
-    },
-    {
-      "color": "3",
       "height": 60,
       "id": "8c8d23a3b6943458",
       "styleAttributes": {
@@ -308,6 +296,159 @@
     {
       "color": "1",
       "height": 60,
+      "id": "67fb36296e36f11f",
+      "styleAttributes": {
+      },
+      "text": "Accomodation / Facilities",
+      "type": "text",
+      "width": 250,
+      "x": -105,
+      "y": -360
+    },
+    {
+      "color": "3",
+      "file": "Wireframe/System/User/Dashboard/Dashboard.md",
+      "height": 50,
+      "id": "16effaebb36b5ca0",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -360,
+      "y": 20
+    },
+    {
+      "height": 50,
+      "id": "46b122628c47c898",
+      "styleAttributes": {
+      },
+      "text": "Guide",
+      "type": "text",
+      "width": 250,
+      "x": -60,
+      "y": 750
+    },
+    {
+      "color": "3",
+      "file": "Wireframe/System/Guide/Dashboard/Dashboard.md",
+      "height": 60,
+      "id": "f97c28ad0572857b",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -360,
+      "y": 740
+    },
+    {
+      "height": 60,
+      "id": "fee942618436dfa6",
+      "styleAttributes": {
+      },
+      "text": "Booking\n",
+      "type": "text",
+      "width": 250,
+      "x": -60,
+      "y": 20
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "6f09b2641e266f03",
+      "styleAttributes": {
+      },
+      "text": "Dashboard\n",
+      "type": "text",
+      "width": 250,
+      "x": -360,
+      "y": 1100
+    },
+    {
+      "height": 60,
+      "id": "831a3670c29ae766",
+      "styleAttributes": {
+      },
+      "text": "Guide",
+      "type": "text",
+      "width": 250,
+      "x": 880,
+      "y": 1100
+    },
+    {
+      "color": "2",
+      "height": 50,
+      "id": "0bddc1c90fdb35c3",
+      "styleAttributes": {
+      },
+      "text": "Staff Info",
+      "type": "text",
+      "width": 250,
+      "x": 405,
+      "y": 1440
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "5f4b67e6542d1dc2",
+      "styleAttributes": {
+      },
+      "text": "Assign",
+      "type": "text",
+      "width": 250,
+      "x": 876,
+      "y": 1326
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "a8908a7c816ccb39",
+      "styleAttributes": {
+      },
+      "text": "Booking Details",
+      "type": "text",
+      "width": 250,
+      "x": -235,
+      "y": 1372
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "aa2e7daf516a16af",
+      "styleAttributes": {
+      },
+      "text": "List",
+      "type": "text",
+      "width": 250,
+      "x": 1080,
+      "y": 1397
+    },
+    {
+      "color": "6",
+      "height": 60,
+      "id": "2d2706b9ea0b8e89",
+      "styleAttributes": {
+      },
+      "text": "Blog",
+      "type": "text",
+      "width": 250,
+      "x": -235,
+      "y": 1490
+    },
+    {
+      "color": "6",
+      "height": 50,
+      "id": "77508e8c3ddc62b8",
+      "styleAttributes": {
+      },
+      "text": "Add ",
+      "type": "text",
+      "width": 250,
+      "x": -185,
+      "y": 1600
+    },
+    {
+      "color": "1",
+      "height": 60,
       "id": "aee9564bafdf3ff2",
       "styleAttributes": {
       },
@@ -342,17 +483,6 @@
       "y": 740
     },
     {
-      "height": 50,
-      "id": "46b122628c47c898",
-      "styleAttributes": {
-      },
-      "text": "Guide",
-      "type": "text",
-      "width": 250,
-      "x": -60,
-      "y": 750
-    },
-    {
       "color": "3",
       "file": "Wireframe/System/Guide/Guide/Info/Info.md",
       "height": 50,
@@ -377,39 +507,62 @@
       "y": 820
     },
     {
-      "color": "3",
-      "file": "Wireframe/System/Guide/Dashboard/Dashboard.md",
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/List/List.md",
       "height": 60,
-      "id": "f97c28ad0572857b",
+      "id": "870a71aa4e2893a2",
       "styleAttributes": {
       },
       "type": "file",
       "width": 250,
-      "x": -360,
-      "y": 740
+      "x": 220,
+      "y": 120
     },
     {
       "height": 60,
-      "id": "fee942618436dfa6",
+      "id": "e2249b597a43a1dd",
       "styleAttributes": {
       },
-      "text": "Booking\n",
+      "text": "Staff",
+      "type": "text",
+      "width": 250,
+      "x": 220,
+      "y": 1100
+    },
+    {
+      "height": 50,
+      "id": "924bcee3d0b6f15b",
+      "styleAttributes": {
+      },
+      "text": "Booking",
       "type": "text",
       "width": 250,
       "x": -60,
-      "y": 20
+      "y": 1100
+    },
+    {
+      "color": "2",
+      "file": "Wireframe/System/User/Booking/Date/Date.md",
+      "height": 50,
+      "id": "9c87d2a0c7ce576b",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 120
     },
     {
       "color": "1",
       "height": 60,
-      "id": "67fb36296e36f11f",
+      "id": "3bb47c7383630347",
       "styleAttributes": {
       },
-      "text": "Accomodation / Facilities",
+      "text": "Profile",
       "type": "text",
       "width": 250,
-      "x": -105,
-      "y": -360
+      "x": 530,
+      "y": 1100
     },
     {
       "color": "6",
@@ -449,52 +602,6 @@
     },
     {
       "color": "2",
-      "file": "Wireframe/System/User/Booking/List/List.md",
-      "height": 60,
-      "id": "870a71aa4e2893a2",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": 220,
-      "y": 120
-    },
-    {
-      "height": 60,
-      "id": "e2249b597a43a1dd",
-      "styleAttributes": {
-      },
-      "text": "Staff",
-      "type": "text",
-      "width": 250,
-      "x": 220,
-      "y": 1100
-    },
-    {
-      "height": 50,
-      "id": "924bcee3d0b6f15b",
-      "styleAttributes": {
-      },
-      "text": "Booking",
-      "type": "text",
-      "width": 250,
-      "x": -60,
-      "y": 1100
-    },
-    {
-      "color": "3",
-      "height": 60,
-      "id": "6f09b2641e266f03",
-      "styleAttributes": {
-      },
-      "text": "Dashboard\n",
-      "type": "text",
-      "width": 250,
-      "x": -360,
-      "y": 1100
-    },
-    {
-      "color": "2",
       "file": "Wireframe/System/User/Booking/People/People.md",
       "height": 50,
       "id": "f4f16544394f5824",
@@ -506,16 +613,28 @@
       "y": 220
     },
     {
-      "color": "2",
-      "file": "Wireframe/System/User/Booking/Date/Date.md",
-      "height": 50,
-      "id": "9c87d2a0c7ce576b",
+      "color": "1",
+      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
+      "height": 60,
+      "id": "74b7ee812e399aec",
       "styleAttributes": {
       },
       "type": "file",
       "width": 250,
-      "x": -60,
-      "y": 120
+      "x": 15,
+      "y": 1250
+    },
+    {
+      "color": "2",
+      "height": 60,
+      "id": "7eb8711b79386578",
+      "styleAttributes": {
+      },
+      "text": "Booking List",
+      "type": "text",
+      "width": 250,
+      "x": -310,
+      "y": 1250
     },
     {
       "color": "2",
@@ -540,125 +659,6 @@
       "width": 250,
       "x": 470,
       "y": 1250
-    },
-    {
-      "color": "2",
-      "height": 50,
-      "id": "0bddc1c90fdb35c3",
-      "styleAttributes": {
-      },
-      "text": "Staff Info",
-      "type": "text",
-      "width": 250,
-      "x": 405,
-      "y": 1440
-    },
-    {
-      "color": "1",
-      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
-      "height": 60,
-      "id": "74b7ee812e399aec",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": 15,
-      "y": 1250
-    },
-    {
-      "color": "1",
-      "height": 60,
-      "id": "3bb47c7383630347",
-      "styleAttributes": {
-      },
-      "text": "Profile",
-      "type": "text",
-      "width": 250,
-      "x": 530,
-      "y": 1100
-    },
-    {
-      "height": 60,
-      "id": "831a3670c29ae766",
-      "styleAttributes": {
-      },
-      "text": "Guide",
-      "type": "text",
-      "width": 250,
-      "x": 880,
-      "y": 1100
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "5f4b67e6542d1dc2",
-      "styleAttributes": {
-      },
-      "text": "Assign",
-      "type": "text",
-      "width": 250,
-      "x": 876,
-      "y": 1326
-    },
-    {
-      "color": "3",
-      "height": 60,
-      "id": "a8908a7c816ccb39",
-      "styleAttributes": {
-      },
-      "text": "Booking Details",
-      "type": "text",
-      "width": 250,
-      "x": -235,
-      "y": 1372
-    },
-    {
-      "color": "2",
-      "height": 60,
-      "id": "7eb8711b79386578",
-      "styleAttributes": {
-      },
-      "text": "Booking List",
-      "type": "text",
-      "width": 250,
-      "x": -310,
-      "y": 1250
-    },
-    {
-      "color": "3",
-      "height": 60,
-      "id": "aa2e7daf516a16af",
-      "styleAttributes": {
-      },
-      "text": "List",
-      "type": "text",
-      "width": 250,
-      "x": 1080,
-      "y": 1397
-    },
-    {
-      "color": "6",
-      "height": 60,
-      "id": "2d2706b9ea0b8e89",
-      "styleAttributes": {
-      },
-      "text": "Blog",
-      "type": "text",
-      "width": 250,
-      "x": -235,
-      "y": 1490
-    },
-    {
-      "color": "6",
-      "height": 50,
-      "id": "77508e8c3ddc62b8",
-      "styleAttributes": {
-      },
-      "text": "Add ",
-      "type": "text",
-      "width": 250,
-      "x": -185,
-      "y": 1600
     }
   ]
 }

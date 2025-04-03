@@ -136,9 +136,18 @@
         }
       }
 
+
+      // Get the last viewed date from localStorage
+      let lastViewedDate = localStorage.getItem('lastViewedDate');
+      if (lastViewedDate) {
+        lastViewedDate = new Date(lastViewedDate);
+      }
+
+
       // Initialize the FullCalendar object
       var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
+        initialDate: lastViewedDate || new Date(),
         headerToolbar: {
           start: 'title', // will normally be on the left. if RTL, will be on the right
           center: '',
@@ -150,7 +159,10 @@
         selectable: true,
         height: 'auto',  // Adjust the height automatically
         contentHeight: 'auto', // Make content height auto
-
+        datesSet: function (info) {
+          // Store the current visible date range (first date visible)
+          localStorage.setItem('lastViewedDate', info.view.currentStart);
+        },
         events: function (fetchInfo, successCallback, failureCallback) {
           console.log("Sending request to fetch events..."); // Debug log
 
