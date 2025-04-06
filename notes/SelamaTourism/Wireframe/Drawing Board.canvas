@@ -377,6 +377,30 @@
     {
       "color": "2",
       "height": 50,
+      "id": "9c583a2e0110f484",
+      "styleAttributes": {
+      },
+      "text": "Staff List",
+      "type": "text",
+      "width": 250,
+      "x": 405,
+      "y": 1347
+    },
+    {
+      "color": "3",
+      "height": 60,
+      "id": "671c4c5618e02be8",
+      "styleAttributes": {
+      },
+      "text": "Add New",
+      "type": "text",
+      "width": 250,
+      "x": 470,
+      "y": 1250
+    },
+    {
+      "color": "2",
+      "height": 50,
       "id": "0bddc1c90fdb35c3",
       "styleAttributes": {
       },
@@ -590,18 +614,6 @@
     },
     {
       "color": "2",
-      "file": "Wireframe/System/User/Booking/Insurance/Insurance.md",
-      "height": 50,
-      "id": "4328afaec2954718",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": -60,
-      "y": 320
-    },
-    {
-      "color": "2",
       "file": "Wireframe/System/User/Booking/People/People.md",
       "height": 50,
       "id": "f4f16544394f5824",
@@ -611,18 +623,6 @@
       "width": 250,
       "x": -60,
       "y": 220
-    },
-    {
-      "color": "1",
-      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
-      "height": 60,
-      "id": "74b7ee812e399aec",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": 15,
-      "y": 1250
     },
     {
       "color": "2",
@@ -638,26 +638,26 @@
     },
     {
       "color": "2",
+      "file": "Wireframe/System/User/Booking/Insurance/Insurance.md",
       "height": 50,
-      "id": "9c583a2e0110f484",
+      "id": "4328afaec2954718",
       "styleAttributes": {
       },
-      "text": "Staff List",
-      "type": "text",
+      "type": "file",
       "width": 250,
-      "x": 405,
-      "y": 1347
+      "x": -60,
+      "y": 320
     },
     {
-      "color": "3",
+      "color": "1",
+      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
       "height": 60,
-      "id": "671c4c5618e02be8",
+      "id": "74b7ee812e399aec",
       "styleAttributes": {
       },
-      "text": "Add New",
-      "type": "text",
+      "type": "file",
       "width": 250,
-      "x": 470,
+      "x": 15,
       "y": 1250
     }
   ]
