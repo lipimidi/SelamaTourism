@@ -68,37 +68,9 @@
               "icon": "lucide-trello",
               "title": "Task List"
             }
-          },
-          {
-            "id": "fbe6433640270654",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Wireframe/Task/Staff Add New ( ADMIN) 🔼.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Staff Add New ( ADMIN) 🔼"
-            }
-          },
-          {
-            "id": "c2bca30fcab79d99",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Wireframe/Task/Guide Info ( Admin).md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Guide Info ( Admin)"
-            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -246,28 +218,32 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b8784a656586b352",
+  "active": "6017d851ca113657",
   "lastOpenFiles": [
+    "Wireframe/Task/Staff Add New ( ADMIN) 🔼.md",
     "Wireframe/Task/Task List.md",
+    "794A2200",
+    "7EB82200",
+    "A9D72200",
+    "25162200",
+    "46032200",
+    "51322200",
+    "91AC1200",
+    "8A5B1200",
+    "950B1200",
+    "Progress/Timeline.canvas",
+    "9B9E0200",
+    "Progress/Gantt Chart.md",
+    "Wireframe/Task/Guide Info ( Admin).md",
     "Wireframe/Task/Booking Details ( Admin ).md",
     "Wireframe/Task/Booking Success (email ).md",
-    "Wireframe/Task/Staff Add New ( ADMIN) 🔼.md",
     "Wireframe/Task/Register Staff ( email ).md",
     "Wireframe/System/Admin/Booking/Settings/Settings.md",
-    "Progress/Timeline.canvas",
     "Tesis/Tesis.md",
     "Wireframe/Index.md",
     "Untitled.md",
-    "Progress/~$ganttchart.xlsx",
-    "Progress/ganttchart.xlsx",
-    "Progress/New Microsoft Excel Worksheet.xlsx",
     "Progress/LogBook/Create Backend/Create Initial Backend.md",
     "Progress/LogBook/Create Folder Structure/Create Folder Structure.md",
-    "Progress/Gant Chart.md",
-    "Progress/~$nttchart.docx",
-    "Untitled",
-    "Progress/ganttchart.docx",
-    "Progress/New Text Document.txt",
     "Wireframe/Drawing Board.canvas",
     "Progress/LogBook/Users System/Pasted image 20250328005406.png",
     "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
@@ -282,15 +258,10 @@
     "Tesis/1 Pengenalan/1.1 Pengenalan/1.1 Pengenalan.md",
     "Tesis/Lampiran/Lampiran.md",
     "Tesis/Lampiran/B Coding/B Coding.md",
-    "Tesis/Lampiran/A Gantt Chart/A Gantt Chart.md",
-    "Wireframe/System/Admin/Dashboard/Dashboard.md",
     "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
-    "Wireframe/Task",
     "Progress/LogBook/Create Wireframe/Guide/Dashboard.canvas",
     "Progress/LogBook/Create Wireframe/User/Dashboard.canvas",
     "Progress/LogBook/Create Wireframe/Admin/Dashboard.canvas",
-    "Progress/LogBook/Create Wireframe/Admin",
-    "Progress/LogBook/Create Wireframe/Guide",
     "Untitled.canvas",
     "Wireframe/System/Canvas-1743091362467.canvas",
     "Pasted image 20250311011810.png",

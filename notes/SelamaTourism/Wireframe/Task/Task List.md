@@ -15,7 +15,6 @@ kanban-plugin: board
 
 ## To DO
 
-- [ ] Dashboard ( user )
 - [ ] Dashboard ( admin )
 - [ ] Dashboard (guide)
 - [ ] [[Register Staff ( email )]] ^y7vexh
@@ -43,6 +42,7 @@ kanban-plugin: board
 - [ ] Booking Step 4( Summary)
 - [ ] Booking List ( User )
 - [ ] Booking List (Admin)
+- [ ] Dashboard ( user )
 - [ ] Guide List ( Guide )
 - [ ] Guide List ( Admin )
 - [ ] Guide Assign ( Admin )
