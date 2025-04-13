@@ -10,6 +10,9 @@ $dotenv->load();
 
  require('database.php') ;
 
+ //email
+ 
+ include_once('functions/email/email.php');
 
   //routes
  
@@ -46,7 +49,4 @@ $dotenv->load();
  include('functions/auth/login.php');
  include('functions/auth/register.php');
 
- //email
-
- include_once('functions/email/email.php');
 

@@ -30,19 +30,26 @@ if (isset($_POST['createstaff'])) {
 
     $password = md5("selama_" . $username);
 
+    $var = array(
+        "name" => $name,
+        "role" => $role,
+         
+    );
 
+    
     // Build the SQL query
     $sql = "INSERT INTO users (username, email,password, role) 
             VALUES ('$username', '$email', '$password','$role')";
 
-    // Execute the query
-    if (mysqli_query($conn, $sql)) {
-        $user_id = mysqli_insert_id($conn); // Get the inserted person ID
-
-        $sql_details = "INSERT INTO user_details (user_id, ic,phone, address,name) 
+// Execute the query
+if (mysqli_query($conn, $sql)) {
+    $user_id = mysqli_insert_id($conn); // Get the inserted person ID
+    
+    $sql_details = "INSERT INTO user_details (user_id, ic,phone, address,name) 
             VALUES ('$user_id', '$ic', '$phone','$address','$name')";
         mysqli_query($conn, $sql_details);
-
+        
+        // sendEmail($email, "Welcome To Our Staff", 'register_staff', $var);
 
 
     } else {

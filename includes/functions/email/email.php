@@ -1,5 +1,7 @@
 <?php
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 function getEmailContent($filePath, $variables = [])
 {
     global $basePath2;
@@ -28,7 +30,7 @@ function sendEmail($receiver, $subject, $filePath, $variables = [])
     try {
         // SMTP configuration
         $mail->isSMTP();
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = SMTP:: DEBUG_OFF;
         $mail->Host = 'selama.e-veterinar.com';
         $mail->SMTPAuth = true;
         $mail->Username = $_ENV['email8_username'];
