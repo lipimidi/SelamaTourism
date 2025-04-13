@@ -1,12 +1,83 @@
 {
-	"nodes":[
-		{"id":"392b566cce4d2761","type":"text","text":"\n\nHeader","x":-276,"y":-281,"width":808,"height":101},
-		{"id":"b18ec800afcffacf","type":"text","text":"Profile","x":400,"y":-260,"width":118,"height":60},
-		{"id":"6a2133584da2735a","type":"text","text":"Sidebar\n","x":-420,"y":-281,"width":120,"height":621},
-		{"id":"7020eb84e3fea926","type":"text","text":"Footer","x":-420,"y":360,"width":952,"height":60},
-		{"id":"6d9ba7aa84b74687","type":"text","text":"Weather Today\n","x":160,"y":-140,"width":372,"height":360},
-		{"id":"4b8ec411a44d8e21","type":"text","text":"Recent Bookings","x":-276,"y":-140,"width":376,"height":360},
-		{"id":"c49c1223e17c2684","x":-276,"y":250,"width":808,"height":90,"type":"text","text":"Map"}
-	],
-	"edges":[]
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "height": 101,
+      "id": "392b566cce4d2761",
+      "styleAttributes": {
+      },
+      "text": "\n\nHeader",
+      "type": "text",
+      "width": 808,
+      "x": -276,
+      "y": -281
+    },
+    {
+      "height": 60,
+      "id": "b18ec800afcffacf",
+      "styleAttributes": {
+      },
+      "text": "Profile",
+      "type": "text",
+      "width": 118,
+      "x": 400,
+      "y": -260
+    },
+    {
+      "height": 621,
+      "id": "6a2133584da2735a",
+      "styleAttributes": {
+      },
+      "text": "Sidebar\n",
+      "type": "text",
+      "width": 120,
+      "x": -420,
+      "y": -281
+    },
+    {
+      "height": 60,
+      "id": "7020eb84e3fea926",
+      "styleAttributes": {
+      },
+      "text": "Footer",
+      "type": "text",
+      "width": 952,
+      "x": -420,
+      "y": 360
+    },
+    {
+      "height": 360,
+      "id": "6d9ba7aa84b74687",
+      "styleAttributes": {
+      },
+      "text": "Weather Today\n",
+      "type": "text",
+      "width": 372,
+      "x": 160,
+      "y": -140
+    },
+    {
+      "height": 360,
+      "id": "4b8ec411a44d8e21",
+      "styleAttributes": {
+      },
+      "text": "Recent Bookings",
+      "type": "text",
+      "width": 376,
+      "x": -276,
+      "y": -140
+    },
+    {
+      "height": 90,
+      "id": "c49c1223e17c2684",
+      "styleAttributes": {
+      },
+      "text": "Map",
+      "type": "text",
+      "width": 808,
+      "x": -276,
+      "y": 250
+    }
+  ]
 }

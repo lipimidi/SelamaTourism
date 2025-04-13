@@ -28,11 +28,7 @@ kanban-plugin: board
 
 ## IN Progress
 
-- [ ] Booking Details ( User) ⏫
-- [ ] [[Guide Info ( Admin)]] ⏫
-- [ ] [[Guide Info ( Guide)]] ⏫
 - [ ] [[Staff Add New ( ADMIN) 🔼]]
-- [ ] [[Booking Details ( Admin )]]
 
 
 ## Done
@@ -51,10 +47,18 @@ kanban-plugin: board
 - [ ] [[Staff Info ( Admin)]]
 
 
+## Stuck in my head
+
+- [ ] [[Booking Details ( Admin )]]
+- [ ] [[Guide Info ( Admin)]] ⏫
+- [ ] Booking Details ( User) ⏫
+- [ ] [[Guide Info ( Guide)]] ⏫
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false]}
 ```
 %%

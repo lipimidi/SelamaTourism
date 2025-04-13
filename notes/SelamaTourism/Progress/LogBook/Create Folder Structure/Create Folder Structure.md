@@ -1,6 +1,5 @@
 ```
-/project_root
-│-- .git/
+/project_root 
 │-- assets/
 │   │-- css/
 │   │-- fonts/
