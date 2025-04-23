@@ -26,7 +26,6 @@ function guide($guide_id)
 
         $date = $guide['date'];
         $session_id = $guide['timeslot_id'];
-        $guide_id = $guide['id'];
         $user_id = $guide['user_id'];
 
         // Query to get additional details from the booking_details table using booking_id

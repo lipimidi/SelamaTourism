@@ -59,7 +59,7 @@ $routes = [
 
 
     //fucntions
-    'book/events' => 'register',
+    'book/events' => 'book_1a',
     'book/upload' => 'upload_insurance',
     'book/remove' => 'remove_insurance',
     'book/getlist_user' => 'getlist',

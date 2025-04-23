@@ -128,3 +128,47 @@ if (isset($_POST['people_change_status'])) {
 
 
 }
+
+
+if (isset($_POST['SaveGuideStatus'])) {
+
+
+    $id = $_POST['guide_id'];
+    $status = $_POST['status_num_guide'];
+
+    // echo $status;
+
+    $sql = "UPDATE guides SET status = '$status'  WHERE id ='$id' ";
+ 
+    // Define the status array
+    // $statusArray = [
+    //     '',
+    //     '',
+    //     'not yet',
+    //     'ongoing',
+    //     'finished',
+    //     'cancelled',
+    //     'delayed',
+    //     '',
+    //     'emergency',
+    // ];
+
+    if ($status == '4'){
+        $sql2 = "UPDATE booking SET status = '$status'  WHERE id ='$id' ";
+        mysqli_query($conn, $sql2);
+
+    }
+ 
+    if (mysqli_query($conn, $sql)) {
+        // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
+        // echo "done";
+
+
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+    header("Location: " . $basePath2 . "/guide". "/" . $id );
+
+
+}

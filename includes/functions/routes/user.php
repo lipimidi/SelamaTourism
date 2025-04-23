@@ -1,5 +1,12 @@
 <?php
 
+function book_1a()
+{
+    include('includes/server.php');
+ 
+}
+
+
 function book_1()
 {
     include('includes/server.php');

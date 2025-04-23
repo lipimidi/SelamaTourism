@@ -325,7 +325,7 @@ background-size: cover;">
               </select>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn bg-gradient-primary" id="saveChangesBtn">Save changes</button>
+              <button type="button" class="btn bg-gradient-primary" id="saveStatusHike">Save changes</button>
               <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
@@ -343,11 +343,13 @@ background-size: cover;">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <
+            <form method="POST" > 
+
+  
             <div class="modal-body">
-              <input type="hidden" id="guide_id" name="guide_id">
+              <input type="hidden"   name="guide_id" value="<?php echo $guide_id  ?>">
               <label for="status_num">Select Status:</label>
-              <select name="status_num" id="status_num" >
+              <select name="status_num_guide"   >
 
                 <?php $statusArray = getGuideStatuses();
 
@@ -370,9 +372,10 @@ background-size: cover;">
               </select>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn bg-gradient-primary" id="saveChangesBtn">Save changes</button>
+              <button type="submit" class="btn bg-gradient-primary" name="SaveGuideStatus"  >Save changes</button>
               <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
             </div>
+            </form>
           </div>
         </div>
       </div>
@@ -473,16 +476,17 @@ background-size: cover;">
     }
 
     // Handle save changes button click
-    $('#saveChangesBtn').click(function () {
-      var id = $('#dynamicModal').data('id');  // Retrieve the ID stored in modal's data-attributes
+    $('#saveStatusHike').click(function () {
+      var id = $('#guide_id').val();   // Retrieve the ID stored in modal's data-attributes
       var status = $('#status_num').val();  // Get the selected status from the dropdown
-      var booking_id = $('#booking_id').val();  // Get the selected status from the dropdown
+       console.log("test");
 
+      
       // Prepare data for POST request
       var postData = {
         id: id,
         status: status,
-        booking_id: booking_id,
+        // booking_id: booking_id,
         people_change_status: "people_change_status",
       };
 
@@ -507,7 +511,7 @@ background-size: cover;">
       });
     });
 
-
+ 
 
   </script>
 

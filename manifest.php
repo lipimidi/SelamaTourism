@@ -18,13 +18,13 @@ $manifest = [
   
         [
             "purpose" => "maskable",
-            "src" => "$base_url/assets/img/icon512_maskable.png",
+            "src" => "$base_url/assets/img/android-chrome-512x512.png",
             "sizes" => "512x512",
             "type" => "image/png"
         ],
         [
             "purpose" => "any",
-            "src" => "$base_url/assets/img/icon512_rounded.png",
+            "src" => "$base_url/assets/img/android-chrome-512x512.png",
             "sizes" => "512x512",
             "type" => "image/png"
         ],
