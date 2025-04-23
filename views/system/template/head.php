@@ -4,7 +4,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $rootPath; ?>/assets/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="<?php echo $rootPath; ?>/assets/img/favicon-32x32.png">
   <title>
-    Argon Dashboard 2 PRO by Creative Tim
+  Selama Community Based Tourism
   </title>
 
   <!--  Social tags      -->

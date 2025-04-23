@@ -140,7 +140,7 @@ if (isset($_POST['SaveGuideStatus'])) {
 
     $sql = "UPDATE guides SET status = '$status'  WHERE id ='$id' ";
  
-    // Define the status array
+    // // Define the status array
     // $statusArray = [
     //     '',
     //     '',
@@ -152,6 +152,7 @@ if (isset($_POST['SaveGuideStatus'])) {
     //     '',
     //     'emergency',
     // ];
+
 
     if ($status == '4'){
         $sql2 = "UPDATE booking SET status = '$status'  WHERE id ='$id' ";
