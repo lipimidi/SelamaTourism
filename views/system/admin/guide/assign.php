@@ -147,7 +147,7 @@
       // Initialize the FullCalendar object
       var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
-        initialDate: lastViewedDate || new Date(),
+        // initialDate: lastViewedDate || new Date(),
         headerToolbar: {
           start: 'title', // will normally be on the left. if RTL, will be on the right
           center: '',

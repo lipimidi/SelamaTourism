@@ -348,6 +348,8 @@ background-size: cover;">
   
             <div class="modal-body">
               <input type="hidden"   name="guide_id" value="<?php echo $guide_id  ?>">
+              <input type="hidden"   name="date" value="<?php echo $date  ?>">
+              <input type="hidden"   name="timeslot_id" value="<?php echo $date  ?>">
               <label for="status_num">Select Status:</label>
               <select name="status_num_guide"   >
 

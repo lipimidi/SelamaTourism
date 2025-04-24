@@ -99,7 +99,7 @@
           center: 'dayGridMonth,timeGridWeek',
           end: 'today prev,next' // will normally be on the right. if RTL, will be on the left
         },
-        initialDate: lastViewedDate || new Date(),
+        // initialDate: lastViewedDate || new Date(),
 
         eventTimeFormat: getEventTimeFormat(),
         allDaySlot: false,

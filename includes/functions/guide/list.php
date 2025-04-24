@@ -135,6 +135,8 @@ if (isset($_POST['SaveGuideStatus'])) {
 
     $id = $_POST['guide_id'];
     $status = $_POST['status_num_guide'];
+    $date = $_POST['date'];
+    $timeslot_id = $_POST['timeslot_id'];
 
     // echo $status;
 
@@ -154,15 +156,18 @@ if (isset($_POST['SaveGuideStatus'])) {
     // ];
 
 
-    if ($status == '4'){
-        $sql2 = "UPDATE booking SET status = '$status'  WHERE id ='$id' ";
-        mysqli_query($conn, $sql2);
 
-    }
  
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
         // echo "done";
+
+
+        if ($status == '4'){
+            $sql2 = "UPDATE booking SET status = '$status'  WHERE booking_date ='$date' AND  timeslot_id ='$session_id' AND ( status != '5' AND status != '7' AND status != '8')  ";
+            mysqli_query($conn, $sql2);
+    
+        }
 
 
     } else {

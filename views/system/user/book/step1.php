@@ -142,6 +142,7 @@
       }
 
       // Initialize the FullCalendar object
+      
       var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
         headerToolbar: {

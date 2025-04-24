@@ -12,7 +12,7 @@
             echo '</li>';
           } else {
             echo '<li class="breadcrumb-item text-sm">';
-            echo '<a class="text-white" href="' . htmlspecialchars($breadcrumb['url']) . '">';
+            echo '<a class="text-white" href="' . $rootPath . htmlspecialchars($breadcrumb['url']) . '">';
             echo htmlspecialchars($breadcrumb['title']);
             echo '</a>';
             echo '</li>';

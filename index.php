@@ -3,9 +3,7 @@
 session_start();
 
 include('includes/server.php');
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+ 
 
 $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 

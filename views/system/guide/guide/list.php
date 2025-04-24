@@ -108,7 +108,7 @@
         selectable: true,
         height: 'auto',  // Adjust the height automatically
         contentHeight: 'auto', // Make content height auto
-        initialDate: lastViewedDate || new Date(),
+        // initialDate: lastViewedDate || new Date(),
 
         events: function (fetchInfo, successCallback, failureCallback) {
           console.log("Sending request to fetch events..."); // Debug log

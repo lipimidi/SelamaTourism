@@ -376,6 +376,30 @@
     },
     {
       "color": "2",
+      "file": "Wireframe/System/User/Booking/Insurance/Insurance.md",
+      "height": 50,
+      "id": "4328afaec2954718",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": -60,
+      "y": 320
+    },
+    {
+      "color": "1",
+      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
+      "height": 60,
+      "id": "74b7ee812e399aec",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 250,
+      "x": 15,
+      "y": 1250
+    },
+    {
+      "color": "2",
       "height": 50,
       "id": "9c583a2e0110f484",
       "styleAttributes": {
@@ -589,30 +613,6 @@
       "y": 1100
     },
     {
-      "color": "6",
-      "height": 60,
-      "id": "d512207f7d375d27",
-      "styleAttributes": {
-      },
-      "text": "Send Location GPS",
-      "type": "text",
-      "width": 250,
-      "x": 530,
-      "y": 420
-    },
-    {
-      "color": "2",
-      "file": "Wireframe/System/User/Booking/Summary/Summary.md",
-      "height": 50,
-      "id": "bb10fed468197ab2",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": -60,
-      "y": 420
-    },
-    {
       "color": "2",
       "file": "Wireframe/System/User/Booking/People/People.md",
       "height": 50,
@@ -637,28 +637,28 @@
       "y": 1250
     },
     {
+      "color": "6",
+      "height": 60,
+      "id": "d512207f7d375d27",
+      "styleAttributes": {
+      },
+      "text": "Send Location GPS",
+      "type": "text",
+      "width": 250,
+      "x": 530,
+      "y": 420
+    },
+    {
       "color": "2",
-      "file": "Wireframe/System/User/Booking/Insurance/Insurance.md",
+      "file": "Wireframe/System/User/Booking/Summary/Summary.md",
       "height": 50,
-      "id": "4328afaec2954718",
+      "id": "bb10fed468197ab2",
       "styleAttributes": {
       },
       "type": "file",
       "width": 250,
       "x": -60,
-      "y": 320
-    },
-    {
-      "color": "1",
-      "file": "Wireframe/System/Admin/Booking/Settings/Settings.md",
-      "height": 60,
-      "id": "74b7ee812e399aec",
-      "styleAttributes": {
-      },
-      "type": "file",
-      "width": 250,
-      "x": 15,
-      "y": 1250
+      "y": 420
     }
   ]
 }
