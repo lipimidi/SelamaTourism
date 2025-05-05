@@ -9,7 +9,7 @@ if (isset($_POST['getlist_people_guide'])) {
     $search = isset($_POST['search']) ? $_POST['search'] : ''; // Global search value
     $order = isset($_POST['order'][0]['column']) ? (int) $_POST['order'][0]['column'] : 0; // Sorting column index
     $order_direction = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'desc'; // Sorting direction
-    $table_name = "booking_details";
+    $table_name = "guide_details";
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting

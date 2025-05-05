@@ -32,7 +32,8 @@
   <link href="<?php echo $rootPath; ?>/assets/css/nucleo-svg.css" rel="stylesheet" />
 
   <link href="<?php echo $rootPath; ?>/assets/css/datatables.css" rel="stylesheet" />
-
+  <link  href="<?php echo $rootPath; ?>/assets/css/jquery.fancybox.css" rel="stylesheet" />
+  
 
   <link href="<?php echo $rootPath; ?>/assets/css/font-awesome.css" rel="stylesheet" />
   <!-- CSS Files -->

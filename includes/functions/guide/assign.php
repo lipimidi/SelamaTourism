@@ -37,9 +37,13 @@ if (isset($_POST['fetch_events_guide'])) {
             $end_time = $timeslot['end_time'];
 
             // Get the total booked people for this date and timeslot
-            $sql = "SELECT COALESCE(SUM(people_booked), 0) AS total_booked 
-                    FROM bookings 
-                    WHERE booking_date = '$date_string' AND timeslot_id = '$timeslot_id' AND status ='2'  ";
+            $sql = "SELECT COALESCE(COUNT(gd.id), 0) AS total_booked
+                        FROM guides g
+                        INNER JOIN guide_details gd ON g.id = gd.guide_id
+                        WHERE g.date = '$date_string' 
+                        AND g.timeslot_id = '$timeslot_id' 
+                        AND g.status = '1'
+                        ";
 
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
@@ -59,7 +63,7 @@ if (isset($_POST['fetch_events_guide'])) {
                                 AND guides.timeslot_id = '$timeslot_id'
                                  ";
 
- 
+
 
                 $result_guide = $conn->query($sql_guide);
                 $guide = $result_guide->fetch_assoc();
@@ -70,45 +74,44 @@ if (isset($_POST['fetch_events_guide'])) {
                 if (isset($guide['user_id'])) {
                     $className = 'bg-gradient-info';  // Apply the info class if both match
                 }
-                     // If role is '2', check if guide matches user_id
-                    if ($role == '2' && $guide_name == $user_id) {
-                        // Create the event for FullCalendar for role 2 and matching guide
-                        $events[] = [
-                            'title' => "$total_booked people booked",
-                            'start' => "$date_string $start_time",
-                            'end' => "$date_string $end_time",
-                            'session' => $timeslot_id,
-                            'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
-                            // 'color' => $color, // Uncomment and define the color if needed
-                            'event_date' => $date_string,
-                            'className' => $className,
-                            'remaining_slots' => $remaining_slots,
-                            'user_id' => $guide_name,
-                            'guide_id' => $guide_id,
-                        ];
-                    }
-                    // If role is '1', proceed without checking user_id
-                    elseif ($role == '1') {
-                        // Create the event for FullCalendar for role 1 without checking guide against user_id
-                        $events[] = [
-                            'title' => "$total_booked people booked",
-                            'start' => "$date_string $start_time",
-                            'end' => "$date_string $end_time",
-                            'session' => $timeslot_id,
-                            'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
-                            // 'color' => $color, // Uncomment and define the color if needed
-                            'event_date' => $date_string,
-                            'className' => $className,
-                            'remaining_slots' => $remaining_slots,
-                            'user_id' => $guide_name,
-                            'guide_id' => $guide_id,
-                        ];
-                    }
-                    else{
+                // If role is '2', check if guide matches user_id
+                if ($role == '2' && $guide_name == $user_id) {
+                    // Create the event for FullCalendar for role 2 and matching guide
+                    $events[] = [
+                        'title' => "$total_booked people",
+                        'start' => "$date_string $start_time",
+                        'end' => "$date_string $end_time",
+                        'session' => $timeslot_id,
+                        'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
+                        // 'color' => $color, // Uncomment and define the color if needed
+                        'event_date' => $date_string,
+                        'className' => $className,
+                        'remaining_slots' => $remaining_slots,
+                        'user_id' => $guide_name,
+                        'guide_id' => $guide_id,
+                    ];
+                }
+                // If role is '1', proceed without checking user_id
+                elseif ($role == '1') {
+                    // Create the event for FullCalendar for role 1 without checking guide against user_id
+                    $events[] = [
+                        'title' => "$total_booked people  ",
+                        'start' => "$date_string $start_time",
+                        'end' => "$date_string $end_time",
+                        'session' => $timeslot_id,
+                        'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
+                        // 'color' => $color, // Uncomment and define the color if needed
+                        'event_date' => $date_string,
+                        'className' => $className,
+                        'remaining_slots' => $remaining_slots,
+                        'user_id' => $guide_name,
+                        'guide_id' => $guide_id,
+                    ];
+                } else {
 
-                    }
-                
-                
+                }
+
+
 
             }
 
@@ -129,7 +132,7 @@ if (isset($_POST['assignguide'])) {
     $date = $_POST['date'];
     $session = $_POST['session'];
     $user_id = $_POST['guide'];
-    $status = '2'; // New status for the guide (you can modify this as needed)
+    $status = '1'; // New status for the guide (you can modify this as needed)
 
     // Check if the guide is already assigned to the same date and session
     $check_sql = "SELECT * FROM guides WHERE  `date` = '$date' AND `timeslot_id` = '$session'";

@@ -46,7 +46,7 @@ if (isset($_POST['confirminsurance'])) {
     //     // Check if the file is uploaded for each dropzone
     //     if (isset($_FILES['file_' . $i])) {
     //         $file = $_FILES['file_' . $i];
-    //         $uploadDir = $rootPath . '/assets/uploads/booking/insurance/';  // Set your desired upload directory
+    //         $uploadDir = $basePath . '/assets/uploads/booking/insurance/';  // Set your desired upload directory
     //         $filePath = $uploadDir . basename($file['name']);
 
     //         // Validate the file (e.g., check size, type)

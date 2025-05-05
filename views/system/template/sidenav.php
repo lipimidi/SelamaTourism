@@ -145,48 +145,48 @@
       <?php } ?>
 
 
-      <?php if ($role != 'user') { ?>
 
-        <li class="nav-item">
-          <a data-bs-toggle="collapse" href="#guide" class="nav-link " aria-controls="guide" role="button"
-            aria-expanded="false">
-            <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
-              <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Guide</span>
-          </a>
-          <div class="collapse " id="guide">
-            <ul class="nav ms-4">
+      <li class="nav-item">
+        <a data-bs-toggle="collapse" href="#guide" class="nav-link " aria-controls="guide" role="button"
+          aria-expanded="false">
+          <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
+            <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Guide</span>
+        </a>
+        <div class="collapse " id="guide">
+          <ul class="nav ms-4">
 
-              <?php if ($role == 'admin') { ?>
-
-                <li class="nav-item ">
-                  <a class="nav-link " href="<?php echo $rootPath; ?>/guide/assign">
-                    <span class="sidenav-mini-icon">
-                      <Acr></Acr>
-                    </span>
-                    <span class="sidenav-normal"> Assign </span>
-                  </a>
-                </li>
-
-              <?php } ?>
+            <?php if ($role == 'admin') { ?>
 
               <li class="nav-item ">
-                <a class="nav-link " href="<?php echo $rootPath; ?>/guide/list">
-                  <span class="sidenav-mini-icon"> L </span>
-                  <span class="sidenav-normal"> List </span>
+                <a class="nav-link " href="<?php echo $rootPath; ?>/guide/assign">
+                  <span class="sidenav-mini-icon">
+                    <Acr></Acr>
+                  </span>
+                  <span class="sidenav-normal"> Assign </span>
                 </a>
               </li>
 
+            <?php } ?>
+
+
+
+            <li class="nav-item ">
+              <a class="nav-link " href="<?php echo $rootPath; ?>/guide/list">
+                <span class="sidenav-mini-icon"> L </span>
+                <span class="sidenav-normal"> List </span>
+              </a>
+            </li>
 
 
 
 
 
-            </ul>
-          </div>
-        </li>
-      <?php } ?>
+
+          </ul>
+        </div>
+      </li>
 
       <!-- <li class="nav-item mt-3">
           <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">PAGES</h6>

@@ -13,7 +13,7 @@ function guide($guide_id)
     $sql = "SELECT guides.*, booking_timeslots.* , user_details.name
     FROM guides
     INNER JOIN booking_timeslots ON guides.timeslot_id = booking_timeslots.id
-    INNER JOIN user_details ON guides.user_id = user_details.user_id
+    LEFT JOIN user_details ON guides.user_id = user_details.user_id
     WHERE guides.id = $guide_id";
 
     // // Execute the query
@@ -30,9 +30,12 @@ function guide($guide_id)
 
         // Query to get additional details from the booking_details table using booking_id
         $sql_details =
-            "SELECT * FROM booking_details 
-        INNER JOIN bookings ON bookings.id = booking_details.booking_id
-        WHERE booking_date = '$date'  AND bookings.timeslot_id = '$session_id'";
+            "SELECT * 
+FROM guide_details 
+INNER JOIN guides ON guide_details.guide_id = guides.id
+WHERE guides.date = '$date' 
+  AND guides.timeslot_id = '$session_id' ";
+  
         $result_details = $conn->query($sql_details);
 
         // Check if booking details are found
@@ -108,7 +111,10 @@ function guide_list()
 
     } else {
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-        notFound();
+        // notFound();
+
+        include 'views/system/guide/guide/list.php';
+
     }
 
 

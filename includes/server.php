@@ -19,7 +19,13 @@ $dotenv->load();
   include_once('functions/routes/admin.php');
   include_once('functions/routes/guide.php');
   include_once('functions/routes/user.php');
-  include_once('functions/routes/public.php');
+  include_once('functions/routes/general.php');
+ 
+  //status
+
+  include_once('functions/status/booking.php');
+  include_once('functions/status/hiking.php');
+  include_once('functions/status/guide.php');
  
  
 

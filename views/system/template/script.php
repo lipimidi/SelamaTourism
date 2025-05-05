@@ -14,6 +14,8 @@
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/moment.min.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/datatables.js"></script>
 <script src="<?php echo $rootPath; ?>/assets/js/plugins/leaflet.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/sweetalert.min.js"></script>
+<script src="<?php echo $rootPath; ?>/assets/js/plugins/jquery.fancybox.js"></script>
 
 <script>
   // var ctx1 = document.getElementById("chart-line").getContext("2d");

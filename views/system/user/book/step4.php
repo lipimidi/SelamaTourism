@@ -71,7 +71,7 @@ background-size: cover;">
                               <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                            <?php echo $_SESSION['booking']['people_count'] ?>
+                              <?php echo $_SESSION['booking']['people_count'] ?>
                             </h5>
                             <span class="text-white text-sm">People</span>
                           </div>
@@ -94,7 +94,7 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                            <?php echo $_SESSION['booking']['date'] ?>
+                              <?php echo $_SESSION['booking']['date'] ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -254,6 +254,7 @@ background-size: cover;">
                           $phone = $_SESSION['booking']['people'][$i]['phone'];
                           $email = $_SESSION['booking']['people'][$i]['email'];
                           $address = $_SESSION['booking']['people'][$i]['address'];
+                          $filepath = $_SESSION['booking']['insurance'][$i][0]['file_path'];
 
                           ?>
                           <tr>
@@ -301,11 +302,21 @@ background-size: cover;">
                             <td>
                               <div class="d-flex px-2 py-1">
 
-                                <div class="d-flex flex-column justify-content-center">
-                                  <button type="button" class="btn btn-block bg-gradient-primary mb-3"
-                                    data-bs-toggle="modal" data-bs-target="#modal-<?php echo $i ?>">File</button>
 
-                                </div>
+
+
+                                <?php
+                                $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
+                                $type = ($ext === 'pdf') ? 'iframe' : 'image';
+
+
+                                ?>
+
+                                <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox data-type="<?php echo $type; ?>" data-src="<?php echo $rootPath . '/' . $filepath ?>"
+                                  href="javascript:;">
+                                  File
+                                </a>
+
                               </div>
                             </td>
                           </tr>
@@ -339,62 +350,7 @@ background-size: cover;">
     </div>
     </div>
 
-    <div>
-      <?php
-      $count = $_SESSION['booking']['people_count'];
 
-      for ($b = 1; $b <= $count; $b++) {
-        // Example file URL, you can replace this with your actual dynamic file path
-      
-        $filePath = $basePath2 . '/' . $_SESSION['booking']['insurance'][$b][0]['file_path'];
-
-        $fileInfo = pathinfo($filePath);
-        $extension = strtolower($fileInfo['extension']); // Get file extension and convert to lowercase
-      
-        ?>
-
-        <div class="modal fade" id="modal-<?php echo $b ?>" tabindex="-1" role="dialog" aria-labelledby="modal-default"
-          aria-hidden="true">
-          <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-default">
-                  <?php echo $_SESSION['booking']['insurance'][$b][0]['file_name'] ?>
-                </h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-
-                <!-- <h6 class="mb-0 text-sm"><?php echo $insurance ?></h6> -->
-
-                <?php
-                // Check if the file is an image or a PDF and display accordingly
-                if ($extension == 'pdf') {
-                  // Embed PDF
-                  echo '<iframe src="' . $filePath . '" width="100%" height="400px" frameborder="0"></iframe>';
-                } elseif (in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'])) {
-                  // Display Image
-                  echo '<img src="' . $filePath . '" alt="Image" width="100%" height="auto">';
-                } else {
-                  echo "<p>Unsupported file type</p>";
-                }
-                ?>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn bg-gradient-primary">Save changes</button>
-                <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <?php } ?>
-
-
-    </div>
 
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/footer.php"); ?>

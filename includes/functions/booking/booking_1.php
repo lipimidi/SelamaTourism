@@ -1,6 +1,6 @@
 <?php
 
-if ( isset($_POST['fetch_events'])) {
+if (isset($_POST['fetch_events'])) {
 
     // echo json_encode($_POST['start']);
     
@@ -10,7 +10,14 @@ if ( isset($_POST['fetch_events'])) {
     // Convert UTC datetime to local date (YYYY-MM-DD)
     $start_date = date('Y-m-d', strtotime($start_utc));
     $end_date = date('Y-m-d', strtotime($end_utc));
- 
+
+    // Get today's date (for comparison)
+    $today_date = date('Y-m-d');
+
+    // If start_date is in the past, set it to today
+    if ($start_date < $today_date) {
+        $start_date = $today_date; // Start from today
+    }
 
     $events = [];
 

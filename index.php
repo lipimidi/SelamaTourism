@@ -3,7 +3,7 @@
 session_start();
 
 include('includes/server.php');
- 
+
 
 $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 
@@ -32,8 +32,22 @@ $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 // Route Definitions
 $routes = [
+
+    //public
     '' => 'home',
     'dashboard' => 'dashboard',
+
+    'attractions' => 'attractions',
+    'facilities' => 'facilities',
+    'contactus' => 'contact',
+
+
+    'blog/list' => 'blog_list',
+
+
+
+    //system
+
     'book' => 'book_1',
     'book/date' => 'book_1',
     'book/people' => 'book_2',
@@ -66,6 +80,9 @@ $routes = [
     'guide/getlist_guide' => 'guide_getlist',
     'guide/people_change_status' => 'guide_people_status',
 
+
+
+
 ];
 
 
@@ -73,6 +90,17 @@ switch (true) {
     case isset($routes[$requestUri]):
         // Route exists, execute the corresponding function
         call_user_func($routes[$requestUri]);
+        break;
+
+    case strpos($requestUri, 'blog/') === 0:
+        // Split URL into parts for 'book' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[1]) && is_numeric($parts[1])) {
+            $blog_id = $parts[1]; // Extract booking ID
+            // book($blog_id);
+        } else {
+            notFound();
+        }
         break;
 
     case strpos($requestUri, 'book/') === 0:
@@ -97,16 +125,16 @@ switch (true) {
         }
         break;
 
-        case strpos($requestUri, 'guide/') === 0:
-            // Split URL into parts for 'staff' route
-            $parts = explode('/', $requestUri);
-            if (isset($parts[1]) && is_numeric($parts[1])) {
-                $guide = $parts[1]; // Extract staff ID
-                guide($guide);
-            } else {
-                notFound();
-            }
-            break;
+    case strpos($requestUri, 'guide/') === 0:
+        // Split URL into parts for 'staff' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[1]) && is_numeric($parts[1])) {
+            $guide = $parts[1]; // Extract staff ID
+            guide($guide);
+        } else {
+            notFound();
+        }
+        break;
 
     default:
         // If none of the above conditions match, call notFound()
