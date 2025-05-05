@@ -107,31 +107,32 @@
     <div class="container py-5">
       <div class="row align-items-center">
         <div class="col-md-6 mb-md-0 mb-4">
-          <h3 class="text-gradient text-primary mb-0">Location</h3>
+          <h3 class="text-gradient text-primary mb-2">Location</h3>
           <!-- <h3>500+ offices</h3> -->
           <!-- <p class="mb-4">
             Technology is applied science. Science is the study of nature. Mathematics is the language of nature. Philosophy is the root of mathematics. All tightly interrelated.
           </p> -->
-          <p class="font-weight-bold"><span class="me-2">-</span> Showcase and embed your work with</p>
-          <p class="font-weight-bold"><span class="me-2">-</span> Publish across social channels in a click</p>
-          <p class="font-weight-bold"><span class="me-2">-</span> Sell your videos worldwide</p>
-          <p class="font-weight-bold mb-5"><span class="me-2">-</span> Make more profit</p>
+
+          <p class="font-weight-bold">
+            Lata Puteh is a scenic waterfall located in Batu Kurau, Perak, Malaysia. It is situated along the A6 road
+            between Selama and Lenggong, approximately 32 kilometers from Batu Kurau . The waterfall is nestled within
+            the tropical rainforest of the Bintang Range, offering a serene and natural setting .
+          </p>
           <!-- <a href="javascript:;" class="text-info icon-move-right">Learn More
             <i class="fas fa-arrow-right text-sm ps-1"></i>
           </a> -->
         </div>
         <div class="col-md-6">
           <div class="card p-0 rounded-3">
-          <div class="map-wrapper">
-        <div class="ratio ratio-4x3">
-          <!-- Embed Google Map -->
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119856.47270657779!2d102.30529069674792!3d4.581424478890174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31c91d487ca9fd01%3A0x484fe93b99b799b9!2sLata%20Puteh!5e0!3m2!1sen!2smy!4v1632983645082!5m2!1sen!2smy"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
+            <div class="map-wrapper">
+              <div class="ratio ratio-4x3">
+                <!-- Embed Google Map -->
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119856.47270657779!2d102.30529069674792!3d4.581424478890174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31c91d487ca9fd01%3A0x484fe93b99b799b9!2sLata%20Puteh!5e0!3m2!1sen!2smy!4v1632983645082!5m2!1sen!2smy"
+                  allowfullscreen="" loading="lazy">
+                </iframe>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -156,15 +157,15 @@
           </div>
         </div>
         <div class="col-md-6 mb-md-0 mb-4">
-          <h3 class="text-gradient text-primary mb-0">History</h3>
-          <!-- <h3>500+ offices</h3> -->
-          <!-- <p class="mb-4">
-            Technology is applied science. Science is the study of nature. Mathematics is the language of nature. Philosophy is the root of mathematics. All tightly interrelated.
-          </p> -->
-          <p class="font-weight-bold"><span class="me-2">-</span> Showcase and embed your work with</p>
-          <p class="font-weight-bold"><span class="me-2">-</span> Publish across social channels in a click</p>
-          <p class="font-weight-bold"><span class="me-2">-</span> Sell your videos worldwide</p>
-          <p class="font-weight-bold mb-5"><span class="me-2">-</span> Make more profit</p>
+          <h3 class="text-gradient text-primary mb-2">History</h3>
+
+
+          <p class="font-weight-bold">
+            Lata Puteh is a figure from Malay folklore, known for her exceptional beauty and tragic love story. Her
+            name, meaning "white," symbolizes purity and unattainable beauty. The legend often centers on her being
+            loved by many but separated from her true love, embodying themes of sorrow and longing. Her story has had a
+            lasting cultural impact, inspiring art, songs, and poetry across Southeast Asia.
+          </p>
           <!-- <a href="javascript:;" class="text-info icon-move-right">Learn More
             <i class="fas fa-arrow-right text-sm ps-1"></i>
           </a> -->
@@ -177,15 +178,19 @@
     <div class="container py-5">
       <div class="row align-items-center">
         <div class="col-md-6 mb-md-0 mb-4    order-2 order-md-1">
-          <h3 class="text-gradient text-primary mb-0">Best Time To Visit</h3>
+          <h3 class="text-gradient text-primary mb-2">Best Time To Visit</h3>
           <!-- <h3>500+ offices</h3> -->
           <!-- <p class="mb-4">
             Technology is applied science. Science is the study of nature. Mathematics is the language of nature. Philosophy is the root of mathematics. All tightly interrelated.
           </p> -->
-          <p class="font-weight-bold"><span class="me-2">-</span> Showcase and embed your work with</p>
-          <p class="font-weight-bold"><span class="me-2">-</span> Publish across social channels in a click</p>
-          <p class="font-weight-bold"><span class="me-2">-</span> Sell your videos worldwide</p>
-          <p class="font-weight-bold mb-5"><span class="me-2">-</span> Make more profit</p>
+
+
+          <p class="font-weight-bold">
+            The best time to visit Lata Puteh is during the dry season, which typically runs from March to September.
+            During this period, the weather is less rainy, making the trail to the waterfall easier to navigate and the
+            waterfall itself more accessible. The monsoon season, from October to February, can make the trails slippery
+            and increase the water flow, so it's best to avoid visiting during this time for safety reasons.
+          </p>
           <!-- <a href="javascript:;" class="text-info icon-move-right">Learn More
             <i class="fas fa-arrow-right text-sm ps-1"></i>
           </a> -->
@@ -259,7 +264,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6  mb-lg-0 mb-4">
+        <div class="col-lg-4 col-md-6  mb-lg-0 mb-4  mx-auto">
           <div class="card card-background move-on-hover shadow-lg">
 
             <a href="javascript:;">
