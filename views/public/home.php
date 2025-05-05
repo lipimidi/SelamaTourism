@@ -122,25 +122,28 @@
         </div>
         <div class="col-md-6">
           <div class="card p-0 rounded-3">
-            <div class="blur-shadow-image">
-              <!-- <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5551.778495759178!2d100.88466645!3d5.1540165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b5449f5352a5a5%3A0xd95bd59180f51a34!2sSungai%20Lata%20Puteh%2C%2034510%20Batu%20Kurau%2C%20Perak!5e1!3m2!1sen!2smy!4v1741111614717!5m2!1sen!2smy"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-            </div>
-            <div class="colored-shadow"
-              style="background-image: url(&quot;https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/buildings.jpg&quot;);">
-            </div>
+          <div class="map-wrapper">
+        <div class="ratio ratio-4x3">
+          <!-- Embed Google Map -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119856.47270657779!2d102.30529069674792!3d4.581424478890174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31c91d487ca9fd01%3A0x484fe93b99b799b9!2sLata%20Puteh!5e0!3m2!1sen!2smy!4v1632983645082!5m2!1sen!2smy"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
           </div>
         </div>
       </div>
     </div>
 
 
+
     <div class="container py-5">
       <div class="row align-items-center">
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-md-0 mb-4">
           <div class="card p-0 rounded-3">
             <div class="blur-shadow-image">
               <img
@@ -173,7 +176,7 @@
 
     <div class="container py-5">
       <div class="row align-items-center">
-        <div class="col-md-6 mb-md-0 mb-4">
+        <div class="col-md-6 mb-md-0 mb-4    order-2 order-md-1">
           <h3 class="text-gradient text-primary mb-0">Best Time To Visit</h3>
           <!-- <h3>500+ offices</h3> -->
           <!-- <p class="mb-4">
@@ -187,7 +190,7 @@
             <i class="fas fa-arrow-right text-sm ps-1"></i>
           </a> -->
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6    mb-md-0 mb-4  order-1 order-md-2">
           <div class="card p-0 rounded-3">
             <div class="blur-shadow-image">
               <img
@@ -222,8 +225,8 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="card card-background move-on-hover shadow-lg">
+        <div class="col-lg-4 col-md-6  mb-lg-0 mb-4  ">
+          <div class="card card-background move-on-hover shadow-lg ">
 
             <a href="javascript:;">
               <div class="full-background "
@@ -239,7 +242,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6   mb-lg-0 mb-4 ">
           <div class="card card-background move-on-hover shadow-lg">
 
             <a href="javascript:;">
@@ -256,7 +259,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6  mb-lg-0 mb-4">
           <div class="card card-background move-on-hover shadow-lg">
 
             <a href="javascript:;">
