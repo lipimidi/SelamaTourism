@@ -212,11 +212,25 @@ function generateQRCodeWithLogo($data, $logoPath)
 
 
 
-function blog_list()
+function blog_list($page = 1)
 {
 
     include('includes/server.php');
     // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    $postsPerPage = 5;
+    $offset = ($page - 1) * $postsPerPage;
+
+    // Get the total number of blog posts
+    $result = $conn->query("SELECT COUNT(*) as total FROM blog");
+    $totalPosts = $result->fetch_assoc()['total'];
+    $totalPages = ceil($totalPosts / $postsPerPage);
+
+    // Get the posts for the current page
+    $query = "SELECT * FROM blog ORDER BY created_at DESC LIMIT $offset, $postsPerPage";
+    $result = $conn->query($query);
+
+
+
 
     include 'views/public/blog/list.php';
 }
@@ -249,4 +263,64 @@ function contact()
     // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     include 'views/public/contact.php';
+}
+
+
+function blog($blog_id)
+{
+    // Include the database connection
+    include('includes/server.php');
+    // $role = checkRole();
+
+    // // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
+    $blog_id = (int) $blog_id;  // Cast to integer to ensure safety
+
+    // // Query to search for the booking_id in the bookings table
+    $sql = "SELECT *
+    FROM blog
+ 
+    WHERE blog.id = $blog_id";
+
+    // // Execute the query
+    $result = $conn->query($sql);
+
+
+    // Breadcrumbs for navigation
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Blog', 'url' => '/blog'],
+        ['title' => "$blog_id", 'url' => "/$blog_id"],
+    ];
+
+
+    if ($result->num_rows > 0) {
+        // Fetch the booking details (or any data you need)
+        $blog = $result->fetch_assoc();
+        $filename = $blog['main_pic'];
+        $picture = "$rootPath/assets/uploads/blogs/$blog_id/$filename";
+
+        $title = $blog['title'];
+        $content = $blog['content'];
+        $created_at = $blog['created_at'];
+
+        // Query to get additional details from the booking_details table using booking_id
+        
+ 
+        include 'views/public/blog/details.php';
+
+    } else{
+        notFound();
+
+    }
+
+    // // Check if any rows were returned (booking found)
+   
+
+
+    // Include the appropriate view for displaying the booking details
+
+ 
+ 
+
+     
 }

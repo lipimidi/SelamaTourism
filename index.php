@@ -42,7 +42,6 @@ $routes = [
     'contactus' => 'contact',
 
 
-    'blog/list' => 'blog_list',
 
 
 
@@ -64,6 +63,9 @@ $routes = [
     'staff/list' => 'staff_list',
     'staff/addnew' => 'staff_addnew',
     'guide/assign' => 'guide_assign',
+    'blogs/addnew' => 'blogs_addnew',
+    'blogs/list' => 'blogs_list',
+    'blogs' => 'blogs_list',
     //'guide/list' => 'guide_list',
 
     //admin_guide
@@ -79,6 +81,9 @@ $routes = [
     'staff/getlist' => 'staff_getlist',
     'guide/getlist_guide' => 'guide_getlist',
     'guide/people_change_status' => 'guide_people_status',
+    'blogs/blogs_add_new' => 'blogs_add_new',
+    'blogs/blogs_getlist' => 'blogs_getlist',
+    'blogs/blogs_edit' => 'blogs_edit',
 
 
 
@@ -92,12 +97,35 @@ switch (true) {
         call_user_func($routes[$requestUri]);
         break;
 
+    case strpos($requestUri, 'blog/list/') === 0:
+        // Split URL into parts for 'book' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[2]) && is_numeric($parts[2])) {
+            $blog_id = $parts[2]; // Extract booking ID
+            blog_list($blog_id);
+        } else {
+            notFound();
+        }
+        break;
+
+
     case strpos($requestUri, 'blog/') === 0:
         // Split URL into parts for 'book' route
         $parts = explode('/', $requestUri);
         if (isset($parts[1]) && is_numeric($parts[1])) {
             $blog_id = $parts[1]; // Extract booking ID
-            // book($blog_id);
+            blog($blog_id);
+        } else {
+            notFound();
+        }
+        break;
+
+    case strpos($requestUri, 'blogs/') === 0:
+        // Split URL into parts for 'book' route
+        $parts = explode('/', $requestUri);
+        if (isset($parts[2]) && is_numeric($parts[2])) {
+            $blog_id = $parts[2]; // Extract booking ID
+            blogs($blog_id);
         } else {
             notFound();
         }

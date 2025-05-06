@@ -290,6 +290,7 @@ function staff_addnew()
 
 
 
+
 function guide_assign () {
 
     include('includes/server.php');
@@ -345,3 +346,141 @@ if (is_dir($folderPath)) {
 }
 
 
+
+
+function blogs_addnew()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Blogs', 'url' => '/blogs'],
+        ['title' => 'Add', 'url' => '/blogs/addnew'],
+    ];
+
+
+ 
+
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/blogs/addnew.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        notFound();
+
+    }
+
+
+}
+
+
+function blogs_list()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Blogs', 'url' => '/blogs'],
+        ['title' => 'List', 'url' => '/blogs/list'],
+    ];
+
+
+ 
+
+
+    if ($role === 'admin') {
+
+        include 'views/system/admin/blogs/list.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        notFound();
+
+    }
+
+
+}
+
+function blogs_add_new()
+{
+    include('includes/server.php');
+
+
+}
+
+function blogs_getlist()
+{
+    include('includes/server.php');
+
+
+}
+
+function blogs_edit()
+{
+    include('includes/server.php');
+
+
+}
+
+function blogs($blog_id)
+{
+    // Include the database connection
+    include('includes/server.php');
+    $role = checkRole();
+
+    // // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
+    $blog_id = (int) $blog_id;  // Cast to integer to ensure safety
+
+    // // Query to search for the booking_id in the bookings table
+    $sql = "SELECT *
+    FROM blog
+ 
+    WHERE blog.id = $blog_id";
+
+    // // Execute the query
+    $result = $conn->query($sql);
+
+
+    // Breadcrumbs for navigation
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Blogs', 'url' => '/blogs'],
+        ['title' => "$blog_id", 'url' => "/$blog_id"],
+    ];
+
+
+    if ($result->num_rows > 0) {
+        // Fetch the booking details (or any data you need)
+        $blog = $result->fetch_assoc();
+
+        $title = $blog['title'];
+        $content = $blog['content'];
+        $created_at = $blog['created_at'];
+
+        // Query to get additional details from the booking_details table using booking_id
+        
+ 
+        include 'views/system/admin/blogs/edit.php';
+
+    } else{
+        notFound();
+
+    }
+
+    // // Check if any rows were returned (booking found)
+   
+
+
+    // Include the appropriate view for displaying the booking details
+
+ 
+ 
+
+     
+}

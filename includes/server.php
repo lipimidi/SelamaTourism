@@ -13,6 +13,8 @@ $dotenv->load();
  //email
  
  include_once('functions/email/email.php');
+ include_once('functions/file/delete.php');
+ include_once('functions/file/upload.php');
 
   //routes
  
@@ -45,6 +47,9 @@ $dotenv->load();
  include('functions/staff/list.php');
  include('functions/staff/add.php');
  include('functions/guide/assign.php');
+ include('functions/blogs/add.php');
+ include('functions/blogs/list.php');
+ include('functions/blogs/edit.php');
 
  //guide
 
@@ -56,3 +61,4 @@ $dotenv->load();
  include('functions/auth/register.php');
 
 
+ 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 24, 2025 at 01:30 AM
+-- Generation Time: May 06, 2025 at 11:05 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -24,6 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blog`
+--
+
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE IF NOT EXISTS `blog` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` text COLLATE utf8mb4_general_ci,
+  `content` text COLLATE utf8mb4_general_ci,
+  `main_pic` text COLLATE utf8mb4_general_ci,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `content`, `main_pic`, `created_at`, `updated_at`) VALUES
+(11, '&lt;p&gt;\r\n            &lt;/p&gt;&lt;h1 class=&quot;text-gradient text-primary mb-0&quot;&gt;Title&lt;/h1&gt;&lt;p&gt;\r\n            &lt;/p&gt;&lt;h1 class=&quot;mb-4&quot;&gt;Subtitle&lt;/h1&gt;&lt;p&gt;\r\n        &lt;/p&gt;', '&lt;p&gt;\r\n             &lt;/p&gt;&lt;h3 class=&quot;title mb-4&quot;&gt;Create a design system that can be used in any product available&lt;/h3&gt;&lt;p&gt;\r\n            &lt;/p&gt;&lt;p class=&quot;text-dark&quot;&gt;\r\n                This is the paragraph where you can write more details about your product. Keep your user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise, they wouldn&#039;t scroll to get here. Add a button if you want the user to see more. We are here to make life better.\r\n                \r\n                And now I look and look around and there are so many Kanyes I&#039;ve been trying to figure out the bed design for the master bedroom at our Hidden Hills compound... and thank you for turning my personal jean jacket into a couture piece.\r\n                \r\n                The way to survive in modern society is to be an ascetic. It is to retreat from society. There&#039;s too much society everywhere you go…The only solution is to turn it off.\r\n            &lt;/p&gt;&lt;p&gt;\r\n        &lt;/p&gt;', 'images.png', '2025-05-06 10:16:07', '2025-05-06 10:39:13'),
+(12, '&lt;p&gt;\r\n            &lt;/p&gt;&lt;h1 class=&quot;text-gradient text-primary mb-0&quot;&gt;Title&lt;/h1&gt;&lt;p&gt;\r\n            &lt;/p&gt;&lt;h1 class=&quot;mb-4&quot;&gt;Subtitle&lt;/h1&gt;&lt;p&gt;\r\n        &lt;/p&gt;', '&lt;p&gt;\r\n             &lt;/p&gt;&lt;h3 class=&quot;title mb-4&quot;&gt;Create a design system that can be used in any product available&lt;/h3&gt;&lt;p&gt;\r\n            &lt;/p&gt;&lt;p class=&quot;text-dark&quot;&gt;\r\n                This is the paragraph where you can write more details about your product. Keep your user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise, they wouldn&#039;t scroll to get here. Add a button if you want the user to see more. We are here to make life better.\r\n                \r\n                And now I look and look around and there are so many Kanyes I&#039;ve been trying to figure out the bed design for the master bedroom at our Hidden Hills compound... and thank you for turning my personal jean jacket into a couture piece.\r\n                \r\n                The way to survive in modern society is to be an ascetic. It is to retreat from society. There&#039;s too much society everywhere you go…The only solution is to turn it off.\r\n            &lt;/p&gt;&lt;p&gt;\r\n        &lt;/p&gt;', 'images.png', '2025-05-06 10:16:07', '2025-05-06 10:39:13'),
+(13, '&lt;p&gt;\r\n            &lt;/p&gt;&lt;h1 class=&quot;text-gradient text-primary mb-0&quot;&gt;Title&lt;/h1&gt;&lt;p&gt;\r\n            &lt;/p&gt;&lt;h1 class=&quot;mb-4&quot;&gt;Subtitle&lt;/h1&gt;&lt;p&gt;\r\n        &lt;/p&gt;', '&lt;p&gt;\r\n             &lt;/p&gt;&lt;h3 class=&quot;title mb-4&quot;&gt;Create a design system that can be used in any product available&lt;/h3&gt;&lt;p&gt;\r\n            &lt;/p&gt;&lt;p class=&quot;text-dark&quot;&gt;\r\n                This is the paragraph where you can write more details about your product. Keep your user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise, they wouldn&#039;t scroll to get here. Add a button if you want the user to see more. We are here to make life better.\r\n                \r\n                And now I look and look around and there are so many Kanyes I&#039;ve been trying to figure out the bed design for the master bedroom at our Hidden Hills compound... and thank you for turning my personal jean jacket into a couture piece.\r\n                \r\n                The way to survive in modern society is to be an ascetic. It is to retreat from society. There&#039;s too much society everywhere you go…The only solution is to turn it off.\r\n            &lt;/p&gt;&lt;p&gt;\r\n        &lt;/p&gt;', 'images.png', '2025-05-06 10:16:07', '2025-05-06 10:39:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bookings`
 --
 
@@ -39,16 +65,14 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `reason` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`),
   KEY `timeslot_id` (`timeslot_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `booking_date`, `timeslot_id`, `people_booked`, `created_at`, `status`, `reason`) VALUES
-(62, 3, '2025-02-27', 1, 3, '2025-03-16 06:19:22', 2, NULL),
-(64, 3, '2025-03-11', 1, 1, '2025-03-18 20:35:06', 0, 'invalid details'),
-(65, 8, '2025-03-12', 2, 2, '2025-03-22 14:45:00', 1, NULL);
+(66, 3, '2025-05-04', 1, 1, '2025-05-04 06:04:01', 2, '');
 
 -- --------------------------------------------------------
 
@@ -70,18 +94,14 @@ CREATE TABLE IF NOT EXISTS `booking_details` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking_details`
 --
 
 INSERT INTO `booking_details` (`id`, `booking_id`, `name`, `ic`, `phone`, `address`, `email`, `file`, `status`, `created_at`) VALUES
-(73, 62, 'asd1', 'asd', 'asd', 'asd', 'asdasd@gmail.com', 'final_cleaned_logo.png', 1, '2025-03-16 06:19:22'),
-(74, 62, 'asd2', 'asdd', 'asdd', 'asd', 'asdasd@gmail.com', 'cleaned_logo.png', 2, '2025-03-16 06:19:22'),
-(75, 64, 'asd', 'asd', 'asd', 'asd', 'asdasd@gmail.com', 'final_cleaned_logo.png', 1, '2025-03-18 20:35:06'),
-(76, 65, 'test123', '123', '123', '123123', 'test@123', 'final_cleaned_logo.png', 1, '2025-03-22 14:45:00'),
-(77, 65, 'asdasdsa', 'asdasdasd', '12312321', 'asdasdsadas', 'asdasd', 'resume 2024 comp final final (2).pdf', 1, '2025-03-22 14:45:00');
+(78, 66, 'asd', '12312321', '1231232131', 'asdsada', 'asdasd@gmail.com', 'schedule_calendar.pdf', 1, '2025-05-04 06:04:01');
 
 -- --------------------------------------------------------
 
@@ -118,16 +138,16 @@ CREATE TABLE IF NOT EXISTS `guides` (
   `timeslot_id` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int DEFAULT NULL,
+  `status` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guides`
 --
 
 INSERT INTO `guides` (`id`, `date`, `timeslot_id`, `user_id`, `created_at`, `status`) VALUES
-(10, '2025-02-27', 1, 5, '2025-03-22 20:33:02', 3);
+(22, '2025-05-04', 1, 5, '2025-05-05 04:55:11', 1);
 
 -- --------------------------------------------------------
 
@@ -138,6 +158,7 @@ INSERT INTO `guides` (`id`, `date`, `timeslot_id`, `user_id`, `created_at`, `sta
 DROP TABLE IF EXISTS `guide_details`;
 CREATE TABLE IF NOT EXISTS `guide_details` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `guide_id` int DEFAULT NULL,
   `booking_id` int NOT NULL,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ic` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -145,22 +166,18 @@ CREATE TABLE IF NOT EXISTS `guide_details` (
   `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `file` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `status` int DEFAULT '2',
+  `status` int DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guide_details`
 --
 
-INSERT INTO `guide_details` (`id`, `booking_id`, `name`, `ic`, `phone`, `address`, `email`, `file`, `status`, `created_at`) VALUES
-(73, 62, 'asd1', 'asd', 'asd', 'asd', 'asdasd@gmail.com', 'final_cleaned_logo.png', 1, '2025-03-16 06:19:22'),
-(74, 62, 'asd2', 'asdd', 'asdd', 'asd', 'asdasd@gmail.com', 'cleaned_logo.png', 2, '2025-03-16 06:19:22'),
-(75, 64, 'asd', 'asd', 'asd', 'asd', 'asdasd@gmail.com', 'final_cleaned_logo.png', 1, '2025-03-18 20:35:06'),
-(76, 65, 'test123', '123', '123', '123123', 'test@123', 'final_cleaned_logo.png', 1, '2025-03-22 14:45:00'),
-(77, 65, 'asdasdsa', 'asdasdasd', '12312321', 'asdasdsadas', 'asdasd', 'resume 2024 comp final final (2).pdf', 1, '2025-03-22 14:45:00');
+INSERT INTO `guide_details` (`id`, `guide_id`, `booking_id`, `name`, `ic`, `phone`, `address`, `email`, `file`, `status`, `created_at`) VALUES
+(86, 22, 66, 'asd', '12312321', '1231232131', 'asdsada', 'asdasd@gmail.com', 'schedule_calendar.pdf', 1, '2025-05-05 04:55:11');
 
 -- --------------------------------------------------------
 
@@ -211,18 +228,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `role` (`role`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `image`, `created_at`) VALUES
-(3, 'asdasd', 'asdasd@gmail.com', 'a8f5f167f44f4964e6c998dee827110c', 3, NULL, '2025-03-14 23:20:06'),
-(4, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, '2025-03-18 21:26:54'),
-(5, 'guide', 'guide@gmail.com', 'a8f5f167f44f4964e6c998dee827110c', 2, NULL, '2025-03-20 19:03:38'),
-(7, 'guide2', 'guide2@gmail.com', 'e7e8de62a6470356b5126d28ff4a730a', 2, NULL, '2025-03-20 21:11:38'),
-(9, 'dsaads', 'syakir@gmail.com', '5c023eb596d29068afa7400428547fcd', 1, NULL, '2025-04-12 10:53:38');
+(3, 'asdasd', 'asdasd@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 3, NULL, '2025-03-14 23:20:06'),
+(4, 'admin', 'admin@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 1, NULL, '2025-03-18 21:26:54'),
+(5, 'guide', 'guide@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 2, NULL, '2025-03-20 19:03:38'),
+(7, 'guide2', 'guide2@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 2, NULL, '2025-03-20 21:11:38'),
+(9, 'dsaads', 'syakir@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 1, NULL, '2025-04-12 10:53:38'),
+(10, 'asdasd2', 'asdasd2@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 3, NULL, '2025-05-05 09:44:34');
 
 -- --------------------------------------------------------
 

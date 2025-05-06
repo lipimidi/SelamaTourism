@@ -28344,3 +28344,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
   transition-delay: 0s;
   transform: scale(1);
 }
+
+
+.ql-container {
+  min-height: 150px;  /* Ensure the content area has a minimum height */
+}
+
+.ql-editor {
+  min-height: 100px;  /* Ensure the editor area itself is at least 100px tall */
+}
