@@ -22,7 +22,16 @@ function book_1()
     checkStepRedirect(1);
     // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
-    include 'views/system/user/book/step1.php';
+    if ($role === 'user') {
+
+        include 'views/system/user/book/step1.php';
+
+    } else {
+        // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+        header("Location: " . $basePath2 . "/dashboard" );
+
+    }
+
 }
 
 function book_2()

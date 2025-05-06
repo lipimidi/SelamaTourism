@@ -208,7 +208,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8cabc6084ac82a1e",
@@ -301,8 +302,9 @@
   },
   "active": "e2ec7e84d0dcbe3d",
   "lastOpenFiles": [
-    "Wireframe/Task/Guide Info ( Admin).md",
+    "Guide Details (User).md",
     "Wireframe/Task/Task List.md",
+    "Wireframe/Task/Guide Info ( Admin).md",
     "Wireframe/Drawing Board.canvas",
     "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
     "81D06100",
@@ -339,7 +341,6 @@
     "DE9AF000",
     "Tesis/1 Pengenalan/1.3 Objektif/1.3 Objektif.md",
     "Tesis/1 Pengenalan/1.2 Masalah/1.2 Masalah.md",
-    "Tesis/1 Pengenalan/1.1 Pengenalan/1.1 Pengenalan.md",
     "Progress/LogBook/Create Wireframe/User/Dashboard.canvas",
     "Progress/LogBook/Create Wireframe/Guide/Dashboard.canvas",
     "Progress/LogBook/Users System/Pasted image 20250328005406.png",

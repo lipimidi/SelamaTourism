@@ -211,7 +211,9 @@
           // Open the modal
           modal.show();
         },
-
+        validRange: {
+      start: moment().format('YYYY-MM-DD') // Today's date
+    },
         views: {
           month: {
             titleFormat: {

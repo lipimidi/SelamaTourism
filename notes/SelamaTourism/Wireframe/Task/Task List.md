@@ -8,8 +8,6 @@ kanban-plugin: board
 
 - [ ] Attractions
 - [ ] Accomodation / Facilities
-- [ ] Contact
-- [ ] Blogs/ Travel Guide
 - [ ] User Profile
 
 
@@ -17,6 +15,7 @@ kanban-plugin: board
 
 - [ ] Dashboard ( admin )
 - [ ] Dashboard (guide)
+- [ ] Dashboard (user)
 - [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Booking Success (email )]] ^twfntn
 - [ ] Booking Settings
@@ -28,31 +27,34 @@ kanban-plugin: board
 
 ## IN Progress
 
-- [ ] [[Staff Add New ( ADMIN) 🔼]]
 
 
 ## Done
 
+- [ ] [[Staff Add New ( ADMIN) 🔼]]
 - [ ] Booking Step 1( Date )
 - [ ] Booking Step 2(People)
 - [ ] Booking Step 3(Insurance)
+- [ ] Booking Details ( User) ⏫
 - [ ] Booking Step 4( Summary)
 - [ ] Booking List ( User )
 - [ ] Booking List (Admin)
+- [ ] [[Booking Details ( Admin )]]
+- [ ] Contact
 - [ ] Dashboard ( user )
 - [ ] Guide List ( Guide )
 - [ ] Guide List ( Admin )
 - [ ] Guide Assign ( Admin )
 - [ ] Staff List (Admin)
 - [ ] [[Staff Info ( Admin)]]
+- [ ] Blogs/ Travel Guide
 
 
 ## Stuck in my head
 
-- [ ] [[Booking Details ( Admin )]]
 - [ ] [[Guide Info ( Admin)]] ⏫
-- [ ] Booking Details ( User) ⏫
 - [ ] [[Guide Info ( Guide)]] ⏫
+- [ ] [[Guide Details (User)]]
 
 
 
