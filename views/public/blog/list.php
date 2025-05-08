@@ -111,7 +111,7 @@
 
 
               <li class="page-item <?php echo $activeClass ?>">
-                <a class="page-link " href="<?php $rootPath ?>/blog/list/<?php $i ?>"><?php $i ?></a>
+                <a class="page-link " href="<?php $rootPath ?>/blog/list/<?php $i ?>"><?php echo $i ?></a>
               </li>
 
 

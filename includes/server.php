@@ -9,6 +9,7 @@ $dotenv->load();
 
 
  require('database.php') ;
+ include_once('functions/notification/pusher.php');
 
  //email
  

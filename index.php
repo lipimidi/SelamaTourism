@@ -58,6 +58,7 @@ $routes = [
     'signup' => 'register',
     'signup/details' => 'register',
     'signout' => 'logout',
+    'blog/list' => 'blog_list',
 
     //admin
     'staff/list' => 'staff_list',

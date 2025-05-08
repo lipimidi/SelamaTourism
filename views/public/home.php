@@ -148,11 +148,11 @@
           <div class="card p-0 rounded-3">
             <div class="blur-shadow-image">
               <img
-                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/buildings.jpg"
+                src="<?php echo $rootPath ?>/assets/img/home.jpg"
                 alt="img-blur-shadow" class="img-fluid shadow rounded-3">
             </div>
             <div class="colored-shadow"
-              style="background-image: url(&quot;https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/buildings.jpg&quot;);">
+              style="background-image: url('<?php echo $rootPath ?>/assets/img/home.jpg');">
             </div>
           </div>
         </div>
@@ -197,13 +197,13 @@
         </div>
         <div class="col-md-6    mb-md-0 mb-4  order-1 order-md-2">
           <div class="card p-0 rounded-3">
-            <div class="blur-shadow-image">
+          <div class="blur-shadow-image">
               <img
-                src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/buildings.jpg"
+                src="<?php echo $rootPath ?>/assets/img/home.jpg"
                 alt="img-blur-shadow" class="img-fluid shadow rounded-3">
             </div>
             <div class="colored-shadow"
-              style="background-image: url(&quot;https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/buildings.jpg&quot;);">
+              style="background-image: url(<?php echo $rootPath ?>/assets/img/home.jpg);">
             </div>
           </div>
         </div>
@@ -231,11 +231,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6  mb-lg-0 mb-4  ">
-          <div class="card card-background move-on-hover shadow-lg ">
+          <div class="card card-background move-on-hover shadow-lg  ">
 
             <a href="javascript:;">
               <div class="full-background "
-                style="background-image: url(https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/pool.jpg)">
+                style="background-image: url('<?php echo $rootPath ?>/assets/img/home2.jpg')">
               </div>
 
               <div class="card-body pt-12">
@@ -252,7 +252,7 @@
 
             <a href="javascript:;">
               <div class="full-background "
-                style="background-image: url(https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/antalya.jpg)">
+                style="background-image: url('<?php echo $rootPath ?>/assets/img/home2.jpg')">
               </div>
 
               <div class="card-body pt-12">
@@ -269,7 +269,7 @@
 
             <a href="javascript:;">
               <div class="full-background "
-                style="background-image: url(https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/tiny-house.jpg)">
+                style="background-image: url('<?php echo $rootPath ?>/assets/img/home2.jpg')">
               </div>
 
               <div class="card-body pt-12">
@@ -308,22 +308,21 @@
         </g>
       </svg>
     </div>
-    <img src="../../assets/img/shapes/waves-white.svg" class="position-absolute opacity-6 h-100 top-0 d-md-block d-none"
-      alt="">
+    
     <div class="container pt-6 pb-5 position-relative z-index-3">
       <div class="row">
         <div class="col-md-6 mx-auto text-center">
           <span class="badge badge-white text-dark mb-2">Testimonials</span>
           <h2 class="text-white mb-3">Some thoughts from our clients</h2>
           <h5 class="text-white font-weight-light">
-            If you’re selected for them you’ll also get three tickets, opportunity to access Investor Office Hours and
+            If you're selected for them you'll also get three tickets, opportunity to access Investor Office Hours and
             Mentor Hours and much more all for free.
           </h5>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-md-4 mb-md-0 mb-7">
-          <div class="card">
+          <div class="card shadow-lg">
 
             <div class="card-body text-center pb-0">
               <h4 class="mb-0">Olivia Harper</h4>
@@ -351,7 +350,7 @@
 
         </div>
         <div class="col-md-4 mb-md-0 mb-7">
-          <div class="card">
+          <div class="card shadow-lg">
 
             <div class="card-body text-center pb-0">
               <h4 class="mb-0">Olivia Harper</h4>
@@ -380,7 +379,7 @@
         </div>
 
         <div class="col-md-4 mb-md-0 mb-7">
-          <div class="card">
+          <div class="card shadow-lg">
 
             <div class="card-body text-center pb-0">
               <h4 class="mb-0">Olivia Harper</h4>

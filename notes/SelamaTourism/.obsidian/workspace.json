@@ -131,23 +131,17 @@
             "id": "e2ec7e84d0dcbe3d",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "canvas",
               "state": {
-                "file": "Wireframe/Task/Task List.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
+                "file": "Progress/Timeline.canvas",
+                "viewState": {
+                  "x": 1282.3422756706752,
+                  "y": 371.26179463459766,
+                  "zoom": -1.6196855502277263
                 }
               },
-              "icon": "lucide-trello",
-              "title": "Task List"
+              "icon": "lucide-layout-dashboard",
+              "title": "Timeline"
             }
           }
         ],
@@ -208,8 +202,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "8cabc6084ac82a1e",
@@ -302,8 +295,12 @@
   },
   "active": "e2ec7e84d0dcbe3d",
   "lastOpenFiles": [
-    "Guide Details (User).md",
+    "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
+    "Wireframe/System/User/Dashboard/Dashboard.md",
+    "Wireframe/System/User/Booking/Summary/Summary.md",
+    "Tesis/1 Pengenalan/1.1 Pengenalan/1.1 Pengenalan.md",
     "Wireframe/Task/Task List.md",
+    "Guide Details (User).md",
     "Wireframe/Task/Guide Info ( Admin).md",
     "Wireframe/Drawing Board.canvas",
     "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
@@ -328,8 +325,6 @@
     "Progress/LogBook/Booking System/2. Saving Booking Data.md",
     "Progress/LogBook/Booking System/1. Create Database Table.md",
     "Progress/LogBook/Booking System/3. Booking Functions & Routing.md",
-    "Progress/Gantt Chart.md",
-    "Wireframe/Task/Booking Details ( Admin ).md",
     "0FEBF000",
     "4EEBF000",
     "DD7BF000",
@@ -339,12 +334,9 @@
     "80AAF000",
     "AF9AF000",
     "DE9AF000",
-    "Tesis/1 Pengenalan/1.3 Objektif/1.3 Objektif.md",
-    "Tesis/1 Pengenalan/1.2 Masalah/1.2 Masalah.md",
     "Progress/LogBook/Create Wireframe/User/Dashboard.canvas",
     "Progress/LogBook/Create Wireframe/Guide/Dashboard.canvas",
     "Progress/LogBook/Users System/Pasted image 20250328005406.png",
-    "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
     "Untitled.canvas",
     "Wireframe/System/Canvas-1743091362467.canvas",
     "Pasted image 20250311011810.png",
