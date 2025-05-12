@@ -59,6 +59,7 @@ $routes = [
     'signup/details' => 'register',
     'signout' => 'logout',
     'blog/list' => 'blog_list',
+    'profile' => 'profile',
 
     //admin
     'staff/list' => 'staff_list',
@@ -81,10 +82,12 @@ $routes = [
     'book/getlist_admin' => 'getlist',
     'staff/getlist' => 'staff_getlist',
     'guide/getlist_guide' => 'guide_getlist',
+    'guide/getlist_guide_user' => 'guide_getlist',
     'guide/people_change_status' => 'guide_people_status',
     'blogs/blogs_add_new' => 'blogs_add_new',
     'blogs/blogs_getlist' => 'blogs_getlist',
     'blogs/blogs_edit' => 'blogs_edit',
+    'profile/update' => 'profile_update',
 
 
 

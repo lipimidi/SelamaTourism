@@ -57,7 +57,7 @@
         </li> -->
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $rootPath; ?>/dashboard">
-          <div class="icon icon-shape icon-sm text-center  me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm text-center   d-flex align-items-center justify-content-center">
             <i class="ni ni-shop text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Dashboard</span>
@@ -923,7 +923,7 @@
         </div>
       </div>
     </div>
-    <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/argon-dashboard" target="_blank"
+    <a href="#"  
       class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
   </div>
 </aside>

@@ -304,23 +304,78 @@ function blog($blog_id)
         $created_at = $blog['created_at'];
 
         // Query to get additional details from the booking_details table using booking_id
-        
- 
+
+
         include 'views/public/blog/details.php';
 
-    } else{
+    } else {
         notFound();
 
     }
 
     // // Check if any rows were returned (booking found)
-   
+
 
 
     // Include the appropriate view for displaying the booking details
 
- 
- 
 
-     
+
+
+
+}
+
+
+function profile()
+{
+    // Include the database connection
+    include('includes/server.php');
+    $role = checkRole();
+
+    // // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
+    $user_id = $_SESSION['user_details']['id'];  // Cast to integer to ensure safety
+
+    // // Query to search for the booking_id in the bookings table
+    $sql = "SELECT users.*, user_details.* , user_role.name as role_name
+    FROM users
+  LEFT JOIN user_details ON user_details.user_id = users.id
+  LEFT JOIN user_role ON users.role = user_role.id
+    WHERE users.id = '$user_id'";
+
+    // // Execute the query
+    $result = $conn->query($sql);
+
+
+    // Breadcrumbs for navigation
+    $breadcrumbs = [
+        ['title' => 'Home', 'url' => ''],
+        ['title' => 'Profile', 'url' => '/profile'],
+    ];
+
+
+    if ($result->num_rows > 0) {
+        // Fetch the booking details (or any data you need)
+        $user = $result->fetch_assoc();
+
+
+        // Query to get additional details from the booking_details table using booking_id
+
+
+        include 'views/system/profile.php';
+
+    } else {
+        notFound();
+
+    }
+
+    // // Check if any rows were returned (booking found)
+
+
+
+    // Include the appropriate view for displaying the booking details
+
+
+
+
+
 }

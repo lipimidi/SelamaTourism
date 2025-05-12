@@ -59,8 +59,7 @@
                           data-sortable=""><a href="#">Date</a></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#">Session</a></th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                          data-sortable=""><a href="#">People</a></th>
+ 
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#">Date Created</a></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
@@ -123,7 +122,7 @@
 
       $('#book_list').DataTable({
         ajax: {
-          url: '<?php echo $basePath; ?>/book/getlist_user',  // Your server-side URL
+          url: '<?php echo $rootPath; ?>/guide/getlist_guide_user',  // Your server-side URL
           method: 'POST',  // Use POST for security
           data: function (d) {
             // Pass additional DataTables parameters to the server via POST
@@ -134,7 +133,7 @@
               order: d.order,                   // Sorting details
               columns: d.columns,               // Column info, useful if needed
               draw: d.draw,                     // Draw counter for DataTables
-              getlist_user: "getlist_user",     // This will be used to identify the request in PHP
+              getlist_guide_user: "getlist_guide_user",     // This will be used to identify the request in PHP
               user_id: "<?php echo $_SESSION['user_details']['id'] ?>",     // This will be used to identify the request in PHP
 
             };
@@ -143,15 +142,14 @@
         columns: [
           // { data: 'id'},
           { data: 'id' },
-          { data: 'booking_date' },
+          { data: 'date' },
           { data: 'timeslot_id' },
-          { data: 'people_booked' },
-          { data: 'created_at' },
+           { data: 'created_at' },
           {
             data: 'id',  // We use the `id` to add the "More Details" button
             render: function (data, type, row) {
               // Return the HTML for the "More Details" button
-              return '<a class="btn bg-gradient-primary more-details"  href="<?php echo $basePath ?>/book/' + data + '" data-id="' + data + '">More Details</a>';
+              return '<a class="btn bg-gradient-primary more-details"  href="<?php echo $rootPath ?>/guide/' + data + '" data-id="' + data + '">More Details</a>';
             }
           },
         ],

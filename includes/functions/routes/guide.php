@@ -23,19 +23,37 @@ function guide($guide_id)
     if ($result->num_rows > 0) {
         // Fetch the booking details (or any data you need)
         $guide = $result->fetch_assoc();
-
         $date = $guide['date'];
         $session_id = $guide['timeslot_id'];
         $user_id = $guide['user_id'];
-
+        $user_id2 = $_SESSION['user_details']['id'];
         // Query to get additional details from the booking_details table using booking_id
-        $sql_details =
-            "SELECT * 
-FROM guide_details 
-INNER JOIN guides ON guide_details.guide_id = guides.id
-WHERE guides.date = '$date' 
-  AND guides.timeslot_id = '$session_id' ";
-  
+
+
+
+        if ($role == 'user') {
+
+            $sql_details =
+                "SELECT guide_details.* ,bookings.user_id 
+            FROM guide_details 
+            INNER JOIN guides ON guide_details.guide_id = guides.id
+INNER JOIN bookings ON bookings.id = guide_details.booking_id
+            WHERE guides.date = '$date' 
+            AND guides.timeslot_id = '$session_id' 
+                         AND bookings.user_id  = '$user_id2'
+
+            ";
+        } else {
+            $sql_details =
+                "SELECT guide_details.* ,bookings.user_id  
+            FROM guide_details 
+            INNER JOIN guides ON guide_details.guide_id = guides.id
+INNER JOIN bookings ON bookings.id = guide_details.booking_id
+            WHERE guides.date = '$date' 
+            AND guides.timeslot_id = '$session_id' ";
+        }
+
+
         $result_details = $conn->query($sql_details);
 
         // Check if booking details are found
@@ -63,12 +81,12 @@ WHERE guides.date = '$date'
     $guide_status = getGuideStatuses($guide['status']);
 
 
-    if ($role === 'admin') {
+    if ($role == 'admin') {
         // var_dump($guide);
         // var_dump($guide_details);
-        include 'views/system/guide/guide/details.php';
+        include 'views/system/admin/guide/details.php';
 
-    } elseif ($role === 'guide') {
+    } elseif ($role == 'guide') {
         // var_dump($guide);
         // var_dump($guide_details);
         if ($user_id != $_SESSION['user_details']['id']) {
@@ -79,8 +97,13 @@ WHERE guides.date = '$date'
         }
 
     } else {
+
+           
+                     
+        include 'views/system/user/guide/details.php';
+
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-        notFound();
+        // notFound();
     }
     // } else {
     //     notFound();
@@ -113,7 +136,7 @@ function guide_list()
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         // notFound();
 
-        include 'views/system/guide/guide/list.php';
+        include 'views/system/user/guide/list.php';
 
     }
 
