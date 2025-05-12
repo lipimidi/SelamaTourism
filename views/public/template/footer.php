@@ -2,7 +2,7 @@
     <hr class="horizontal dark mb-5">
     <div class="container">
       <div class=" row">
-        <div class="col-md-3 mb-4 ms-auto">
+        <!-- <div class="col-md-3 mb-4 ms-auto">
           <div>
             <h6 class="text-gradient text-primary font-weight-bolder">Selama Tourism</h6>
           </div>
@@ -134,13 +134,11 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <div class="col-12">
           <div class="text-center">
             <p class="my-4 text-sm">
-              All rights reserved. Copyright © <script>
-                document.write(new Date().getFullYear())
-              </script> Selama Tourism Based Community Designed by.
+              All rights reserved. Copyright © <?php echo date("Y"); ?>  Selama Tourism Based Community .
             </p>
           </div>
         </div>
