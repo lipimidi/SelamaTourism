@@ -81,15 +81,15 @@
       "y": -480
     },
     {
-      "height": 400,
-      "id": "d7e13205132a00a7",
-      "label": "Booking System",
+      "height": 656,
+      "id": "93d0e05b536ab142",
+      "label": "Admin",
       "styleAttributes": {
       },
       "type": "group",
-      "width": 666,
-      "x": 0,
-      "y": 1260
+      "width": 642,
+      "x": 1119,
+      "y": -1300
     },
     {
       "height": 400,
@@ -103,15 +103,15 @@
       "y": 760
     },
     {
-      "height": 656,
-      "id": "93d0e05b536ab142",
-      "label": "Admin",
+      "height": 400,
+      "id": "d7e13205132a00a7",
+      "label": "Booking System",
       "styleAttributes": {
       },
       "type": "group",
-      "width": 642,
-      "x": 1119,
-      "y": -1300
+      "width": 666,
+      "x": 0,
+      "y": 1260
     },
     {
       "height": 600,
