@@ -14,11 +14,10 @@ kanban-plugin: board
 ## To DO
 
 - [ ] Dashboard ( admin )
-- [ ] Dashboard (guide)
-- [ ] Dashboard (user)
 - [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Booking Success (email )]] ^twfntn
 - [ ] Booking Settings
+- [ ] Review
 
 
 ## Bugs
@@ -33,14 +32,17 @@ kanban-plugin: board
 
 - [ ] [[Staff Add New ( ADMIN) 🔼]]
 - [ ] Booking Step 1( Date )
+- [ ] Dashboard (user)
 - [ ] Booking Step 2(People)
 - [ ] Booking Step 3(Insurance)
 - [ ] Booking Details ( User) ⏫
+- [ ] Dashboard (guide)
 - [ ] Booking Step 4( Summary)
 - [ ] Booking List ( User )
 - [ ] Booking List (Admin)
 - [ ] [[Booking Details ( Admin )]]
 - [ ] Contact
+- [ ] [[Guide Details (User)]]
 - [ ] Dashboard ( user )
 - [ ] Guide List ( Guide )
 - [ ] Guide List ( Admin )
@@ -54,7 +56,6 @@ kanban-plugin: board
 
 - [ ] [[Guide Info ( Admin)]] ⏫
 - [ ] [[Guide Info ( Guide)]] ⏫
-- [ ] [[Guide Details (User)]]
 
 
 

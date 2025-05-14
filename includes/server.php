@@ -62,4 +62,5 @@ $dotenv->load();
  include('functions/auth/register.php');
 
 
- 
+ //profile
+ include('functions/profile/update.php');

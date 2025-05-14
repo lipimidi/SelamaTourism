@@ -172,7 +172,7 @@ background-size: cover;">
                     <div class="col-12 text-center">
                       <?php
                       $data = "test";
-                      $logoPath = $basePath2 . '/assets/img/icon512_maskable.png'; // Path to your logo image
+                      $logoPath = $basePath2 . '/assets/img/android-chrome-512x512.png'; // Path to your logo image
                       $base64QRCode = generateQRCodeWithLogo($data, $logoPath);
                       ?>
 

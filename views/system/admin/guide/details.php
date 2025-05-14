@@ -516,7 +516,6 @@ background-size: cover;">
  
 
   </script>
-<script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
 
 </body>
 

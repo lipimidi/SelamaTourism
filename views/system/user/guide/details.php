@@ -71,7 +71,7 @@ background-size: cover;">
                               <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['people_booked'] ?>
+                              <?php echo count($guide_details) ?>
                             </h5>
                             <span class="text-white text-sm">People</span>
                           </div>
@@ -94,7 +94,7 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['booking_date'] ?>
+                              <?php echo $guide['date'] ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -120,7 +120,7 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['start_time'] ?> - <?php echo $booking['end_time'] ?>
+                              <?php echo $guide['start_time'] ?> - <?php echo $guide['end_time'] ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>
@@ -143,7 +143,7 @@ background-size: cover;">
                               <i class="ni ni-check-bold text-white   text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3 text-capitalize">
-                              <?php echo $booking_status ?>
+                              <?php echo $guide_status ?>
                             </h5>
                             <span class="text-white text-sm">Status</span>
                           </div>
@@ -157,13 +157,17 @@ background-size: cover;">
                 </div>
               </div>
 
-              <?php if ($booking['status'] != 0) { ?>
+              <?php if ($guide['status'] != '0') { ?>
 
 
                 <div class="col-lg-6 col-0 mt-4 mt-lg-0">
                   <div class="card  ">
                     <div class="card-header pb-0 p-3">
-                      <h6 class="mb-0">QR Code</h6>
+                      <h6 class="mb-0">QR Code
+
+
+
+                      </h6>
                     </div>
                     <div class="card-body pb-0 p-3">
 
@@ -171,8 +175,9 @@ background-size: cover;">
 
                     <div class="col-12 text-center">
                       <?php
-                      $data = "test";
-                      $logoPath = $basePath2 . '/assets/img/icon512_maskable.png'; // Path to your logo image
+                      
+                       $data = $guide_details['0']['booking_id'];
+                      $logoPath = $basePath2 . '/assets/img/android-chrome-512x512.png'; // Path to your logo image
                       $base64QRCode = generateQRCodeWithLogo($data, $logoPath);
                       ?>
 
@@ -206,7 +211,7 @@ background-size: cover;">
                             Email</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Address</th>
-                          <?php if ($booking['status'] > 1) { ?>
+                          <?php if ($guide['status'] > 1) { ?>
 
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                               Status
@@ -220,7 +225,7 @@ background-size: cover;">
                       <tbody>
 
                         <?php
-                        foreach ($booking_details as $index => $detail) {
+                        foreach ($guide_details as $index => $detail) {
 
                           $name = $detail['name'];
                           $ic = $detail['ic'];
@@ -232,7 +237,7 @@ background-size: cover;">
                           $personFolder = 'person_' . ($index + 1);  // person_1, person_2, etc.
                           $file = $detail['file'];
 
-                          $filepath = $basePath . '/assets/uploads/booking/insurance/' . $booking_id . '/' . $personFolder . '/' . $file;
+                          $filepath = $basePath . '/assets/uploads/booking/insurance/' . $guide_id . '/' . $personFolder . '/' . $file;
 
 
                           ?>
@@ -280,7 +285,7 @@ background-size: cover;">
                             </td>
                             <?php
 
-                            if ($booking['status'] > 1) { ?>
+                            if ($guide['status'] > 1) { ?>
 
                               <td>
                                 <div class="d-flex px-2 py-1">
@@ -302,8 +307,7 @@ background-size: cover;">
                                 ?>
 
                                 <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox
-                                  data-type="<?php echo $type; ?>" data-src="<?php echo  $filepath ?>"
-                                  href="javascript:;">
+                                  data-type="<?php echo $type; ?>" data-src="<?php echo $filepath ?>" href="javascript:;">
                                   File
                                 </a>
 

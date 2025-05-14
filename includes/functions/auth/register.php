@@ -69,6 +69,17 @@ if (isset($_POST['register'])) {
                   VALUES ('$username', '$email', '$password_hash', '$role')";
         mysqli_query($conn, $query);
 
+
+        
+    $var = array(
+       
+         
+    );
+
+
+        // sendEmail($email, "Welcome To  Selama Tourism", 'register_user', $var);
+
+
         // Store user session data
         $_SESSION['user_details'] = [
             'username' => $username,

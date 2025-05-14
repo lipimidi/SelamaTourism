@@ -5,7 +5,7 @@
   <div class="sidenav-header">
     <i class="ni ni-shop p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
       aria-hidden="true" id="iconSidenav"></i>
-    <a class="navbar-brand m-0" href="<?php echo $rootPath; ?>/ ">
+    <a class="navbar-brand m-0" href="<?php echo $rootPath; ?>/dashboard">
       <!-- <img src="../../assets/img/logo-ct-dark.png" width="26px" height="26px" class="navbar-brand-img h-100" alt="main_logo"> -->
       <span class="ms-1 font-weight-bold">Selama Tourism</span>
     </a>
@@ -57,7 +57,7 @@
         </li> -->
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $rootPath; ?>/dashboard">
-          <div class="icon icon-shape icon-sm text-center  me-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm text-center   d-flex align-items-center justify-content-center">
             <i class="ni ni-shop text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Dashboard</span>
@@ -923,7 +923,7 @@
         </div>
       </div>
     </div>
-    <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/argon-dashboard" target="_blank"
+    <a href="#"  
       class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
   </div>
 </aside>

@@ -40,8 +40,7 @@
   <link id="pagestyle" href="<?php echo $rootPath; ?>/assets/css/argon-dashboard.min.css" rel="stylesheet" />
   <link id="pagestyle" href="<?php echo $rootPath; ?>/assets/css/quill.snow.css" rel="stylesheet" />
   <!-- Anti-flicker snippet (recommended)  -->
-
-
+ 
   <link rel="manifest" href="<?php echo $rootPath; ?>/manifest.php">
 
 </head>
