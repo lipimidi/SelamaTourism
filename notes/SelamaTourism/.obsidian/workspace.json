@@ -140,9 +140,23 @@
               "icon": "lucide-file",
               "title": "Integration With MET"
             }
+          },
+          {
+            "id": "876e45d3ebdbebde",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tesis/3 Metodologi/3.3 Perisian/3.3 Perisian.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3.3 Perisian"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -290,39 +304,40 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "6017d851ca113657",
+  "active": "876e45d3ebdbebde",
   "lastOpenFiles": [
+    "Tesis/3 Metodologi/3.4 Reka Bentuk/3.4 Reka Bentuk.md",
+    "Tesis/4 Keputusan/4.2 Hasil Projek/4.2 Hasil Projek.md",
+    "Tesis/5 Kesimpulan/5.1 Kesimpulan/5.1 Kesimpulan.md",
+    "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
+    "Tesis/5 Kesimpulan/5.2 Cadangan Penambahbaikan/5.2 Cadangan Penambahbaikan.md",
+    "Tesis/Lampiran/A Gantt Chart/A Gantt Chart.md",
+    "Tesis/Lampiran/B Coding/B Coding.md",
+    "Tesis/Lampiran/Lampiran.md",
+    "Tesis/3 Metodologi/3.3 Perisian/3.3 Perisian.md",
+    "Tesis/3 Metodologi/3.1 Metodologi/3.1 Metodologi.md",
+    "Tesis/3 Metodologi/3.2 Perkakasan Digunakan/3.2 Perkakasan Digunakan.md",
+    "Wireframe/Task/Task List.md",
     "Progress/LogBook/Integration With MET/Integration With MET.md",
     "Progress/Timeline.canvas",
     "Progress/Gantt Chart.md",
     "Progress/LogBook/Users System/Pasted image 20250328005406.png",
     "Wireframe/Task/Staff Add New ( ADMIN) 🔼.md",
-    "Wireframe/Task/Task List.md",
     "Wireframe/Index.md",
     "Guide Details (User).md",
-    "Tesis/3 Metodologi/3.3 Perisian/3.3 Perisian.md",
-    "Tesis/3 Metodologi/3.2 Perkakasan Digunakan/3.2 Perkakasan Digunakan.md",
-    "Tesis/3 Metodologi/3.1 Metodologi/3.1 Metodologi.md",
     "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
     "Wireframe/System/User/Dashboard/Dashboard.md",
     "Wireframe/System/User/Booking/Summary/Summary.md",
     "Tesis/1 Pengenalan/1.1 Pengenalan/1.1 Pengenalan.md",
     "Wireframe/Task/Guide Info ( Admin).md",
     "Wireframe/Drawing Board.canvas",
-    "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
     "81D06100",
-    "Tesis/5 Kesimpulan/5.2 Cadangan Penambahbaikan/5.2 Cadangan Penambahbaikan.md",
-    "Tesis/Lampiran/A Gantt Chart/A Gantt Chart.md",
-    "Tesis/Lampiran/B Coding/B Coding.md",
-    "Tesis/Lampiran/Lampiran.md",
-    "Tesis/3 Metodologi/3.4 Reka Bentuk/3.4 Reka Bentuk.md",
     "Tesis/3 Metodologi/3.5 Proses Kerja/3.5 Proses Kerja.md",
     "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
     "Tesis/3 Metodologi/3.7 Kos Projek/3.7 Kos Projek.md",
     "Progress/LogBook/Create Wireframe/Admin/Dashboard.canvas",
     "Progress/LogBook/Users System/2. Register User.md",
     "Progress/LogBook/Create Backend/Create Initial Backend.md",
-    "Progress/LogBook/Create Folder Structure/Create Folder Structure.md",
     "0FEBF000",
     "4EEBF000",
     "DD7BF000",
