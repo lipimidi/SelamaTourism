@@ -131,21 +131,17 @@
             "id": "e2ec7e84d0dcbe3d",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Progress/Timeline.canvas",
-                "viewState": {
-                  "x": 1282.3422756706752,
-                  "y": 371.26179463459766,
-                  "zoom": -1.6196855502277263
-                }
+                "file": "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Timeline"
+              "icon": "lucide-file",
+              "title": "3.6 Carta Alir"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -293,8 +289,14 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "e2ec7e84d0dcbe3d",
+  "active": "3b791f720f489e8f",
   "lastOpenFiles": [
+    "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
+    "Tesis/3 Metodologi/3.3 Perisian/3.3 Perisian.md",
+    "Tesis/3 Metodologi/3.1 Metodologi/3.1 Metodologi.md",
+    "Tesis/1 Pengenalan/1.3 Objektif/1.3 Objektif.md",
+    "Tesis/1 Pengenalan/1.2 Masalah/1.2 Masalah.md",
+    "Progress/Timeline.canvas",
     "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
     "Wireframe/System/User/Dashboard/Dashboard.md",
     "Wireframe/System/User/Booking/Summary/Summary.md",
@@ -309,22 +311,17 @@
     "Tesis/Lampiran/A Gantt Chart/A Gantt Chart.md",
     "Tesis/Lampiran/B Coding/B Coding.md",
     "Tesis/Lampiran/Lampiran.md",
-    "Tesis/3 Metodologi/3.1 Metodologi/3.1 Metodologi.md",
     "Tesis/3 Metodologi/3.4 Reka Bentuk/3.4 Reka Bentuk.md",
     "Tesis/3 Metodologi/3.5 Proses Kerja/3.5 Proses Kerja.md",
-    "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
     "Tesis/3 Metodologi/3.7 Kos Projek/3.7 Kos Projek.md",
     "Progress/LogBook/Create Wireframe/Admin/Dashboard.canvas",
     "Progress/LogBook/Users System/2. Register User.md",
     "Progress/LogBook/Create Backend/Create Initial Backend.md",
     "Progress/LogBook/Create Folder Structure/Create Folder Structure.md",
     "Progress/LogBook/Integration With MET/Integration With MET.md",
-    "Progress/Timeline.canvas",
     "Progress/LogBook/Users System/3. Login Users.md",
     "Progress/LogBook/Users System/1. Create Table.md",
     "Progress/LogBook/Booking System/2. Saving Booking Data.md",
-    "Progress/LogBook/Booking System/1. Create Database Table.md",
-    "Progress/LogBook/Booking System/3. Booking Functions & Routing.md",
     "0FEBF000",
     "4EEBF000",
     "DD7BF000",
