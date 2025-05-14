@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 06, 2025 at 11:05 AM
+-- Generation Time: May 14, 2025 at 02:30 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -214,6 +214,22 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `review`
+--
+
+DROP TABLE IF EXISTS `review`;
+CREATE TABLE IF NOT EXISTS `review` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `content` int NOT NULL,
+  `star` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -260,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `address` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_details`
@@ -269,7 +285,8 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 INSERT INTO `user_details` (`id`, `user_id`, `name`, `ic`, `image`, `passport`, `phone`, `address`) VALUES
 (2, 5, 'abe', '123123', NULL, NULL, '123123', 'guide'),
 (4, 7, 'guide2', '123123', NULL, NULL, '123123', '123123'),
-(5, 9, 'asd', 'asdsadasd', NULL, NULL, 'asdasd', 'asdasdasdasdas');
+(5, 9, 'asd', 'asdsadasd', NULL, NULL, 'asdasd', 'asdasdasdasdas'),
+(6, 3, 'asdasda3', '', 'assets/uploads/user/3/controller.jpg', NULL, '12312', 'asdd');
 
 -- --------------------------------------------------------
 
