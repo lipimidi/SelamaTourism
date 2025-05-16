@@ -17,7 +17,7 @@
                 "file": "Progress/Timeline.canvas",
                 "viewState": {
                   "x": 785.9420014231931,
-                  "y": 234.6938361038404,
+                  "y": -946.3324632856509,
                   "zoom": -1.6666665649414063
                 }
               },
@@ -35,8 +35,8 @@
               "state": {
                 "file": "Wireframe/Drawing Board.canvas",
                 "viewState": {
-                  "x": 564.0148011100835,
-                  "y": 652.9879740980573,
+                  "x": 44.64384828862194,
+                  "y": 227.64107308048077,
                   "zoom": -1.1626405244273066
                 }
               },
@@ -79,7 +79,7 @@
                 "file": "Wireframe/Drawing Board.canvas",
                 "viewState": {
                   "x": 418.50138760407026,
-                  "y": 993.2654949121184,
+                  "y": -880.4995374653104,
                   "zoom": -1.1626405244273066
                 }
               },
@@ -96,7 +96,7 @@
                 "file": "Progress/Timeline.canvas",
                 "viewState": {
                   "x": 1310,
-                  "y": 150,
+                  "y": -993.1859389454212,
                   "zoom": -1.6196855502277263
                 }
               },
@@ -140,8 +140,23 @@
               "icon": "lucide-file",
               "title": "3.6 Carta Alir"
             }
+          },
+          {
+            "id": "6e6cf7a37f217030",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3.6 Carta Alir"
+            }
           }
-        ]
+        ],
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -289,22 +304,22 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "3b791f720f489e8f",
+  "active": "6e6cf7a37f217030",
   "lastOpenFiles": [
+    "Wireframe/Drawing Board.canvas",
+    "Progress/Timeline.canvas",
+    "Wireframe/Task/Task List.md",
     "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
     "Tesis/3 Metodologi/3.3 Perisian/3.3 Perisian.md",
     "Tesis/3 Metodologi/3.1 Metodologi/3.1 Metodologi.md",
     "Tesis/1 Pengenalan/1.3 Objektif/1.3 Objektif.md",
     "Tesis/1 Pengenalan/1.2 Masalah/1.2 Masalah.md",
-    "Progress/Timeline.canvas",
     "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
     "Wireframe/System/User/Dashboard/Dashboard.md",
     "Wireframe/System/User/Booking/Summary/Summary.md",
     "Tesis/1 Pengenalan/1.1 Pengenalan/1.1 Pengenalan.md",
-    "Wireframe/Task/Task List.md",
     "Guide Details (User).md",
     "Wireframe/Task/Guide Info ( Admin).md",
-    "Wireframe/Drawing Board.canvas",
     "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
     "81D06100",
     "Tesis/5 Kesimpulan/5.2 Cadangan Penambahbaikan/5.2 Cadangan Penambahbaikan.md",
@@ -321,7 +336,6 @@
     "Progress/LogBook/Integration With MET/Integration With MET.md",
     "Progress/LogBook/Users System/3. Login Users.md",
     "Progress/LogBook/Users System/1. Create Table.md",
-    "Progress/LogBook/Booking System/2. Saving Booking Data.md",
     "0FEBF000",
     "4EEBF000",
     "DD7BF000",
