@@ -1,111 +1,14 @@
 {
   "main": {
-    "id": "ecc826bfbf038b14",
+    "id": "667d981d845eba7b",
     "type": "split",
     "children": [
       {
-        "id": "d622043b67ee3dba",
+        "id": "855b62cf7fbf7d86",
         "type": "tabs",
         "children": [
           {
-            "id": "3b791f720f489e8f",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Progress/Timeline.canvas",
-                "viewState": {
-                  "x": 785.9420014231931,
-                  "y": -946.3324632856509,
-                  "zoom": -1.6666665649414063
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-layout-dashboard",
-              "title": "Timeline"
-            }
-          },
-          {
-            "id": "4eb35bf5cb1e975e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Wireframe/Drawing Board.canvas",
-                "viewState": {
-                  "x": 44.64384828862194,
-                  "y": 227.64107308048077,
-                  "zoom": -1.1626405244273066
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-layout-dashboard",
-              "title": "Drawing Board"
-            }
-          },
-          {
-            "id": "6017d851ca113657",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Wireframe/Task/Task List.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-trello",
-              "title": "Task List"
-            }
-          },
-          {
-            "id": "b1e2965aa338b5b0",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Wireframe/Drawing Board.canvas",
-                "viewState": {
-                  "x": 418.50138760407026,
-                  "y": -880.4995374653104,
-                  "zoom": -1.1626405244273066
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Drawing Board"
-            }
-          },
-          {
-            "id": "e1133d3559331577",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Progress/Timeline.canvas",
-                "viewState": {
-                  "x": 1310,
-                  "y": -993.1859389454212,
-                  "zoom": -1.6196855502277263
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Timeline"
-            }
-          },
-          {
-            "id": "74c26d802caff835",
+            "id": "66d67d35e648221f",
             "type": "leaf",
             "state": {
               "type": "kanban",
@@ -125,65 +28,36 @@
               },
               "icon": "lucide-trello",
               "title": "Task List"
-            }
-          },
-          {
-            "id": "e2ec7e84d0dcbe3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "3.6 Carta Alir"
-            }
-          },
-          {
-            "id": "6e6cf7a37f217030",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "3.6 Carta Alir"
             }
           }
-        ],
-        "currentTab": 7
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "8ff5e9de8882d7b9",
+    "id": "d19b46f9d72a970c",
     "type": "split",
     "children": [
       {
-        "id": "43a6017177f79f2c",
+        "id": "4786456f7c05e8d3",
         "type": "tabs",
         "children": [
           {
-            "id": "b8784a656586b352",
+            "id": "f17a920899bfe9cf",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "385287c2c2082456",
+            "id": "ccd693625ace2940",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -200,7 +74,7 @@
             }
           },
           {
-            "id": "d36ac11654681b47",
+            "id": "1bc935d1663508fa",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -216,59 +90,15 @@
     "width": 300
   },
   "right": {
-    "id": "8cabc6084ac82a1e",
+    "id": "f482f843f21fd95f",
     "type": "split",
     "children": [
       {
-        "id": "88cc45fcc1634e77",
+        "id": "b31faa1536a4ee46",
         "type": "tabs",
         "children": [
           {
-            "id": "bab055364ceb1d90",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Wireframe/Task/Task List.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Task List"
-            }
-          },
-          {
-            "id": "9952dc466ad7b2e7",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
-            }
-          },
-          {
-            "id": "f33336eb83806ff0",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Wireframe/Task/Task List.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Task List"
-            }
-          },
-          {
-            "id": "c2c1d37eba148ec3",
+            "id": "4f6f707071895f1f",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -284,6 +114,50 @@
               },
               "icon": "links-coming-in",
               "title": "Backlinks for Task List"
+            }
+          },
+          {
+            "id": "56a79a7551f3a11d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Wireframe/Task/Task List.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Task List"
+            }
+          },
+          {
+            "id": "de2927c4298b96c6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "dfb516a1e648d530",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Wireframe/Task/Task List.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Task List"
             }
           }
         ]
@@ -304,53 +178,6 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "6e6cf7a37f217030",
-  "lastOpenFiles": [
-    "Wireframe/Drawing Board.canvas",
-    "Progress/Timeline.canvas",
-    "Wireframe/Task/Task List.md",
-    "Tesis/3 Metodologi/3.6 Carta Alir/3.6 Carta Alir.md",
-    "Tesis/3 Metodologi/3.3 Perisian/3.3 Perisian.md",
-    "Tesis/3 Metodologi/3.1 Metodologi/3.1 Metodologi.md",
-    "Tesis/1 Pengenalan/1.3 Objektif/1.3 Objektif.md",
-    "Tesis/1 Pengenalan/1.2 Masalah/1.2 Masalah.md",
-    "Progress/LogBook/Booking System/Pasted image 20250328004948.png",
-    "Wireframe/System/User/Dashboard/Dashboard.md",
-    "Wireframe/System/User/Booking/Summary/Summary.md",
-    "Tesis/1 Pengenalan/1.1 Pengenalan/1.1 Pengenalan.md",
-    "Guide Details (User).md",
-    "Wireframe/Task/Guide Info ( Admin).md",
-    "Tesis/5 Kesimpulan/5.3 Rujukan/5.3 Rujukan.md",
-    "81D06100",
-    "Tesis/5 Kesimpulan/5.2 Cadangan Penambahbaikan/5.2 Cadangan Penambahbaikan.md",
-    "Tesis/Lampiran/A Gantt Chart/A Gantt Chart.md",
-    "Tesis/Lampiran/B Coding/B Coding.md",
-    "Tesis/Lampiran/Lampiran.md",
-    "Tesis/3 Metodologi/3.4 Reka Bentuk/3.4 Reka Bentuk.md",
-    "Tesis/3 Metodologi/3.5 Proses Kerja/3.5 Proses Kerja.md",
-    "Tesis/3 Metodologi/3.7 Kos Projek/3.7 Kos Projek.md",
-    "Progress/LogBook/Create Wireframe/Admin/Dashboard.canvas",
-    "Progress/LogBook/Users System/2. Register User.md",
-    "Progress/LogBook/Create Backend/Create Initial Backend.md",
-    "Progress/LogBook/Create Folder Structure/Create Folder Structure.md",
-    "Progress/LogBook/Integration With MET/Integration With MET.md",
-    "Progress/LogBook/Users System/3. Login Users.md",
-    "Progress/LogBook/Users System/1. Create Table.md",
-    "0FEBF000",
-    "4EEBF000",
-    "DD7BF000",
-    "CC7BF000",
-    "F4AAF000",
-    "12AAF000",
-    "80AAF000",
-    "AF9AF000",
-    "DE9AF000",
-    "Progress/LogBook/Create Wireframe/User/Dashboard.canvas",
-    "Progress/LogBook/Create Wireframe/Guide/Dashboard.canvas",
-    "Progress/LogBook/Users System/Pasted image 20250328005406.png",
-    "Untitled.canvas",
-    "Wireframe/System/Canvas-1743091362467.canvas",
-    "Pasted image 20250311011810.png",
-    "LogBook 1/Timeline.canvas"
-  ]
+  "active": "66d67d35e648221f",
+  "lastOpenFiles": []
 }

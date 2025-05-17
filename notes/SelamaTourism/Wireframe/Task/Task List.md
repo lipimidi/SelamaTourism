@@ -42,7 +42,6 @@ kanban-plugin: board
 - [ ] Booking List (Admin)
 - [ ] [[Booking Details ( Admin )]]
 - [ ] Contact
-- [ ] [[Guide Details (User)]]
 - [ ] Dashboard ( user )
 - [ ] Guide List ( Guide )
 - [ ] Guide List ( Admin )
@@ -56,6 +55,7 @@ kanban-plugin: board
 
 - [ ] [[Guide Info ( Admin)]] ⏫
 - [ ] [[Guide Info ( Guide)]] ⏫
+- [ ] [[Guide Details (User)]]
 
 
 
