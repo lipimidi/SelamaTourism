@@ -300,7 +300,7 @@ background-size: cover;">
               </button>
             </div>
             <div class="modal-body">
-              <input type="hidden" id="booking_id">
+              <input type="hidden" id="guide_details_id">
               <label for="status_num">Select Status:</label>
               <select name="status_num" id="status_num">
 
@@ -343,40 +343,40 @@ background-size: cover;">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <form method="POST" > 
+            <form method="POST">
 
-  
-            <div class="modal-body">
-              <input type="hidden"   name="guide_id" value="<?php echo $guide_id  ?>">
-              <input type="hidden"   name="date" value="<?php echo $date  ?>">
-              <input type="hidden"   name="timeslot_id" value="<?php echo $date  ?>">
-              <label for="status_num">Select Status:</label>
-              <select name="status_num_guide"   >
 
-                <?php $statusArray = getGuideStatuses();
+              <div class="modal-body">
+                <input type="hidden" name="guide_id" value="<?php echo $guide_id ?>">
+                <input type="hidden" name="date" value="<?php echo $date ?>">
+                <input type="hidden" name="timeslot_id" value="<?php echo $date ?>">
+                <label for="status_num">Select Status:</label>
+                <select name="status_num_guide">
 
-                foreach ($statusArray as $key => $status) {
+                  <?php $statusArray = getGuideStatuses();
 
-                  if ($status !== '') { ?>
-                    <option value="<?php echo $key ?>"><?php echo $status ?></option>
+                  foreach ($statusArray as $key => $status) {
 
-                    <?php
+                    if ($status !== '') { ?>
+                      <option value="<?php echo $key ?>"><?php echo $status ?></option>
+
+                      <?php
+
+
+
+                    }
 
 
 
                   }
+                  ?>
 
-
-
-                }
-                ?>
-
-              </select>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn bg-gradient-primary" name="SaveGuideStatus"  >Save changes</button>
-              <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
-            </div>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn bg-gradient-primary" name="SaveGuideStatus">Save changes</button>
+                <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
+              </div>
             </form>
           </div>
         </div>
@@ -434,7 +434,7 @@ background-size: cover;">
             data: 'id',  // We use the `id` to add the "More Details" button
             render: function (data, type, row) {
               // Return the HTML for the "More Details" button
-              return '<a class="btn bg-gradient-primary more-details mx-2" href="javascript:void(0);" data-id="' + data + '" data-status="' + row.status + '" data-status2="' + row.status2 + '" data-name="' + row.name + '" data-booking="' + row.booking_id + '" onclick="showModal(this)">' + row.status2 + '</a>';
+              return '<a class="btn bg-gradient-primary more-details mx-2" href="javascript:void(0);" data-id="' + data + '" data-status="' + row.status + '" data-status2="' + row.status2 + '" data-name="' + row.name + '" data-guide_details="' + row.id + '" onclick="showModal(this)">' + row.status2 + '</a>';
             }
           },
         ],
@@ -463,12 +463,12 @@ background-size: cover;">
       var status = $(button).data('status');  // Get the current status from the button's data-status
       var status2 = $(button).data('status2');  // Optionally, if you need another status
       var name = $(button).data('name');  // Optionally, if you need another status
-      var booking_id = $(button).data('booking');  // Optionally, if you need another status
+      var guide_details_id = $(button).data('guide_details');  // Optionally, if you need another status
 
       // Set modal content dynamically
       $('#modal-title-default').text('Name: ' + name);  // Set modal title dynamically
       $('#status_num').val(status);  // Set the status dropdown value based on current status
-      $('#booking_id').val(booking_id);  // Set the status dropdown value based on current status
+      $('#guide_details_id').val(guide_details_id);  // Set the status dropdown value based on current status
 
       // Store the ID in a hidden attribute in the modal for use later when submitting
       $('#dynamicModal').data('id', id);
@@ -479,16 +479,16 @@ background-size: cover;">
 
     // Handle save changes button click
     $('#saveStatusHike').click(function () {
-      var id = $('#guide_id').val();   // Retrieve the ID stored in modal's data-attributes
+      var id = $('#guide_details_id').val();   // Retrieve the ID stored in modal's data-attributes
       var status = $('#status_num').val();  // Get the selected status from the dropdown
-       console.log("test");
+      console.log("test");
 
-      
+
       // Prepare data for POST request
       var postData = {
         id: id,
         status: status,
-        // booking_id: booking_id,
+        // guide_details_id: guide_details_id,
         people_change_status: "people_change_status",
       };
 
@@ -513,10 +513,10 @@ background-size: cover;">
       });
     });
 
- 
+
 
   </script>
-<script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
+  <script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
 
 </body>
 

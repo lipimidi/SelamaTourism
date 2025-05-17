@@ -13,7 +13,7 @@ if (isset($_POST['getlist_people_guide'])) {
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status']; // Modify according to your table structure
+    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status','id']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);
@@ -89,7 +89,7 @@ if (isset($_POST['people_change_status'])) {
     $status = $_POST['status'];
 
 
-    $sql = "UPDATE booking_details SET status = '$status'  WHERE id ='$id' ";
+    $sql = "UPDATE guide_details SET status = '$status'  WHERE id ='$id' ";
 
     // $statusArray = [
     //     '',
@@ -104,23 +104,7 @@ if (isset($_POST['people_change_status'])) {
     // ];
 
     
-
-    if ($status == '5'){
-        $sql2 = "UPDATE booking SET status = '$status'  WHERE id ='$id' ";
-        mysqli_query($conn, $sql2);
-
-    }
-    if ($status == '6'){
-        $sql2 = "UPDATE booking SET status = '$status'  WHERE id ='$id' ";
-        mysqli_query($conn, $sql2);
-
-    }
-
-    if ($status == '8'){
-        $sql2 = "UPDATE booking SET status = '$status'  WHERE id ='$id' ";
-        mysqli_query($conn, $sql2);
-    }
-
+ 
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
         echo "done";
