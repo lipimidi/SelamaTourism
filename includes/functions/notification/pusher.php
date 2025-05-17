@@ -5,8 +5,8 @@ use Pusher\PushNotifications\PushNotifications;
 function publishToBeamsInterests(array $interests, string $title, string $body, string $deepLink): ?array
 {
     // load your creds
-    $instanceId = $_ENV['pusher_9_id']   ?? null;
-    $secretKey  = $_ENV['pusher_9_key'] ?? null;
+    $instanceId = $_ENV['pusher_8_id']   ?? null;
+    $secretKey  = $_ENV['pusher_8_key'] ?? null;
 
     if (! $instanceId || ! $secretKey) {
         error_log('[Beams] Missing credentials');
@@ -55,14 +55,14 @@ function publishToBeamsInterests(array $interests, string $title, string $body, 
 
 function sendPusherEvent($channel, $event, $data) {
     $options = [
-        'cluster' => $_ENV['pusher_9a_cluster'],  // e.g., 'us2'
+        'cluster' => $_ENV['pusher_8a_cluster'],  // e.g., 'us2'
         'useTLS' => true
     ];
 
     $pusher = new Pusher\Pusher(
-        $_ENV['pusher_9a_key'],      // Replace with your Pusher key
-        $_ENV['pusher_9a_secret'],   // Replace with your Pusher secret
-        $_ENV['pusher_9a_id'],   // Replace with your Pusher app ID
+        $_ENV['pusher_8a_key'],      // Replace with your Pusher key
+        $_ENV['pusher_8a_secret'],   // Replace with your Pusher secret
+        $_ENV['pusher_8a_id'],   // Replace with your Pusher app ID
         $options
     );
 

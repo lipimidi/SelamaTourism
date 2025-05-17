@@ -45,7 +45,7 @@
           </div>
         </div>
 
-       <div class="col-12 col-lg-4 ms-auto mt-lg-0 mt-4">
+        <div class="col-12 col-lg-4 ms-auto mt-lg-0 mt-4">
           <div class="row">
             <div class="col-12">
               <div class="card shadow-lg">
@@ -174,62 +174,65 @@
 
 
 
- $.ajax({
-      url: 'https://api.data.gov.my/weather/forecast/?contains=Ds020@location__location_id',  // Your API URL
-      type: 'GET',
-      dataType: 'json',
-      success: function (data) {
-        // Get today's date in YYYY-MM-DD format
-        let today = new Date().toISOString().split('T')[0];
+      $.ajax({
+        url: 'https://api.data.gov.my/weather/forecast/?contains=Ds020@location__location_id',  // Your API URL
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // Get today's date in YYYY-MM-DD format
+          let today = new Date();
+          let localDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+          console.log(localDate);
 
-        // Find today's weather data from the response
-        let todayWeather = data.find(item => item.date === today);
 
-        if (todayWeather) {
-          // Extract temperature and weather summary
-          let temperature = `${todayWeather.min_temp}°C - ${todayWeather.max_temp}°C`;
-          let weatherSummary = todayWeather.summary_forecast;
+          // Find today's weather data from the response
+          let todayWeather = data.find(item => item.date === localDate);
 
-          // Update the HTML elements with today's weather
-          $('#weather-temperature').text(`Selama - ${temperature}`);
-          $('#weather-description').text(weatherSummary);
+          if (todayWeather) {
+            // Extract temperature and weather summary
+            let temperature = `${todayWeather.min_temp}°C - ${todayWeather.max_temp}°C`;
+            let weatherSummary = todayWeather.summary_forecast;
 
-          // You can add more logic here to display an appropriate weather icon based on the forecast summary
-          let weatherIcon = getWeatherIcon(weatherSummary);
-          // $('#weather-icon').attr('src', weatherIcon);
-          $('#weather-icon').addClass(weatherIcon);
+            // Update the HTML elements with today's weather
+            $('#weather-temperature').text(`Selama - ${temperature}`);
+            $('#weather-description').text(weatherSummary);
 
-        } else {
-          console.error('Weather data for today not found');
+            // You can add more logic here to display an appropriate weather icon based on the forecast summary
+            let weatherIcon = getWeatherIcon(weatherSummary);
+            // $('#weather-icon').attr('src', weatherIcon);
+            $('#weather-icon').addClass(weatherIcon);
+
+          } else {
+            console.error('Weather data for today not found');
+          }
+        },
+        error: function () {
+          console.error('Error fetching weather data');
         }
-      },
-      error: function () {
-        console.error('Error fetching weather data');
+      });
+
+      // Function to get appropriate weather icon based on description
+      function getWeatherIcon(description) {
+        // Map descriptions to Font Awesome icons
+        const iconMap = {
+          "Berjerebu": "fas fa-smog",  // Hazy
+          "Tiada hujan": "fas fa-sun",  // Clear
+          "Hujan": "fas fa-cloud-showers-heavy",  // Rain
+          "Hujan di beberapa tempat": "fas fa-cloud-showers-heavy",  // Scattered rain
+          "Hujan di satu dua tempat": "fas fa-cloud-rain",  // Isolated Rain
+          "Hujan di satu dua tempat di kawasan pantai": "fas fa-cloud-rain",  // Isolated rain over coastal areas
+          "Hujan di satu dua tempat di kawasan pedalaman": "fas fa-cloud-rain",  // Isolated rain over inland areas
+          "Ribut petir": "fas fa-bolt",  // Thunderstorms
+          "Ribut petir di beberapa tempat": "fas fa-bolt",  // Scattered thunderstorms
+          "Ribut petir di beberapa tempat di kawasan pedalaman": "fas fa-bolt",  // Scattered thunderstorms over inland areas
+          "Ribut petir di satu dua tempat": "fas fa-bolt",  // Isolated thunderstorms
+          "Ribut petir di satu dua tempat di kawasan pantai": "fas fa-bolt",  // Isolated thunderstorms over coastal areas
+          "Ribut petir di satu dua tempat di kawasan pedalaman": "fas fa-bolt"  // Isolated thunderstorms over inland areas
+        };
+
+        // Return the corresponding Font Awesome icon class or a default one
+        return iconMap[description] || "fas fa-sun";  // Default icon (sunny)
       }
-    });
-
-    // Function to get appropriate weather icon based on description
-    function getWeatherIcon(description) {
-      // Map descriptions to Font Awesome icons
-      const iconMap = {
-        "Berjerebu": "fas fa-smog",  // Hazy
-        "Tiada hujan": "fas fa-sun",  // Clear
-        "Hujan": "fas fa-cloud-showers-heavy",  // Rain
-        "Hujan di beberapa tempat": "fas fa-cloud-showers-heavy",  // Scattered rain
-        "Hujan di satu dua tempat": "fas fa-cloud-rain",  // Isolated Rain
-        "Hujan di satu dua tempat di kawasan pantai": "fas fa-cloud-rain",  // Isolated rain over coastal areas
-        "Hujan di satu dua tempat di kawasan pedalaman": "fas fa-cloud-rain",  // Isolated rain over inland areas
-        "Ribut petir": "fas fa-bolt",  // Thunderstorms
-        "Ribut petir di beberapa tempat": "fas fa-bolt",  // Scattered thunderstorms
-        "Ribut petir di beberapa tempat di kawasan pedalaman": "fas fa-bolt",  // Scattered thunderstorms over inland areas
-        "Ribut petir di satu dua tempat": "fas fa-bolt",  // Isolated thunderstorms
-        "Ribut petir di satu dua tempat di kawasan pantai": "fas fa-bolt",  // Isolated thunderstorms over coastal areas
-        "Ribut petir di satu dua tempat di kawasan pedalaman": "fas fa-bolt"  // Isolated thunderstorms over inland areas
-      };
-
-      // Return the corresponding Font Awesome icon class or a default one
-      return iconMap[description] || "fas fa-sun";  // Default icon (sunny)
-    }
 
 
 

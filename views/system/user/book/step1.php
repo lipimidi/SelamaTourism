@@ -142,7 +142,7 @@
       }
 
       // Initialize the FullCalendar object
-      
+
       var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
         headerToolbar: {
@@ -179,14 +179,19 @@
             }
           });
         },
-
         eventClick: function (info) {
+          // Check if remaining slots are 0
+          if (info.event.extendedProps.remaining_slots === 0) {
+            return; // Do nothing if there are no remaining slots
+          }
+
           // Show the modal with the selected date
           var modal = new bootstrap.Modal(document.getElementById('eventModal'));
           var selectedDate = document.getElementById('eventDate');
           var selectedDate2 = document.getElementById('selectedDate');
           var selectedSession = document.getElementById('eventSession');
           var selectedSession2 = document.getElementById('eventSession2');
+
           selectedSession2.value = info.event.extendedProps.session2;
 
           var selectedPeople = document.getElementById('eventPeople');
@@ -211,9 +216,12 @@
           // Open the modal
           modal.show();
         },
+
+
+
         validRange: {
-      start: moment().format('YYYY-MM-DD') // Today's date
-    },
+          start: moment().format('YYYY-MM-DD') // Today's date
+        },
         views: {
           month: {
             titleFormat: {

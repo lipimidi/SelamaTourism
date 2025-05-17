@@ -328,7 +328,7 @@ background-size: cover;">
                     <h6>To Do</h6>
                     <p class="text-sm">
                       <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                     </p>
+                    </p>
                   </div>
                   <div class="card-body p-3">
                     <div class="timeline timeline-one-side">
@@ -411,7 +411,44 @@ background-size: cover;">
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . $basePath2 . "/views/system/template/script.php"); ?>
 
+  <script>
 
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js') // your custom path
+          .then(registration => {
+            console.log("Service Worker registered:", registration);
+
+            const beamsClient = new PusherPushNotifications.Client({
+              instanceId: 'bf10c984-1d60-42a1-8394-d2104b1dcd22',
+              serviceWorkerRegistration: registration  // 🔑 THIS is required
+            });
+
+
+            beamsClient.start()
+              .then(() => {
+                // Subscribe the device to the correct interest
+                beamsClient.addDeviceInterest('<?php echo $guide_id?>')
+                  .then(() => {
+                    console.log('Successfully subscribed to <?php echo $guide_id ?>');
+                  })
+                  .catch(err => {
+                    console.error('Error subscribing to interest', err);
+                  });
+              })
+              .catch((err) => {
+                console.error('Error initializing PusherBeams:', err);
+              });
+          })
+          .catch((err) => {
+            console.error('Error registering service worker:', err);
+          });
+
+      });
+    }
+
+  </script>
 
 </body>
 

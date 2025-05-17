@@ -178,16 +178,21 @@ background-size: cover;">
                         <div class="row">
                           <div class="col-8 text-start">
                             <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                              <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
+                              <i class="ni ni-watch-time text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-
+                              Scan QR for Attendance
                             </h5>
-                            <span class="text-white text-sm">Scan QR</span>
+                            <!-- <span class="text-white text-sm">Click to start scanning QR</span> -->
                           </div>
                           <div class="col-4">
+                            <!-- Button to Start QR Code Scan -->
+                            <button id="start-scan-btn" class="btn btn-primary w-100">
+                              Start QR Scan
+                            </button>
 
-                            <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+15%</p> -->
+                            <!-- Container for QR Code Scanner -->
+                            <div id="qr-reader" style="display: none;"></div>
                           </div>
                         </div>
                       </div>
@@ -487,6 +492,7 @@ background-size: cover;">
       // Prepare data for POST request
       var postData = {
         id: id,
+        guide_id: "<?php echo $guide_id ?>",
         status: status,
         // guide_details_id: guide_details_id,
         people_change_status: "people_change_status",
@@ -516,7 +522,84 @@ background-size: cover;">
 
 
   </script>
-  <script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const startScanBtn = document.getElementById('start-scan-btn');
+      const qrReaderContainer = document.getElementById('qr-reader');
+
+      // Function to handle scan success
+      function onScanSuccess(decodedText, decodedResult) {
+        // Optionally, you can send this data to your server using AJAX
+        // fetch('process_qr.php', {...});
+
+      // Prepare data for POST request
+      var postData = {
+        booking_id: decodedText,
+        status: status,
+        // guide_details_id: guide_details_id,
+        people_change_status_qr: "people_change_status_qr",
+      };
+
+        $.ajax({
+          url: '<?php echo $rootPath; ?>/guide/people_change_status',  // Your server-side URL
+          type: 'POST',
+          data: postData,
+          success: function (response) {
+            if (response) {
+              console.log(postData);
+              $('#dynamicModal').modal('hide');  // Close the modal after success
+              $('#guide_list').DataTable().ajax.reload(null, false);
+            } else {
+              // alert('Failed to save changes');
+              console.log(response);
+            }
+          },
+          error: function () {
+            console.log("error1");
+          }
+        });
+      }
+
+      // Initialize QR Scanner
+      const html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
+
+      // Click event to start QR code scanning
+      startScanBtn.addEventListener('click', function () {
+        // Show the scanner UI when the button is clicked
+        qrReaderContainer.style.display = 'block';
+
+        // Start scanning for QR codes
+        html5QrcodeScanner.render(onScanSuccess);
+      });
+    });
+  </script>
+
+
+  <script>
+
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js') // your custom path
+          .then(registration => {
+            console.log("Service Worker registered:", registration);
+
+            const beamsClient = new PusherPushNotifications.Client({
+              instanceId: 'bf10c984-1d60-42a1-8394-d2104b1dcd22',
+              serviceWorkerRegistration: registration  // 🔑 THIS is required
+            });
+
+
+            
+          })
+          .catch((err) => {
+            console.error('Error registering service worker:', err);
+          });
+
+      });
+    }
+
+  </script>
 
 </body>
 

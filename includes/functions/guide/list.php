@@ -13,7 +13,7 @@ if (isset($_POST['getlist_people_guide'])) {
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status','id']; // Modify according to your table structure
+    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);
@@ -86,25 +86,85 @@ if (isset($_POST['people_change_status'])) {
 
 
     $id = $_POST['id'];
+    $guide_id = $_POST['guide_id'];
     $status = $_POST['status'];
 
 
     $sql = "UPDATE guide_details SET status = '$status'  WHERE id ='$id' ";
 
     // $statusArray = [
-    //     '',
-    //     '',
-    //     'not yet',
-    //     'ongoing',
-    //     'finished',
-    //     'cancelled',
-    //     'delayed',
-    //     '',
-    //     'emergency',
+//guide
+    //     'not yet',//0
+    //     'assigned',//1
+    //     'ongoing',//2
+    //     'finished',//3
+    //     'cancelled',//4
+    //     'delayed',//5
+    //     'emergency',//6
     // ];
 
-    
+    //     $statusArray = [
+//hiking
+    //     'not yet',  //0
+    //     'ongoing', //1
+    //     'finished',//2
+    //     'cancelled',//3
+    //     'delayed',//4
+    //     'emergency',//5
+    // ];
+
+
+    if ($status == '5') {
+        $sql2 = "UPDATE guide SET status = '6'  WHERE id ='$guide_id' ";
+        mysqli_query($conn, $sql2);
+
+
+        
+        $result = publishToBeamsInterests(
+            [(string) $guide_id],    // or ['2'] for testing
+            'Emergency',
+            'This is not a drill',
+            "$rootPath/guide/$guide_id",
+
+        );
+
+    }
+  
  
+
+
+
+    if (mysqli_query($conn, $sql)) {
+        // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
+        echo "done";
+
+
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+    // header("Location: " . $basePath2 . "/book". "/" . $id );
+    die();
+
+
+}
+
+
+if (isset($_POST['people_change_status_2'])) {
+
+
+    $booking_id = $_POST['booking_id'];
+    $status = $_POST['status'];
+
+
+    $sql = "UPDATE guide_details SET status = '$status'  WHERE booking_id ='$id' ";
+
+
+
+ 
+
+
+
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
         echo "done";
@@ -116,8 +176,12 @@ if (isset($_POST['people_change_status'])) {
 
     // header("Location: " . $basePath2 . "/book". "/" . $id );
 
-
+    die();
 }
+
+
+
+
 
 
 if (isset($_POST['SaveGuideStatus'])) {
@@ -131,7 +195,7 @@ if (isset($_POST['SaveGuideStatus'])) {
     // echo $status;
 
     $sql = "UPDATE guides SET status = '$status'  WHERE id ='$id' ";
- 
+
     // // Define the status array
     // $statusArray = [
     //     '',
@@ -147,16 +211,16 @@ if (isset($_POST['SaveGuideStatus'])) {
 
 
 
- 
+
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
         // echo "done";
 
 
-        if ($status == '4'){
+        if ($status == '4') {
             $sql2 = "UPDATE booking SET status = '$status'  WHERE booking_date ='$date' AND  timeslot_id ='$session_id' AND ( status != '5' AND status != '7' AND status != '8')  ";
             mysqli_query($conn, $sql2);
-    
+
         }
 
 
@@ -164,7 +228,7 @@ if (isset($_POST['SaveGuideStatus'])) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    header("Location: " . $basePath2 . "/guide". "/" . $id );
+    header("Location: " . $basePath2 . "/guide" . "/" . $id);
 
 
 }
@@ -184,7 +248,7 @@ if (isset($_POST['getlist_guide_user'])) {
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['id', 'date', 'timeslot_id', 'user_id', 'created_at' ]; // Modify according to your table structure
+    $columns = ['id', 'date', 'timeslot_id', 'user_id', 'created_at']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);

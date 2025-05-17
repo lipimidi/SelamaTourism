@@ -147,12 +147,10 @@
         <div class="col-md-6 mb-md-0 mb-4">
           <div class="card p-0 rounded-3">
             <div class="blur-shadow-image">
-              <img
-                src="<?php echo $rootPath ?>/assets/img/home.jpg"
-                alt="img-blur-shadow" class="img-fluid shadow rounded-3">
+              <img src="<?php echo $rootPath ?>/assets/img/home.jpg" alt="img-blur-shadow"
+                class="img-fluid shadow rounded-3">
             </div>
-            <div class="colored-shadow"
-              style="background-image: url('<?php echo $rootPath ?>/assets/img/home.jpg');">
+            <div class="colored-shadow" style="background-image: url('<?php echo $rootPath ?>/assets/img/home.jpg');">
             </div>
           </div>
         </div>
@@ -197,13 +195,11 @@
         </div>
         <div class="col-md-6    mb-md-0 mb-4  order-1 order-md-2">
           <div class="card p-0 rounded-3">
-          <div class="blur-shadow-image">
-              <img
-                src="<?php echo $rootPath ?>/assets/img/home.jpg"
-                alt="img-blur-shadow" class="img-fluid shadow rounded-3">
+            <div class="blur-shadow-image">
+              <img src="<?php echo $rootPath ?>/assets/img/home.jpg" alt="img-blur-shadow"
+                class="img-fluid shadow rounded-3">
             </div>
-            <div class="colored-shadow"
-              style="background-image: url(<?php echo $rootPath ?>/assets/img/home.jpg);">
+            <div class="colored-shadow" style="background-image: url(<?php echo $rootPath ?>/assets/img/home.jpg);">
             </div>
           </div>
         </div>
@@ -218,7 +214,7 @@
   <section class=" py-5 ">
 
     <div class="container">
-      <div class="row">
+      <div class="row ">
         <div class="row justify-content-center text-center my-sm-5">
           <div class="col-lg-6">
             <h2 class="text-dark mb-0">Why Visit</h2>
@@ -231,7 +227,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6  mb-lg-0 mb-4  ">
-          <div class="card card-background move-on-hover shadow-lg  ">
+          <div class="card card-background move-on-hover shadow-lg   h-100">
 
             <a href="javascript:;">
               <div class="full-background "
@@ -239,43 +235,40 @@
               </div>
 
               <div class="card-body pt-12">
-                <h4 class="text-white">Search and Discovery</h4>
-                <p>Website visitors today demand a frictionless user expericence — especially when using search. Because
-                  of the hight standards.</p>
+                <h4 class="text-white">Breathtaking Waterfalls and Greenery</h4>
+                <p>Experience breathtaking waterfalls and vibrant nature at Lata Puteh, perfect for nature lovers.</p>
               </div>
             </a>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6   mb-lg-0 mb-4 ">
-          <div class="card card-background move-on-hover shadow-lg">
+          <div class="card card-background move-on-hover shadow-lg  h-100">
 
             <a href="javascript:;">
               <div class="full-background "
-                style="background-image: url('<?php echo $rootPath ?>/assets/img/home2.jpg')">
+                style="background-image: url('<?php echo $rootPath ?>/assets/img/home.jpg')">
               </div>
 
               <div class="card-body pt-12">
-                <h4 class="text-white">Search and Discovery</h4>
-                <p>Website visitors today demand a frictionless user expericence — especially when using search. Because
-                  of the hight standards.</p>
+                <h4 class="text-white">Hiking and Outdoor Fun</h4>
+                <p>Explore exciting trails and hidden gems, offering the perfect adventure for all levels.</p>
               </div>
             </a>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6  mb-lg-0 mb-4  mx-auto">
-          <div class="card card-background move-on-hover shadow-lg">
+          <div class="card card-background move-on-hover shadow-lg  h-100">
 
             <a href="javascript:;">
               <div class="full-background "
-                style="background-image: url('<?php echo $rootPath ?>/assets/img/home2.jpg')">
+                style="background-image: url('<?php echo $rootPath ?>/assets/img/login.jpg')">
               </div>
 
               <div class="card-body pt-12">
-                <h4 class="text-white">Search and Discovery</h4>
-                <p>Website visitors today demand a frictionless user expericence — especially when using search. Because
-                  of the hight standards.</p>
+                <h4 class="text-white">Peaceful Retreat in Nature</h4>
+                <p>Unwind in a serene, secluded spot away from the noise—perfect for relaxation and quiet moments.</p>
               </div>
             </a>
           </div>
@@ -308,16 +301,13 @@
         </g>
       </svg>
     </div>
-    
+
     <div class="container pt-6 pb-5 position-relative z-index-3">
       <div class="row">
         <div class="col-md-6 mx-auto text-center">
-          <span class="badge badge-white text-dark mb-2">Testimonials</span>
-          <h2 class="text-white mb-3">Some thoughts from our clients</h2>
-          <h5 class="text-white font-weight-light">
-            If you're selected for them you'll also get three tickets, opportunity to access Investor Office Hours and
-            Mentor Hours and much more all for free.
-          </h5>
+          <span class="badge badge-white text-dark mb-2">Hear from our happy customers!</span>
+          <h2 class="text-white mb-3">Some thoughts from our customers</h2>
+
         </div>
       </div>
       <div class="row mt-2">
@@ -325,10 +315,11 @@
           <div class="card shadow-lg">
 
             <div class="card-body text-center pb-0">
-              <h4 class="mb-0">Olivia Harper</h4>
-              <p>@oliviaharper</p>
+              <h4 class="mb-0">Sarah T., Nature Enthusiast</h4>
+              <!-- <p>@oliviaharper</p> -->
               <p class="mt-2">
-                The connections you make at Web Summit are unparalleled, we met users all over the world.
+                Lata Puteh is a hidden gem! The beauty of the waterfalls and the surrounding greenery took my breath
+                away. It’s the perfect place to escape and reconnect with nature.
               </p>
             </div>
             <div class="card-footer text-center pt-2">
@@ -353,10 +344,11 @@
           <div class="card shadow-lg">
 
             <div class="card-body text-center pb-0">
-              <h4 class="mb-0">Olivia Harper</h4>
-              <p>@oliviaharper</p>
+              <h4 class="mb-0">Daniel M., Hiking Aficionado</h4>
+              <!-- <p>@oliviaharper</p> -->
               <p class="mt-2">
-                The connections you make at Web Summit are unparalleled, we met users all over the world.
+                The hike to the waterfall was challenging yet rewarding. The trails are well-marked, and the views are
+                incredible. I’ll definitely be coming back for more outdoor adventures!
               </p>
             </div>
             <div class="card-footer text-center pt-2">
@@ -382,10 +374,11 @@
           <div class="card shadow-lg">
 
             <div class="card-body text-center pb-0">
-              <h4 class="mb-0">Olivia Harper</h4>
-              <p>@oliviaharper</p>
+              <h4 class="mb-0">Emily R., Wellness Seeker</h4>
+              <!-- <p>@oliviaharper</p> -->
               <p class="mt-2">
-                The connections you make at Web Summit are unparalleled, we met users all over the world.
+                I came here for some peace and quiet, and Lata Puteh delivered. The calm atmosphere, gentle sounds of
+                the water, and fresh air were exactly what I needed to recharge.
               </p>
             </div>
             <div class="card-footer text-center pt-2">

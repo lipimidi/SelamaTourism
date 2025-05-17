@@ -186,7 +186,7 @@
                           data-sortable=""><a href="#">Date</a></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#">Session</a></th>
- 
+
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#">Date Created</a></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
@@ -549,10 +549,15 @@
       dataType: 'json',
       success: function (data) {
         // Get today's date in YYYY-MM-DD format
-        let today = new Date().toISOString().split('T')[0];
+        let today = new Date();
+        let localDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+        console.log(localDate);
+
 
         // Find today's weather data from the response
-        let todayWeather = data.find(item => item.date === today);
+        let todayWeather = data.find(item => item.date === localDate);
+        console.log(data);
+        console.log(localDate);
 
         if (todayWeather) {
           // Extract temperature and weather summary

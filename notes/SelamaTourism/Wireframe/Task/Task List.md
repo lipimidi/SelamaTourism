@@ -9,6 +9,7 @@ kanban-plugin: board
 - [ ] Attractions
 - [ ] Accomodation / Facilities
 - [ ] User Profile
+- [ ] Review
 
 
 ## To DO
@@ -16,8 +17,7 @@ kanban-plugin: board
 - [ ] Dashboard ( admin )
 - [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Booking Success (email )]] ^twfntn
-- [ ] Booking Settings
-- [ ] Review
+- [ ] Todo list of guide user
 
 
 ## Bugs
@@ -33,7 +33,11 @@ kanban-plugin: board
 - [ ] [[Staff Add New ( ADMIN) 🔼]]
 - [ ] Booking Step 1( Date )
 - [ ] Dashboard (user)
+- [ ] [[Guide Info ( Admin)]] ⏫
+- [ ] [[Guide Info ( Guide)]] ⏫
 - [ ] Booking Step 2(People)
+- [ ] [[Guide Details (User)]]
+- [ ] Booking Settings
 - [ ] Booking Step 3(Insurance)
 - [ ] Booking Details ( User) ⏫
 - [ ] Dashboard (guide)
@@ -53,9 +57,6 @@ kanban-plugin: board
 
 ## Stuck in my head
 
-- [ ] [[Guide Info ( Admin)]] ⏫
-- [ ] [[Guide Info ( Guide)]] ⏫
-- [ ] [[Guide Details (User)]]
 
 
 
