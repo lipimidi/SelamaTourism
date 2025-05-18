@@ -22,7 +22,7 @@
           <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
             <ul class="navbar-nav navbar-nav-hover mx-auto">
 
-              <li class="nav-item dropdown dropdown-hover mx-2">
+              <!-- <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                   aria-expanded="false" href="<?php echo $basePath2; ?>/attractions">
                   Attractions
@@ -33,7 +33,7 @@
                   aria-expanded="false" href="<?php echo $basePath2; ?>/facilities">
                   Facilities
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                   aria-expanded="false" href="<?php echo $basePath2; ?>/blog/list">
