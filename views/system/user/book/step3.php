@@ -234,7 +234,7 @@
           },
 
           error: function (file, response) {
-            console.log("Error uploading file:", file);
+            console.log("Error uploading file:", response);
           }
         });
       <?php } ?>
