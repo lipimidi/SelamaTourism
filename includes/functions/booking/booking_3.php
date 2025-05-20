@@ -174,7 +174,7 @@ if (isset($_POST['upload_temp'])) {
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Invalid file type']);
     }
-
+die();
  
 
 }
