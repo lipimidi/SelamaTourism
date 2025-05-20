@@ -101,7 +101,7 @@ if (isset($_POST['upload_temp'])) {
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
     echo "test2";
 
-    echo $file['type'];
+    echo in_array($file['type'], $allowedTypes);
 
 
     // Check if the file type is allowed
