@@ -88,40 +88,39 @@ if (isset($_POST['upload_temp'])) {
     $fileTmpPath = $file['tmp_name'];
     $fileSize = $file['size'];
     $fileError = $file['error'];
-    echo "test4";
 
     // Access custom parameters from the form data
     $userId = isset($_POST['user_id']) ? $_POST['user_id'] : 'Unknown';
     $peopleNumber = isset($_POST['people_number']) ? $_POST['people_number'] : 'Unknown';
 
     // Log the custom parameters (optional)
-    echo "test";
-
+ 
     // Define allowed file types
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
-    echo "test2";
-
+ 
     echo in_array($file['type'], $allowedTypes);
 
 
     // Check if the file type is allowed
     if (in_array($file['type'], $allowedTypes)) {
         // Check for errors
-    echo $fileError;
-
-        if ($fileError === 0) {
+ 
+        if ($fileError == 0) {
             // Create a folder structure based on user_id and people_number
             $userFolder = $uploadRootDir . $userId . '/';
             $peopleFolder = $userFolder . 'person_' . $peopleNumber . '/';
+    echo "test4";
 
             // Check if the directories exist, if not, create them
             if (!file_exists($userFolder)) {
                 mkdir($userFolder, 0777, true);  // Create user folder
             }
+    echo "test3";
 
             if (!file_exists($peopleFolder)) {
                 mkdir($peopleFolder, 0777, true);  // Create people_number folder
             }
+    echo "test2";
 
             // Define the destination path
             $destinationPath = $peopleFolder . $fileName;
@@ -168,6 +167,8 @@ if (isset($_POST['upload_temp'])) {
             } else {
                 echo json_encode(['status' => 'error', 'message' => 'Error moving the uploaded file']);
             }
+    echo "test1";
+
         } else {
             echo json_encode(['status' => 'error', 'message' => 'File upload error']);
         }
@@ -175,8 +176,7 @@ if (isset($_POST['upload_temp'])) {
         echo json_encode(['status' => 'error', 'message' => 'Invalid file type']);
     }
 
-    echo "test3";
-
+ 
 
 }
 
