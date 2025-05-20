@@ -6,11 +6,7 @@ if (isset($_POST['confirminsurance'])) {
     // echo "<script>console.log(" . json_encode($_FILES) . ");</script>";
     $error = false;
 
-    if (isset($_POST['activities'])) {
-        $_SESSION['booking']['activity'] = $_POST['activities']; // Save activities to session
-    } else {
-        unset($_SESSION['booking']['activity']);
-    }
+    
 
     if (empty($_SESSION['booking']['insurance'])) {
         $error = true;

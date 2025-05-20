@@ -132,6 +132,21 @@ if (isset($_POST['people_change_status'])) {
   
  
 
+    if ($status == '3') {
+        $sql2 = "UPDATE guide SET status = '3'  WHERE id ='$guide_id' ";
+        mysqli_query($conn, $sql2);
+
+
+        
+        $result = publishToBeamsInterests(
+            [(string) $guide_id],    // or ['2'] for testing
+            'Guide Finished',
+            'Guide Finished',
+            "$rootPath/guide/$guide_id",
+
+        );
+
+    }
 
 
     if (mysqli_query($conn, $sql)) {
