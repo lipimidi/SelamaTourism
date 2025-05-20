@@ -161,6 +161,7 @@
                   </div>
                 </div>
               </div>
+
               <!-- <p class="text-sm mb-0">
                 A lightweight, extendable, dependency-free javascript HTML table plugin.
               </p> -->
