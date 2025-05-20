@@ -6,7 +6,7 @@ if (isset($_POST['confirminsurance'])) {
     // echo "<script>console.log(" . json_encode($_FILES) . ");</script>";
     $error = false;
 
-    
+
 
     if (empty($_SESSION['booking']['insurance'])) {
         $error = true;
@@ -74,7 +74,7 @@ if (isset($_POST['upload_temp'])) {
 
 
     $uploadRootDir = 'assets/uploads/booking/insurance/temp/';
-
+    echo "test";
     // Check if the directory exists, if not, create it
     if (!file_exists($uploadRootDir)) {
         mkdir($uploadRootDir, 0777, true);
