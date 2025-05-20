@@ -107,6 +107,8 @@ if (isset($_POST['upload_temp'])) {
     // Check if the file type is allowed
     if (in_array($file['type'], $allowedTypes)) {
         // Check for errors
+    echo $fileError;
+
         if ($fileError === 0) {
             // Create a folder structure based on user_id and people_number
             $userFolder = $uploadRootDir . $userId . '/';
