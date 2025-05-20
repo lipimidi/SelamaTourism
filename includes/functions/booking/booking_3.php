@@ -71,113 +71,101 @@ if (isset($_POST['confirminsurance'])) {
 
 
 if (isset($_POST['upload_temp'])) {
-
-
-    $uploadRootDir = 'assets/uploads/booking/insurance/temp/';
-    // Check if the directory exists, if not, create it
-    if (!file_exists($uploadRootDir)) {
-        mkdir($uploadRootDir, 0777, true);
-    }
-
-    // echo "test5";
-
-    $file = $_FILES['file'];
-
-    // Get file details
-    $fileName = basename($file['name']);
-    $fileTmpPath = $file['tmp_name'];
-    $fileSize = $file['size'];
-    $fileError = $file['error'];
-
-    // Access custom parameters from the form data
-    $userId = isset($_POST['user_id']) ? $_POST['user_id'] : 'Unknown';
-    $peopleNumber = isset($_POST['people_number']) ? $_POST['people_number'] : 'Unknown';
-
-    // Log the custom parameters (optional)
- 
-    // Define allowed file types
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
- 
- 
-
-    // Check if the file type is allowed
-    if (in_array($file['type'], $allowedTypes)) {
-        // Check for errors
- 
-        if ($fileError == 0) {
-            // Create a folder structure based on user_id and people_number
-            $userFolder = $uploadRootDir . $userId . '/';
-            $peopleFolder = $userFolder . 'person_' . $peopleNumber . '/';
-
-            // Check if the directories exist, if not, create them
-            if (!file_exists($userFolder)) {
-                mkdir($userFolder, 0777, true);  // Create user folder
-    // echo "test4";
-            
-            }
-
-            if (!file_exists($peopleFolder)) {
-                mkdir($peopleFolder, 0777, true);  // Create people_number folder
-    // echo "test3";
-           
-            }
-
-            // Define the destination path
-            $destinationPath = $peopleFolder . $fileName;
-
-            // Move the uploaded file to the destination directory
-            if (move_uploaded_file($fileTmpPath, $destinationPath)) {
-                // Optionally, store information in a database
-
-                // Add the file path and other info to the session's 'insurance' array
-                if (!isset($_SESSION['booking']['insurance'])) {
-                    $_SESSION['booking']['insurance'] = [];
-                }
-
-                // Make sure the array for the specific person is set
-                if (!isset($_SESSION['booking']['insurance'][$peopleNumber])) {
-                    $_SESSION['booking']['insurance'][$peopleNumber] = [];
-                }
-
-
-                // Get file information
-                $fileName = basename($destinationPath);  // Get the file name (without path)
-                $fileSize = filesize($destinationPath);  // Get the file size in bytes
-                $fileType = mime_content_type($destinationPath);  // Get the MIME type of the file
-
-                // Store the file info (path, name, size, type) in the session under the correct person number
-                $_SESSION['booking']['insurance'][$peopleNumber][] = [
-                    'file_path' => $destinationPath,
-                    'file_name' => $fileName,
-                    'file_size' => $fileSize,
-                    'file_type' => $fileType
-                ];
-                echo "test";
-                // Return a success response
-                echo json_encode([
-                    'status' => 'success',
-                    'message' => 'File uploaded successfully',
-                    'user_id' => $userId,  // Return the custom parameters as part of the response
-                    'people_number' => $peopleNumber,
-                    'file_path' => $destinationPath,  // Return the file path for reference
-                    'file_name' => $fileName,        // Return the file name
-                    'file_size' => $fileSize,        // Return the file size
-                    'file_type' => $fileType         // Return the MIME type of the file
-                ]);
-            } else {
-                echo json_encode(['status' => 'error', 'message' => 'Error moving the uploaded file']);
-            }
- 
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'File upload error']);
+    try {
+        // Validate file presence
+        if (!isset($_FILES['file'])) {
+            http_response_code(400);
+            echo json_encode(['status' => 'error', 'message' => 'No file uploaded']);
+            exit;
         }
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid file type']);
-    }
-die();
- 
 
+        $file = $_FILES['file'];
+        $fileName = basename($file['name']);
+        $fileTmpPath = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $fileError = $file['error'];
+        $fileType = $file['type'];
+
+        // Validate custom fields
+        $userId = isset($_POST['user_id']) ? preg_replace('/[^a-zA-Z0-9_-]/', '', $_POST['user_id']) : 'Unknown';
+        $peopleNumber = isset($_POST['people_number']) ? preg_replace('/[^0-9]/', '', $_POST['people_number']) : '0';
+
+        // Define allowed MIME types
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
+
+        if (!in_array($fileType, $allowedTypes)) {
+            http_response_code(400);
+            echo json_encode(['status' => 'error', 'message' => 'Invalid file type']);
+            exit;
+        }
+
+        if ($fileError !== UPLOAD_ERR_OK) {
+            http_response_code(400);
+            echo json_encode(['status' => 'error', 'message' => 'File upload error', 'error_code' => $fileError]);
+            exit;
+        }
+
+        // Define folder paths
+        $uploadRootDir = 'assets/uploads/booking/insurance/temp/';
+        $userFolder = $uploadRootDir . $userId . '/';
+        $peopleFolder = $userFolder . 'person_' . $peopleNumber . '/';
+
+        // Create directories if they don't exist
+        if (!is_dir($peopleFolder)) {
+            mkdir($peopleFolder, 0777, true);
+        }
+
+        // Move uploaded file
+        $destinationPath = $peopleFolder . $fileName;
+        if (!move_uploaded_file($fileTmpPath, $destinationPath)) {
+            http_response_code(500);
+            echo json_encode(['status' => 'error', 'message' => 'Failed to move uploaded file']);
+            exit;
+        }
+
+        // Add to session
+        if (!isset($_SESSION['booking']['insurance'])) {
+            $_SESSION['booking']['insurance'] = [];
+        }
+
+        if (!isset($_SESSION['booking']['insurance'][$peopleNumber])) {
+            $_SESSION['booking']['insurance'][$peopleNumber] = [];
+        }
+
+        // Get actual MIME type and file size
+        $fileMimeType = mime_content_type($destinationPath);
+        $fileSizeBytes = filesize($destinationPath);
+
+        $_SESSION['booking']['insurance'][$peopleNumber][] = [
+            'file_path' => $destinationPath,
+            'file_name' => $fileName,
+            'file_size' => $fileSizeBytes,
+            'file_type' => $fileMimeType
+        ];
+
+        // Return success response
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'File uploaded successfully',
+            'user_id' => $userId,
+            'people_number' => $peopleNumber,
+            'file_path' => $destinationPath,
+            'file_name' => $fileName,
+            'file_size' => $fileSizeBytes,
+            'file_type' => $fileMimeType
+        ]);
+        exit;
+    } catch (Throwable $e) {
+        http_response_code(500);
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Internal server error',
+            'details' => $e->getMessage() // Optional: show in development only
+        ]);
+        exit;
+    }
 }
+
 
 
 if (isset($_POST['remove_temp'])) {
