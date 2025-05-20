@@ -109,18 +109,19 @@ if (isset($_POST['upload_temp'])) {
             // Create a folder structure based on user_id and people_number
             $userFolder = $uploadRootDir . $userId . '/';
             $peopleFolder = $userFolder . 'person_' . $peopleNumber . '/';
-    echo "test4";
 
             // Check if the directories exist, if not, create them
             if (!file_exists($userFolder)) {
                 mkdir($userFolder, 0777, true);  // Create user folder
+    echo "test4";
+            
             }
-    echo "test3";
 
             if (!file_exists($peopleFolder)) {
                 mkdir($peopleFolder, 0777, true);  // Create people_number folder
+    echo "test3";
+           
             }
-    echo "test2";
 
             // Define the destination path
             $destinationPath = $peopleFolder . $fileName;
@@ -128,6 +129,7 @@ if (isset($_POST['upload_temp'])) {
             // Move the uploaded file to the destination directory
             if (move_uploaded_file($fileTmpPath, $destinationPath)) {
                 // Optionally, store information in a database
+    echo "test2";
 
                 // Add the file path and other info to the session's 'insurance' array
                 if (!isset($_SESSION['booking']['insurance'])) {
