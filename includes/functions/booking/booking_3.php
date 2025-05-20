@@ -79,7 +79,7 @@ if (isset($_POST['upload_temp'])) {
         mkdir($uploadRootDir, 0777, true);
     }
 
-    echo "test5";
+    // echo "test5";
 
     $file = $_FILES['file'];
 
@@ -113,13 +113,13 @@ if (isset($_POST['upload_temp'])) {
             // Check if the directories exist, if not, create them
             if (!file_exists($userFolder)) {
                 mkdir($userFolder, 0777, true);  // Create user folder
-    echo "test4";
+    // echo "test4";
             
             }
 
             if (!file_exists($peopleFolder)) {
                 mkdir($peopleFolder, 0777, true);  // Create people_number folder
-    echo "test3";
+    // echo "test3";
            
             }
 
@@ -129,7 +129,6 @@ if (isset($_POST['upload_temp'])) {
             // Move the uploaded file to the destination directory
             if (move_uploaded_file($fileTmpPath, $destinationPath)) {
                 // Optionally, store information in a database
-    echo "test2";
 
                 // Add the file path and other info to the session's 'insurance' array
                 if (!isset($_SESSION['booking']['insurance'])) {
@@ -169,8 +168,7 @@ if (isset($_POST['upload_temp'])) {
             } else {
                 echo json_encode(['status' => 'error', 'message' => 'Error moving the uploaded file']);
             }
-    echo "test1";
-
+ 
         } else {
             echo json_encode(['status' => 'error', 'message' => 'File upload error']);
         }
