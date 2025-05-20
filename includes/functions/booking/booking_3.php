@@ -152,7 +152,7 @@ if (isset($_POST['upload_temp'])) {
                     'file_size' => $fileSize,
                     'file_type' => $fileType
                 ];
-
+                echo "test";
                 // Return a success response
                 echo json_encode([
                     'status' => 'success',
