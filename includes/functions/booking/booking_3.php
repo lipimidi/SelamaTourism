@@ -74,12 +74,12 @@ if (isset($_POST['upload_temp'])) {
 
 
     $uploadRootDir = 'assets/uploads/booking/insurance/temp/';
-    echo "test";
     // Check if the directory exists, if not, create it
     if (!file_exists($uploadRootDir)) {
         mkdir($uploadRootDir, 0777, true);
     }
 
+    echo "test5";
 
     $file = $_FILES['file'];
 
@@ -88,15 +88,18 @@ if (isset($_POST['upload_temp'])) {
     $fileTmpPath = $file['tmp_name'];
     $fileSize = $file['size'];
     $fileError = $file['error'];
+    echo "test4";
 
     // Access custom parameters from the form data
     $userId = isset($_POST['user_id']) ? $_POST['user_id'] : 'Unknown';
     $peopleNumber = isset($_POST['people_number']) ? $_POST['people_number'] : 'Unknown';
 
     // Log the custom parameters (optional)
+    echo "test";
 
     // Define allowed file types
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
+    echo "test2";
 
     // Check if the file type is allowed
     if (in_array($file['type'], $allowedTypes)) {
@@ -167,6 +170,7 @@ if (isset($_POST['upload_temp'])) {
         echo json_encode(['status' => 'error', 'message' => 'Invalid file type']);
     }
 
+    echo "test3";
 
 
 }
