@@ -42,7 +42,7 @@ if (isset($_POST['fetch_events_guide'])) {
                         INNER JOIN guide_details gd ON g.id = gd.guide_id
                         WHERE g.date = '$date_string' 
                         AND g.timeslot_id = '$timeslot_id' 
-                        AND g.status <= '1'
+                   
                         ";
 
             $result = $conn->query($sql);
