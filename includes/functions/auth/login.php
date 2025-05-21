@@ -3,7 +3,7 @@
 if (isset($_POST['login'])) {
     $errors = array();
 
-    echo "<script>console.log('test');</script>";
+    // echo "<script>console.log('test');</script>";
 
     $login = mysqli_real_escape_string($conn, $_POST['email']);
     $password = $_POST['password'];  
