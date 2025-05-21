@@ -3,7 +3,7 @@
 if (isset($_POST['register'])) {
     $errors = array();
 
-    echo "<script>console.log('test');</script>";
+    // echo "<script>console.log('test');</script>";
 
     // Sanitize user inputs and check for empty fields
     if (empty($_POST['username'])) {
