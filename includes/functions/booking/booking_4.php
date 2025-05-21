@@ -2,7 +2,7 @@
 
 
 if (isset($_POST['confirmbooking'])) {
-    echo "<script>console.log(" . json_encode($_POST) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_POST) . ");</script>";
     // echo "<script>console.log(" . json_encode($_FILES) . ");</script>";
     $error = false;
 
@@ -68,17 +68,17 @@ if (isset($_POST['confirmbooking'])) {
         if (file_exists($filepath)) {
             // Attempt to move the file
             if (rename($filepath, $destinationPath)) {
-                echo "<script>console.log('File moved successfully');</script>";
+                // echo "<script>console.log('File moved successfully');</script>";
 
 
 
 
 
             } else {
-                echo "<script>console.log('Error moving file');</script>";
+                // echo "<script>console.log('Error moving file');</script>";
             }
         } else {
-            echo "<script>console.log('Source file does not exist');</script>";
+            // echo "<script>console.log('Source file does not exist');</script>";
         }
 
 

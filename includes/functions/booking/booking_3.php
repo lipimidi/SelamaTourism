@@ -10,7 +10,7 @@ if (isset($_POST['confirminsurance'])) {
 
     if (empty($_SESSION['booking']['insurance'])) {
         $error = true;
-        echo "<script>console.log('Error: Insurance data is empty');</script>";
+        // echo "<script>console.log('Error: Insurance data is empty');</script>";
 
     } else {
         // Loop through each person and check for their insurance data
@@ -18,7 +18,7 @@ if (isset($_POST['confirminsurance'])) {
             // Check if the current person has insurance data
             if (!isset($_SESSION['booking']['insurance'][$personNumber]) || empty($_SESSION['booking']['insurance'][$personNumber])) {
                 $error = true;
-                echo "<script>console.log('" . "Error: No insurance data for person $personNumber.<br>" . "');</script>";
+                // echo "<script>console.log('" . "Error: No insurance data for person $personNumber.<br>" . "');</script>";
 
             }
         }
@@ -169,8 +169,8 @@ if (isset($_POST['upload_temp'])) {
 
 
 if (isset($_POST['remove_temp'])) {
-    echo "<script>console.log(" . json_encode($_POST) . ");</script>";
-    echo "<script>console.log(" . json_encode($_FILES) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_POST) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_FILES) . ");</script>";
 
     $fileToRemove = $_POST['file'];
     $userId = $_POST['user_id'];

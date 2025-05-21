@@ -125,7 +125,7 @@ function dashboard()
         ['title' => 'Home', 'url' => ''],
         ['title' => 'Dashboard', 'url' => '/dashboard'],
     ];
-    echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
 
     if ($role === 'admin') {
 
