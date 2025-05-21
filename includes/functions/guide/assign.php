@@ -143,7 +143,7 @@ if (isset($_POST['assignguide'])) {
         $update_sql = "UPDATE guides SET `status` = '$status' , `user_id` = '$user_id' WHERE   `date` = '$date' AND `timeslot_id` = '$session'";
 
         if (mysqli_query($conn, $update_sql)) {
-            echo "Guide assignment updated successfully.";
+            // echo "Guide assignment updated successfully.";
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -152,7 +152,7 @@ if (isset($_POST['assignguide'])) {
         $insert_sql = "INSERT INTO guides (`user_id`, `date`, `timeslot_id`, `status`) VALUES ('$user_id', '$date', '$session', '$status')";
 
         if (mysqli_query($conn, $insert_sql)) {
-            echo "Guide assigned successfully.";
+            // echo "Guide assigned successfully.";
         } else {
             echo "Error: " . mysqli_error($conn);
         }

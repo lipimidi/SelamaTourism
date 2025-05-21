@@ -207,7 +207,7 @@ if (isset($_POST['remove_temp'])) {
 
 
     } else {
-        echo "Remove temporary flag is not set.";
+        // echo "Remove temporary flag is not set.";
     }
 
 }

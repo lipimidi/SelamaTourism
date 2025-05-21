@@ -151,7 +151,7 @@ if (isset($_POST['people_change_status'])) {
 
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
-        echo "done";
+        // echo "done";
 
 
     } else {
@@ -182,7 +182,7 @@ if (isset($_POST['people_change_status_2'])) {
 
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
-        echo "done";
+        // echo "done";
 
 
     } else {

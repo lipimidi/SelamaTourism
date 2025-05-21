@@ -338,9 +338,9 @@ if (is_dir($folderPath)) {
     // Format the date in a readable format
     $formattedDate = date("Y-m-d H:i:s", $folderCreationTime);
     
-    echo "Folder was created on: " . $formattedDate;
+    // echo "Folder was created on: " . $formattedDate;
 } else {
-    echo "The provided path is not a valid folder.";
+    // echo "The provided path is not a valid folder.";
 }
 
 }

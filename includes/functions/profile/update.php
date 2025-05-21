@@ -48,10 +48,10 @@ if (isset($_POST['profile_update'])) {
             $imagePath = $uploadResult['file_path'];
             $updateFields[] = "image";
             $updateValues[] = "'$imagePath'";
-            echo "Image uploaded successfully: " . $imagePath;
+            // echo "Image uploaded successfully: " . $imagePath;
         } else {
             // Error with file upload
-            echo "Image upload failed: " . $uploadResult['message'];
+            // echo "Image upload failed: " . $uploadResult['message'];
             // You can choose to exit or continue with other actions based on your needs.
             exit();
         }
@@ -59,7 +59,7 @@ if (isset($_POST['profile_update'])) {
 
     // If no fields were updated, show a message and exit
     if (empty($updateFields)) {
-        echo "No fields to update.";
+        // echo "No fields to update.";
         exit();
     }
 
@@ -74,7 +74,7 @@ if (isset($_POST['profile_update'])) {
         }, $updateFields, $updateValues)) . " WHERE user_id = '$user_id'";
 
         if (mysqli_query($conn, $updateSql)) {
-            echo "Profile updated successfully.";
+            // echo "Profile updated successfully.";
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -83,7 +83,7 @@ if (isset($_POST['profile_update'])) {
         $insertSql = "INSERT INTO user_details (user_id, " . implode(", ", $updateFields) . ") VALUES ('$user_id', " . implode(", ", $updateValues) . ")";
 
         if (mysqli_query($conn, $insertSql)) {
-            echo "Profile created successfully.";
+            // echo "Profile created successfully.";
         } else {
             echo "Error: " . mysqli_error($conn);
         }

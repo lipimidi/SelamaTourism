@@ -18,7 +18,7 @@ if (isset($_POST['blogs_add_new'])) {
 
         $result = uploadFile('imagemain', 'assets/uploads/blogs/' . $blog_id . '/');
 
-        echo "Content saved successfully!";
+        // echo "Content saved successfully!";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
