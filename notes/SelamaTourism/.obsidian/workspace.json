@@ -4,30 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "855b62cf7fbf7d86",
+        "id": "fdc77a4ef75f30e4",
         "type": "tabs",
         "children": [
           {
-            "id": "66d67d35e648221f",
+            "id": "2fbfc78b7a7f00da",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "canvas",
               "state": {
-                "file": "Wireframe/Task/Task List.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
+                "file": "Progress/Timeline.canvas",
+                "viewState": {
+                  "x": 1829.4444444444448,
+                  "y": -150.15813982001157,
+                  "zoom": -0.3333333333333332
                 }
               },
-              "icon": "lucide-trello",
-              "title": "Task List"
+              "icon": "lucide-layout-dashboard",
+              "title": "Timeline"
             }
           }
         ]
@@ -178,10 +172,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "66d67d35e648221f",
+  "active": "2fbfc78b7a7f00da",
   "lastOpenFiles": [
-    "Wireframe/Index.md",
+    "Progress/Gantt Chart.md",
+    "Guide Details (User).md",
     "Wireframe/Task/Task List.md",
+    "Wireframe/Index.md",
     "Wireframe/Task/Guide Info ( Admin).md",
     "Wireframe/Task/Booking Success (email ).md"
   ]
