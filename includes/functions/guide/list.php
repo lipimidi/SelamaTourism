@@ -178,7 +178,13 @@ if (isset($_POST['people_change_status'])) {
     }
 
     echo "successful";
+       $result = publishToBeamsInterests(
+            [(string) $guide_id],    // or ['2'] for testing
+            'Guide Finished',
+            'Guide Finished',
+            "$rootPath/guide/$guide_id",
 
+        );
     // header("Location: " . $basePath2 . "/book". "/" . $id );
     die();
 
