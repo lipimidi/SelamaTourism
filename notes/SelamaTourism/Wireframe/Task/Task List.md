@@ -8,7 +8,6 @@ kanban-plugin: board
 
 - [ ] Attractions
 - [ ] Accomodation / Facilities
-- [ ] User Profile
 - [ ] Review
 
 
@@ -33,6 +32,7 @@ kanban-plugin: board
 - [ ] [[Staff Add New ( ADMIN) 🔼]]
 - [ ] Booking Step 1( Date )
 - [ ] Dashboard (user)
+- [ ] User Profile
 - [ ] [[Guide Info ( Admin)]] ⏫
 - [ ] [[Guide Info ( Guide)]] ⏫
 - [ ] Booking Step 2(People)

@@ -181,7 +181,7 @@
         },
         eventClick: function (info) {
           // Check if remaining slots are 0
-          if (info.event.extendedProps.remaining_slots === 0) {
+          if (info.event.extendedProps.remaining_slots == 0) {
             return; // Do nothing if there are no remaining slots
           }
 

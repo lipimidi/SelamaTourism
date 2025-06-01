@@ -90,6 +90,7 @@ $routes = [
     'profile/update' => 'profile_update',
 
 
+    'views/update' => 'views_update',
 
 
 ];

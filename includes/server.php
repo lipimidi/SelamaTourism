@@ -61,6 +61,10 @@ $dotenv->load();
  include('functions/auth/login.php');
  include('functions/auth/register.php');
 
+//views
+include('functions/page_views/page_views.php');
+
+
 
  //profile
  include('functions/profile/update.php');

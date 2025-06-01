@@ -4,12 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "855b62cf7fbf7d86",
+        "id": "f7c7ee5ed47973e7",
         "type": "tabs",
         "children": [
           {
-            "id": "66d67d35e648221f",
+            "id": "9b44ecf7f7ce2b0a",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "kanban",
               "state": {
@@ -26,6 +27,7 @@
                   ]
                 }
               },
+              "pinned": true,
               "icon": "lucide-trello",
               "title": "Task List"
             }
@@ -178,11 +180,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "66d67d35e648221f",
+  "active": "9b44ecf7f7ce2b0a",
   "lastOpenFiles": [
-    "Wireframe/Index.md",
+    "Wireframe/Task/Booking Success (email ).md",
     "Wireframe/Task/Task List.md",
-    "Wireframe/Task/Guide Info ( Admin).md",
-    "Wireframe/Task/Booking Success (email ).md"
+    "Wireframe/Index.md",
+    "Wireframe/Task/Guide Info ( Admin).md"
   ]
 }

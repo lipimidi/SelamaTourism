@@ -379,3 +379,17 @@ function profile()
 
 
 }
+
+
+
+
+
+function views_update()
+{
+    include('includes/server.php');
+
+
+
+
+ 
+}

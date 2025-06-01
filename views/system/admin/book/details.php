@@ -196,7 +196,7 @@ background-size: cover;">
                           $personFolder = 'person_' . ($index + 1);  // person_1, person_2, etc.
                           $file = $detail['file'];
 
-                          $filepath = $basePath . '/assets/uploads/booking/insurance/' . $booking_id . '/' . $personFolder . '/' . $file;
+                          $filepath = $rootPath . '/assets/uploads/booking/insurance/' . $booking_id . '/' . $personFolder . '/' . $file;
 
 
                           ?>
@@ -252,8 +252,8 @@ background-size: cover;">
 
                                 ?>
 
-                                <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox data-type="<?php echo $type; ?>" data-src="<?php echo  $filepath ?>"
-                                  href="javascript:;">
+                                <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox data-type="<?php echo $type; ?>"
+                                  href="<?php echo  $filepath ?>">
                                   File
                                 </a>
 

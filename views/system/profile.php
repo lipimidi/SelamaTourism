@@ -38,19 +38,21 @@
                         <div class="row justify-content-center align-items-center">
                             <div class="col-sm-auto col-4">
                                 <?php
-                                // Path to the user image
-
-                                $id = $_SESSION['user_details']['id'];
-                                $filename = $user['image'];
- 
-                                // Default image if the user image does not exist
                                 $defaultImage = 'https://demos.creative-tim.com/argon-dashboard-pro/assets/img/team-3.jpg';
-                                ?>
 
+                                $imageToShow = $defaultImage;
+
+                                // Check if session and image key are set
+                                if (isset($user['image']) && !empty($user['image'])) {
+                                    $filename = $user['image'];
+
+                                            $imageToShow = $filename;
+                                
+                                }
+                                ?>
                                 <div class="avatar avatar-xl position-relative">
                                     <!-- Check if user image exists; if not, use default image -->
-                                    <img src="<?php echo (file_exists($filename)) ? $filename : $defaultImage; ?>"
-                                        alt="bruce" class="w-100 border-radius-lg shadow-sm">
+                                    <img src="<?php echo $imageToShow ?>" alt="bruce" class="w-100 border-radius-lg shadow-sm">
                                 </div>
                             </div>
                             <div class="col-sm-auto col-8 my-auto">
@@ -65,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                                 
+
                             </div>
                         </div>
                     </div>

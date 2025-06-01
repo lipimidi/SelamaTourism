@@ -90,7 +90,7 @@
     var contentFromPHP = <?php echo json_encode($content); ?>;
 
     // console.log(titleFromPHP);
-    console.log(contentFromPHP);
+    // console.log(contentFromPHP);
 
     var decodedTitle = decodeHtmlEntities(titleFromPHP);
     var decodedContent = decodeHtmlEntities(contentFromPHP);

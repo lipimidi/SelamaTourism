@@ -422,6 +422,7 @@ background-size: cover;">
               columns: d.columns,               // Column info, useful if needed
               draw: d.draw,                     // Draw counter for DataTables
               getlist_people_guide: "getlist_people_guide",     // This will be used to identify the request in PHP
+              guide_id: "<?php echo $guide_id ?>",     // This will be used to identify the request in PHP
               // user_id: "<?php echo $_SESSION['user_details']['id'] ?>",     // This will be used to identify the request in PHP
 
             };
@@ -507,11 +508,13 @@ background-size: cover;">
           if (response) {
             console.log(postData);
             $('#dynamicModal').modal('hide');  // Close the modal after success
-            $('#guide_list').DataTable().ajax.reload(null, false);
+            $('#guide_list').DataTable().ajax.reload();
           } else {
             // alert('Failed to save changes');
             console.log(response);
           }
+
+
         },
         error: function () {
           console.log("error1");

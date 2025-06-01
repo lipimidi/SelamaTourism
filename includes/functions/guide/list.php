@@ -11,15 +11,20 @@ if (isset($_POST['getlist_people_guide'])) {
     $order_direction = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'desc'; // Sorting direction
     $table_name = "guide_details";
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
+    $guide_id = isset($_POST['guide_id']) ? (int) $_POST['guide_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id']; // Modify according to your table structure
+    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id','guide_id']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);
 
     // Build the SQL query
-    $search_condition = "WHERE 1=1"; // Default condition to simplify appending conditions
+    $search_condition = "WHERE 1=1 "; // Default condition to simplify appending conditions
+
+
+
+            $search_condition .= " AND guide_id = '$guide_id'";
 
     // If there's a search value, add search conditions for the relevant fields
     if ($search) {
@@ -157,6 +162,8 @@ if (isset($_POST['people_change_status'])) {
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+
+    echo "successful";
 
     // header("Location: " . $basePath2 . "/book". "/" . $id );
     die();
