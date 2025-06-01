@@ -32,7 +32,31 @@
         <div class="col-12 text-center">
           <h3 class="mt-5 text-white">Secure your spot now</h3>
           <h5 class="text-white font-weight-normal">Customize your experience today!</h5>
+<?php
+echo "sds";
+       $result = publishToBeamsInterests(
+            [(string) $guide_id],    // or ['2'] for testing
+            'Guide Finished',
+            'Guide Finished',
+            "$rootPath/guide/$guide_id",
 
+        );
+                if ($result) {
+            // Assuming the result is an associative array (after decoding a JSON response)
+            if (isset($result['status']) && $result['status'] === 'success') {
+                // Handle success
+                echo "Notification sent successfully: " . $result['message'] . "\n";
+                echo "Message ID: " . $result['message_id'] . "\n";
+            } else {
+                // Handle failure
+                echo "Failed to send notification: " . $result['message'] . "\n";
+            }
+        } else {
+            // In case the result is null or something went wrong in the publish function
+            echo "Error: The notification could not be sent.\n";
+        }
+
+?>
           <div class="multisteps-form mb-5">
 
 
