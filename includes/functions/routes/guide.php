@@ -81,6 +81,8 @@ INNER JOIN bookings ON bookings.id = guide_details.booking_id
     $guide_status = getGuideStatuses($guide['status']);
 
 
+
+
     if ($role == 'admin') {
         // var_dump($guide);
         // var_dump($guide_details);
@@ -92,6 +94,13 @@ INNER JOIN bookings ON bookings.id = guide_details.booking_id
         if ($user_id != $_SESSION['user_details']['id']) {
             unAuth();
         } else {
+
+
+
+
+
+
+            
 
             include 'views/system/guide/guide/details.php';
         }

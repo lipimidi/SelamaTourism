@@ -429,7 +429,7 @@ background-size: cover;">
             beamsClient.start()
               .then(() => {
                 // Subscribe the device to the correct interest
-                beamsClient.addDeviceInterest('<?php echo $guide_id?>')
+                beamsClient.addDeviceInterest('guide-<?php echo $guide_id?>')
                   .then(() => {
                     console.log('Successfully subscribed to <?php echo $guide_id ?>');
                   })

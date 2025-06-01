@@ -35,15 +35,7 @@
 
           <div class="multisteps-form mb-5">
 
-<?php
-       $result = publishToBeamsInterests(
-            [(string) $guide_id],    // or ['2'] for testing
-            'Guide Finished',
-            'Guide Finished',
-            "$rootPath/guide/$guide_id",
 
-        );
-?>
 
             <div class="row  mt-5">
               <div class="col-lg-6 col-12">
