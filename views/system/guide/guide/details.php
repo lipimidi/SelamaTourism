@@ -507,7 +507,7 @@ background-size: cover;">
         data: postData,
         success: function (response) {
           if (response) {
-            console.log(postData);
+            console.log(response);
             $('#dynamicModal').modal('hide');  // Close the modal after success
             $('#guide_list').DataTable().ajax.reload(null, false);
           } else {

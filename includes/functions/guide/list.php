@@ -14,7 +14,7 @@ if (isset($_POST['getlist_people_guide'])) {
     $guide_id = isset($_POST['guide_id']) ? (int) $_POST['guide_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id','guide_id']; // Modify according to your table structure
+    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id', 'guide_id']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);
@@ -24,7 +24,7 @@ if (isset($_POST['getlist_people_guide'])) {
 
 
 
-            $search_condition .= " AND guide_id = '$guide_id'";
+    $search_condition .= " AND guide_id = '$guide_id'";
 
     // If there's a search value, add search conditions for the relevant fields
     if ($search) {
@@ -123,8 +123,8 @@ if (isset($_POST['people_change_status'])) {
         $sql2 = "UPDATE guide SET status = '6'  WHERE id ='$guide_id' ";
         mysqli_query($conn, $sql2);
 
-
-        
+echo "test"
+;
         $result = publishToBeamsInterests(
             [(string) $guide_id],    // or ['2'] for testing
             'Emergency',
@@ -133,38 +133,38 @@ if (isset($_POST['people_change_status'])) {
 
         );
         // Check the result to determine if the notification was sent successfully
-if ($result) {
-    // Assuming the result is an associative array (after decoding a JSON response)
-    if (isset($result['status']) && $result['status'] === 'success') {
-        // Handle success
-        echo "Notification sent successfully: " . $result['message'] . "\n";
-        echo "Message ID: " . $result['message_id'] . "\n";
-    } else {
-        // Handle failure
-        echo "Failed to send notification: " . $result['message'] . "\n";
-    }
-} else {
-    // In case the result is null or something went wrong in the publish function
-    echo "Error: The notification could not be sent.\n";
-}
+        if ($result) {
+            // Assuming the result is an associative array (after decoding a JSON response)
+            if (isset($result['status']) && $result['status'] === 'success') {
+                // Handle success
+                echo "Notification sent successfully: " . $result['message'] . "\n";
+                echo "Message ID: " . $result['message_id'] . "\n";
+            } else {
+                // Handle failure
+                echo "Failed to send notification: " . $result['message'] . "\n";
+            }
+        } else {
+            // In case the result is null or something went wrong in the publish function
+            echo "Error: The notification could not be sent.\n";
+        }
 
     }
-  
- 
+
+
 
     if ($status == '3') {
         $sql2 = "UPDATE guide SET status = '3'  WHERE id ='$guide_id' ";
         mysqli_query($conn, $sql2);
 
 
-        
-        $result = publishToBeamsInterests(
-            [(string) $guide_id],    // or ['2'] for testing
-            'Guide Finished',
-            'Guide Finished',
-            "$rootPath/guide/$guide_id",
 
-        );
+        // $result = publishToBeamsInterests(
+        //     [(string) $guide_id],    // or ['2'] for testing
+        //     'Guide Finished',
+        //     'Guide Finished',
+        //     "$rootPath/guide/$guide_id",
+
+        // );
 
     }
 
@@ -198,7 +198,7 @@ if (isset($_POST['people_change_status_2'])) {
 
 
 
- 
+
 
 
 
