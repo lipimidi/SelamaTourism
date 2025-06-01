@@ -132,6 +132,21 @@ if (isset($_POST['people_change_status'])) {
             "$rootPath/guide/$guide_id",
 
         );
+        // Check the result to determine if the notification was sent successfully
+if ($result) {
+    // Assuming the result is an associative array (after decoding a JSON response)
+    if (isset($result['status']) && $result['status'] === 'success') {
+        // Handle success
+        echo "Notification sent successfully: " . $result['message'] . "\n";
+        echo "Message ID: " . $result['message_id'] . "\n";
+    } else {
+        // Handle failure
+        echo "Failed to send notification: " . $result['message'] . "\n";
+    }
+} else {
+    // In case the result is null or something went wrong in the publish function
+    echo "Error: The notification could not be sent.\n";
+}
 
     }
   
