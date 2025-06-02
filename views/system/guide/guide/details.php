@@ -74,7 +74,8 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $guide['date'] ?>
+                              <?php $guide_date = new DateTime($guide['date']);
+                              echo $guide_date->format('d/m/Y');  // Output: 23/07/2025 ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -100,7 +101,14 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $guide['start_time'] ?> - <?php echo $guide['end_time'] ?>
+                              <?php
+
+                              $start_time = new DateTime($guide['start_time']);  // Convert start time to DateTime
+                              $end_time = new DateTime($guide['end_time']);      // Convert end time to DateTime
+                              
+                              echo $start_time->format('g:i A') . ' - ' . $end_time->format('g:i A');  // Output: 8:00 AM - 12:00 PM
+                              
+                              ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>
@@ -145,24 +153,26 @@ background-size: cover;">
               <div class="col-lg-6 col-12  mt-4 mt-lg-0">
                 <div class="row">
                   <div class="col-12">
-                    <div class="card overflow-hidden shadow-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/reports1.jpg');
-background-size: cover;">
-                      <span class="mask bg-gradient-dark"></span>
-                      <div class="card-body p-3 position-relative">
-                        <div class="row">
-                          <div class="col-8 text-start">
-                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                              <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
+                    <div class="card overflow-hidden shadow-lg">
+                      <div class="card-body p-3">
+                        <div class="row gx-4">
+                          <div class="col-auto">
+                            <div class="avatar avatar-xl position-relative">
+                              <img src="<?php echo $rootPath . "/" . $guide['image'] ?>" alt="profile_image"
+                                class="w-100 border-radius-lg shadow-sm">
                             </div>
-                            <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $guide['name'] ?>
-                            </h5>
-                            <span class="text-white text-sm">Guide</span>
                           </div>
-                          <div class="col-4">
+                          <div class="col-auto my-auto">
+                            <div class="h-100">
+                              <h5 class="mb-1">
+                                <?php echo $guide['name'] ?>
+                              </h5>
+                              <p class="mb-0 font-weight-bold text-sm">
+                                Guide
+                              </p>
+                            </div>
+                          </div>
 
-                            <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+55%</p> -->
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -187,13 +197,17 @@ background-size: cover;">
                           </div>
                           <div class="col-4">
                             <!-- Button to Start QR Code Scan -->
-                            <button id="start-scan-btn" class="btn btn-primary w-100">
+                            <button id="start-scan-btn" class="btn   bg-gradient-primary  w-100">
                               Start QR Scan
                             </button>
 
                             <!-- Container for QR Code Scanner -->
-                            <div id="qr-reader" style="display: none;"></div>
                           </div>
+                          <div class="col-12">
+                            <div id="qr-reader" style="display: none;"></div>
+
+                          </div>
+
                         </div>
                       </div>
                     </div>

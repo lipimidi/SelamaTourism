@@ -10,7 +10,7 @@ function guide($guide_id)
     $guide_id = (int) $guide_id;  // Cast to integer to ensure safety
 
     // // Query to search for the booking_id in the bookings table
-    $sql = "SELECT guides.*, booking_timeslots.* , user_details.name
+    $sql = "SELECT guides.*, booking_timeslots.* , user_details.name , user_details.image
     FROM guides
     INNER JOIN booking_timeslots ON guides.timeslot_id = booking_timeslots.id
     LEFT JOIN user_details ON guides.user_id = user_details.user_id

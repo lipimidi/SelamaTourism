@@ -138,7 +138,7 @@ if (isset($_POST['people_change_status'])) {
 
 
 
-    if ($status == '3') {
+    if ($status == '2') {
         $sql2 = "UPDATE guide SET status = '3'  WHERE id ='$guide_id' ";
         mysqli_query($conn, $sql2);
 

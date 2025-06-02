@@ -9,6 +9,7 @@ kanban-plugin: board
 - [ ] Attractions
 - [ ] Accomodation / Facilities
 - [ ] Review
+- [ ] Todo list of guide user
 
 
 ## To DO
@@ -16,7 +17,6 @@ kanban-plugin: board
 - [ ] Dashboard ( admin )
 - [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Booking Success (email )]] ^twfntn
-- [ ] Todo list of guide user
 
 
 ## Bugs

@@ -71,7 +71,8 @@ background-size: cover;">
                               <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['people_booked'] ?>
+                              <?php $booking_date = new DateTime($booking['booking_date']);
+                              echo $booking_date->format('d/m/Y');  // Output: 23/07/2025 ?>
                             </h5>
                             <span class="text-white text-sm">People</span>
                           </div>
@@ -120,7 +121,14 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['start_time'] ?> - <?php echo $booking['end_time'] ?>
+                              <?php
+
+                              $start_time = new DateTime($booking['start_time']);  // Convert start time to DateTime
+                              $end_time = new DateTime($booking['end_time']);      // Convert end time to DateTime
+                              
+                              echo $start_time->format('g:i A') . ' - ' . $end_time->format('g:i A');  // Output: 8:00 AM - 12:00 PM
+                              
+                              ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>
@@ -157,7 +165,7 @@ background-size: cover;">
                 </div>
               </div>
 
-              <?php if ($booking['status'] != 0) { ?>
+              <!-- <?php if ($booking['status'] != 0) { ?>
 
 
                 <div class="col-lg-6 col-0 mt-4 mt-lg-0">
@@ -185,7 +193,7 @@ background-size: cover;">
                   </div>
 
                 </div>
-              <?php } ?>
+              <?php } ?> -->
 
             </div>
 
@@ -206,12 +214,7 @@ background-size: cover;">
                             Email</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Address</th>
-                          <?php if ($booking['status'] > 1) { ?>
-
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                              Status
-                            </th>
-                          <?php } ?>
+                         
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                           </th>
 
@@ -278,21 +281,21 @@ background-size: cover;">
                                 </div>
                               </div>
                             </td>
-                            <?php
+                            <!-- <?php
 
                             if ($booking['status'] > 1) { ?>
 
                               <td>
-                                <div class="d-flex px-2 py-1">
+                                <div class="d-flex px-2 py-1 justify-content-center">
 
                                   <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm"><?php echo getHikingStatuses($people_status) ?></h6>
+                                    <h6 class="mb-0 text-sm"><?php echo strtoupper(getHikingStatuses($people_status)) ?></h6>
                                   </div>
                                 </div>
                               </td>
-                            <?php } ?>
+                            <?php } ?> -->
                             <td>
-                              <div class="d-flex px-2 py-1">
+                              <div class="d-flex px-2 py-1 justify-content-center">
 
                                 <?php
                                 $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
@@ -302,7 +305,7 @@ background-size: cover;">
                                 ?>
 
                                 <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox
-                                  data-type="<?php echo $type; ?>" data-src="<?php echo $filepath ?>" href="javascript:;">
+                                  data-type="<?php echo $type; ?>"  href="<?php echo $filepath ?>">
                                   File
                                 </a>
 
