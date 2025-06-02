@@ -557,8 +557,8 @@
 
         // Find today's weather data from the response
         let todayWeather = data.find(item => item.date === localDate);
-        console.log(data);
-        console.log(localDate);
+        // console.log(data);
+        // console.log(localDate);
 
         if (todayWeather) {
           // Extract temperature and weather summary
@@ -587,8 +587,8 @@
     function getWeatherIcon(description) {
       // Map descriptions to Font Awesome icons
       const iconMap = {
-        "Berjerebu": "fas fa-smog",  // Hazy
-        "Tiada hujan": "fas fa-sun",  // Clear
+        "Berjerebu": "fa-solid fa-sun",  // Hazy
+        "Tiada hujan": "fa-solid fa-sun",  // Clear
         "Hujan": "fas fa-cloud-showers-heavy",  // Rain
         "Hujan di beberapa tempat": "fas fa-cloud-showers-heavy",  // Scattered rain
         "Hujan di satu dua tempat": "fas fa-cloud-rain",  // Isolated Rain

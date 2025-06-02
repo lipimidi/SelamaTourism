@@ -17,6 +17,7 @@ kanban-plugin: board
 - [ ] Dashboard ( admin )
 - [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Booking Success (email )]] ^twfntn
+- [ ] Booking Settings
 
 
 ## Bugs
