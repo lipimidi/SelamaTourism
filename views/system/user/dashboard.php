@@ -120,9 +120,10 @@
                   <div class="row">
                     <div class="col-12 my-auto">
                       <div class="numbers">
-                        <p class="text-sm mb-0 text-capitalize font-weight-bold opacity-7">Weather today</p>
+                         <p class="text-sm mb-0 text-capitalize font-weight-bold opacity-7">Weather today</p>
                         <h5 class="font-weight-bolder mb-0" id="weather-temperature">
                           Lata Puteh - 29°C
+
                         </h5>
                       </div>
                     </div>
