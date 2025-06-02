@@ -41,6 +41,7 @@ function publishToBeamsInterests(array $interests, string $title, string $body, 
                         'title'     => $title,
                         'body'      => $body,
                         'deep_link' => $fullLink,
+                        
                     ],
                 ],
             ]

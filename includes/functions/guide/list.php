@@ -319,39 +319,51 @@ if (isset($_POST['getlist_guide_user'])) {
     $columns = ['id', 'date', 'timeslot_id', 'user_id', 'created_at']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
-    // $search = $conn->real_escape_string($search);
+// $search = $conn->real_escape_string($search);
 
     // Build the SQL query
     $search_condition = "WHERE 1=1"; // Default condition to simplify appending conditions
 
     // If there's a search value, add search conditions for the relevant fields
     if ($search) {
-        $search_condition .= " AND (id LIKE '%$search%' 
-                                 OR name LIKE '%$search%' 
-                                 OR ic LIKE '%$search%' 
-                                 OR phone LIKE '%$search%' 
-                                 OR email LIKE '%$search%' 
-                                  OR address LIKE '%$search%')";
+        $search_condition .= " AND (g.id LIKE '%$search%' 
+                                --  OR g.name LIKE '%$search%' 
+                                --  OR g.ic LIKE '%$search%' 
+                                --  OR g.phone LIKE '%$search%' 
+                                --  OR g.email LIKE '%$search%' 
+                                --  OR g.address LIKE '%$search%' 
+                                --  OR b.id LIKE '%$search%' 
+                                --  OR b.user_id LIKE '%$search%' 
+                                 OR g.date LIKE '%$search%')";  // Adjust the column in guide_details
     }
 
-    // Ensure that the user_id condition is added at the end
-    // if ($user_id) {
-    //     $search_condition .= " AND user_id = '$user_id'";
-    // }
-
+    // Add user_id condition
+    if ($user_id) {
+        $search_condition .= "";
+    }
 
     // Build the order by clause
     $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
 
-    // Paginate the result
-    $sql = "SELECT * FROM $table_name $search_condition $order_by LIMIT $start, $length";
+    // Paginate the result with INNER JOINs on bookings and guide_details
+    $sql = "SELECT g.* , b.user_id
+        FROM $table_name g
+       INNER JOIN guide_details gd ON g.id = gd.guide_id        
+         INNER JOIN bookings b ON b.id = gd.booking_id
+        $search_condition
+        GROUP BY  g.id ,  b.user_id
+        $order_by 
+        LIMIT $start, $length
+        ";
+
     $result = $conn->query($sql);
+
 
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
 
-                $date = new DateTime($row['date']);  // Replace 'datetime' with the correct column name
+        $date = new DateTime($row['date']);  // Replace 'datetime' with the correct column name
         $row['date'] = $date->format('d/m/Y');  // Format: 23/07/2025 8:30PM
 
         $date = new DateTime($row['created_at']);  // Replace 'datetime' with the correct column name
@@ -361,13 +373,19 @@ if (isset($_POST['getlist_guide_user'])) {
     }
 
     // Get the total number of records after filtering (for pagination)
-    $sql_filtered_total = "SELECT COUNT(*) AS total FROM $table_name $search_condition";
+    $sql_filtered_total = "SELECT COUNT(*) AS total    FROM $table_name g
+       INNER JOIN guide_details gd ON g.id = gd.guide_id        
+         INNER JOIN bookings b ON b.id = gd.booking_id
+          $search_condition GROUP BY  g.id ,  b.user_id";
     $result_filtered_total = $conn->query($sql_filtered_total);
     $row_filtered_total = $result_filtered_total->fetch_assoc();
     $filtered_records = $row_filtered_total['total'];
 
     // Get the total number of records without filtering (for pagination)
-    $sql_total = "SELECT COUNT(*) AS total FROM $table_name";
+    $sql_total = "SELECT COUNT(*) AS total  FROM $table_name g
+       INNER JOIN guide_details gd ON g.id = gd.guide_id        
+         INNER JOIN bookings b ON b.id = gd.booking_id
+          $search_condition GROUP BY  g.id ,  b.user_id";
     $result_total = $conn->query($sql_total);
     $row_total = $result_total->fetch_assoc();
     $total_records = $row_total['total'];
