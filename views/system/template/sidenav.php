@@ -58,7 +58,7 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $rootPath; ?>/dashboard">
           <div class="icon icon-shape icon-sm text-center   d-flex align-items-center justify-content-center">
-            <i class="ni ni-shop text-dark text-sm opacity-10"></i>
+               <i class="fa-solid fa-house  text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
