@@ -44,6 +44,8 @@ if (isset($_POST['staff_getlist'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
+
+        $row['name'] = strtoupper($row['name']);
         $data[] = $row;
     }
 

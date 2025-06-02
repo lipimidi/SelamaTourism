@@ -89,7 +89,7 @@ if (isset($_POST['getlist_people_guide'])) {
 
 if (isset($_POST['people_change_status'])) {
 
-
+    //for each hiker
     $id = $_POST['id'];
     $guide_id = $_POST['guide_id'];
     $status = $_POST['status'];
@@ -123,7 +123,7 @@ if (isset($_POST['people_change_status'])) {
         $sql2 = "UPDATE guide SET status = '6'  WHERE id ='$guide_id' ";
         mysqli_query($conn, $sql2);
 
- 
+
         $result = publishToBeamsInterests(
             ["guide-$guide_id"],    // or ['2'] for testing
             'Emergency',
@@ -132,20 +132,7 @@ if (isset($_POST['people_change_status'])) {
 
         );
         // // Check the result to determine if the notification was sent successfully
-        if ($result) {
-            // Assuming the result is an associative array (after decoding a JSON response)
-            if (isset($result['status']) && $result['status'] === 'success') {
-                // Handle success
-                echo "Notification sent successfully: " . $result['message'] . "\n";
-                echo "Message ID: " . $result['message_id'] . "\n";
-            } else {
-                // Handle failure
-                echo "Failed to send notification: " . $result['message'] . "\n";
-            }
-        } else {
-            // In case the result is null or something went wrong in the publish function
-            echo "Error: The notification could not be sent.\n";
-        }
+
 
     }
 
@@ -178,7 +165,7 @@ if (isset($_POST['people_change_status'])) {
     }
 
     echo "successful";
- 
+
     // header("Location: " . $basePath2 . "/book". "/" . $id );
     die();
 
@@ -186,17 +173,14 @@ if (isset($_POST['people_change_status'])) {
 }
 
 
-if (isset($_POST['people_change_status_2'])) {
+if (isset($_POST['people_change_status_qr'])) {
 
 
-    $booking_id = $_POST['booking_id'];
-    $status = $_POST['status'];
+    $guide_id = $_POST['guide_id'];
+    $status = 1;
 
 
-    $sql = "UPDATE guide_details SET status = '$status'  WHERE booking_id ='$id' ";
-
-
-
+    $sql = "UPDATE guide_details SET status = '$status'  WHERE guide_id ='$id' ";
 
 
 
@@ -221,7 +205,7 @@ if (isset($_POST['people_change_status_2'])) {
 
 
 if (isset($_POST['SaveGuideStatus'])) {
-
+    //for whole guide
 
     $id = $_POST['guide_id'];
     $status = $_POST['status_num_guide'];
@@ -234,30 +218,78 @@ if (isset($_POST['SaveGuideStatus'])) {
 
     // // Define the status array
     // $statusArray = [
-    //     '',
-    //     '',
-    //     'not yet',
-    //     'ongoing',
-    //     'finished',
-    //     'cancelled',
-    //     'delayed',
-    //     '',
-    //     'emergency',
+
+    //     'not yet',//0
+    //     'assigned',//1
+    //     'ongoing',//2
+    //     'finished',//3
+    //     'cancelled',//4
+    //     'delayed',//5
+    //     'emergency',//6
     // ];
 
 
+    //hiking
+    // $statusArray = [
 
+    //     'not yet',  //0
+    //     'ongoing', //1
+    //     'finished',//2
+    //     'cancelled',//3
+    //     'delayed',//4
+    //     'emergency',//5
+    // ];
 
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
         // echo "done";
 
+        if ($status == '1') {
+            $result = publishToBeamsInterests(
+                ["guide-$id"],    // or ['2'] for testing
+                'Guide Assigned',
+                'Your guide has been assigned',
+                "$rootPath/guide/$id",
+
+            );
+        }
+
+
+        if ($status == '3') {
+            $sql2 = "UPDATE guide_details  SET status = '2'  WHERE guide_id ='$id'  AND ( status != '5' AND status != '3' AND status != '4')  ";
+            mysqli_query($conn, $sql2);
+            $result = publishToBeamsInterests(
+                ["guide-$id"],    // or ['2'] for testing
+                'Finished',
+                'Your guide is finished',
+                "$rootPath/guide/$id",
+
+            );
+        }
 
         if ($status == '4') {
-            $sql2 = "UPDATE booking SET status = '$status'  WHERE booking_date ='$date' AND  timeslot_id ='$session_id' AND ( status != '5' AND status != '7' AND status != '8')  ";
+            $sql2 = "UPDATE guide_details  SET status = '3'  WHERE guide_id ='$id'  AND ( status != '5'   AND status != '4')  ";
             mysqli_query($conn, $sql2);
+            $result = publishToBeamsInterests(
+                ["guide-$id"],    // or ['2'] for testing
+                'Cancelled',
+                'Your guide has been canceled',
+                "$rootPath/guide/$id",
+
+            );
 
         }
+
+        if ($status == '6') {
+            $result = publishToBeamsInterests(
+                ["guide-$id"],    // or ['2'] for testing
+                'Emergency',
+                'This is not a drill',
+                "$rootPath/guide/$id",
+
+            );
+        }
+
 
 
     } else {

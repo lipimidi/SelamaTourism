@@ -196,7 +196,7 @@ background-size: cover;">
 
 
             <div class="row my-4">
-              <div class="col-lg-8 col-12 mt-lg-0 mt-4 order-lg-1 order-2">
+              <div class="  col-12 mt-lg-0 mt-4 order-lg-1 order-2">
                 <div class="card">
                   <div class="table-responsive">
                     <table class="table align-items-center mb-0">
@@ -217,8 +217,7 @@ background-size: cover;">
                               Status
                             </th>
                           <?php } ?>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                          </th>
+
 
                         </tr>
                       </thead>
@@ -288,31 +287,19 @@ background-size: cover;">
                             if ($guide['status'] > 1) { ?>
 
                               <td>
-                                <div class="d-flex px-2 py-1">
+                                <div class="d-flex px-2 py-1 justify-content-center">
 
                                   <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm"><?php echo getHikingStatuses($people_status) ?></h6>
+
+                                    <button class="btn btn-block bg-gradient-primary mb-3">
+                                      <?php echo getHikingStatuses($people_status) ?>
+                                    </button>
+
                                   </div>
                                 </div>
                               </td>
                             <?php } ?>
-                            <td>
-                              <div class="d-flex px-2 py-1">
 
-                                <?php
-                                $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
-                                $type = ($ext === 'pdf') ? 'iframe' : 'image';
-
-
-                                ?>
-
-                                <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox
-                                  data-type="<?php echo $type; ?>" data-src="<?php echo $filepath ?>" href="javascript:;">
-                                  File
-                                </a>
-
-                              </div>
-                            </td>
                           </tr>
                         <?php } ?>
 
@@ -321,7 +308,7 @@ background-size: cover;">
                   </div>
                 </div>
               </div>
-
+              <!-- 
               <div class="col-lg-4 col-12 mt-lg-0 mt-4 order-lg-2 order-1">
                 <div class="card h-100">
                   <div class="card-header pb-0">
@@ -389,7 +376,7 @@ background-size: cover;">
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -429,7 +416,7 @@ background-size: cover;">
             beamsClient.start()
               .then(() => {
                 // Subscribe the device to the correct interest
-                beamsClient.addDeviceInterest('guide-<?php echo $guide_id?>')
+                beamsClient.addDeviceInterest('guide-<?php echo $guide_id ?>')
                   .then(() => {
                     console.log('Successfully subscribed to <?php echo $guide_id ?>');
                   })

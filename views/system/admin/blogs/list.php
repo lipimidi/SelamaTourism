@@ -38,6 +38,11 @@
                 A lightweight, extendable, dependency-free javascript HTML table plugin.
               </p>
             </div> -->
+            <div class="card-header">
+              <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex justify-content-end">
+                <a href="<?php echo $rootPath ?>/blogs/addnew" class="btn  bg-gradient-primary">Add</a>
+              </div>
+            </div>
             <div class=" ">
               <div class="dataTable-wrapper dataTable-loading no-footer sortable fixed-height fixed-columns">
                 <!-- <div class="dataTable-top">
@@ -142,8 +147,8 @@
           // { data: 'id'},
           { data: 'id' },
           { data: 'title' },
-           { data: 'created_at' },
-           { data: 'updated_at' },
+          { data: 'created_at' },
+          { data: 'updated_at' },
           {
             data: 'id',  // We use the `id` to add the "More Details" button
             render: function (data, type, row) {

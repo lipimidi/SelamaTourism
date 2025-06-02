@@ -27,12 +27,12 @@ if (isset($_POST['getlist_user'])) {
                                  OR people_booked LIKE '%$search%' 
                                  OR created_at LIKE '%$search%')";
     }
-    
+
     // Ensure that the user_id condition is added at the end
     if ($user_id) {
         $search_condition .= " AND user_id = '$user_id'";
     }
-    
+
 
     // Build the order by clause
     $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
@@ -44,6 +44,13 @@ if (isset($_POST['getlist_user'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
+
+        $date = new DateTime($row['booking_date']);  // Replace 'datetime' with the correct column name
+        $row['booking_date'] = $date->format('d/m/Y');  // Format: 23/07/2025 8:30PM
+
+        $date = new DateTime($row['created_at']);  // Replace 'datetime' with the correct column name
+        $row['created_at'] = $date->format('d/m/Y g:i A');  // Format: 23/07/2025 8:30PM
+
         $data[] = $row;
     }
 
@@ -99,12 +106,12 @@ if (isset($_POST['getlist_admin'])) {
                                  OR people_booked LIKE '%$search%' 
                                  OR created_at LIKE '%$search%')";
     }
-    
+
     // Ensure that the user_id condition is added at the end
     if ($user_id) {
         $search_condition .= " AND user_id = '$user_id'";
     }
-    
+
 
     // Build the order by clause
     $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
@@ -116,6 +123,14 @@ if (isset($_POST['getlist_admin'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
+
+        $date = new DateTime($row['booking_date']);  // Replace 'datetime' with the correct column name
+        $row['booking_date'] = $date->format('d/m/Y');  // Format: 23/07/2025 8:30PM
+
+        $date = new DateTime($row['created_at']);  // Replace 'datetime' with the correct column name
+        $row['created_at'] = $date->format('d/m/Y g:iA');  // Format: 23/07/2025 8:30PM
+
+
         $data[] = $row;
     }
 

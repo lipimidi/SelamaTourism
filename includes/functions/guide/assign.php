@@ -144,6 +144,11 @@ if (isset($_POST['assignguide'])) {
 
         if (mysqli_query($conn, $update_sql)) {
             // echo "Guide assignment updated successfully.";
+
+
+
+
+
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -153,6 +158,17 @@ if (isset($_POST['assignguide'])) {
 
         if (mysqli_query($conn, $insert_sql)) {
             // echo "Guide assigned successfully.";
+
+            $guide_id = mysqli_insert_id($conn);
+
+            $result = publishToBeamsInterests(
+                ["guide-$guide_id"],    // or ['2'] for testing
+                'Guide Assigned',
+                'Guide Has Been Assigned',
+                "$rootPath/guide/$guide_id",
+
+            );
+
         } else {
             echo "Error: " . mysqli_error($conn);
         }

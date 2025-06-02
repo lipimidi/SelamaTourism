@@ -302,8 +302,7 @@ background-size: cover;">
                                 ?>
 
                                 <a class="btn btn-block bg-gradient-primary mb-3" data-fancybox
-                                  data-type="<?php echo $type; ?>" data-src="<?php echo  $filepath ?>"
-                                  href="javascript:;">
+                                  data-type="<?php echo $type; ?>" data-src="<?php echo $filepath ?>" href="javascript:;">
                                   File
                                 </a>
 
@@ -318,6 +317,31 @@ background-size: cover;">
                 </div>
               </div>
             </div>
+            <?php
+
+            // Paginate the result
+            $sql = "SELECT * FROM  guide_details WHERE booking_id = '$booking_id' ";
+            $result = $conn->query($sql);
+
+            // Fetch the data and build the output array
+            if ($result->num_rows > 0) {
+              $guide = $result->fetch_assoc();
+              $guide_id = $guide['guide_id'];
+
+
+
+              ?>
+
+
+              <div class="button-row d-flex mt-4">
+
+
+                <a class="btn btn-lg  bg-gradient-primary ms-auto mb-0 "
+                  href="<?php echo $rootPath ?>/guide/<?php echo $guide_id ?>">Go To Guide</a>
+
+              </div>
+
+            <?php } ?>
           </div>
         </div>
 

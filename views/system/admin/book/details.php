@@ -94,7 +94,8 @@ background-size: cover;">
                               <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['booking_date'] ?>
+                              <?php $booking_date = new DateTime($booking['booking_date']);
+echo $booking_date->format('d/m/Y');  // Output: 23/07/2025 ?>
                             </h5>
                             <span class="text-white text-sm">Date</span>
                           </div>
@@ -120,7 +121,14 @@ background-size: cover;">
                               <i class="ni ni-watch-time  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php echo $booking['start_time'] ?> - <?php echo $booking['end_time'] ?>
+                              <?php 
+                              
+                              $start_time = new DateTime($booking['start_time']);  // Convert start time to DateTime
+$end_time = new DateTime($booking['end_time']);      // Convert end time to DateTime
+
+echo $start_time->format('g:i A') . ' - ' . $end_time->format('g:i A');  // Output: 8:00 AM - 12:00 PM
+                              
+                              ?>
                             </h5>
                             <span class="text-white text-sm">Time</span>
                           </div>

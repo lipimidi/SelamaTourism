@@ -42,6 +42,14 @@ if (isset($_POST['blogs_getlist'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
+
+   $date = new DateTime($row['updated_at']);  // Replace 'datetime' with the correct column name
+        $row['updated_at'] = $date->format('d/m/Y g:i A');  // Format: 23/07/2025 8:30PM
+
+        $date = new DateTime($row['created_at']);  // Replace 'datetime' with the correct column name
+        $row['created_at'] = $date->format('d/m/Y g:i A');  // Format: 23/07/2025 8:30PM
+
+
         $row['title']= html_entity_decode($row['title']);
         $row['title']= trim($plainText = strip_tags($row['title']));
 

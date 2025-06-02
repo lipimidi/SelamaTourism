@@ -32,13 +32,14 @@
         <div class="col-12">
           <div class="card">
             <!-- Card header -->
-            <!-- <div class="card-header">
-              <h5 class="mb-0">Datatable Simple</h5>
-              <p class="text-sm mb-0">
-                A lightweight, extendable, dependency-free javascript HTML table plugin.
-              </p>
-            </div> -->
+            <div class="card-header">
+              <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex justify-content-end">
+                 <a href="<?php echo $rootPath?>/staff/addnew" class="btn  bg-gradient-primary">Add</a>
+              </div>
+            </div>
+
             <div class=" ">
+
               <div class="dataTable-wrapper dataTable-loading no-footer sortable fixed-height fixed-columns">
                 <!-- <div class="dataTable-top">
                   <div class="dataTable-dropdown"><label><select class="dataTable-selector">

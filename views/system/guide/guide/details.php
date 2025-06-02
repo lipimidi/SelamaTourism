@@ -32,7 +32,7 @@
         <div class="col-12 text-center">
           <h3 class="mt-5 text-white">Secure your spot now</h3>
           <h5 class="text-white font-weight-normal">Customize your experience today!</h5>
- 
+
           <div class="multisteps-form mb-5">
 
 
@@ -534,13 +534,13 @@ background-size: cover;">
         // Optionally, you can send this data to your server using AJAX
         // fetch('process_qr.php', {...});
 
-      // Prepare data for POST request
-      var postData = {
-        booking_id: decodedText,
-        status: status,
-        // guide_details_id: guide_details_id,
-        people_change_status_qr: "people_change_status_qr",
-      };
+        // Prepare data for POST request
+        var postData = {
+          guide_id: decodedText,
+          status: status,
+          // guide_details_id: guide_details_id,
+          people_change_status_qr: "people_change_status_qr",
+        };
 
         $.ajax({
           url: '<?php echo $rootPath; ?>/guide/people_change_status',  // Your server-side URL
@@ -592,7 +592,7 @@ background-size: cover;">
             });
 
 
-            
+
           })
           .catch((err) => {
             console.error('Error registering service worker:', err);
