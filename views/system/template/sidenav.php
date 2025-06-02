@@ -69,7 +69,7 @@
           <a data-bs-toggle="collapse" href="#booking" class="nav-link " aria-controls="booking" role="button"
             aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
-              <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
+               <i class="fa-solid fa-calendar-check  text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Booking</span>
           </a>
@@ -113,7 +113,7 @@
           <a data-bs-toggle="collapse" href="#staff" class="nav-link " aria-controls="staff" role="button"
             aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
-              <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
+              <i class="fa-solid fa-users  text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Staff</span>
           </a>
@@ -150,7 +150,7 @@
           <a data-bs-toggle="collapse" href="#blog" class="nav-link " aria-controls="blog" role="button"
             aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
-              <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
+              <i class="fa-solid fa-blog text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Blogs</span>
           </a>
@@ -190,7 +190,7 @@
         <a data-bs-toggle="collapse" href="#guide" class="nav-link " aria-controls="guide" role="button"
           aria-expanded="false">
           <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
-            <i class="ni ni-ungroup text-dark text-sm opacity-10"></i>
+            <i class="fa-solid fa-person-hiking  text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Guide</span>
         </a>
