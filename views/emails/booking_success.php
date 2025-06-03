@@ -2,244 +2,122 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Booking Confirmed - Selama Community Based Tourism</title>
-    <style>
-        /* Reset & base */
-        body,
-        table,
-        td,
-        a {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-        }
-
-        table,
-        td {
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
-
-        img {
-            -ms-interpolation-mode: bicubic;
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-            max-width: 100%;
-            display: block;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100% !important;
-            height: 100% !important;
-            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-            color: #344767;
-        }
-
-        /* Container */
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(310deg, #9ACD32, #2E8B57);
-            padding: 40px 20px 30px 20px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
-
-        /* Body */
-        .body-content {
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .body-content h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #344767;
-        }
-
-        .body-content p {
-            font-size: 16px;
-            line-height: 1.5;
-            margin: 0 0 30px;
-            color: #67748e;
-        }
-
-        .body-content strong {
-            color: #344767;
-        }
-
-        /* Info cards container */
-        .info-cards {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 10px 30px;
-        }
-
-        /* Info card */
-        .info-card {
-            background: #f1f9e4;
-            border-radius: 10px;
-            padding: 20px;
-            flex: 1 1 30%;
-            margin: 0 5px;
-            text-align: left;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .info-card .icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(310deg, #9ACD32, #2E8B57);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .info-card h3 {
-            margin: 0 0 5px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #2E8B57;
-        }
-
-        .info-card span {
-            font-size: 16px;
-            font-weight: 500;
-
-            color: #67748e;
-        }
-
-        /* Button */
-        .btn-primary {
-            display: inline-block;
-            background: linear-gradient(310deg, #9ACD32, #2E8B57);
-            color: #fff !important;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 16px;
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto;
-            box-shadow: 0 4px 12px rgba(50, 50, 50, 0.15);
-            transition: background 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(310deg, #2E8B57, #9ACD32);
-        }
-
-        /* Footer */
-        .footer {
-            font-size: 14px;
-            text-align: center;
-            color: #8392ab;
-            padding: 20px;
-        }
-
-        .footer a {
-            color: #9ACD32;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Responsive */
-        @media screen and (max-width: 480px) {
-            .info-cards {
-                flex-direction: column;
-                padding: 0 10px;
-            }
-
-            .info-card {
-                margin: 10px 0;
-            }
-        }
-    </style>
-    <!--[if mso]>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking Confirmed - Selama Community Based Tourism</title>
   <style>
-    .info-cards { display: block !important; }
-    .info-card { width: 100% !important; margin-bottom: 20px !important; }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100% !important;
+      height: 100% !important;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      background-color: #e9ecef;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      .stack-column {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .info-card-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+    }
   </style>
-  <![endif]-->
 </head>
 
-<body>
-    <center style="width: 100%; background-color: #e9ecef; padding: 20px 0;">
-        <div class="email-container" role="article" aria-roledescription="email"
-            aria-label="Booking confirmation for Selama Community Based Tourism">
-
+<body style="margin: 0; padding: 0;">
+  <center style="width: 100%; background-color: #e9ecef; padding: 20px 0;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center">
+          <table width="800" cellpadding="0" cellspacing="0" border="0" style="background: #ffffff; border-radius: 8px; overflow: hidden;">
             <!-- Header -->
-            <div class="header" role="banner">
-                <h1>Booking Confirmed!</h1>
-            </div>
+            <tr>
+              <td align="center" style="background: linear-gradient(310deg, #9ACD32, #2E8B57); padding: 40px 20px 30px 20px; color: #ffffff;">
+                <h1 style="margin: 0; font-size: 28px; font-weight: 700;">Booking Confirmed!</h1>
+              </td>
+            </tr>
 
             <!-- Body -->
-            <div class="body-content">
-                <h2>Thank you for your booking, <strong><?php echo $user_email ?></strong></h2>
-                <p>Your booking on <strong><?php echo $date ?></strong> at <strong><?php echo $time ?></strong> has been
-                    approved.</p>
-                <p>Please wait for your guide to be confirmed</p>
-                <!-- Info cards -->
-                <div class="info-cards" role="list">
+            <tr>
+              <td align="center" style="padding: 30px 20px;">
+                <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 15px; color: #344767;">
+                  Thank you for your booking, <strong><?php echo $user_email ?></strong>
+                </h2>
+                <p style="font-size: 16px; color: #67748e; margin: 0 0 10px;">
+                  Your booking on <strong><?php echo $date ?></strong> at <strong><?php echo $time ?></strong> has been approved.
+                </p>
+                <p style="font-size: 16px; color: #67748e; margin-bottom: 30px;">
+                  Please wait for your guide to be confirmed
+                </p>
+              </td>
+            </tr>
 
-                    <div class="info-card" role="listitem" aria-label="Booking date">
-                        <div class="icon" aria-hidden="true">📅</div>
-                        <h3><?php echo $date ?></h3>
-                        <span>Date</span>
-                    </div>
+            <!-- Info Cards (as table columns) -->
+            <tr>
+              <td align="center" style="padding: 0 20px 30px;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" class="info-card-table">
+                  <tr>
+                    <!-- Date -->
+                    <td align="left" valign="top" style="background: #f1f9e4; border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg, #9ACD32, #2E8B57); border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">📅</div>
+                      <h3 style="margin: 0 0 5px; font-size: 20px; font-weight: 700; color: #2E8B57;"><?php echo $date ?></h3>
+                      <span style="font-size: 16px; font-weight: 500; color: #67748e;">Date</span>
+                    </td>
 
-                    <div class="info-card" role="listitem" aria-label="Booking time">
-                        <div class="icon" aria-hidden="true">⏰</div>
-                        <h3><?php echo $time ?></h3>
-                        <span>Time</span>
-                    </div>
+                    <!-- Time -->
+                    <td align="left" valign="top" style="background: #f1f9e4; border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg, #9ACD32, #2E8B57); border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">⏰</div>
+                      <h3 style="margin: 0 0 5px; font-size: 20px; font-weight: 700; color: #2E8B57;"><?php echo $time ?></h3>
+                      <span style="font-size: 16px; font-weight: 500; color: #67748e;">Time</span>
+                    </td>
 
-                    <div class="info-card" role="listitem" aria-label="Number of people">
-                        <div class="icon" aria-hidden="true">👥</div>
-                        <h3><?php echo $people ?></h3>
-                        <span>People</span>
-                    </div>
+                    <!-- People -->
+                    <td align="left" valign="top" style="background: #f1f9e4; border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg, #9ACD32, #2E8B57); border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">👥</div>
+                      <h3 style="margin: 0 0 5px; font-size: 20px; font-weight: 700; color: #2E8B57;"><?php echo $people ?></h3>
+                      <span style="font-size: 16px; font-weight: 500; color: #67748e;">People</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
 
-                </div>
-
-                <!-- Button -->
-                <a href="<?php echo $rootPath ?>/booking/<?php echo $id ?>" class="btn-primary" target="_blank" rel="noopener noreferrer"
-                    role="button" aria-label="View Booking Details">Booking Details</a>
-            </div>
+            <!-- Button -->
+            <tr>
+              <td align="center" style="padding-bottom: 30px;">
+                <a href="<?php echo $rootPath ?>/booking/<?php echo $id ?>" target="_blank"
+                  style="display: inline-block; background: linear-gradient(310deg, #9ACD32, #2E8B57); color: #ffffff; text-decoration: none; font-weight: 700; padding: 15px 30px; border-radius: 30px; font-size: 16px; max-width: 280px; margin: 0 auto; box-shadow: 0 4px 12px rgba(50, 50, 50, 0.15);">
+                  Booking Details
+                </a>
+              </td>
+            </tr>
 
             <!-- Footer -->
-            <div class="footer" role="contentinfo">
-                2025, made with <span aria-hidden="true">❤️</span> by
-                <a href="#" target="_blank" rel="noopener noreferrer">Syakir</a> for a better web.
-            </div>
-        </div>
-    </center>
+            <tr>
+              <td align="center" style="font-size: 14px; text-align: center; color: #8392ab; padding: 20px;">
+                2025, made with ❤️ by
+                <a href="#" target="_blank" style="color: #9ACD32; text-decoration: none; font-weight: 600;">Syakir</a>
+                for a better web.
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </center>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ if (isset($_POST['acceptbooking'])) {
     $people = $_POST['people'];
     $user_email = $_POST['email'];
 
-    $sql = "UPDATE bookings SET status = '1'  WHERE id ='$id' ";
+    $sql = "UPDATE bookings SET status = '2'  WHERE id ='$id' ";
     mysqli_query($conn, $sql);
 
     // Step 1: Check if the same booking_date and timeslot_id exist in the guides table
