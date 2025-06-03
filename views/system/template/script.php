@@ -36,15 +36,7 @@
 <script src="https://js.pusher.com/beams/2.1.0/push-notifications-cdn.js"></script>
 
 
-<script>
-  // if ('serviceWorker' in navigator) {
-  //   window.addEventListener('load', () => {
-  //     navigator.serviceWorker.register('<?php echo $rootPath; ?>/assets/js/service-worker.js')
-  //       .then(reg => console.log("Service Worker Registered", reg))
-  //       .catch(err => console.log("Service Worker Registration Failed", err));
-  //   });
-  // }
-</script>
+
 
 <script>
   // if (navigator.geolocation) {
@@ -60,4 +52,56 @@
   // } else {
   //   alert('Geolocation is not supported by this browser.');
   // }
+</script>
+
+
+
+<script>
+  let beamsClient; // 🔓 Global so logout can access it
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js')
+        .then(registration => {
+          beamsClient = new PusherPushNotifications.Client({
+            instanceId: 'bf10c984-1d60-42a1-8394-d2104b1dcd22',
+            serviceWorkerRegistration: registration
+          });
+
+          beamsClient.start()
+            .then(() => {
+              beamsClient.addDeviceInterest('user-<?php echo $_SESSION['user_details']['id'] ?>')
+                .catch(err => {
+                  console.error('Error subscribing to interest', err);
+                });
+            })
+            .catch((err) => {
+              console.error('Error initializing PusherBeams:', err);
+            });
+        })
+        .catch((err) => {
+          console.error('Error registering service worker:', err);
+        });
+    });
+  }
+
+  // ✅ Logout function using global beamsClient
+  function logoutWithBeams() {
+    if (beamsClient) {
+      beamsClient.clearDeviceInterests()
+        .then(() => {
+          console.log('All interests removed.');
+          window.location.href = '<?php echo $rootPath; ?>/signout';
+        })
+        .catch((err) => {
+          console.error('Failed to clear Beams interests:', err);
+          window.location.href = '<?php echo $rootPath; ?>/signout';
+        });
+    } else {
+      console.warn('Beams client not initialized, skipping interest clearing.');
+      window.location.href = '<?php echo $rootPath; ?>/signout';
+    }
+  }
+
+
 </script>

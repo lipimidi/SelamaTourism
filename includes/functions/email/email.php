@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 function getEmailContent($filePath, $variables = [])
 {
     global $basePath2;
+    global $rootPath;
 
     // Start output buffering to capture the output of included PHP file
     ob_start();

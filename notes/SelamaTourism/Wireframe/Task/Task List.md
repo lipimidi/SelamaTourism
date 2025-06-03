@@ -18,6 +18,7 @@ kanban-plugin: board
 - [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Booking Success (email )]] ^twfntn
 - [ ] Booking Settings
+- [ ] Periodically  send location
 
 
 ## Bugs

@@ -5,8 +5,11 @@ if (isset($_POST['acceptbooking'])) {
     $id = $_POST['id'];
     $booking_date = $_POST['booking_date'];
     $timeslot_id = $_POST['timeslot_id'];
+    $time = $_POST['time'];
+    $people = $_POST['people'];
+    $user_email = $_POST['email'];
 
-    $sql = "UPDATE bookings SET status = '2' , reason='' WHERE id ='$id' ";
+    $sql = "UPDATE bookings SET status = '2'  WHERE id ='$id' ";
     mysqli_query($conn, $sql);
 
     // Step 1: Check if the same booking_date and timeslot_id exist in the guides table
@@ -46,7 +49,22 @@ if (isset($_POST['acceptbooking'])) {
         if (!mysqli_query($conn, $insert_detail_sql)) {
             echo "Error inserting into guide_details: " . mysqli_error($conn);
         }
+
+    $variables = [
+        'user_email' => $user_email,
+        'date' => $booking_date,
+        'time' => $time,
+        'people' => $people,
+        'id' => $id,
+    ];
+
+
+    sendEmail($user_email, "Booking Success", 'booking_success',$variables);
+
     }
+
+
+
 
     // Redirect
     header("Location: " . $basePath2 . "/book" . "/" . $id);
@@ -60,6 +78,7 @@ if (isset($_POST['declinebooking'])) {
 
     $id = $_POST['id'];
 
+    $timeslot_id = $_POST['timeslot_id'];
 
     $sql = "UPDATE bookings SET status = '0', reason='invalid details'  WHERE id ='$id' ";
 

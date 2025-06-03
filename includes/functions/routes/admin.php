@@ -81,9 +81,10 @@ function book($booking_id)
     $booking_id = (int) $booking_id;  // Cast to integer to ensure safety
 
     // Query to search for the booking_id in the bookings table
-    $sql = "SELECT bookings.*, booking_timeslots.start_time,booking_timeslots.end_time
+    $sql = "SELECT bookings.*, booking_timeslots.start_time,booking_timeslots.end_time , users.email
     FROM bookings
     INNER JOIN booking_timeslots ON bookings.timeslot_id = booking_timeslots.id
+    INNER JOIN users ON bookings.user_id =users.id
     WHERE bookings.id = $booking_id";
 
     // Execute the query
@@ -156,7 +157,7 @@ function book_list()
 
         include 'views/system/admin/book/list.php';
 
-    }  else {
+    } else {
         // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
         include 'views/system/user/book/list.php';
 
@@ -291,7 +292,8 @@ function staff_addnew()
 
 
 
-function guide_assign () {
+function guide_assign()
+{
 
     include('includes/server.php');
     checkLogin();
@@ -322,26 +324,27 @@ function guide_assign () {
 
 
 
-     // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
+    // echo "<script>console.log(" . json_encode($_SESSION['booking']) . ");</script>";
 
     include 'views/system/admin/guide/assign.php';
 }
 
 
-function clearTemp() {
+function clearTemp()
+{
     $folderPath = '/path/to/your/folder'; // Replace with the actual folder path
 
-if (is_dir($folderPath)) {
-    // Get the creation (inode change) time of the folder
-    $folderCreationTime = filectime($folderPath);
-    
-    // Format the date in a readable format
-    $formattedDate = date("Y-m-d H:i:s", $folderCreationTime);
-    
-    // echo "Folder was created on: " . $formattedDate;
-} else {
-    // echo "The provided path is not a valid folder.";
-}
+    if (is_dir($folderPath)) {
+        // Get the creation (inode change) time of the folder
+        $folderCreationTime = filectime($folderPath);
+
+        // Format the date in a readable format
+        $formattedDate = date("Y-m-d H:i:s", $folderCreationTime);
+
+        // echo "Folder was created on: " . $formattedDate;
+    } else {
+        // echo "The provided path is not a valid folder.";
+    }
 
 }
 
@@ -361,7 +364,7 @@ function blogs_addnew()
     ];
 
 
- 
+
 
 
     if ($role === 'admin') {
@@ -391,7 +394,7 @@ function blogs_list()
     ];
 
 
- 
+
 
 
     if ($role === 'admin') {
@@ -464,23 +467,23 @@ function blogs($blog_id)
         $created_at = $blog['created_at'];
 
         // Query to get additional details from the booking_details table using booking_id
-        
- 
+
+
         include 'views/system/admin/blogs/edit.php';
 
-    } else{
+    } else {
         notFound();
 
     }
 
     // // Check if any rows were returned (booking found)
-   
+
 
 
     // Include the appropriate view for displaying the booking details
 
- 
- 
 
-     
+
+
+
 }

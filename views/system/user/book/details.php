@@ -11,6 +11,9 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,8 +74,7 @@ background-size: cover;">
                               <i class="ni ni-circle-08  text-white text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                             <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                              <?php $booking_date = new DateTime($booking['booking_date']);
-                              echo $booking_date->format('d/m/Y');  // Output: 23/07/2025 ?>
+                              <?php echo $booking['people_booked'] ?>
                             </h5>
                             <span class="text-white text-sm">People</span>
                           </div>

@@ -42,7 +42,7 @@ $routes = [
     'contactus' => 'contact',
 
 
-
+    'email/booking/success'=> 'email_booking_success',
 
 
     //system

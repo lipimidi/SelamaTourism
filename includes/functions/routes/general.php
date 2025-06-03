@@ -391,5 +391,33 @@ function views_update()
 
 
 
- 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function email_booking_success()
+{
+    include('includes/server.php');
+
+    $variables = [
+        'user_email' => 'John Doe',
+        'date' => 'June 5, 2025',
+        'time' => '10:00 AM - 12:00 PM',
+        'people' => '1',
+        'id' => '1',
+
+    ];
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    include 'views/emails/booking_success.php';
+
 }

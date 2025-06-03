@@ -286,11 +286,14 @@ background-size: cover;">
             <input type="hidden" value="<?php echo $booking['id'] ?>" name="id">
             <input type="hidden" value="<?php echo $booking['booking_date'] ?>" name="booking_date">
             <input type="hidden" value="<?php echo $booking['timeslot_id'] ?>" name="timeslot_id">
+            <input type="hidden" value="<?php echo $booking['email'] ?>" name="email">
+            <input type="hidden" value="<?php echo $booking['people_booked'] ?>" name="people">
+            <input type="hidden" value="<?php echo $start_time->format('g:i A') . ' - ' . $end_time->format('g:i A') ?>" name="time">
 
-            <button type="submit" class="btn bg-gradient-light mb-0 js-btn-prev   "
+            <button type="submit" class="btn   bg-gradient-light mb-0 js-btn-prev   "
               name="declinebooking">Decline</button>
 
-            <button type="submit" class="btn bg-gradient-dark ms-auto mb-0    " name="acceptbooking">Accept</button>
+            <button type="submit" class="btn   bg-gradient-dark ms-auto mb-0    " name="acceptbooking">Accept</button>
 
           </div>
 

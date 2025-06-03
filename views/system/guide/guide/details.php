@@ -598,7 +598,7 @@ background-size: cover;">
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('<?php echo $rootPath; ?>/service-worker.js') // your custom path
           .then(registration => {
-            console.log("Service Worker registered:", registration);
+            // console.log("Service Worker registered:", registration);
 
             const beamsClient = new PusherPushNotifications.Client({
               instanceId: 'bf10c984-1d60-42a1-8394-d2104b1dcd22',
