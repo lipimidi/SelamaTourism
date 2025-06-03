@@ -1,0 +1,199 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $rootPath; ?>/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="<?php echo $rootPath; ?>/assets/img/favicon-32x32.png">
+    <title>
+        Selama Community Based Tourism
+    </title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+        body {
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        }
+    </style>
+    <!-- Nucleo Icons -->
+    <link href="<?php echo $rootPath; ?>/assets/css/nucleo-icons.css" rel="stylesheet" />
+
+    <!-- CSS Files -->
+    <link id="pagestyle" href="<?php echo $rootPath; ?>/assets/css/argon-dashboard.min.css" rel="stylesheet" />
+
+
+
+</head>
+
+
+<body class="g-sidenav-show   bg-gray-200">
+
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="min-height-300 bg-gradient-primary position-absolute w-100"></div>
+
+
+    <main class="main-content position-relative border-radius-lg ">
+        <!-- Navbar -->
+
+        <!-- End Navbar -->
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="mt-5 text-white">Booking Confirmed!</h3>
+                    <h5 class="text-white font-weight-normal"> Thank you for your booking,
+                        <strong><?php echo $user_email ?></strong><br>
+                        Your booking on <strong><?php echo $date ?></strong> at
+                        <strong><?php echo $time ?></strong> is now confirmed
+                    </h5>
+
+                    <div class="multisteps-form mb-5">
+
+
+
+                        <div class="row  mt-5">
+                            <div class="  col-12 mx-auto">
+                                <div class="row">
+
+
+
+                                    <div class="col-md-4 col-12">
+                                        <div class="card overflow-hidden shadow-lg">
+                                            <div class="card-body p-3 position-relative">
+                                                <div class="row">
+                                                    <div class="col-8 text-start">
+                                                        <div
+                                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                            <i class="ni ni-calendar-grid-58  text-white text-lg opacity-10"
+                                                                aria-hidden="true"></i>
+                                                        </div>
+                                                        <h5 class="font-weight-bolder mb-0 mt-3">
+                                                            <?php echo $date ?>
+                                                        </h5>
+                                                        <span class=" text-sm">Date</span>
+                                                    </div>
+                                                    <div class="col-4">
+
+                                                        <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+55%</p> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-4 col-12">
+                                        <div class="card overflow-hidden shadow-lg">
+                                            <div class="card-body p-3 position-relative">
+                                                <div class="row">
+                                                    <div class="col-8 text-start">
+                                                        <div
+                                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                            <i class="ni ni-watch-time  text-white text-lg opacity-10"
+                                                                aria-hidden="true"></i>
+                                                        </div>
+                                                        <h5 class="font-weight-bolder mb-0 mt-3">
+                                                            <?php echo $time ?>
+                                                        </h5>
+                                                        <span class=" text-sm">Time</span>
+                                                    </div>
+                                                    <div class="col-4">
+
+                                                        <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+55%</p> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 col-12">
+                                        <div class="card overflow-hidden shadow-lg">
+                                            <div class="card-body p-3 position-relative">
+                                                <div class="row">
+                                                    <div class="col-8 text-start">
+                                                        <div
+                                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                            <i class="ni ni-circle-08  text-white text-lg opacity-10"
+                                                                aria-hidden="true"></i>
+                                                        </div>
+                                                        <h5 class="font-weight-bolder mb-0 mt-3">
+                                                            <?php echo $people ?>
+                                                        </h5>
+                                                        <span class=" text-sm">People</span>
+                                                    </div>
+                                                    <div class="col-4">
+
+                                                        <!-- <p class="text-white text-sm text-end font-weight-bolder mt-6 mb-auto">+55%</p> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row">
+
+
+
+                                    <div class=" mt-4 col-8 mx-auto">
+                                        <a class="btn btn-lg bg-gradient-primary w-100"
+                                            href="<?php echo $rootPath ?>/booking/<?php echo $id ?>">Booking
+                                            Details</a>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <footer class="footer pt-3  ">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-start">
+                           <?php echo date("Y"); ?>,
+                            made with <i class="fa fa-heart"></i> by
+                            <a href="#" class="font-weight-bold">Syakir</a>
+                            for a better web.
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

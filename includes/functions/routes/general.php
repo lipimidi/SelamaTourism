@@ -415,8 +415,20 @@ function email_booking_success()
         'time' => '10:00 AM - 12:00 PM',
         'people' => '1',
         'id' => '1',
+        'rootPath2' => $rootPath,
+
 
     ];
+
+    extract($variables);
+
+
+
+
+
+
+
+    
     // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
     include 'views/emails/booking_success.php';
 
