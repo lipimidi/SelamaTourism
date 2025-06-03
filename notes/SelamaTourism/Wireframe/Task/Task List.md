@@ -16,9 +16,9 @@ kanban-plugin: board
 
 - [ ] Dashboard ( admin )
 - [ ] [[Register Staff ( email )]] ^y7vexh
-- [ ] [[Booking Success (email )]] ^twfntn
 - [ ] Booking Settings
 - [ ] Periodically  send location
+- [ ] Make booking success email js instead of php for load times
 
 
 ## Bugs
@@ -36,6 +36,7 @@ kanban-plugin: board
 - [ ] Dashboard (user)
 - [ ] User Profile
 - [ ] [[Guide Info ( Admin)]] ⏫
+- [ ] [[Booking Success (email )]] ^twfntn
 - [ ] [[Guide Info ( Guide)]] ⏫
 - [ ] Booking Step 2(People)
 - [ ] [[Guide Details (User)]]

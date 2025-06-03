@@ -34,6 +34,9 @@
       }
     }
   </style>
+      <link rel="apple-touch-icon" sizes="76x76" href="https://selama.e-veterinar.com/assets/img/apple-touch-icon.png" style="box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+    <link rel="icon" type="image/png" href="https://selama.e-veterinar.com/assets/img/favicon-32x32.png" style="box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+   
 </head>
 
 <body style="margin: 0; padding: 0;">
