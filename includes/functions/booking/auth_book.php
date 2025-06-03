@@ -4,6 +4,7 @@ if (isset($_POST['acceptbooking'])) {
 
     $id = $_POST['id'];
     $booking_date = $_POST['booking_date'];
+    $booking_date2 = $_POST['booking_date2'];
     $timeslot_id = $_POST['timeslot_id'];
     $time = $_POST['time'];
     $people = $_POST['people'];
@@ -52,7 +53,7 @@ if (isset($_POST['acceptbooking'])) {
 
     $variables = [
         'user_email' => $user_email,
-        'date' => $booking_date,
+        'date' => $booking_date2,
         'time' => $time,
         'people' => $people,
         'id' => $id,

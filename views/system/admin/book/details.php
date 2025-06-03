@@ -284,7 +284,8 @@ background-size: cover;">
 
           <div class="button-row d-flex mt-4">
             <input type="hidden" value="<?php echo $booking['id'] ?>" name="id">
-            <input type="hidden" value="<?php echo $booking_date->format('d/m/Y'); ?>" name="booking_date">
+            <input type="hidden" value="<?php echo $booking['booking_date'] ?>" name="booking_date">
+            <input type="hidden" value="<?php echo $booking_date->format('d/m/Y'); ?>" name="booking_date2">
             <input type="hidden" value="<?php echo $booking['timeslot_id'] ?>" name="timeslot_id">
             <input type="hidden" value="<?php echo $booking['email'] ?>" name="email">
             <input type="hidden" value="<?php echo $booking['people_booked'] ?>" name="people">
