@@ -433,3 +433,33 @@ function email_booking_success()
     include 'views/emails/booking_success.php';
 
 }
+
+
+
+
+
+
+    function email_staff_register()
+{
+    include('includes/server.php');
+
+ 
+
+    $variables = array(
+        "name" => "John Doe",
+        "role" => "guide",
+         
+    );
+    extract($variables);
+
+
+
+
+
+
+
+    
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    include 'views/emails/register_staff.php';
+
+}

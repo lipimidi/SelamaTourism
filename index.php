@@ -43,6 +43,7 @@ $routes = [
 
 
     'email/booking/success'=> 'email_booking_success',
+    'email/staff/register'=> 'email_staff_register',
 
 
     //system
