@@ -47,7 +47,7 @@
           <table width="800" cellpadding="0" cellspacing="0" border="0" style="background: #ffffff; border-radius: 8px; overflow: hidden;">
             <!-- Header -->
             <tr>
-              <td align="center" style="background: linear-gradient(310deg, #9ACD32, #2E8B57); padding: 40px 20px 30px 20px; color: #ffffff;">
+              <td align="center" style="background: linear-gradient(310deg,#2E8B57,  #9ACD32);padding: 40px 20px 30px 20px; color: #ffffff;" >
                 <h1 style="margin: 0; font-size: 28px; font-weight: 700;">Booking Confirmed!</h1>
               </td>
             </tr>
@@ -70,25 +70,25 @@
             <!-- Info Cards (as table columns) -->
             <tr>
               <td align="center" style="padding: 0 20px 30px;">
-                <table width="100%" cellpadding="0" cellspacing="0" border="0" class="info-card-table">
+                <table width="100%" cellpadding="0" cellspacing="10px" border="0" class="info-card-table">
                   <tr>
                     <!-- Date -->
-                    <td align="left" valign="top" style="background: #f1f9e4; border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;">
-                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg, #9ACD32, #2E8B57); border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">📅</div>
+                    <td align="left" valign="top" style="background: rgb(218, 218, 218); border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;border-radius:1rem;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg,#2E8B57,  #9ACD32);border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">📅</div>
                       <h3 style="margin: 0 0 5px; font-size: 20px; font-weight: 700; color: #2E8B57;"><?php echo $date ?></h3>
                       <span style="font-size: 16px; font-weight: 500; color: #67748e;">Date</span>
                     </td>
 
                     <!-- Time -->
-                    <td align="left" valign="top" style="background: #f1f9e4; border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;">
-                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg, #9ACD32, #2E8B57); border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">⏰</div>
+                    <td align="left" valign="top" style="background:rgb(218, 218, 218); border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;border-radius:1rem;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg,#2E8B57,  #9ACD32);border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">⏰</div>
                       <h3 style="margin: 0 0 5px; font-size: 20px; font-weight: 700; color: #2E8B57;"><?php echo $time ?></h3>
                       <span style="font-size: 16px; font-weight: 500; color: #67748e;">Time</span>
                     </td>
 
                     <!-- People -->
-                    <td align="left" valign="top" style="background: #f1f9e4; border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;">
-                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg, #9ACD32, #2E8B57); border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">👥</div>
+                    <td align="left" valign="top" style="background:rgb(218, 218, 218); border-radius: 10px; padding: 20px; text-align: left; width: 33.33%; box-sizing: border-box;border-radius:1rem;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(310deg,#2E8B57,  #9ACD32);border-radius: 50%; text-align: center; line-height: 40px; color: #fff; font-size: 20px; margin-bottom: 10px;">👥</div>
                       <h3 style="margin: 0 0 5px; font-size: 20px; font-weight: 700; color: #2E8B57;"><?php echo $people ?></h3>
                       <span style="font-size: 16px; font-weight: 500; color: #67748e;">People</span>
                     </td>
@@ -101,7 +101,7 @@
             <tr>
               <td align="center" style="padding-bottom: 30px;">
                 <a href="<?php echo $rootPath ?>/booking/<?php echo $id ?>" target="_blank"
-                  style="display: inline-block; background: linear-gradient(310deg, #9ACD32, #2E8B57); color: #ffffff; text-decoration: none; font-weight: 700; padding: 15px 30px; border-radius: 30px; font-size: 16px; max-width: 280px; margin: 0 auto; box-shadow: 0 4px 12px rgba(50, 50, 50, 0.15);">
+                  style="display: inline-block; background: linear-gradient(310deg,#2E8B57,  #9ACD32);color: #ffffff; text-decoration: none; font-weight: 700; padding: 15px 30px;  border-radius:1rem; font-size: 16px; max-width: 280px; margin: 0 auto; box-shadow: 0 4px 12px rgba(50, 50, 50, 0.15);">
                   Booking Details
                 </a>
               </td>
