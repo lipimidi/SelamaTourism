@@ -44,6 +44,7 @@ if (isset($_POST['getlist_user'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
+        $row['status2'] = getBookingStatuses($row['status']);  // Format: 23/07/2025 8:30PM
 
         $date = new DateTime($row['booking_date']);  // Replace 'datetime' with the correct column name
         $row['booking_date'] = $date->format('d/m/Y');  // Format: 23/07/2025 8:30PM

@@ -77,6 +77,8 @@
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#">Date Created</a></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                          data-sortable=""><a href="#">Status</a></th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#"> </a></th>
                       </tr>
                     </thead>
@@ -120,7 +122,7 @@
                   <div class="row">
                     <div class="col-12 my-auto">
                       <div class="numbers">
-                         <p class="text-sm mb-0 text-capitalize font-weight-bold opacity-7">Weather today</p>
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold opacity-7">Weather today</p>
                         <h5 class="font-weight-bolder mb-0" id="weather-temperature">
                           Lata Puteh - 29°C
 
@@ -191,6 +193,8 @@
 
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#">Date Created</a></th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                          data-sortable=""><a href="#">Status</a></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                           data-sortable=""><a href="#"> </a></th>
                       </tr>
@@ -437,6 +441,25 @@
           { data: 'people_booked' },
           { data: 'created_at' },
           {
+            data: 'status',  // We use the `status` to decide the button's class
+            render: function (data, type, row) {
+              // Determine the class based on the value of `status`
+              let buttonClass = '';
+
+              // Set the button class based on the `status` value
+              if (data <= 1) {
+                buttonClass = 'bg-gradient-warning';  // Status 0: Danger
+              } else if (data == 2) {
+                buttonClass = 'bg-gradient-success';  // Status 2: Success
+              } else {
+                buttonClass = 'bg-gradient-danger';  // Default class for other statuses
+              }
+
+              // Return the HTML with the dynamically set class
+              return `<button class="btn ${buttonClass} more-details  text-capitalize">${row.status2}</button>`;
+            }
+          },
+          {
             data: 'id',  // We use the `id` to add the "More Details" button
             render: function (data, type, row) {
               // Return the HTML for the "More Details" button
@@ -488,6 +511,25 @@
           { data: 'date' },
           { data: 'timeslot_id' },
           { data: 'created_at' },
+          {
+            data: 'status',  // We use the `status` to decide the button's class
+            render: function (data, type, row) {
+              // Determine the class based on the value of `status`
+              let buttonClass = '';
+
+              // Set the button class based on the `status` value
+              if (data <= 1) {
+                buttonClass = 'bg-gradient-warning';  // Status 0: Danger
+              } else if (data == 2) {
+                buttonClass = 'bg-gradient-success';  // Status 2: Success
+              } else {
+                buttonClass = 'bg-gradient-danger';  // Default class for other statuses
+              }
+
+              // Return the HTML with the dynamically set class
+              return `<button class="btn ${buttonClass} more-details  text-capitalize">${row.status2}</button>`;
+            }
+          },
           {
             data: 'id',  // We use the `id` to add the "More Details" button
             render: function (data, type, row) {
