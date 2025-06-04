@@ -64,7 +64,6 @@ function unAuth()
 function checkLogin()
 {
 
-    checkRole();
     if (!isset($_SESSION['user_details'])) {
         global $basePath2;
 
@@ -129,6 +128,22 @@ function dashboard()
 
     if ($role === 'admin') {
 
+
+            $sql = "SELECT users.id , username , name
+    FROM users
+    INNER JOIN user_details ON user_details.user_id = users.id
+     WHERE role = '2'";
+    $result = $conn->query($sql);
+
+    // Check if booking details are found
+    if ($result->num_rows > 0) {
+        // Fetch all booking details
+        $guides = [];
+        while ($row = $result->fetch_assoc()) {
+            $guides[] = $row;  // Add each booking detail to the array
+        }
+    }
+
         include 'views/system/admin/dashboard.php';
 
     } elseif ($role == 'guide') {
@@ -141,73 +156,10 @@ function dashboard()
     }
 }
 
-use chillerlan\QRCode\QRCode;
-use chillerlan\QRCode\QROptions;
+
 
 require 'vendor/autoload.php'; // Ensure Composer's autoload is included
 
-
-
-
-function generateQRCodeWithLogo($data, $logoPath)
-{
-    $options = new QROptions([
-        'outputType' => QRCode::OUTPUT_IMAGE_PNG,
-        'eccLevel' => QRCode::ECC_H,
-        'scale' => 10,
-        'imageBase64' => false, // We will convert to base64 manually
-    ]);
-
-    // Generate the QR code image
-    $qrOutputInterface = new QRCode($options);
-    $qrImage = $qrOutputInterface->render($data);
-
-    // Load the QR code and logo images
-    $qrImageResource = imagecreatefromstring($qrImage);
-    $logoImageResource = imagecreatefrompng($_SERVER['DOCUMENT_ROOT'] . $logoPath);
-
-    // Get dimensions
-    $qrWidth = imagesx($qrImageResource);
-    $qrHeight = imagesy($qrImageResource);
-    $logoWidth = imagesx($logoImageResource);
-    $logoHeight = imagesy($logoImageResource);
-
-    // Calculate logo placement
-    $logoQRWidth = $qrWidth / 5; // Logo will cover 1/5th of the QR code
-    $scaleFactor = $logoWidth / $logoQRWidth;
-    $logoQRHeight = $logoHeight / $scaleFactor;
-
-    $xPos = ($qrWidth - $logoQRWidth) / 2;
-    $yPos = ($qrHeight - $logoQRHeight) / 2;
-
-    // Merge logo onto QR code
-    imagecopyresampled(
-        $qrImageResource,
-        $logoImageResource,
-        $xPos,
-        $yPos,
-        0,
-        0,
-        $logoQRWidth,
-        $logoQRHeight,
-        $logoWidth,
-        $logoHeight
-    );
-
-    // Output QR code with logo to a string
-    ob_start();
-    imagepng($qrImageResource);
-    $outputImage = ob_get_clean();
-
-    // Convert to base64
-    $base64 = base64_encode($outputImage);
-
-    // Free memory
-    imagedestroy($qrImageResource);
-    imagedestroy($logoImageResource);
-
-    return $base64;
-}
 
 
 
@@ -330,6 +282,7 @@ function profile()
 {
     // Include the database connection
     include('includes/server.php');
+    checkLogin();
     $role = checkRole();
 
     // // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
@@ -401,65 +354,3 @@ function views_update()
 
 
 
-
-
-
-
-function email_booking_success()
-{
-    include('includes/server.php');
-
-    $variables = [
-        'user_email' => 'John Doe',
-        'date' => 'June 5, 2025',
-        'time' => '10:00 AM - 12:00 PM',
-        'people' => '1',
-        'id' => '1',
-        'rootPath2' => $rootPath,
-
-
-    ];
-
-    extract($variables);
-
-
-
-
-
-
-
-    
-    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-    include 'views/emails/booking_success.php';
-
-}
-
-
-
-
-
-
-    function email_staff_register()
-{
-    include('includes/server.php');
-
- 
-
-    $variables = array(
-        "name" => "John Doe",
-        "role" => "guide",
-         
-    );
-    extract($variables);
-
-
-
-
-
-
-
-    
-    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
-    include 'views/emails/register_staff.php';
-
-}

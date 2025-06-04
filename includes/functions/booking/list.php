@@ -88,6 +88,7 @@ if (isset($_POST['getlist_admin'])) {
     $order_direction = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'desc'; // Sorting direction
     $table_name = "bookings";
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
+    $status = isset($_POST['status']) ? (int) $_POST['status'] : null; // Ensure you get the user_id
 
     // Column names for sorting
     $columns = ['id', 'booking_date', 'timeslot_id', 'people_booked', 'created_at']; // Modify according to your table structure
@@ -107,10 +108,16 @@ if (isset($_POST['getlist_admin'])) {
                                  OR created_at LIKE '%$search%')";
     }
 
-    // Ensure that the user_id condition is added at the end
-    if ($user_id) {
-        $search_condition .= " AND user_id = '$user_id'";
+    if ($status){
+
+$search_condition .= " AND status = 1 ";
+
     }
+
+    // Ensure that the user_id condition is added at the end
+    // if ($user_id) {
+    //     $search_condition .= " AND user_id = '$user_id'";
+    // }
 
 
     // Build the order by clause
@@ -123,6 +130,9 @@ if (isset($_POST['getlist_admin'])) {
     // Fetch the data and build the output array
     $data = [];
     while ($row = $result->fetch_assoc()) {
+
+
+        $row['status2'] = getBookingStatuses($row['status']);  // Format: 23/07/2025 8:30PM
 
         $date = new DateTime($row['booking_date']);  // Replace 'datetime' with the correct column name
         $row['booking_date'] = $date->format('d/m/Y');  // Format: 23/07/2025 8:30PM
@@ -158,4 +168,8 @@ if (isset($_POST['getlist_admin'])) {
 
     exit();
 }
+
+
+
+
 

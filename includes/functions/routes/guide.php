@@ -4,6 +4,7 @@ function guide($guide_id)
 {
     // Include the database connection
     include('includes/server.php');
+    checkLogin();
     $role = checkRole();
 
     // // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
@@ -163,4 +164,9 @@ function guide_people_status()
 }
 
 
+
+function guide_update_location()
+{
+    include('includes/server.php');
+}
 

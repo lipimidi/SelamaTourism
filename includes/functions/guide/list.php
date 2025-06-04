@@ -402,3 +402,192 @@ if (isset($_POST['getlist_guide_user'])) {
 
     exit();
 }
+
+
+
+
+
+
+
+if (isset($_POST['guide_update_location_user'])) {
+// echo "test";
+
+    $user_id = $_POST['user_id'];
+    $guide_id = $_POST['guide_id'];
+    $lat = $_POST['latitude'];
+    $long = $_POST['longitude'];
+
+
+    $sql = "UPDATE guide_details g
+    JOIN bookings b ON g.booking_id = b.id
+    
+    SET g._lat = '$lat' , g._long = '$long'  WHERE g.guide_id ='$guide_id' AND b.user_id = '$user_id'   ";
+
+    $result = mysqli_query($conn, $sql);
+
+
+    // If the update is successful, fetch the guide details to get the status
+    $sql2 = "SELECT * FROM guides WHERE id='$guide_id' ";
+
+    // Execute the query to fetch the guide's data
+    $result2 = mysqli_query($conn, $sql2);
+
+    // Check if a row is returned
+    if (mysqli_num_rows($result2) > 0) {
+        // Fetch the row as an associative array
+        $row = mysqli_fetch_assoc($result2);
+
+        // Get the status value
+        $status = $row['status'];
+        // echo "assasas";
+        // // Echo the status value in an array
+        echo json_encode(array(
+            'status' => $status ,
+ 
+
+        
+        
+        ));  // You can use json_encode to echo as JSON
+    } else {
+        echo "No guide found with ID: $guide_id";
+    }
+
+    // header("Location: " . $basePath2 . "/book". "/" . $id );
+
+    die();
+}
+
+
+if (isset($_POST['guide_update_location_guide'])) {
+
+    $user_id = $_POST['user_id'];
+    $guide_id = $_POST['guide_id'];
+    $lat = $_POST['latitude'];
+    $long = $_POST['longitude'];
+
+
+    $sql = "UPDATE guides g SET g.guide_lat = '$lat' , g.guide_long = '$long'   WHERE g.id ='$guide_id'     ";
+
+    $result = mysqli_query($conn, $sql);
+
+
+    // If the update is successful, fetch the guide details to get the status
+    $sql2 = "SELECT * FROM guides WHERE id='$guide_id' ";
+
+    // Execute the query to fetch the guide's data
+    $result2 = mysqli_query($conn, $sql2);
+
+    // Check if a row is returned
+    if (mysqli_num_rows($result2) > 0) {
+        // Fetch the row as an associative array
+        $row = mysqli_fetch_assoc($result2);
+
+        // Get the status value
+        $status = $row['status'];
+        // echo "assasas";
+        // // Echo the status value in an array
+        echo json_encode(array(
+            'status' => $status ,
+ 'sql' => $sql,
+
+        
+        
+        ));  // You can use json_encode to echo as JSON
+    } else {
+        echo "No guide found with ID: $guide_id";
+    }
+
+    // header("Location: " . $basePath2 . "/book". "/" . $id );
+
+    die();
+}
+
+
+
+
+
+if (isset($_POST['getlist_admin_2'])) {
+
+    // DataTables parameters from POST request
+    $start = isset($_POST['start']) ? (int) $_POST['start'] : 0;   // Paging start
+    $length = isset($_POST['length']) ? (int) $_POST['length'] : 10;  // Number of rows per page
+    $search = isset($_POST['search']) ? $_POST['search'] : ''; // Global search value
+    $order = isset($_POST['order'][0]['column']) ? (int) $_POST['order'][0]['column'] : 0; // Sorting column index
+    $order_direction = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'desc'; // Sorting direction
+    $table_name = "guides";
+    $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
+ 
+    // Column names for sorting
+    $columns = ['id', 'date', 'timeslot_id', 'people_booked', 'created_at','status']; // Modify according to your table structure
+
+    // Escape search string to prevent SQL injection
+    // $search = $conn->real_escape_string($search);
+
+    // Build the SQL query
+    $search_condition = "WHERE 1=1"; // Default condition to simplify appending conditions
+
+    // If there's a search value, add search conditions for the relevant fields
+    if ($search) {
+        $search_condition .= " AND (id LIKE '%$search%' 
+                                 OR date LIKE '%$search%' 
+                                 OR timeslot_id LIKE '%$search%' 
+                                 OR people_booked LIKE '%$search%' 
+                                 OR created_at LIKE '%$search%')";
+    }
+
+     
+
+    // Ensure that the user_id condition is added at the end
+    // if ($user_id) {
+        $search_condition .= " AND status != '3' AND status != '4' AND  status != '0' ";
+    // }
+
+
+    // Build the order by clause
+    $order_by = "ORDER BY " . $columns[$order] . " " . $order_direction;
+
+    // Paginate the result
+    $sql = "SELECT * FROM $table_name $search_condition $order_by LIMIT $start, $length";
+    $result = $conn->query($sql);
+
+    // Fetch the data and build the output array
+    $data = [];
+    while ($row = $result->fetch_assoc()) {
+
+
+        $row['status2'] = getGuideStatuses($row['status']);  // Format: 23/07/2025 8:30PM
+
+        $date = new DateTime($row['date']);  // Replace 'datetime' with the correct column name
+        $row['date'] = $date->format('d/m/Y');  // Format: 23/07/2025 8:30PM
+
+        $date = new DateTime($row['created_at']);  // Replace 'datetime' with the correct column name
+        $row['created_at'] = $date->format('d/m/Y g:iA');  // Format: 23/07/2025 8:30PM
+
+
+        $data[] = $row;
+    }
+
+    // Get the total number of records after filtering (for pagination)
+    $sql_filtered_total = "SELECT COUNT(*) AS total FROM $table_name $search_condition";
+    $result_filtered_total = $conn->query($sql_filtered_total);
+    $row_filtered_total = $result_filtered_total->fetch_assoc();
+    $filtered_records = $row_filtered_total['total'];
+
+    // Get the total number of records without filtering (for pagination)
+    $sql_total = "SELECT COUNT(*) AS total FROM $table_name";
+    $result_total = $conn->query($sql_total);
+    $row_total = $result_total->fetch_assoc();
+    $total_records = $row_total['total'];
+
+    // Output the data in DataTables format
+    echo json_encode([
+        'draw' => isset($_POST['draw']) ? (int) $_POST['draw'] : 1,  // Draw counter for DataTables
+        'recordsTotal' => $total_records, // Total records in the database (unfiltered)
+        'recordsFiltered' => $filtered_records, // Total records after search filter
+        'data' => $data,// Data rows to be displayed
+        'POST' => $search,
+
+    ]);
+
+    exit();
+}

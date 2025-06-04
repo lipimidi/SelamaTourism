@@ -615,6 +615,78 @@ background-size: cover;">
       });
     }
 
+
+    
+
+    function sendLocationToServer() {
+      // First, check if the browser supports geolocation
+      if (navigator.geolocation) {
+        // Request the user's location
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Assuming you have a variable `status` from a previous check or response
+
+            // If status is 0, 1, or 3, do not make the AJAX request
+            if (status == 0 || status == 1 || status == 3) {
+              console.log('Status is ' + status + '. Skipping AJAX request.');
+              return; // Early exit from the function
+            }
+            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+            // Make the AJAX request if status is not 0, 1, or 3
+            $.ajax({
+              url: '<?php echo $rootPath ?>/guide/update/location',
+              type: 'POST',
+              data: {
+                latitude: latitude,
+                longitude: longitude,
+                guide_id: "<?php echo $guide_id ?>",
+                user_id: '<?php echo $_SESSION['user_details']['id']; ?>',
+                guide_update_location_guide: "guide_update_location_guide",
+              },
+              success: function (data) {
+                var data2 = JSON.parse(data);
+
+                status = data2.status;
+                // console.log(data2);
+
+              },
+              error: function (error) {
+                console.error('Error:', error);
+              }
+            });
+          },
+          function (error) {
+            // Handle error when geolocation permission is denied or any other issue
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                console.log('User denied the geolocation request.');
+                break;
+              case error.POSITION_UNAVAILABLE:
+                console.log('Location information is unavailable.');
+                break;
+              case error.TIMEOUT:
+                console.log('The request to get user location timed out.');
+                break;
+              case error.UNKNOWN_ERROR:
+                console.log('An unknown error occurred.');
+                break;
+            }
+          }
+        );
+      } else {
+        console.log('Geolocation is not supported by this browser.');
+      }
+    }
+    let status = "<?php echo $guide['status']; ?>";
+
+
+    // Call the function every 1000 ms (1 second)
+    setInterval(sendLocationToServer, 60000);
+
   </script>
 
 </body>

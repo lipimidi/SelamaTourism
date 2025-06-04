@@ -5,6 +5,7 @@ function staff($staff_id)
 {
     // Include the database connection
     include('includes/server.php');
+    checkLogin();
     $role = checkRole();
 
     // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
@@ -75,8 +76,8 @@ function book($booking_id)
 {
     // Include the database connection
     include('includes/server.php');
+     checkLogin();
     $role = checkRole();
-
     // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
     $booking_id = (int) $booking_id;  // Cast to integer to ensure safety
 
@@ -201,6 +202,13 @@ function getlist()
 }
 
 
+
+
+
+function admin_todolist()
+{
+    include('includes/server.php');
+}
 
 
 
@@ -435,6 +443,7 @@ function blogs($blog_id)
 {
     // Include the database connection
     include('includes/server.php');
+    checkLogin();
     $role = checkRole();
 
     // // Escape the $booking_id to prevent SQL injection (if it's not already an integer)
@@ -485,5 +494,69 @@ function blogs($blog_id)
 
 
 
+
+}
+
+
+
+
+function email_booking_success()
+{
+    include('includes/server.php');
+    checkLogin();
+    $role = checkRole();
+    $variables = [
+        'user_email' => 'John Doe',
+        'date' => 'June 5, 2025',
+        'time' => '10:00 AM - 12:00 PM',
+        'people' => '1',
+        'id' => '1',
+        'rootPath2' => $rootPath,
+
+
+    ];
+
+    extract($variables);
+
+
+
+
+
+
+
+
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    include 'views/emails/booking_success.php';
+
+}
+
+
+
+
+
+
+function email_staff_register()
+{
+    include('includes/server.php');
+
+    checkLogin();
+    $role = checkRole();
+
+    $variables = array(
+        "name" => "John Doe",
+        "role" => "guide",
+
+    );
+    extract($variables);
+
+
+
+
+
+
+
+
+    // echo "<script>console.log(" . json_encode($_SESSION['user_details']) . ");</script>";
+    include 'views/emails/register_staff.php';
 
 }

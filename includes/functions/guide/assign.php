@@ -8,6 +8,7 @@ if (isset($_POST['fetch_events_guide'])) {
     $end_utc = $_POST['end'];
     $user_id = isset($_POST['user_id']) ? (int) $_POST['user_id'] : null; // Ensure you get the user_id
     $role = isset($_POST['role']) ? (int) $_POST['role'] : null; // Ensure you get the role
+    $status = isset($_POST['status']) ? (int) $_POST['status'] : null; // Ensure you get the role
 
     // Convert UTC datetime to local date (YYYY-MM-DD)
     $start_date = date('Y-m-d', strtotime($start_utc));
@@ -24,6 +25,9 @@ if (isset($_POST['fetch_events_guide'])) {
         $timeslots[] = $row;
     }
 
+
+
+
     // Generate events for each date in the range
     $current_date = strtotime($start_date);
     $end_date = strtotime($end_date);
@@ -36,6 +40,9 @@ if (isset($_POST['fetch_events_guide'])) {
             $start_time = $timeslot['start_time'];
             $end_time = $timeslot['end_time'];
 
+
+
+
             // Get the total booked people for this date and timeslot
             $sql = "SELECT COALESCE(COUNT(gd.id), 0) AS total_booked
                         FROM guides g
@@ -44,6 +51,8 @@ if (isset($_POST['fetch_events_guide'])) {
                         AND g.timeslot_id = '$timeslot_id' 
                    
                         ";
+
+
 
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
@@ -62,6 +71,8 @@ if (isset($_POST['fetch_events_guide'])) {
                                 WHERE guides.date = '$date_string' 
                                 AND guides.timeslot_id = '$timeslot_id'
                                  ";
+
+
 
 
 
@@ -94,19 +105,26 @@ if (isset($_POST['fetch_events_guide'])) {
                 // If role is '1', proceed without checking user_id
                 elseif ($role == '1') {
                     // Create the event for FullCalendar for role 1 without checking guide against user_id
-                    $events[] = [
-                        'title' => "$total_booked people  ",
-                        'start' => "$date_string $start_time",
-                        'end' => "$date_string $end_time",
-                        'session' => $timeslot_id,
-                        'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
-                        // 'color' => $color, // Uncomment and define the color if needed
-                        'event_date' => $date_string,
-                        'className' => $className,
-                        'remaining_slots' => $remaining_slots,
-                        'user_id' => $guide_name,
-                        'guide_id' => $guide_id,
-                    ];
+
+
+
+                    if (!$status && !isset($guide['user_id'])) {
+
+                        $events[] = [
+                            'title' => "$total_booked people  ",
+                            'start' => "$date_string $start_time",
+                            'end' => "$date_string $end_time",
+                            'session' => $timeslot_id,
+                            'session2' => $timeslots[$timeslot_id - 1]["start_time"] . " - " . $timeslots[$timeslot_id - 1]["end_time"],
+                            // 'color' => $color, // Uncomment and define the color if needed
+                            'event_date' => $date_string,
+                            'className' => $className,
+                            'remaining_slots' => $remaining_slots,
+                            'user_id' => $guide_name,
+                            'guide_id' => $guide_id,
+                        ];
+                    }
+
                 } else {
 
                 }

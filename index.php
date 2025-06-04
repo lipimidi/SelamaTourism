@@ -42,8 +42,8 @@ $routes = [
     'contactus' => 'contact',
 
 
-    'email/booking/success'=> 'email_booking_success',
-    'email/staff/register'=> 'email_staff_register',
+    'email/booking/success' => 'email_booking_success',
+    'email/staff/register' => 'email_staff_register',
 
 
     //system
@@ -89,7 +89,8 @@ $routes = [
     'blogs/blogs_getlist' => 'blogs_getlist',
     'blogs/blogs_edit' => 'blogs_edit',
     'profile/update' => 'profile_update',
-
+    'guide/update/location' => 'guide_update_location',
+    'admin/todolist' => 'admin_todolist',
 
     'views/update' => 'views_update',
 

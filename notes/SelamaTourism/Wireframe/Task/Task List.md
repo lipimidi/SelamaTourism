@@ -8,17 +8,15 @@ kanban-plugin: board
 
 - [ ] Attractions
 - [ ] Accomodation / Facilities
-- [ ] Review
 - [ ] Todo list of guide user
+- [ ] Booking Settings
 
 
 ## To DO
 
-- [ ] Dashboard ( admin )
-- [ ] [[Register Staff ( email )]] ^y7vexh
-- [ ] Booking Settings
-- [ ] Periodically  send location
-- [ ] Make booking success email js instead of php for load times
+- [ ] [[Dashboard ( admin )]]
+- [ ] Review
+- [ ] Add Status for each booking-guide in table
 
 
 ## Bugs
@@ -35,6 +33,8 @@ kanban-plugin: board
 - [ ] Booking Step 1( Date )
 - [ ] Dashboard (user)
 - [ ] User Profile
+- [ ] Periodically  send location
+- [ ] [[Register Staff ( email )]] ^y7vexh
 - [ ] [[Guide Info ( Admin)]] ⏫
 - [ ] [[Booking Success (email )]] ^twfntn
 - [ ] [[Guide Info ( Guide)]] ⏫
