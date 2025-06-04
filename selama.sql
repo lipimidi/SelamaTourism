@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 14, 2025 at 02:30 PM
+-- Generation Time: Jun 04, 2025 at 08:17 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -65,14 +65,16 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `reason` text COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`),
   KEY `timeslot_id` (`timeslot_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `booking_date`, `timeslot_id`, `people_booked`, `created_at`, `status`, `reason`) VALUES
-(66, 3, '2025-05-04', 1, 1, '2025-05-04 06:04:01', 2, '');
+(68, 3, '2025-06-03', 1, 1, '2025-06-01 20:32:20', 2, NULL),
+(71, 3, '2025-06-04', 1, 4, '2025-06-02 05:26:23', 1, NULL),
+(72, 10, '2025-06-04', 1, 1, '2025-06-02 05:29:09', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -94,14 +96,19 @@ CREATE TABLE IF NOT EXISTS `booking_details` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking_details`
 --
 
 INSERT INTO `booking_details` (`id`, `booking_id`, `name`, `ic`, `phone`, `address`, `email`, `file`, `status`, `created_at`) VALUES
-(78, 66, 'asd', '12312321', '1231232131', 'asdsada', 'asdasd@gmail.com', 'schedule_calendar.pdf', 1, '2025-05-04 06:04:01');
+(80, 68, 'asdasda3', 'asd', '12312', 'asdd', 'asdasd@gmail.com', 'ETS_Intercity - Ticket.pdf', 2, '2025-06-01 20:32:20'),
+(85, 71, 'asdasda3', '123', '12312', 'asdd', 'asdasd@gmail.com', 'ETS_Intercity - Ticket.pdf', 2, '2025-06-02 05:26:23'),
+(86, 71, '123', '123', 'asd', 'asd', 'sad@gmail.com', 'ETS_Intercity - Ticket.pdf', 2, '2025-06-02 05:26:23'),
+(87, 71, '123', '123', '312', '123', 'sad@gmail.com', 'ETS_Intercity - Ticket.pdf', 2, '2025-06-02 05:26:23'),
+(88, 71, '123', '213', '123', 'asd', 'sad@gmail.com', 'ETS_Intercity - Ticket.pdf', 2, '2025-06-02 05:26:23'),
+(89, 72, 'asd', 'sadasd', 'asd', 'asd', 'asdasd2@gmail.com', 'ETS_Intercity - Ticket.pdf', 2, '2025-06-02 05:29:09');
 
 -- --------------------------------------------------------
 
@@ -137,17 +144,20 @@ CREATE TABLE IF NOT EXISTS `guides` (
   `date` date DEFAULT NULL,
   `timeslot_id` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
+  `guide_lat` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `guide_long` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guides`
 --
 
-INSERT INTO `guides` (`id`, `date`, `timeslot_id`, `user_id`, `created_at`, `status`) VALUES
-(22, '2025-05-04', 1, 5, '2025-05-05 04:55:11', 1);
+INSERT INTO `guides` (`id`, `date`, `timeslot_id`, `user_id`, `guide_lat`, `guide_long`, `created_at`, `status`) VALUES
+(27, '2025-06-03', 1, 5, NULL, NULL, '2025-06-02 02:26:18', 1),
+(28, '2025-06-04', 1, NULL, '3.3626622', '101.4232721', '2025-06-02 05:26:31', 0);
 
 -- --------------------------------------------------------
 
@@ -167,17 +177,24 @@ CREATE TABLE IF NOT EXISTS `guide_details` (
   `email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `file` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `status` int DEFAULT '0',
+  `_lat` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `_long` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guide_details`
 --
 
-INSERT INTO `guide_details` (`id`, `guide_id`, `booking_id`, `name`, `ic`, `phone`, `address`, `email`, `file`, `status`, `created_at`) VALUES
-(86, 22, 66, 'asd', '12312321', '1231232131', 'asdsada', 'asdasd@gmail.com', 'schedule_calendar.pdf', 1, '2025-05-05 04:55:11');
+INSERT INTO `guide_details` (`id`, `guide_id`, `booking_id`, `name`, `ic`, `phone`, `address`, `email`, `file`, `status`, `_lat`, `_long`, `created_at`) VALUES
+(94, 27, 68, 'asdasda3', 'asd', '12312', 'asdd', 'asdasd@gmail.com', 'ETS_Intercity - Ticket.pdf', 0, NULL, NULL, '2025-06-02 02:26:18'),
+(95, 28, 71, 'asdasda3', '123', '12312', 'asdd', 'asdasd@gmail.com', 'ETS_Intercity - Ticket.pdf', 0, '3.3619968', '101.4235136', '2025-06-02 05:26:31'),
+(96, 28, 71, '123', '123', 'asd', 'asd', 'sad@gmail.com', 'ETS_Intercity - Ticket.pdf', 0, '3.3619968', '101.4235136', '2025-06-02 05:26:31'),
+(97, 28, 71, '123', '123', '312', '123', 'sad@gmail.com', 'ETS_Intercity - Ticket.pdf', 0, '3.3619968', '101.4235136', '2025-06-02 05:26:31'),
+(98, 28, 71, '123', '213', '123', 'asd', 'sad@gmail.com', 'ETS_Intercity - Ticket.pdf', 0, '3.3619968', '101.4235136', '2025-06-02 05:26:31'),
+(99, 28, 72, 'asd', 'sadasd', 'asd', 'asd', 'asdasd2@gmail.com', 'ETS_Intercity - Ticket.pdf', 0, NULL, NULL, '2025-06-02 05:29:37');
 
 -- --------------------------------------------------------
 
@@ -194,6 +211,32 @@ CREATE TABLE IF NOT EXISTS `log` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page_views`
+--
+
+DROP TABLE IF EXISTS `page_views`;
+CREATE TABLE IF NOT EXISTS `page_views` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `page_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `view_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `view_count` int DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_page_date` (`page_name`,`view_date`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `page_views`
+--
+
+INSERT INTO `page_views` (`id`, `page_name`, `view_date`, `view_count`) VALUES
+(2, 'index', '2025-06-04 19:36:08', 13),
+(3, 'blog/list', '2025-05-29 17:35:13', 2),
+(4, 'blog/11', '2025-05-29 17:34:56', 2),
+(5, 'contactus', '2025-05-29 17:35:40', 1);
 
 -- --------------------------------------------------------
 
@@ -256,7 +299,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `image`, `cr
 (5, 'guide', 'guide@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 2, NULL, '2025-03-20 19:03:38'),
 (7, 'guide2', 'guide2@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 2, NULL, '2025-03-20 21:11:38'),
 (9, 'dsaads', 'syakir@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 1, NULL, '2025-04-12 10:53:38'),
-(10, 'asdasd2', 'asdasd2@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 3, NULL, '2025-05-05 09:44:34');
+(10, 'asdasd2', 'izmeera2000@gmail.com', '$2y$10$x7Ae41BrLWr0mptjm./jgeySBlMcOwaXLZ3u5d9G4riovcW7sN6Oa', 3, NULL, '2025-05-05 09:44:34');
 
 -- --------------------------------------------------------
 
@@ -276,17 +319,18 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `address` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_details`
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `name`, `ic`, `image`, `passport`, `phone`, `address`) VALUES
-(2, 5, 'abe', '123123', NULL, NULL, '123123', 'guide'),
+(2, 5, 'abe', '123123', 'assets/uploads/user/5/images.png', NULL, '123123', 'guide'),
 (4, 7, 'guide2', '123123', NULL, NULL, '123123', '123123'),
 (5, 9, 'asd', 'asdsadasd', NULL, NULL, 'asdasd', 'asdasdasdasdas'),
-(6, 3, 'asdasda3', '', 'assets/uploads/user/3/controller.jpg', NULL, '12312', 'asdd');
+(6, 3, 'asdasda3', '', 'assets/uploads/user/3/controller.jpg', NULL, '12312', 'asdd'),
+(7, 4, 'test2', '', 'assets/uploads/user/4/images.png', '123123', '', '');
 
 -- --------------------------------------------------------
 
