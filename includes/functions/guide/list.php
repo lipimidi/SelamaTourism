@@ -14,7 +14,7 @@ if (isset($_POST['getlist_people_guide'])) {
     $guide_id = isset($_POST['guide_id']) ? (int) $_POST['guide_id'] : null; // Ensure you get the user_id
 
     // Column names for sorting
-    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id', 'guide_id']; // Modify according to your table structure
+    $columns = ['booking_id', 'name', 'ic', 'phone', 'address', 'email', 'status', 'id', 'guide_id','_lat','_long']; // Modify according to your table structure
 
     // Escape search string to prevent SQL injection
     // $search = $conn->real_escape_string($search);

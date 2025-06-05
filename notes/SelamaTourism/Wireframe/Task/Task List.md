@@ -15,7 +15,6 @@ kanban-plugin: board
 ## To DO
 
 - [ ] Review
-- [ ] Add Status for each booking-guide in table
 
 
 ## Bugs
@@ -34,6 +33,7 @@ kanban-plugin: board
 - [ ] User Profile
 - [ ] Periodically  send location
 - [ ] [[Register Staff ( email )]] ^y7vexh
+- [ ] Add Status for each booking-guide in table
 - [ ] [[Guide Info ( Admin)]] ⏫
 - [ ] [[Booking Success (email )]] ^twfntn
 - [ ] [[Dashboard ( admin )]]

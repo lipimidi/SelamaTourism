@@ -259,6 +259,8 @@ background-size: cover;">
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                                 data-sortable=""><a href="#">Email</a></th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                                data-sortable=""><a href="#">Location</a></th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                                 data-sortable=""><a href="#"> </a></th>
                             </tr>
                           </thead>
@@ -454,6 +456,18 @@ background-size: cover;">
           {
             data: 'id',  // We use the `id` to add the "More Details" button
             render: function (data, type, row) {
+              // Check if both latitude and longitude are not null
+              if (row._lat !== null && row._long !== null) {
+                return '<a class="btn bg-gradient-primary more-details mx-2" href="https://www.google.com/maps?q=' + row._lat + ',' + row._long + '" target="_blank"> Location </a>';
+              } else {
+                // If either lat or long is null, return something else
+                return '<span class="btn btn-secondary mx-2">No Location</span>';
+              }
+            }
+          },
+          {
+            data: 'id',  // We use the `id` to add the "More Details" button
+            render: function (data, type, row) {
               // Return the HTML for the "More Details" button
               return '<a class="btn bg-gradient-primary more-details mx-2" href="javascript:void(0);" data-id="' + data + '" data-status="' + row.status + '" data-status2="' + row.status2 + '" data-name="' + row.name + '" data-guide_details="' + row.id + '" onclick="showModal(this)">' + row.status2 + '</a>';
             }
@@ -616,7 +630,7 @@ background-size: cover;">
     }
 
 
-    
+
 
     function sendLocationToServer() {
       // First, check if the browser supports geolocation
