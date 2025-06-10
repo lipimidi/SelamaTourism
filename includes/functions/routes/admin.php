@@ -84,8 +84,8 @@ function book($booking_id)
     // Query to search for the booking_id in the bookings table
     $sql = "SELECT bookings.*, booking_timeslots.start_time,booking_timeslots.end_time , users.email
     FROM bookings
-    INNER JOIN booking_timeslots ON bookings.timeslot_id = booking_timeslots.id
-    INNER JOIN users ON bookings.user_id =users.id
+    LEFT JOIN booking_timeslots ON bookings.timeslot_id = booking_timeslots.id
+    LEFT JOIN users ON bookings.user_id =users.id
     WHERE bookings.id = $booking_id";
 
     // Execute the query

@@ -87,6 +87,9 @@ if (isset($_POST['declinebooking'])) {
 
     if (mysqli_query($conn, $sql)) {
         // $booking_id = mysqli_insert_id($conn); // Get the inserted person ID
+
+    // sendEmail($user_email, "Booking Rejected", 'booking_fail',$variables);
+
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

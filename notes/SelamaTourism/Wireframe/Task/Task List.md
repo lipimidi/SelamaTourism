@@ -6,15 +6,10 @@ kanban-plugin: board
 
 ## Backlog
 
-- [ ] Attractions
-- [ ] Accomodation / Facilities
-- [ ] Todo list of guide user
-- [ ] Booking Settings
 
 
 ## To DO
 
-- [ ] Review
 
 
 ## Bugs
