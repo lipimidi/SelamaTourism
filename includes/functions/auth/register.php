@@ -80,14 +80,14 @@ if (isset($_POST['register'])) {
         // sendEmail($email, "Welcome To  Selama Tourism", 'register_user', $var);
 
 
-        // Store user session data
-        $_SESSION['user_details'] = [
-            'username' => $username,
-            'email' => $email,
-            'role' => $role,
-        ];
+        // // Store user session data
+        // $_SESSION['user_details'] = [
+        //     'username' => $username,
+        //     'email' => $email,
+        //     'role' => $role,
+        // ];
 
-         header("Location: " . $basePath2 . "/dashboard");
+         header("Location: " . $basePath2 . "/login");
         exit();
     }
 }
