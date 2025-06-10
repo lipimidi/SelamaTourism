@@ -87,7 +87,7 @@ if (isset($_POST['register'])) {
         //     'role' => $role,
         // ];
 
-         header("Location: " . $basePath2 . "/login");
+         header("Location: " . $basePath2 . "/signin");
         exit();
     }
 }
